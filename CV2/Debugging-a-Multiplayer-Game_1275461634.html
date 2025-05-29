@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Debugging a Multiplayer Game</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Current-VARLab-Multiplayer-Overview_1246560270.html">Current VARLab Multiplayer Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Debugging a Multiplayer Game
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Aug 14, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544282730 {padding: 0px;}
+div.rbtoc1748544282730 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544282730 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544282730'>
+<ul class='toc-indentation'>
+<li><a href='#DebuggingaMultiplayerGame-Introduction'>Introduction</a></li>
+<li><a href='#DebuggingaMultiplayerGame-Usingaclone'>Using a clone</a></li>
+<li><a href='#DebuggingaMultiplayerGame-Breakpoints'>Breakpoints</a></li>
+<li><a href='#DebuggingaMultiplayerGame-Logging'>Logging</a></li>
+<li><a href='#DebuggingaMultiplayerGame-SimulatedNetworkConnections'>Simulated Network Connections</a></li>
+</ul>
+</div><h1 id="DebuggingaMultiplayerGame-Introduction">Introduction</h1><p>Debugging a multiplayer game can prove to be very difficult and can become much more complicated than offline games due to the networking aspect, and this page aims to go over some of the ways that debugging a multiplayer game can be done, as well as some extra things that may need to be debugged due to the nature of multiplayer.</p><p>Unity has <a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/tutorials/testing/techniques_and_tricks_for_debugging_multiplayer_games/" rel="nofollow">official documentation </a>that goes over a lot of different ways debugging can be done; this document will not cover every method that Unity covers, so if none of these options provide a solution, please check out the Unity documentation.</p><p>If better/more ways of debugging are found, they can be added to this document.</p><h1 id="DebuggingaMultiplayerGame-Usingaclone">Using a clone</h1><p>Using a clone is probably the most useful thing when creating multiplayer games, allowing you to test the game with an actual 2nd person without the need to make a 2nd build. The two biggest packages that allow for this are ParrelSync and Multiplayer Play Mode.</p><p> By using these, you can test your game with 2 people,  allowing developers to easily test and find network-related bugs.</p><p> These packages also make it very easy to make a change and immediately test again, if you find something that is wrong, something you should change, etc, you can just update the script on your main editor, and the clones will be automatically updated to reflect what the new change is.</p><p> The same can be said for anything changed in the scene hierarchy. When you make a change in the hierarchy and save it, you can reload the other editors to immediately reflect this change onto them.</p><h1 id="DebuggingaMultiplayerGame-Breakpoints">Breakpoints</h1><p>Breakpoints can be used in multiplayer games almost the same way they are usually used. One main difference is that they will cause players of the game to be disconnected because they fully stop the application from running while it is hit. </p><p>Because of this, if you use a breakpoint on a client, that client will be disconnected, and if you do it on the host, everyone will be disconnected after a certain amount of time. The amount of time this will take is set by the “Disconnect Timeout” setting on Unity Transport.</p><p>To avoid this, the Disconnect Timeout setting can be changed to allow for more time to elapse before people begin becoming disconnected. Just make sure it is set back to what it should be after testing.</p><p>One very important thing to know is if you’re using a clone from ParrelSync, you need to put the breakpoint on the clone that you want to stop on, if you want to break on Player 2 but put the breakpoint on Player 1s version of the script, nothing will happen when Player 2 triggers that code.</p><h1 id="DebuggingaMultiplayerGame-Logging">Logging</h1><p>Logging can prove to be very beneficial in a multiplayer game; you can and should log basically everything, whether it be logging a crash or putting some debug logs to see what is happening; they will all prove beneficial when trying to overcome a bug or something of the sort. </p><p>One situation where something as simple as debug logs will prove very helpful is when trying to find out if an RPC is being called or if it's being called on the right person. Let us say we have a method being run on the server that calls another method on a specific client, in order to test that this actually works, you can add a debug log to the method and then use ParrelSync to make clones of the project, trigger this situation, and see if the debug log is ran on the correct client.</p><h1 id="DebuggingaMultiplayerGame-SimulatedNetworkConnections">Simulated Network Connections</h1><p>Another thing that can be done for both debugging and testing is utilizing the Multiplayer Tools package. This package offers a lot, including the following:</p><ul><li><p>Network Scene Visualization - Overlays information in the scene view</p></li><li><p>Runtime Network Stats Monitor - Monitor bandwidth usage during runtime</p></li><li><p>Network Simulator - Simulate network conditions</p></li><li><p>Network Profiler - Monitor bandwidth usage of the game</p></li><li><p>Hierarchy Network Debug View - Adds Object Ownership information in the scene</p></li></ul><p>Utilizing these together can be very helpful in both debugging and testing a multiplayer game</p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

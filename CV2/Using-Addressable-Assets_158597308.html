@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using Addressable Assets</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Addressable-Assets_158629987.html">Addressable Assets</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using Addressable Assets
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified on May 06, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article we will go over how to mark assets as <strong>Addressable</strong> and how we might load them in our code. While CORE Engine has the <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@0.4/manual/index.html" rel="nofollow">Addressables Package</a> installed, for new projects you will need to make sure it has been added in the <a class="external-link" href="https://docs.unity3d.com/Manual/upm-ui.html" rel="nofollow">Package Manager</a>.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544530024 {padding: 0px;}
+div.rbtoc1748544530024 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544530024 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544530024'>
+<ul class='toc-indentation'>
+<li><a href='#UsingAddressableAssets-CreatinganAddressable'>Creating an Addressable</a></li>
+<li><a href='#UsingAddressableAssets-LoadingOurAssets'>Loading Our Assets</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingAddressableAssets-LoadMethods'>Load Methods</a></li>
+<li><a href='#UsingAddressableAssets-Method1:Coroutine'>Method 1: Coroutine</a></li>
+<li><a href='#UsingAddressableAssets-Method2:Callback'>Method 2: Callback</a></li>
+</ul>
+</li>
+<li><a href='#UsingAddressableAssets-ReleasingOurAssets'>Releasing Our Assets</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingAddressableAssets-ReleasingAssetsLoadedWithLoadAssetAsync'>Releasing Assets Loaded With LoadAssetAsync</a></li>
+<li><a href='#UsingAddressableAssets-ReleasingInstancesCreatedWithInstantiateAsync'>Releasing Instances Created With InstantiateAsync</a></li>
+<li><a href='#UsingAddressableAssets-SpecialCase'>Special Case</a></li>
+</ul>
+</li>
+<li><a href='#UsingAddressableAssets-References'>References</a></li>
+</ul>
+</div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There is a lot more to the Addressables system than what is covered here, for more in-depth examples and a scripting API, visit the <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@1.18/manual/AddressablesAPI.html" rel="nofollow">Addressables Package Manual</a>.</p></div></div><h2 id="UsingAddressableAssets-CreatinganAddressable">Creating an Addressable</h2><p>First find the object you would like to load at runtime, select it and view the <a class="external-link" href="https://docs.unity3d.com/Manual/UsingTheInspector.html" rel="nofollow">Inspector window</a>. At the top you will see a checkbox allowing you to mark the asset as <strong>Addressable</strong>. Once it is checked, you can set the address of the asset to be whatever you would like.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597308/158564593.png" data-image-src="attachments/158597308/158564593.png" data-height="99" data-width="278" data-unresolved-comment-count="0" data-linked-resource-id="158564593" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-134731.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597308" data-linked-resource-container-version="9" data-media-id="808ed9a6-cd02-456e-9ee9-24397975c206" data-media-type="file"></span><p>That’s all we have to do in order to prep our asset for the Addressables system. If we want to change what <strong>Addressables Group</strong> this asset belongs to, we can open <strong>Window-&gt;Asset Management-&gt;Addressables-&gt;Groups</strong> to move our asset into different bundles or create new bundles.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597308/158662883.png" data-image-src="attachments/158597308/158662883.png" data-height="308" data-width="586" data-unresolved-comment-count="0" data-linked-resource-id="158662883" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-134914.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597308" data-linked-resource-container-version="9" data-media-id="24edfb59-7140-450a-a528-bf2c2c91f2c6" data-media-type="file"></span><p>In this case I want this scene to be stored in the <strong>MotivePower</strong> asset bundle so I’ve moved it there. You can create a new asset group by right-clicking inside this window.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597308/158662893.png" data-image-src="attachments/158597308/158662893.png" data-height="198" data-width="1021" data-unresolved-comment-count="0" data-linked-resource-id="158662893" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-135111.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597308" data-linked-resource-container-version="9" data-media-id="f8e1b8a3-4e56-41fb-bc50-531414b6a6e1" data-media-type="file"></span><h2 id="UsingAddressableAssets-LoadingOurAssets">Loading Our Assets</h2><p>Now that the asset is marked as Addressable, we’ve set an address for it, and it’s been placed inside the asset group of our choosing, we can now load it asynchronously through code.</p><p>As our assets must be loaded from their storage location first rather than directly from memory, this operation is asynchronous. For assets already loaded into memory, calling any of the loading or instantiation functions will run synchronously as the asset is already loaded in memory, similar to <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Resources.Load.html" rel="nofollow">Resources.Load</a>.</p><p>To load your assets with the Addressables system, first add these using statements to your code file.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;</pre>
+</div></div><p>If you receive errors that these namespaces are not found, you likely need to add <strong>Assembly Definition References </strong>to your current assembly for <a class="external-link" href="https://docs.unity3d.com/Manual/com.unity.addressables.html" rel="nofollow">Unity.Addressables</a> and <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.resourcemanager@1.6/manual/index.html" rel="nofollow">Unity.ResourceManager</a>. Here is an example of what that looks like for the RemoteEducation.Tests <a class="external-link" href="https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html" rel="nofollow">assembly definition</a> in the Unity Inspector.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597308/158662916.png" data-image-src="attachments/158597308/158662916.png" data-height="191" data-width="549" data-unresolved-comment-count="0" data-linked-resource-id="158662916" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-140305.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597308" data-linked-resource-container-version="9" data-media-id="19f781a3-213c-4e40-a9c5-f19832dbaccc" data-media-type="file"></span><h3 id="UsingAddressableAssets-LoadMethods">Load Methods</h3><p>At first it can be difficult to understand whether to use LoadAssetAsync or InstantiateAsync with Addressables. For situations where you would previously call Resouces.Load, such as textures, animations, text files, etc without Instantiate, you would use LoadAssetAsync.</p><p>For situations where you would previously call Resources.Load followed by Instantiate, you can use Addressables.InstantiateAsync.</p><p>LoadAssetAsync is a generic type allowing you to do a call such as:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">var textureHandle = Addressables.LoadAssetAsync&lt;Texture2D&gt;(&quot;My Texture Address&quot;);</pre>
+</div></div><p>InstantiateAsync is not generic and always returns a handle of type AsyncOperationHandle&lt;GameObject&gt;. Below we will go over an example using InstantiateAsync.</p><h3 id="UsingAddressableAssets-Method1:Coroutine">Method 1: Coroutine</h3><p>To load an Addressable within a <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Coroutine.html" rel="nofollow">Coroutine</a>, we need to call any of the asynchronous loading functions from the Addressables package such as LoadAssetAsync, LoadSceneAsync, or InstantiateAsync. All of these methods will return an <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@0.7/manual/AddressableAssetsAsyncOperationHandle.html" rel="nofollow">AsyncOperationHandle</a> that can be yielded by the coroutine to wait until the asset is available.</p><p>In this example we will imagine we have made the Motive Power hydraulic hoist an Addressable for unit testing purposes.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private HoistController hoist;
+AsyncOperationHandle&lt;GameObject&gt; hoistHandle;
+
+[UnitySetUp]
+public IEnumerator UnitySetUp()
+{
+    hoistHandle = Addressables.InstantiateAsync(&quot;Hydraulic Hoist&quot;);
+
+    yield return hoistHandle;
+
+    if(hoistHandle.Status == AsyncOperationStatus.Succeeded)
+    {
+        hoist = hoistHandle.Result.GetComponentInChildren&lt;HoistController&gt;();
+    }
+}</pre>
+</div></div><p>What we are doing here is keeping a reference to our hoistHandle as it is the reference to where that asset is in memory. If we wanted to make another hoist at any time we could simply call <code>Addressables.InstantiateAsync(&quot;Hydraulic Hoist&quot;);</code> again to create another synchronously. However its handle would also need to be stored for whenever you plan to release that hoist’s memory.</p><h3 id="UsingAddressableAssets-Method2:Callback">Method 2: Callback</h3><p>For cases where we don’t want to halt the execution of code until our assets have been loaded, it can be smarter to use the <strong>Completed</strong> callback.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">GameObject obj;
+
+void SomeFunction()
+{
+    Addressables.LoadAssetAsync&lt;GameObject&gt;(&quot;AssetAddress&quot;).Completed += onLoadDone;
+}
+
+private void onLoadDone(AsyncOperationHandle&lt;GameObject&gt; handle)
+{
+    if(handle.Status == AsyncOperationStatus.Succeeded)
+    {
+        obj = handle.Result;
+    }
+}</pre>
+</div></div><h2 id="UsingAddressableAssets-ReleasingOurAssets">Releasing Our Assets</h2><p>As we can now decide when our assets get loaded into memory, we are now responsible for releasing that memory when it is no longer needed. The memory is not freed unless explicitly done so by the developer <strong>except</strong> in <strong>one special case</strong> that we will discuss further into this article.</p><p>To release an asset from memory, we would first make sure the asset is no longer needed before unloading that asset data from memory.</p><h3 id="UsingAddressableAssets-ReleasingAssetsLoadedWithLoadAssetAsync">Releasing Assets Loaded With LoadAssetAsync</h3><p>When we are finished with an asset and no objects in the scene are dependent on it, we can release the memory by calling <code>Addressables.Release(handle);</code> </p><h3 id="UsingAddressableAssets-ReleasingInstancesCreatedWithInstantiateAsync">Releasing Instances Created With InstantiateAsync</h3><p>For our previous example of the hoist being used for unit testing, here is an example of how we could properly dispose of the hoist and free its memory without causing an issue. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[TearDown]
+public void TearDown()
+{
+    Addressables.ReleaseInstance(hoistHandle);
+}</pre>
+</div></div><p>This is functionally equivalent to calling GameObject.Destroy on the instance of the object and then calling Addressables.Release on the handle. Essentially the above example condenses the code below into one line.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[TearDown]
+public void TearDown()
+{
+    GameObject.Destroy(hoist.gameObject);
+    Addressables.Release(hoistHandle);
+}</pre>
+</div></div><h3 id="UsingAddressableAssets-SpecialCase">Special Case</h3><p>The one time we do not need to concern ourselves with balancing our load and release calls is when we change a scene or unload the scene that currently contains all the loaded assets. For example, if we loaded a bunch of assets from Hydraulics and placed them in the Motive Power scene using Addressables, when we return to the main menu all of those Hydraulics components would be released from memory.</p><p>This is helpful for CORE Engine as our use-case for Addressables is mostly loading scenes at runtime and then returning to a different scene as the main menu. Every time we load into a scenario since the scene itself is an Addressable using LoadSceneAsync, all of its dependencies are loaded into memory for us preventing the need for LoadAsset(s)Async or InstantiateAsync.</p><p><strong>When we leave a scenario, that scene and all of its dependencies are freed from memory automatically.</strong></p><h2 id="UsingAddressableAssets-References">References</h2><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@1.18/manual/AddressablesAPI.html" rel="nofollow">Addressables Package Manual</a></p><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@0.4/manual/index.html" rel="nofollow">Addressables Package</a></p><p><a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/browse/CE-786" rel="nofollow">https://varlab-dev.atlassian.net/browse/CE-786</a> </p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597308/158564593.png">image-20210505-134731.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597308/158662883.png">image-20210505-134914.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597308/158662893.png">image-20210505-135111.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597308/158662916.png">image-20210505-140305.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

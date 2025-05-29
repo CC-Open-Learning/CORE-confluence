@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Known Issues With WebGL</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="SCORM_504037419.html">SCORM</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="521076742.html">Building for WebGL + SCORM</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Known Issues With WebGL
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Apr 26, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page is stale as of <time datetime="2023-04-26" class="date-past">26 Apr 2023</time> and still contains information that relates to COREv1 deployment.</p></div></div><p /><p>This section is here to prevent hours of hair pulling as a result of poor documentation or one-off issues you may encounter.</p><ul><li><p>Enabling <strong>Use Asset Bundle Cache</strong> in the <strong>Addressable Group Settings</strong> for each module causes an issue where Chromium-based web browsers fail to load certain asset bundles.</p><ul><li><p>We have disabled this feature as of commit <a class="external-link" href="https://bitbucket.org/VARLab/core-engine/commits/23a169b1d810374e45778bdc53c8f1ce33934334" rel="nofollow">23a169b</a>.</p><ul><li><p>The downside to this is that we have to redownload the entire module each time we load its webpage.</p></li></ul></li></ul></li><li><p>Certain ad/cookie/etc blockers or even built-in browser tracking blockers can cause the loading of a sim to fail on eConestoga.</p><ul><li><p>Make sure that your web browser’s tracking protection is set to “Normal” as opposed to “Strict” as the latter prevents the sim from running. </p></li></ul></li><li><p>WebGL builds suffer from performance loss if <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html" rel="nofollow">Application.targetFramerate</a> is set to a realistic framerate goal.</p><ul><li><p>Setting it to 60fps will lead to performance levels of 40-50fps while setting it to -1 (uncapped) will let it perform correctly.</p><ul><li><p>This is due to how the browser’s rendering engine works, while -1 is uncapped framerate for normal builds, in WebGL the framerate is trying to match your monitor’s refresh rate so any framerate targets other than uncapped will interfere with that goal.</p></li></ul></li></ul></li><li><p>WebGL builds don’t have nearly as many performance metrics available in the runtime profiler or cloud diagnostics metrics.</p></li><li><p>SCORM-packaged WebGL builds won’t be playable for anyone who:</p><ul><li><p>Does not have cookies enabled in their browser.</p></li><li><p>Has <a class="external-link" href="http://cloud.scorm.com/" rel="nofollow">cloud.scorm.com</a> filtered out in their firewall.</p></li><li><p>Runs the player while in their browser’s incognito/privacy mode.</p></li></ul></li><li><p>Release builds on WebGL cannot be compressed unless the <a class="external-link" href="https://forum.unity.com/threads/uncaught-referenceerror-unityframework-is-not-defined-at-htmlscriptelement-script-onload-webgl.803967/page-2#post-6489578" rel="nofollow">web server they are hosted on supports either Brotli or Gzip compression</a>.</p><ul><li><p>As of <a class="external-link" href="https://bitbucket.org/VARLab/core-engine/commits/81a7a63970f4671cc1f176172c28fd5f34f773c9" rel="nofollow">commit 81a7a63</a> compression has been disabled. If the eConestoga platform is configured to support this feature, it would be a smart optimization to re-enable it.</p></li><li><p>To clarify, if <strong>Development Build</strong> is not checked in the <strong>File-&gt;Build Settings</strong> menu, the player will use the <strong>Compression Format</strong> as provided in:</p><ul><li><p><strong>File-&gt;Build Settings-&gt;Player Settings-&gt;Player-&gt;Publishing Settings</strong></p></li></ul></li></ul></li><li><p>WebGL only supports <a class="external-link" href="https://docs.unity3d.com/Manual/LinearRendering-LinearOrGammaWorkflow.html" rel="nofollow">Gamma color space</a>.</p><ul><li><p>The WebGL build target color space was set to Gamma in <a class="external-link" href="https://bitbucket.org/VARLab/core-engine/commits/b848a8b98bceb16ce383c151891ffd7bff32c993?at=research/CE-786-Addressable-Assets#chg-ProjectSettings/ProjectSettings.asset" rel="nofollow">commit b848a8b</a>.</p></li><li><p>Currently the Windows 64-bit build is running on Linear color space.</p></li></ul></li><li><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/index.html" rel="nofollow">Entities package version 0.17.0-preview.41</a> on Unity 2020.3.2f1 has an issue specifically with WebGL builds where it attempts to initialize the “world” for the Entities package before the scene catalog has been loaded.</p><ul><li><p>A workaround was added in <a class="external-link" href="https://bitbucket.org/VARLab/core-engine/commits/e2a55c5e02de17d96f903665ef58730b8f4a14d0?at=research/CE-786-Addressable-Assets#chg-Assets/Sandbox/Chowon/PlaybackDOTS/MergeVersion/WebGLBootstrapper.cs" rel="nofollow">commit e2a55c5</a>.</p></li></ul></li><li><p>External files simply do not exist in WebGL builds.</p><ul><li><p>Use of the <a class="external-link" href="https://docs.unity3d.com/Manual/StreamingAssets.html" rel="nofollow">StreamingAssets folder</a> is strictly forbidden as a result and must be kept in mind while developing for other platforms.</p></li><li><p>This folder is supposed to be supported by WebGL so it’s possible that we have simply been using it incorrectly previously.</p></li></ul></li><li><p>Loading a lot of content at once in the browser takes a lot of time.</p><ul><li><p>Split content into discrete <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@1.4/manual/AddressableAssetsGettingStarted.html" rel="nofollow">Addressable groups</a> so users only need to download exactly what they need for their current scenario.</p></li></ul></li><li><p>Creating a WebGL build with assets takes a very long time locally and in <a class="external-link" href="https://unity3d.com/unity/features/cloud-build" rel="nofollow">Unity Cloud Build</a>.</p></li><li><p>An exception “<em>MissingMethodException : Default constructor not found for type UnityEngine.ResourceManagement…</em>” may be thrown when you launch your WebGL build.</p><ul><li><p>This is caused by not having built the Addressable Assets for the WebGL platform.</p><ul><li><p>Each build platform needs its assets built separately.</p></li></ul></li></ul></li><li><p>If you are <strong>not</strong> building your WebGL project for SCORM, set the <strong>Default</strong> WebGL template in the <strong>Player Settings </strong>before building!</p></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/275415063/275415083.png">image-20210528-201735.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/275415063/275415086.png">image-20210528-201149.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/275415063/275415089.png">image-20210504-143704.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/275415063/275415092.png">image-20210504-173223.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : CloudScripting</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Azure-PlayFab-Overview_714375379.html">Azure PlayFab Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : CloudScripting
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified by <span class='editor'> Alistair Campbell</span> on Jun 14, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will outline research and implementation of the CloudScripting feature.</p><p>(WIP)</p><p><strong>Contents</strong></p><p style="margin-left: 30.0px;"><a href="#overview" rel="nofollow">Overview</a></p><p style="margin-left: 30.0px;"><a href="#setup" rel="nofollow">Setup</a></p><p style="margin-left: 30.0px;"><a href="#resources" rel="nofollow">Resources</a></p><hr/><h2 id="CloudScripting-Overviewoverview">Overview<span class="confluence-anchor-link" id="CloudScripting-overview"><span class="confluence-anchor-link" id="overview"></span></span></h2><p>PlayFab CloudScript uses Azure Functions to allow for serverless computing. You need a PlayFab account and an Azure subscription to use this feature.</p><h3 id="CloudScripting-TypesofCloudScripts">Types of CloudScripts</h3><h4 id="CloudScripting-HTTPTrigger">HTTP Trigger</h4><p>Invoked using HTTP requests.  Requests get executed on Azure servers as soon as they are sent and the function result will be returned in the response.</p><p>HTTP triggers have a timeout limit of 4.5 seconds.</p><h4 id="CloudScripting-QueueTrigger">Queue Trigger</h4><p>Unlike HTTP triggers, queue requests do not get executed as soon as they are sent. Requests are sent to a queue, then whenever a CPU is available it will get executed. No response is returned to the player.</p><p>Use a queue trigger if the CloudScript takes longer than 4.5 seconds to execute.</p><h2 id="CloudScripting-Setupsetup">Setup<span class="confluence-anchor-link" id="CloudScripting-setup"><span class="confluence-anchor-link" id="setup"></span></span></h2><p>You’ll need an active Azure subscription to be able to use CloudScripts. These steps are for using CloudScripting in VSCode.</p><p>Installations you </p><ol start="1"><li><p>Ensure that you have an Azure subscription (students can activate their account to use <a class="external-link" href="https://azure.microsoft.com/en-us/free/students/" rel="nofollow">Azure for Students</a> to get $100 in Azure credits to use for up to a year).</p></li><li><p>Install a .NET SDK, this tutorial will be using .NET 6.0 (<a class="external-link" href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" rel="nofollow">download here</a>).</p></li><li><p><span class="inline-comment-marker" data-ref="0abace42-10e2-439e-adb5-9340e3dd918b">Install the Azure Functions Core Tools (</span><a class="external-link" href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools" rel="nofollow"><span class="inline-comment-marker" data-ref="0abace42-10e2-439e-adb5-9340e3dd918b">download here</span></a><span class="inline-comment-marker" data-ref="0abace42-10e2-439e-adb5-9340e3dd918b">).</span></p></li></ol><p /><h3 id="CloudScripting-DeployaFunctiontoAzure">Deploy a Function to Azure</h3><p>(This tutorial will use the default Http Trigger)</p><p>Under workspace build your functions to keep the list up to date. </p><p>To deploy to Azure click the cloud icon → Select subscription → Select the function app to deploy to → click ‘Deploy’ when the option pops up</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/723353601/731086851.png" data-image-src="attachments/723353601/731086851.png" data-height="171" data-width="285" data-unresolved-comment-count="0" data-linked-resource-id="731086851" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-180752.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="723353601" data-linked-resource-container-version="5" data-media-id="b54f8e2a-716f-4040-96cc-3a294d5e786d" data-media-type="file"></span><h3 id="CloudScripting-RegisterinPlayFab">Register in PlayFab</h3><p>Set the function name to the same one in the script.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/723353601/730955824.png" data-image-src="attachments/723353601/730955824.png" data-height="268" data-width="1012" data-unresolved-comment-count="0" data-linked-resource-id="730955824" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-183042.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="723353601" data-linked-resource-container-version="5" data-media-id="e0c4c01f-cbbe-4a6f-9dfc-c7c381f2d339" data-media-type="file"></span><p /><p>The function URL can be found in Azure Functions. Open up the function app, go to the functions tab (found on the left menu) and click on the function that you want to link. It may take a few seconds to load, click “Get function URL” and use the link given and paste it into the PlayFab window.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/723353601/731611137.png?width=680" data-image-src="attachments/723353601/731611137.png" data-height="687" data-width="1387" data-unresolved-comment-count="0" data-linked-resource-id="731611137" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-180218.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="723353601" data-linked-resource-container-version="5" data-media-id="38177d37-8271-40c1-9686-a5e3cf27c53c" data-media-type="file"></span><p>Alternatively, you can gather the function URL from VSCode by right clicking on the function in the remote browser and clicking “Copy Function Url” as shown below.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="224" loading="lazy" src="attachments/723353601/731021314.png?width=224" data-image-src="attachments/723353601/731021314.png" data-height="517" data-width="302" data-unresolved-comment-count="0" data-linked-resource-id="731021314" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-183743.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="723353601" data-linked-resource-container-version="5" data-media-id="35592350-c31d-45d7-85e4-cc5ca28c2517" data-media-type="file"></span><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/723353601/731709441.png?width=442" data-image-src="attachments/723353601/731709441.png" data-height="658" data-width="723" data-unresolved-comment-count="0" data-linked-resource-id="731709441" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-180546.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="723353601" data-linked-resource-container-version="5" data-media-id="a04281c1-bbe9-4963-86e9-033de07deaa8" data-media-type="file"></span><p>After filling these fields out you can save and the CloudScript will be registered.</p><p /><h3 id="CloudScripting-CloudscriptingeventsinUnity">Cloudscripting events in Unity</h3><p>This is outlined very well in the quickstart guide, but for convenience sake I will just put this here.</p><p>This is the example script from the microsoft  docs. This will work right out of the box as long as you have your cloudscripting setup correctly with the above instructions. From here all you need to do is change the FunctionName on line 15 to match the function name you registered in Playfab and then call this method to send th event.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//This snippet assumes that your game client is already logged into PlayFab.
+
+using PlayFab;
+using PlayFab.CloudScriptModels;
+
+private void CallCSharpExecuteFunction()
+{
+    PlayFabCloudScriptAPI.ExecuteFunction(new ExecuteFunctionRequest()
+    {
+        Entity = new PlayFab.CloudScriptModels.EntityKey()
+        {
+            Id = PlayFabSettings.staticPlayer.EntityId, //Get this from when you logged in,
+            Type = PlayFabSettings.staticPlayer.EntityType, //Get this from when you logged in
+        },
+        FunctionName = &quot;HelloWorld&quot;, //This should be the name of your Azure Function that you created.
+        FunctionParameter = new Dictionary&lt;string, object&gt;() { { &quot;inputValue&quot;, &quot;Test&quot; } }, //This is the data that you would want to pass into your function.
+        GeneratePlayStreamEvent = false //Set this to true if you would like this call to show up in PlayStream
+    }, (ExecuteFunctionResult result) =&gt;
+    {
+        if (result.FunctionResultTooLarge ?? false)
+        {
+            Debug.Log(&quot;This can happen if you exceed the limit that can be returned from an Azure Function, See PlayFab Limits Page for details.&quot;);
+            return;
+        }
+        Debug.Log($&quot;The {result.FunctionName} function took {result.ExecutionTimeMilliseconds} to complete&quot;);
+        Debug.Log($&quot;Result: {result.FunctionResult.ToString()}&quot;);
+    }, (PlayFabError error) =&gt;
+    {
+        Debug.Log($&quot;Opps Something went wrong: {error.GenerateErrorReport()}&quot;);
+    });
+}</pre>
+</div></div><h2 id="CloudScripting-Resourcesresources">Resources<span class="confluence-anchor-link" id="CloudScripting-resources"><span class="confluence-anchor-link" id="resources"></span></span></h2><p>Documentation: <a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/automation/cloudscript-af/" rel="nofollow">PlayFab CloudScript using Azure Functions - PlayFab | Microsoft Learn</a></p><p>Quickstart Guide: <a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/automation/cloudscript-af/quickstart" rel="nofollow">PlayFab CloudScript using Azure Functions Quickstart Guide - PlayFab | Microsoft Learn</a></p><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/723714051.png">image-20230605-154735.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/723320855.png">image-20230605-154744.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/731512833.png">image-20230612-175427.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/731611137.png">image-20230612-180218.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/731709441.png">image-20230612-180546.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/731086851.png">image-20230612-180752.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/730955824.png">image-20230612-183042.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/723353601/731021314.png">image-20230612-183743.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

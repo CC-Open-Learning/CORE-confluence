@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : SCORM</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : SCORM
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Aug 15, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="00d64fe5-2e00-4627-9e79-cba682bc9ee2" class="confluenceTable"><colgroup><col style="width: 340.0px;"/><col style="width: 340.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>SCORM</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">0.2.1</span></p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Includes build scripts to automatically create SCORM packages for deployment to eConestoga.</p><p>Provides runtime access to LMS data such as LearnerID and Completion Status.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/scorm" rel="nofollow">https://bitbucket.org/VARLab/scorm</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p><a class="external-link" href="http://upm.core.varlab.org:4873/-/web/detail/com.varlab.scorm" rel="nofollow">com.varlab.scorm</a></p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span> <br/><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">PRE-RELEASE</span> </p></td></tr></tbody></table></div></div><p>In this section, we’ll cover how to use the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/scorm/src" rel="nofollow">https://bitbucket.org/VARLab/scorm/src</a> package to build DLX projects for deployment in eConestoga and other eLearning platforms.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>The archived document <a href="https://varlab-dev.atlassian.net/wiki/spaces/CE/pages/156794902/WebGL+Deployment" data-linked-resource-id="156794902" data-linked-resource-version="7" data-linked-resource-type="page">WebGL Deployment</a> provides details on configuring WebGL &amp; SCORM for the <em>legacy</em> <strong>CORE Engine (COREv1)</strong></p>
+</div></div><h2 id="SCORM-InstallingtheSCORMpackage">Installing the SCORM package</h2><p><strong>SCORM</strong> can be found in the <a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow">CORE UPM Registry</a> as <code>com.varlab.scorm</code> 📦</p><p>Navigate to the <strong>Package Manager</strong> window in the Unity Editor and install the package under the &quot;My Registries&quot; sub-menu.</p><p /><div id="expander-477345852" class="expand-container"><div id="expander-control-477345852" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Legacy Installation</span></div><div id="expander-content-477345852" class="expand-content"><p>In the <code>Packages/manifest.json</code> file of a DLX Unity project, add the following line to dependencies:</p><p><code>&quot;com.varlab.scorm&quot;: &quot;ssh://git@bitbucket.org/VARLab/scorm.git#0.2.0&quot;</code></p><p>If your PC is not yet configured to access VARLab repositories via SSH, follow the instructions on <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/497123337/Setting+Up+Bitbucket+Sourcetree" data-linked-resource-id="497123337" data-linked-resource-version="20" data-linked-resource-type="page">Setting Up Bitbucket &amp; Sourcetree</a> before continuing.</p></div></div><h2 id="SCORM-InstallingtheWebGLTemplatesforSCORMdelivery">Installing the WebGL Templates for SCORM delivery</h2><p>After installing the <strong>SCORM </strong>package through the package manifest, import the WebGL Template files into your project folder by selecting <strong>Tools → SCORM → Import WebGL Template</strong>. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504037419/522223630.png?width=442" data-image-src="attachments/504037419/522223630.png" data-height="151" data-width="405" data-unresolved-comment-count="0" data-linked-resource-id="522223630" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220922-132955.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504037419" data-linked-resource-container-version="8" data-media-id="31b45be0-8215-4e13-90e6-8a52dc0441c7" data-media-type="file"></span><p>After importing the templates, follow the steps in <a href="521076742.html" data-linked-resource-id="521076742" data-linked-resource-version="10" data-linked-resource-type="page">Building for WebGL + SCORM</a> to generate a SCORM object which can be uploaded to eConestoga.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504037419/522223623.png">image-20220922-132843.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504037419/522059804.png">image-20220922-132913.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504037419/522223630.png">image-20220922-132955.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

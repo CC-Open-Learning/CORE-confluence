@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Azure PlayFab Data Section</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Azure-PlayFab-Overview_714375379.html">Azure PlayFab Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Azure PlayFab Data Section
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joshua Moore</span>, last modified on Jun 13, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Link to Microsoft Doc: <a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/data/" rel="nofollow">PlayFab Data documentation - PlayFab | Microsoft Learn</a></p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544199926 {padding: 0px;}
+div.rbtoc1748544199926 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544199926 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544199926'>
+<ul class='toc-indentation'>
+<li><a href='#AzurePlayFabDataSection-Summary'>Summary</a></li>
+<li><a href='#AzurePlayFabDataSection-WhatisPlayFabData?'>What is PlayFab Data?</a></li>
+<li><a href='#AzurePlayFabDataSection-PlayerData'>Player Data</a>
+<ul class='toc-indentation'>
+<li><a href='#AzurePlayFabDataSection-PlayerdatavsPlayerpublisherdata'>Player data vs Player publisher data</a></li>
+</ul>
+</li>
+<li><a href='#AzurePlayFabDataSection-TitleData'>Title Data</a>
+<ul class='toc-indentation'>
+<li><a href='#AzurePlayFabDataSection-TitleDataOverrides'>Title Data Overrides</a></li>
+</ul>
+</li>
+<li><a href='#AzurePlayFabDataSection-EntityProgrammingModel'>Entity Programming Model</a>
+<ul class='toc-indentation'>
+<li><a href='#AzurePlayFabDataSection-ClassicAPI'>Classic API</a></li>
+<li><a href='#AzurePlayFabDataSection-Listofentities'>List of entities</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="AzurePlayFabDataSection-Summary">Summary</h1><p>PlayFab Data covers <strong>how</strong> PlayFab <strong>stores</strong> and <strong>organizes</strong> its data entities. The current implementation uses <strong>Entities</strong> as the addressable “things”, of which there are a set of out of the box such as, Title, master_player_account, title_player_account. Entities contain resources relevant to that “thing”. There is classic API support however that is not recommended to be used. </p><p /><p>Events are all essentially JSON objects with key value pairs that can be looked at via queries, with the keys being a column. These objects are typically associated with a Player Entity.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/713162819/719290384.png" data-image-src="attachments/713162819/719290384.png" data-height="765" data-width="1400" data-unresolved-comment-count="0" data-linked-resource-id="719290384" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230531-181320.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="713162819" data-linked-resource-container-version="6" data-media-id="22cd205e-ab4f-4ce4-9640-a6cea8a58757" data-media-type="file"></span><p>The data section has the ability to query for specific events, the basic area has the ability to put together queries and will graph the results based on how you decide to group and aggregate them. This can be used to see over all metrics like how many students reach a completion state compared to total students, or checking specific events to see if there is maybe an area a bunch of students are failing a check.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/713162819/720732183.png" data-image-src="attachments/713162819/720732183.png" data-height="891" data-width="1508" data-unresolved-comment-count="0" data-linked-resource-id="720732183" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230601-142805.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="713162819" data-linked-resource-container-version="6" data-media-id="c8b43536-382e-4a52-a9a4-f5f36ec2eeeb" data-media-type="file"></span><p /><h1 id="AzurePlayFabDataSection-WhatisPlayFabData?">What is PlayFab Data?</h1><p>PlayFab data is the set of tools for data analytics, storage, processing, and export. This features things like Title Data, Players data, Characters data, Groups data, along with data management features like Entities, CDN, and Webhooks.</p><h1 id="AzurePlayFabDataSection-PlayerData">Player Data</h1><p>Player Data is information about a player stored in the Playfab service. Can be shared across devices/titles.</p><p>2 ways to store player data, Entities(data stored in objects and files) and Player Data/User Data(store key/value pair data for players) <strong>Recommended all new titles</strong> use entity objects.</p><p>PlayFab API’s use the term UserData, game manager uses Player Data. These are interchangeable.</p><p>3 modes of access to player data.</p><p>·         Client: This is player data available to the title client to read/update.</p><p>·         Read Only: This is player data that is created/updated by the server, the title client can read but not update.</p><p>·         Internal: This is player data only available to the server.</p><h2 id="AzurePlayFabDataSection-PlayerdatavsPlayerpublisherdata">Player data vs Player publisher data</h2><p>Player data is specific to a game title, for title specific information. Player publisher data, is associated with the player account and is used for data relevant to all titles. Both are dictionaries mapping a string to a JSON blob.</p><h1 id="AzurePlayFabDataSection-TitleData">Title Data</h1><p>Title Data is a set of key/value pairs used to manage configuration of games(also referred to as Primary Title Data). Internal title data is a special set of title data that cannot be accessed by clients.</p><h2 id="AzurePlayFabDataSection-TitleDataOverrides">Title Data Overrides</h2><p><strong>ONLY FOR EXPERIMENTS</strong></p><p>These are sets of key/value pairs which are stored and managed to override the primary Title Data. Override can Add, change, or remove key value pairs, allows the update of a remote configuration of the game without deploying a new build.</p><h1 id="AzurePlayFabDataSection-EntityProgrammingModel">Entity Programming Model</h1><p>Entities are the most basic addressable “thing”. Each entity has a type and ID, which are used to uniquely identify it. There are out of the box built in entities such as namespace, title, group, master_player_account, title_player_account. Entities have a profile that contains resources that are owned by that entity. Retrieved using GetProfile API. Entities have a parent/child relationship, this is tracked in its lineage property.</p><h2 id="AzurePlayFabDataSection-ClassicAPI">Classic API</h2><p><strong>Not recommended to be used, but still supported.</strong></p><p>Classic API is still supported from before they added in the entity model. As such I will not be summarizing this section.</p><h2 id="AzurePlayFabDataSection-Listofentities">List of entities</h2><p>·         Namespace</p><p style="margin-left: 30.0px;">o   Singular entity refers to all global information for every title under a studio. The information should be static. Not reflected in real time.</p><p>·         Title</p><p style="margin-left: 30.0px;">o   Singular Entity that refers to all global information related to a single title. Info should be static, also not reflected in real time.</p><p>·         Master_player_account</p><p style="margin-left: 30.0px;">o   Player entity that is shared among all titles in a studio.</p><p>·         Title_player_account</p><p style="margin-left: 30.0px;">o   Represents the player in the most “traitional” way, player data relevant to a single title.</p><p>·         Character</p><p style="margin-left: 30.0px;">o   Sub-entity of title_player_account direct mirror of “characters in the classic API”.</p><p>·         Group</p><p style="margin-left: 30.0px;">o   Group is an entity that is a collection of other entities. Only currently supports Players and Characters.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/713162819/719290384.png">image-20230531-181320.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/713162819/720732177.png">image-20230601-142702.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/713162819/720732183.png">image-20230601-142805.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

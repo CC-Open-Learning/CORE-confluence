@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Multiplayer Best Practices</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Current-VARLab-Multiplayer-Overview_1246560270.html">Current VARLab Multiplayer Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Multiplayer Best Practices
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Sept 06, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When creating a multiplayer game, there are some best practices code-wise that should be followed to make code presentable and to avoid certain bugs/pitfalls. This document will go over them, and more can be added as they are found during development.</p><p /><p>When a player joins a multiplayer game, they will be able to see every other player and networked object in the scene; in order for this to happen, those objects need to be added to your scene hierarchy. However, doing this means that your game will attempt to execute the script of every networked object in the scene. </p><p>This is obviously not wanted and could cause many issues. As a simple one, think about if your instance of the game tried running the movement script of all players in the game, not good. There is a simple way to stop this from happening, and it is through a list of properties that are available to any script that inherits from NetworkBehaviour. These properties provide important information about both the Networked Object the script is attached to and the person playing the game, and they allow you to segregate code to certain clients/the server, ensuring only the devices that need to run the code, will run the code. The following is the list:</p><ul><li><p>IsLocalPlayer</p><ul><li><p>Returns whether or not the Object is the local player object</p></li></ul></li><li><p>IsOwner</p><ul><li><p>Returns if the local player owns the object</p></li></ul></li><li><p>IsServer</p><ul><li><p>Returns if we are executing as the server</p></li></ul></li><li><p>ServerIsHost</p><ul><li><p>Returns if the Server instance is also a host/client</p></li></ul></li><li><p>IsClient</p><ul><li><p>Returns if we are executing as a client</p></li></ul></li><li><p>IsHost</p><ul><li><p>Returns if we are executing as a host</p></li></ul></li><li><p>IsOwnedByServer</p><ul><li><p>Returns if the object is owned by no one (server) or not</p></li></ul></li><li><p>IsSpawned</p><ul><li><p>Returns if an object is spawned  on the network</p></li></ul></li></ul><p>These properties will prove very useful in almost any script that requires some multiplayer code, as they let you pick and choose what code is executed and on who it is executed. a very common example is the following.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">void Update()
+{
+    if(!IsOwner) { return; }
+}</pre>
+</div></div><p>In this code, we can see that immediately after entering the Update function, we check if IsOwner is true or not, and if it is false, we immediately return, this will prohibit this script from running on every single client except the person who owns it.</p><p>Another thing that we usually do at the beginning of a script is have some setup code in the Awake/Start methods; this is fine and is something that needs to be done; the problem arises when we need code to run based on one of the above properties. Take IsOwner for example, we have a piece of code that should only run if IsOwner is true, but if you put this in Start/Awake, IsOwner may not be set to true yet, and code may be unintentionally ran/not ran. In order to fix this, this code needs to go into a function called OnNetworkSpawn, as once this method is run, the above properties have been set.</p><p>So, normally, the following would be done:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">void Start()
+{
+  if(!IsOwner)
+  {
+    gameObject.enabled = false;
+  }
+}</pre>
+</div></div><p>But since IsOwner may not be properly set in Start, the following should be done</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private override OnNetworkSpawn()
+{
+  base.OnNetworkSpawn();
+  if(!IsOwner)
+  {
+    gameObject.enabled = false;
+  }
+}</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Building a Unity Project in an Ubuntu Container</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pull-Request-Automation_712507407.html">Pull Request Automation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Building a Unity Project in an Ubuntu Container
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benjamin Smith (Unlicensed)</span>, last modified on Jun 13, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>By default, when the terminal is referred to, Power Shell will be used. If on a platform other than Windows, use your respective terminal.</p></div></div><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>When steps are shown alongside commands, the commands' line number corresponds to the step you are currently completing.</p>
+</div></div><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544600956 {padding: 0px;}
+div.rbtoc1748544600956 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544600956 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544600956'>
+<ul class='toc-indentation'>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-DockerImageSetup-Manual'>Docker Image Setup - Manual</a>
+<ul class='toc-indentation'>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-ValidatingyourUnity/UnityEditorinanOfficialContainer[PersonalLicense]'>Validating your Unity / Unity Editor in an Official Container [Personal License]</a></li>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-PubliclyHostingyourCustomImage'>Publicly Hosting your Custom Image</a></li>
+</ul>
+</li>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-DockerImageSetup-Automatic'>Docker Image Setup - Automatic</a></li>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-BuildingyourUnityProject'>Building your Unity Project</a>
+<ul class='toc-indentation'>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-CreatingaBuildScript'>Creating a Build Script</a></li>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-ConfiguringYourmanifest.json'>Configuring Your manifest.json</a></li>
+<li><a href='#BuildingaUnityProjectinanUbuntuContainer-AttemptingtoBuildyourUnityProject'>Attempting to Build your Unity Project</a></li>
+</ul>
+</li>
+</ul>
+</div><hr/><h2 id="BuildingaUnityProjectinanUbuntuContainer-DockerImageSetup-Manual"><strong>Docker Image Setup - Manual</strong></h2></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<ol start="1"><li><p>Use your terminal to perform the following command. This retrieves a previously built docker image that contains the Unity Editor.</p></li><li><p>Run the previously pulled docker image and share a volume with the container.</p></li><li><p>Add the Microsoft package repository.</p></li><li><p>Install the Microsoft Debian package.</p></li><li><p>Remove package repository that you added in Step 3.</p></li><li><p>Update your package list.</p></li><li><p>Install the .NET SDK 6.0.</p></li><li><p>Install the ASPNET Core 6.0.</p></li><li><p>Close your terminal. Do <strong>NOT</strong> type <em>exit</em>.</p></li><li><p>Reopen your terminal and commit your changes.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">docker pull unityci/editor:ubuntu-2021.3.4f1-webgl-1.0
+docker run -ti -v &lt;Local File Path to Folder&gt;:/&lt;Name of Folder&gt; &lt;unique image ID&gt;
+wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+apt-get update
+apt-get install -y dotnet-sdk-6.0
+apt-get install -y aspnetcore-runtime-6.0
+# No command for this step.
+docker commit &lt;container-name&gt; &lt;image-name&gt;:&lt;image-tag&gt;</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="BuildingaUnityProjectinanUbuntuContainer-ValidatingyourUnity/UnityEditorinanOfficialContainer[PersonalLicense]">Validating your Unity / Unity Editor in an Official Container [Personal License]</h3><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you perform the manual image setup, you will have to follow the steps below to validate your license.</p></div></div></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<ol start="1"><li><p>Run the previously pulled docker image and share a volume with the container.</p></li><li><p>Create an .alf file <strong>inside</strong> of your now running container. This .alf file is specific to the docker container and must be done inside the container that we will be licensing.</p></li><li><p>Move your .alf file into the shared volume that the container has access to.</p></li><li><p>On your host computer, navigate to <a class="external-link" href="https://id.unity.com/" rel="nofollow">id.unity.com</a> and sign in. In the same browser, sign in to <a class="external-link" href="https://license.unity3d.com/manual" rel="nofollow">license.unity3d.com/manual</a>. In the second tab you opened, you will be prompted to select a file to validate.</p></li><li><p>Select your .alf file. Unity will convert it into a .ulf. Ensure that this is in the same place that the .alf was located, inside the shared volume.</p></li><li><p>Return to the terminal and activate Unity using your new .ulf file.</p></li><li><p>Once again, do <strong>NOT </strong>type <em>exit</em>. Close your terminal or open a new terminal.</p></li><li><p>Commit your changes so that you don’t have to validate Unity every time you run your image.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">docker run -ti -v &lt;Local File Path to Folder&gt;:/&lt;Name of Folder&gt; &lt;unique image ID&gt;
+&quot;&lt;editor-installation-location&gt;&quot; -batchmode -createManualActivationFile -logfile
+mv &lt;file_name&gt;.alf &lt;Name of Folder&gt;
+# No commands for this step.
+# No commands for this step.
+&quot;&lt;editor-installation-location&gt;&quot; -batchmode -manualLicenseFile &lt;yourUlfFile&gt; -logfile
+# No command for this step.
+docker commit &lt;container-name&gt; &lt;image-name&gt;:&lt;image-tag&gt;</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="BuildingaUnityProjectinanUbuntuContainer-PubliclyHostingyourCustomImage">Publicly Hosting your Custom Image</h3><p>If you wish to publicly host your new custom Docker image on the Docker Hub, simply press the three vertically stacked dots beside your image, and press “Push to Hub”.</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="340" loading="lazy" src="attachments/714866698/726990921.png?width=340" data-image-src="attachments/714866698/726990921.png" data-height="185" data-width="996" data-unresolved-comment-count="0" data-linked-resource-id="726990921" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230608-145520.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="714866698" data-linked-resource-container-version="28" data-media-id="266b0e78-abd1-487a-9ceb-3123231a4bf4" data-media-type="file"></span><hr/><h2 id="BuildingaUnityProjectinanUbuntuContainer-DockerImageSetup-Automatic"><strong>Docker Image Setup - Automatic</strong></h2><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you are using the publicly hosted <a class="external-link" href="https://hub.docker.com/repository/docker/varlab/automated_pr/tags?page=1&amp;ordering=last_updated" rel="nofollow">custom Docker image</a>, you will not need to validate the Unity license.</p></div></div></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<ol start="1"><li><p>Open your terminal and run the following command.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">docker pull varlab/automated_pr:latest</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr/><h2 id="BuildingaUnityProjectinanUbuntuContainer-BuildingyourUnityProject"><strong>Building your Unity Project</strong></h2><h3 id="BuildingaUnityProjectinanUbuntuContainer-CreatingaBuildScript">Creating a Build Script</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Create the build script inside the host machine. </p></div></div></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<ol start="1"><li><p>Navigate into your project folder that will be shared with the container, enter the Assets folder, and create a folder called <em>Editor.</em></p></li><li><p>Create a C# script called BuildScript.cs</p></li><li><p>Copy and paste the following code into the BuildScript.cs file. Save and exit.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using UnityEditor;
+using System.Linq;
+using System;
+using System.IO;
+using UnityEngine;
+
+public class BuildScript
+{
+    static string[] GetEnabledScenes()
+    {
+        return (
+            from scene in EditorBuildSettings.scenes
+            where scene.enabled
+            where !string.IsNullOrEmpty(scene.path)
+            select scene.path
+        ).ToArray();
+    }
+
+    static void PerformBuild()
+    {
+        BuildPipeline.BuildPlayer(GetEnabledScenes(), &quot;./Builds/MyBuild.exe&quot;, BuildTarget.WebGL, BuildOptions.None);
+    }
+}</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="BuildingaUnityProjectinanUbuntuContainer-ConfiguringYourmanifest.json">Configuring Your manifest.json</h3><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you have already attempting to build your Unity project inside the container, and received the following error, it will wipe the package from your Package Cache. You must rebuild the project inside Unity Hub in your host PC to rebuild the caches.</p></div></div><p>All Unity projects have a Package folder which contains a manifest.json. This is a list of all your packages in the project that Unity uses to fetch and load. However, unity-editor inside our custom container has issues loading the universal render pipeline (URP) when you run your build script. To solve this, we must edit our manifest.json file to allow it to build properly. This is done using the cached packages that exist from building your Unity project on your host machine.</p><p>Attempting to build your project without doing what is above will fail the build immediately and display the following error:</p><blockquote><p>Project has invalid dependencies:<br/>com.unity.render-pipelines.universal: Package [com.unity.render-pipelines.universal@12.1.11] cannot be found</p></blockquote><p>To remedy this, we will implement the following steps:</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<ol start="1"><li><p>On your host machine, navigate to the Unity project that is located in your shared volume.</p></li><li><p>Go to /&lt;ProjectName&gt;/Packages/manifest.json.</p></li><li><p>Open your manifest.json and add the following lines anywhere in the file.</p></li><li><p>Delete any duplicated lines that are attempting to load the URP, Core Render Pipeline, or Shader Graph packages.</p></li><li><p>Save the manifest.json and close it.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">    &quot;com.unity.shadergraph&quot;: &quot;file:/SharedVolume/&lt;ProjectName&gt;/Library/PackageCache/com.unity.shadergraph@12.1.11&quot;,
+    &quot;com.unity.render-pipelines.core&quot;: &quot;file:/SharedVolume/&lt;ProjectName&gt;/Library/PackageCache/com.unity.render-pipelines.core@12.1.11&quot;,
+    &quot;com.unity.render-pipelines.universal&quot;: &quot;file:/SharedVolume/&lt;ProjectName&gt;/Library/PackageCache/com.unity.render-pipelines.universal@12.1.11&quot;,</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you receive an error mentioning the com.unity.burst not being able to load into the local file system, you may need to do the above steps for the burst package as well.</p></div></div><h3 id="BuildingaUnityProjectinanUbuntuContainer-AttemptingtoBuildyourUnityProject">Attempting to Build your Unity Project</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>These commands will be done inside your Docker container that is running based off of the image you created/loaded. If you forget how to run the image with a shared volume, look back at Step 2 in “Docker Image Setup - Manual”.</p></div></div></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<ol start="1"><li><p>Navigate into your shared project.</p></li><li><p>Create a new folder called <em>Builds</em>.</p></li><li><p>Navigate into <em>Builds</em>.</p></li><li><p>Create a project folder called <em>MyBuild.exe</em>.</p></li><li><p>Navigate backwards into your project folder.</p></li><li><p>Run the following command.</p></li></ol></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">cd /&lt;Shared-Folder&gt;/&lt;Project-Name&gt;
+mkdir Builds
+cd Builds
+mkdir MyBuild.exe
+cd ../..
+unity-editor -quit -batchmode -nographics -executeMethod BuildScript.PerformBuild -logFile</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr/><p /><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714866698/726990921.png">image-20230608-145520.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

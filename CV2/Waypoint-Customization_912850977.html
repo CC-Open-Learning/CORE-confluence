@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Waypoint Customization</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="906657797.html">Point &amp; Click Navigation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Waypoint Customization
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Amila Abeygunasekara</span>, last modified on Jan 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>A waypoint comes with a child GameObject named Marker. The marker is the GameObject that holds the waypoint icon.</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" alt="image-20240115-200140.png" width="106" loading="lazy" src="attachments/912850977/912556109.png?width=106" data-image-src="attachments/912850977/912556109.png" data-height="35" data-width="106" data-unresolved-comment-count="0" data-linked-resource-id="912556109" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-200140.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="912850977" data-linked-resource-container-version="2" data-media-id="157e8c23-e407-416b-82c5-e06e10970d7f" data-media-type="file"></span><p>The motivation behind making the marker a child is to give the user an option to shift the marker relative to the waypoint without changing the waypoint’s position.</p><p>The Marker GameObject comes with the following components.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-201003.png" width="501" loading="lazy" src="attachments/912850977/912851019.png?width=501" data-image-src="attachments/912850977/912851019.png" data-height="599" data-width="501" data-unresolved-comment-count="0" data-linked-resource-id="912851019" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-201003.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="912850977" data-linked-resource-container-version="2" data-media-id="1b8e2022-5093-4a80-8a5c-84b96b33627f" data-media-type="file"></span><p>For customizations, we are mostly interested in <em>Marker</em> and <em>Sprite Renderer</em> components.</p><h2 id="WaypointCustomization-EditingMarkerPosition,Rotation&amp;Scale">Editing Marker Position, Rotation &amp; Scale</h2><p>To edit the marker’s transform variables, all you have to do is edit the values in the <em>Transform</em> component.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>NOTE: When clicking on a Marker, the player will walk into the parent Waypoint’s location, not the Marker’s location.</p>
+</div></div><h2 id="WaypointCustomization-EditingMarkerIcon">Editing Marker Icon</h2><p>You can update the marker icon by serializing a new sprite into <em>Sprite Renderer’s</em> <em>Sprite</em> field.</p><h2 id="WaypointCustomization-UpdatingColors">Updating Colors</h2><p>Highlight and Default colors can be set by adjusting the respective field in the <em>Marker</em> component.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912850977/912556109.png">image-20240115-200140.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912850977/912851019.png">image-20240115-201003.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

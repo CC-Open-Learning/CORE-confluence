@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Code Coverage Unity Setup</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage_731480070.html">Code Coverage</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Introduction_776306763.html">Code Coverage Introduction</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Code Coverage Unity Setup
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan S (Unlicensed)</span>, last modified on Aug 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544537322 {padding: 0px;}
+div.rbtoc1748544537322 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544537322 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544537322'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#CodeCoverageUnitySetup-Introduction'>Introduction</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#CodeCoverageUnitySetup-VideoStep-by-StepGuide'>Video Step-by-Step Guide</a></li>
+<li><span class='TOCOutline'>3</span> <a href='#CodeCoverageUnitySetup-Installation'>Installation</a></li>
+<li><span class='TOCOutline'>4</span> <a href='#CodeCoverageUnitySetup-OpeningCodeCoverageWindow'>Opening Code Coverage Window</a></li>
+<li><span class='TOCOutline'>5</span> <a href='#CodeCoverageUnitySetup-UpdatingtheGitIgnore'>Updating the GitIgnore</a></li>
+<li><span class='TOCOutline'>6</span> <a href='#CodeCoverageUnitySetup-NextSteps'>Next Steps</a></li>
+</ul>
+</div><p /><h2 id="CodeCoverageUnitySetup-Introduction">Introduction</h2><p>This page covers how to set up Unity’s Code Coverage package. To begin, make sure Unity is installed, and open a project containing tests you wish to use. If you don’t have tests for your current project, refer to the testing documentation located <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/749699073/Unity+Full-Stack+Testing+Tutorial" data-linked-resource-id="749699073" data-linked-resource-version="79" data-linked-resource-type="page"><strong>HERE</strong></a><strong>. </strong>If you don’t have a project and wish to learn code coverage, download the example project <a href="Sample-Project-For-Code-Coverage_776307061.html" data-linked-resource-id="776307061" data-linked-resource-version="2" data-linked-resource-type="page"><strong>HERE</strong></a>. </p><h2 id="CodeCoverageUnitySetup-VideoStep-by-StepGuide">Video Step-by-Step Guide</h2><p>This video is a visual representation of the instructions below. You may skip it and follow the text instructions instead. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><a href="attachments/776306788/776306805.mkv">CodeCoverageSetupMk2.mkv</a></span><p /><h2 id="CodeCoverageUnitySetup-Installation">Installation</h2><ul><li><p>Open the Unity editor.</p></li><li><p>Use the top bar and navigate to Window &gt; Packet Manager.  </p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306862.png" data-image-src="attachments/776306788/776306862.png" data-height="260" data-width="594" data-unresolved-comment-count="0" data-linked-resource-id="776306862" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-174317.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="24d5bb58-b607-4574-85f1-214ab5fe8f1f" data-media-type="file"></span><ul><li><p>Change the Packages from <strong>Packages: In Project</strong> to <strong>Packages: Unity Registry</strong>.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306856.png" data-image-src="attachments/776306788/776306856.png" data-height="572" data-width="803" data-unresolved-comment-count="0" data-linked-resource-id="776306856" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-174458.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="013f6fd7-53bf-4e70-91a6-ae6b17be1704" data-media-type="file"></span><ul><li><p>Search “Code Coverage” in the search bar at the top right of the window.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306853.png" data-image-src="attachments/776306788/776306853.png" data-height="565" data-width="799" data-unresolved-comment-count="0" data-linked-resource-id="776306853" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-174547.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="0f97ab33-3c71-411d-b666-33029a1641d4" data-media-type="file"></span><ul><li><p>Install the Code Coverage Package.</p></li></ul><h2 id="CodeCoverageUnitySetup-OpeningCodeCoverageWindow">Opening Code Coverage Window</h2><ul><li><p>Open your Unity project.</p></li><li><p>Using the top bar, navigate to Window &gt; Analysis &gt; Code Coverage.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306847.png" data-image-src="attachments/776306788/776306847.png" data-height="692" data-width="550" data-unresolved-comment-count="0" data-linked-resource-id="776306847" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-174958.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="4423dfd9-4134-480a-b70e-9cf82cc9ca3c" data-media-type="file"></span><ul><li><p>The Code Coverage window should appear.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306841.png" data-image-src="attachments/776306788/776306841.png" data-height="578" data-width="326" data-unresolved-comment-count="0" data-linked-resource-id="776306841" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-175040.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="d888c8a3-5014-43b1-8fdb-52617c174406" data-media-type="file"></span><ul><li><p>You may see a warning requiring you to switch to debug mode to use code coverage. To solve this, switch to debug mode by clicking the bug icon at the bottom right of your Unity project.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="306" loading="lazy" src="attachments/776306788/776306838.png?width=306" data-image-src="attachments/776306788/776306838.png" data-height="89" data-width="314" data-unresolved-comment-count="0" data-linked-resource-id="776306838" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-175327.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="71d98f9f-420f-45d1-869b-26c163be9ab6" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306835.png" data-image-src="attachments/776306788/776306835.png" data-height="1045" data-width="1977" data-unresolved-comment-count="0" data-linked-resource-id="776306835" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-175341.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="00db940d-3e31-4939-b3c3-bc3728cacd4d" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306829.png" data-image-src="attachments/776306788/776306829.png" data-height="152" data-width="391" data-unresolved-comment-count="0" data-linked-resource-id="776306829" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-175419.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="290170bd-d354-4256-9700-0686b3db4c0b" data-media-type="file"></span><ul><li><p>NOTE: to exit debug mode, click on the bug icon again and select release mode.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306826.png" data-image-src="attachments/776306788/776306826.png" data-height="146" data-width="381" data-unresolved-comment-count="0" data-linked-resource-id="776306826" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-175549.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="b8535f32-e9d5-4ad2-ba4d-319ee97a76a2" data-media-type="file"></span><ul><li><p>Make sure the “<strong>Enable Code Coverage</strong>” box is checked. </p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306820.png" data-image-src="attachments/776306788/776306820.png" data-height="98" data-width="526" data-unresolved-comment-count="0" data-linked-resource-id="776306820" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-195741.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="bf8ca3d1-71b6-4d88-b3fa-00361b242a61" data-media-type="file"></span><ul><li><p>Ensure<strong> HTML Report</strong>, <strong>Report History, Summary Badges, Additional Metrics,</strong> and <strong>Auto Generate Report</strong> are checked. Auto Open report is optional but recommended.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306814.png" data-image-src="attachments/776306788/776306814.png" data-height="490" data-width="523" data-unresolved-comment-count="0" data-linked-resource-id="776306814" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-201650.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="5270a1c6-486e-46d9-9d24-6fe2e022e441" data-media-type="file"></span><ul><li><p>Now you are ready to check your code coverage. Make sure to update your gitIgnore before updating to main.</p></li></ul><h2 id="CodeCoverageUnitySetup-UpdatingtheGitIgnore">Updating the GitIgnore</h2><p>Now that you have added the Code Coverage Package you need to update the gitIgnore to avoid filling the main branch with merge issues. To do so follow the steps below:</p><ul><li><p>Locate the gitIgnore file, this should be found in the root of your unity project.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306802.png" data-image-src="attachments/776306788/776306802.png" data-height="334" data-width="681" data-unresolved-comment-count="0" data-linked-resource-id="776306802" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230606-151005.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="bc2f5726-8e63-44f9-ad1e-edf1a4e6e53b" data-media-type="file"></span><ul><li><p>Under the lines containing folder references (“/Example”), add this line as a new line:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">/[Cc]ode[Cc]overage/</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306788/776306799.png" data-image-src="attachments/776306788/776306799.png" data-height="275" data-width="693" data-unresolved-comment-count="0" data-linked-resource-id="776306799" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230606-151314.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306788" data-linked-resource-container-version="5" data-media-id="355c3f7a-c73c-4edd-b7c3-c6c03b755c9b" data-media-type="file"></span><ul><li><p>Save the file and you are done! </p></li></ul><h2 id="CodeCoverageUnitySetup-NextSteps">Next Steps</h2><p>Please follow the next guide on filtering your code coverage results by clicking <a href="Filtering-Code-Coverage-Results_776306915.html" data-linked-resource-id="776306915" data-linked-resource-version="3" data-linked-resource-type="page">here</a>.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306799.png">image-20230606-151314.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306802.png">image-20230606-151005.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306805.mkv">CodeCoverageSetupMk2.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306808">Invalid file id - c2f4f98c-e0dc-4023-811a-2722303e3d06</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306811.mkv">Code Coverage Setup.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306814.png">image-20230523-201650.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306817.png">image-20230523-201647.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306820.png">image-20230523-195741.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306823.png">image-20230523-175612.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306826.png">image-20230523-175549.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306829.png">image-20230523-175419.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306832.png">image-20230523-175416.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306835.png">image-20230523-175341.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306838.png">image-20230523-175327.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306841.png">image-20230523-175040.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306844.png">image-20230523-175033.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306847.png">image-20230523-174958.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306850.png">image-20230523-174938.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306853.png">image-20230523-174547.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306856.png">image-20230523-174458.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306859.png">image-20230523-174429.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306788/776306862.png">image-20230523-174317.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Style Helper</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1566081045.html">Helper &amp; Extension Scripts</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Style Helper
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Mar 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="d56970db-ef6b-42a3-b742-1e0d774fb222" class="confluenceTable"><colgroup><col style="width: 259.0px;"/><col style="width: 500.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>On This Page</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544474113 {padding: 0px;}
+div.rbtoc1748544474113 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544474113 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544474113'>
+<ul class='toc-indentation'>
+<li><a href='#StyleHelper-Helper&amp;ExtensionMethods'>Helper &amp; Extension Methods</a>
+<ul class='toc-indentation'>
+<li><a href='#StyleHelper-ToggleTransitionProperties()'>ToggleTransitionProperties()</a>
+<ul class='toc-indentation'>
+<li><a href='#StyleHelper-Definition'>Definition</a></li>
+<li><a href='#StyleHelper-Parameter(s)'>Parameter(s)</a></li>
+<li><a href='#StyleHelper-Example'>Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></th></tr></tbody></table></div><h1 id="StyleHelper-Helper&amp;ExtensionMethods">Helper &amp; Extension Methods</h1><p>VELCRO UI has various extension and helper scripts which are public static methods. Most helper scripts are used for specific UI prefabs, but VisualElementExtensions.cs, TextElementExtensions.cs, PositionHelper.cs, and StyleHelper.cs have methods for common use cases in many UI scripts.</p><p /><h2 id="StyleHelper-ToggleTransitionProperties()">ToggleTransitionProperties()</h2><h3 id="StyleHelper-Definition">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void ToggleTransitionProperties(VisualElement element, float newOpacity, float translateDirection)</pre>
+</div></div><ul><li><p>Sets the <code>VisualElement.style.opacity</code> and <code>VisualElement.style.translate</code><strong> </strong>properties of the incoming VisualElement to allow for a fade bump transition on enter/exit</p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="StyleHelper-Parameter(s)">Parameter(s)</h3><p><code>VisualElement</code> The element to apply the style changes to</p><p><code>float</code> newOpacity value of the desired opacity to end at</p><p><code>float</code> translateDirection value of the desired end position to apply. Pixel count and direction. Origin is top left</p><p /><h3 id="StyleHelper-Example">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Notifications fade in, and bump up based on the properties serialized in the script. On enter, the 
+/// notification goes from 0 to 1 opacity and bumps up translateDirection units
+/// &lt;/summary&gt;
+public IEnumerator FadeIn()
+{
+    Show();
+    StyleHelper.ToggleTransitionProperties(notification, FadeInOpacity, translateDirection);
+}</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Testing with multiple clients in a multiplayer game</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Current-VARLab-Multiplayer-Overview_1246560270.html">Current VARLab Multiplayer Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Testing with multiple clients in a multiplayer game
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Aug 09, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In order to properly test a multiplayer game, you will need to have multiple instances of the project to act as different “players” inside of the game. There are multiple ways to achieve this, and they will be discussed here.</p><p>The are three main ways that this can be achieved. Two of these methods are through packages ParrelSync and Multiplayer Play Mode, and using one of these is the recommended way to do this, or you can make separate project builds to act as each player, this is not recommended.</p><h1 id="Testingwithmultipleclientsinamultiplayergame-ParrelSync">ParrelSync</h1><p><a class="external-link" href="https://github.com/VeriorPies/ParrelSync" rel="nofollow">ParrelSync </a>is a package that was made to allow developers to very quickly create a clone of their project in order to test multiple functionality. </p><p>When you make a clone using ParrelSync, it will create a clone of your project and store it locally, it can then be started and ran alongside the main project, allowing for multiplayer testing.</p><p /><p>Once ParrelSync is in the project, a tab for it will appear at the top of the navigation bar, as seen in the following image</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240808-173827.png" width="655" loading="lazy" src="attachments/1271201797/1270808591.png?width=655" data-image-src="attachments/1271201797/1270808591.png" data-height="53" data-width="655" data-unresolved-comment-count="0" data-linked-resource-id="1270808591" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240808-173827.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="db351703-5fb7-437d-9481-5f4a788d8333" data-media-type="file"></span><p>When this is clicked on, the following screen will appear</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240808-173951.png" width="222" loading="lazy" src="attachments/1271201797/1270841353.png?width=222" data-image-src="attachments/1271201797/1270841353.png" data-height="662" data-width="354" data-unresolved-comment-count="0" data-linked-resource-id="1270841353" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240808-173951.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="9f2b90e6-709a-4849-92a3-d6aee0085a99" data-media-type="file"></span><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>I already have two clones created, so they appear here. If ParrelSync was just downloaded only the “Add new clone” button will appear, and can be clicked to make a clone.</p>
+</div></div><p>From this menu, a new clone can be created and loaded. If multiple clones are created, they will also all appear here and can be managed from here as well.</p><p>The following image is an example of the files that are created when a clone is created</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240808-174149.png" width="529" loading="lazy" src="attachments/1271201797/1270677511.png?width=529" data-image-src="attachments/1271201797/1270677511.png" data-height="92" data-width="529" data-unresolved-comment-count="0" data-linked-resource-id="1270677511" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240808-174149.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="3c7d6b37-2228-4958-ab20-4fec313066a2" data-media-type="file"></span><p>The clones added by ParrelSync do not need to be pushed onto repositories as they are purely local and meant for testing. Add the following line to your .gitignore to prevent this.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">*_clone_[0-9]*/</pre>
+</div></div><h1 id="Testingwithmultipleclientsinamultiplayergame-MultiplayerPlayMode">Multiplayer Play Mode</h1><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.multiplayer.playmode@1.0/manual/index.html" rel="nofollow">Multiplayer Play Mode</a>, or MPM for short, is similar to ParrelSync in what it is designed to do, but it is made directly by Unity and is new to and only available in Unity 6. It still has its bugs and limitations, so be wary if this is what is used for testing. <br/><br/>Once MPM is in the project, you can find the MPM menu by going to Window in the top navigation bar and clicking on Multiplayer Play Mode, as seen in the following image</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240808-182256.png" width="760" loading="lazy" src="attachments/1271201797/1271201811.png?width=760" data-image-src="attachments/1271201797/1271201811.png" data-height="634" data-width="895" data-unresolved-comment-count="0" data-linked-resource-id="1271201811" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240808-182256.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="9e7b788a-5edd-47e5-9f69-1e8d49fb7290" data-media-type="file"></span><p>Once you click on this, the following menu will appear, you will see that you can create up to three more players alongside your main editor, </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240808-184242.png" width="540" loading="lazy" src="attachments/1271201797/1270317074.png?width=540" data-image-src="attachments/1271201797/1270317074.png" data-height="668" data-width="540" data-unresolved-comment-count="0" data-linked-resource-id="1270317074" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240808-184242.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="9b060598-bbe7-410e-8780-259b349f56aa" data-media-type="file"></span><p>You can activate/deactivate a player by clicking the checkmark on the left side of the screen corresponding with the player you want to update. Other features include adding a tag to each player and seeing each respective player's logs, warnings and errors.</p><p /><p>When you start your main editor, the other players will automatically start and look like the following image<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240809-175446.png" width="760" loading="lazy" src="attachments/1271201797/1272971288.png?width=760" data-image-src="attachments/1271201797/1272971288.png" data-height="1021" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="1272971288" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240809-175446.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="1aa54941-2dba-40bb-9a68-a0120c6bb83b" data-media-type="file"></span><p>If you want to show more things, such as an inspector or the hierarchy, you need to click on the button that says “Layout” on the top right of the screen, as seen in the following image</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240809-175812.png" width="760" loading="lazy" src="attachments/1271201797/1273593864.png?width=760" data-image-src="attachments/1271201797/1273593864.png" data-height="216" data-width="1907" data-unresolved-comment-count="0" data-linked-resource-id="1273593864" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240809-175812.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="486967b9-82c3-4851-b0ec-d68dd3e04115" data-media-type="file"></span><p>  Once it is clicked on, the following menu will appear</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240809-180550.png" width="146" loading="lazy" src="attachments/1271201797/1273790476.png?width=146" data-image-src="attachments/1271201797/1273790476.png" data-height="187" data-width="146" data-unresolved-comment-count="0" data-linked-resource-id="1273790476" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240809-180550.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1271201797" data-linked-resource-container-version="4" data-media-id="2f8d454a-f7ba-4b15-a6fb-e52ed768a6a9" data-media-type="file"></span><p>Once you decide what you want to be shown/hidden, your settings will be saved, and you do not need to set them again.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Each player has their own settings for their layout, so if you change the settings of Player 2, it will only be there for Player 2, not Player 3 or Player 4</p>
+</div></div><h1 id="Testingwithmultipleclientsinamultiplayergame-Projectbuilds">Project builds</h1><p>While creating a build for each player you want to test with is an option and will work, it is not recommended, this will take an immense amount of time and will get really annoying to have to manage as you make more and more, please pick one of the other two options available.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1270808591.png">image-20240808-173827.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1270841353.png">image-20240808-173951.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1270677511.png">image-20240808-174149.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1271201811.png">image-20240808-182256.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1270317074.png">image-20240808-184242.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1272971288.png">image-20240809-175446.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1273069577.png">image-20240809-175739.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1273593864.png">image-20240809-175812.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1271201797/1273790476.png">image-20240809-180550.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

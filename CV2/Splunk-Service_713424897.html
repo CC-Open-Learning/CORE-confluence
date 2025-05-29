@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Splunk Service</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Research-Recommendation---Analytic-Services-and-Tools_717324363.html">Research Recommendation - Analytic Services and Tools</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Splunk Service
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jun 02, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will outline research revolving around the Splunk service and will serve to determine whether it is a viable option for our DLX projects.</p><h3 id="SplunkService-Contents"><strong>Contents</strong></h3><p style="margin-left: 30.0px;"><a href="#overview" rel="nofollow">Overview</a></p><p style="margin-left: 60.0px;"><a href="#tools-features" rel="nofollow">Tools &amp; Features</a></p><p style="margin-left: 30.0px;"><a href="#getting-started" rel="nofollow">Getting Started</a></p><p style="margin-left: 30.0px;"><a href="#resources" rel="nofollow">Resources</a></p><p /><p>At the moment Splunk would not be an ideal solution for our use at VARLab.</p><hr/><h2 id="SplunkService-Overviewoverview">Overview <span class="confluence-anchor-link" id="SplunkService-overview"><span class="confluence-anchor-link" id="overview"></span></span></h2><p>Splunk is a data analysis tool that can be used to both monitor and visualize data. It is offered in the formats of a desktop app (Splunk Enterprise) or via the cloud (Splunk Cloud Platform).</p><p>Splunk is not limited only to data analysis, its suite of software also covers security, IT and DevOps. It can be integrated with various third-party services, such as Microsoft 365, Azure, Atlassian, AWS, and VMWare.</p><h2 id="SplunkService-Tools&amp;Featurestools-features">Tools &amp; Features<span class="confluence-anchor-link" id="SplunkService-tools-features"><span class="confluence-anchor-link" id="tools-features"></span></span></h2><p><strong>Machine Learning Toolkit (MLTK)</strong></p><ul><li><p>Users can create ML models that fits historical data and predicts future values</p></li><li><p>Uses Search Processing Language (SPL)</p></li><li><p>Predictive models can be used to discover anomalies in your datasets</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="544" loading="lazy" src="attachments/713424897/714473484.png?width=544" data-image-src="attachments/713424897/714473484.png" data-height="581" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="714473484" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-143659.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="713424897" data-linked-resource-container-version="9" data-media-id="4d9f85cb-0687-4665-a1f3-a457f59d1887" data-media-type="file"></span><p><strong>Custom Dashboard</strong></p><ul><li><p>Users can customize their dashboard UI to include visualizations and move components around as they see fit</p></li><li><p>XML can be used to further customize dashboards and/or user forms</p></li><li><p>Dashboards can be exported in a PDF format for sharing</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="544" loading="lazy" src="attachments/713424897/713916441.png?width=544" data-image-src="attachments/713424897/713916441.png" data-height="1249" data-width="1999" data-unresolved-comment-count="0" data-linked-resource-id="713916441" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-145537.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="713424897" data-linked-resource-container-version="9" data-media-id="d66fd6a1-c161-43d0-9dc3-40769612c251" data-media-type="file"></span><p><strong>Real User Monitoring (RUM)</strong></p><ul><li><p>Framework agnostic and uses OpenTelemetry based instrumentation</p></li><li><p>User activity capture</p><ul><li><p>Tracked by sessions and individual browser-resource interactions</p></li></ul></li></ul><p><strong>Report Generating</strong></p><ul><li><p>Reports can be exported in CSV, PDF, or JSON formats</p></li><li><p>Custom visualizations can be added to reports</p></li></ul><p><strong>Third-Party Plugin/Application/Service Integration</strong></p><ul><li><p>Integrates with Atlassian products</p></li></ul><hr/><h2 id="SplunkService-GettingStartedgetting-started">Getting Started <span class="confluence-anchor-link" id="SplunkService-getting-started"><span class="confluence-anchor-link" id="getting-started"></span></span></h2><p>This section will be using the Splunk Cloud Platform.</p><p>Video: <a class="external-link" href="https://www.splunk.com/en_us/resources/videos/splunk-cloud-tutorial.html" rel="nofollow">Splunk Cloud Tutorial | Splunk</a></p><h3 id="SplunkService-AddingDatatoCloudPlatform">Adding Data to Cloud Platform</h3><p>To get data into the Splunk Cloud Platform you have to use a <a class="external-link" href="https://docs.splunk.com/Splexicon:Forwarder" rel="nofollow">forwarder</a> or the <a class="external-link" href="https://docs.splunk.com/Documentation/SplunkCloud/9.0.2303/Data/UsetheHTTPEventCollector" rel="nofollow">HTTP Event Collector</a>. </p><p>Forwarders are the way to do data input to Splunk Cloud- data collection has to be done outside of Splunk. A forwarder must be installed onto any system that log data is being collected from.</p><p>HTTP Event Collectors allow you to forward data to your Splunk Deployment over HTTP/HTTPS.</p><p /><p style="margin-left: 30.0px;">Universal Forwarder Download Link: <a class="external-link" href="https://www.splunk.com/en_us/download/universal-forwarder.html?_ga=2.154617786.384031201.1685551364-1278903389.1684857167&amp;_gl=1*13wuzq2*_ga*MTI3ODkwMzM4OS4xNjg0ODU3MTY3*_ga_5EPM2P39FV*MTY4NTYyODE1Mi4xMy4xLjE2ODU2Mjk4NzAuNjAuMC4w&amp;locale=en_us" rel="nofollow">Download Universal Forwarder for Remote Data Collection | Splunk</a></p><p style="margin-left: 30.0px;">Windows Plugin Download Link: <a class="external-link" href="https://splunkbase.splunk.com/app/742" rel="nofollow">Splunk Add-on for Microsoft Windows | Splunkbase</a></p><p><strong>Important Note</strong>: it looks like Unity games will have to collect/log their own data and send it to an external server/database whose files can then be monitored by Splunk.</p><h2 id="SplunkService-Resourcesresources">Resources<span class="confluence-anchor-link" id="SplunkService-resources"><span class="confluence-anchor-link" id="resources"></span></span></h2><p>Main page: <a class="external-link" href="https://www.splunk.com/" rel="nofollow">Splunk | The Key to Enterprise Resilience</a></p><p>Getting Started: <a class="external-link" href="https://www.splunk.com/en_us/get-started/cloud.html" rel="nofollow">Getting Started with Splunk Cloud Platform | Splunk</a></p><p>Building visualizations: <a class="external-link" href="https://docs.splunk.com/Documentation/Splunk/latest/Viz/Aboutthismanual?_ga=2.135042036.44334846.1684857167-1278903389.1684857167&amp;_gl=1*kxh0xx*_ga*MTI3ODkwMzM4OS4xNjg0ODU3MTY3*_ga_5EPM2P39FV*MTY4NDg2OTUxOS4zLjEuMTY4NDg3MTMwNS42MC4wLjA." rel="nofollow">Getting started - Splunk Documentation</a></p><p><a class="external-link" href="https://www.splunk.com/pdfs/solution-guides/splunk-for-gaming-and-software-companies.pdf" rel="nofollow">Splunk for Gaming and Software Companies</a></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/713424897/714473484.png">image-20230524-143659.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/713424897/713916441.png">image-20230524-145537.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

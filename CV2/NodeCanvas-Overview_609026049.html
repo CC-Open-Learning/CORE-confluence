@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : NodeCanvas Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Graph-Based-Editor_600768582.html">Graph-Based Editor</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : NodeCanvas Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jonah Pearce</span> on Mar 01, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Introduction</strong></p><p>NodeCanvas is a feature-filled tool for visual scripting in Unity that allows us to create complex systems and behaviors for projects instead of traditional programming. Some of the key features of using NodeCanvas are:</p><ul><li><p>Ability to create and edit visual scripting graphs</p></li><li><p>Has support for a wide variety of node types and connections</p></li><li><p>We can create our custom node types.</p></li><li><p>Conveniently playback and pause graphs</p></li><li><p>Has tools for debugging and logging graphs.</p></li></ul><p><strong>Graph</strong></p><p>A graph in NodeCanvas is a collection of nodes you connect to create a specific system or behavior for your project. Every graph is stored and used as a Unity asset and can be visually edited with the NodeCanvas editor window.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/609026049/608698392.png" data-image-src="attachments/609026049/608698392.png" data-height="562" data-width="1187" data-unresolved-comment-count="0" data-linked-resource-id="608698392" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230125-143042.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="609026049" data-linked-resource-container-version="1" data-media-id="d245417a-49f3-4cf0-ac30-6500dd12aa46" data-media-type="file"></span><p><strong>Nodes</strong></p><p>The nodes are the central part of the graph, the building blocks that make up the graph. They represent the functionality and tasks of your system. There are unlimited types of nodes, such as nodes that represent actions for the graph to complete, conditions to be met, Unity events, and many more types, including the ability to create a custom type of node for a project. Each node can have its unique properties and settings.</p><p>Nodes are connected to make a graph. Connections can be made simply by dragging the output of one node to the input of another node in the editor. This links the nodes for the flow of your graph, allowing them to interact and share data. Execution Flow is an essential concept in NodeCanvas. Their connections determine the flow in which the nodes activate. The graph will start at the first node and flow through them in the order set up until completion.</p><p>Node Canvas graphs can call on other graphs allowing us to have nested graphs which allow us to split up functionality and have many simpler graphs of different types instead of trying to have one graph.</p><ul><li><p><strong>Behavior Tree: </strong>These graphs are very commonly used for AI as its nodes serve as a series of tasks, where each task represents a specific behavior or action that the AI can take.  Each task can have its own set of conditions and actions and can be used to build complex AI behaviors.</p></li><li><p><strong>State Machine: </strong>A State Machine is a graph representing states and the transitions between them. For this reason, it is commonly used for task flows, and game flows for applications. The State Machine is run by entering a state and then transitioning to other states based on predefined conditions.</p></li><li><p><strong>Dialogue Tree: </strong>A Dialogue Tree is similar to a state machine, especially considering you can add the same type of nodes with the same actions and conditions, the main difference being the added dialogue features. The dialogue features can be used to present to the user any dialogue, from simple statements to questionnaires or even full-on stories and chats.</p></li></ul><p>In summary, NodeCanvas provides several types of graphs to create and manage different types of behaviors. The Behavior Tree is used to create complex AI behaviors, the State Machine is used to control game mechanics, and the Dialogue Tree is used to create branching dialogue options. By using these three graphs together, you can create complex and engaging gameplay experiences.</p><p><strong>Blackboards</strong></p><p>A blackboard is a data container that can be shared between nodes in a graph. It can be used to store variables and other information that is used by the nodes in the graph. This is extremely useful for complex DLX projects that are going to be using many graphs in one scenario, as it makes it easy to share and use variables and objects from the scene among all the graphs.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/609026049/644481034.png" data-image-src="attachments/609026049/644481034.png" data-height="185" data-width="371" data-unresolved-comment-count="0" data-linked-resource-id="644481034" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230301-124043.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="609026049" data-linked-resource-container-version="1" data-media-id="f12e0a17-b7dd-44b6-ad2f-eca53d55feea" data-media-type="file"></span><p><strong>Playback and debugging</strong></p><p>NodeCanvas allows you to play, pause and step through the graph; it also allows you to check the execution flow of the graph and debug the graph.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="544" loading="lazy" src="attachments/609026049/609058819.png?width=544" data-image-src="attachments/609026049/609058819.png" data-height="400" data-width="509" data-unresolved-comment-count="0" data-linked-resource-id="609058819" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230125-151602.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="609026049" data-linked-resource-container-version="1" data-media-id="6bc999e9-3883-4de7-b2a8-523378986b98" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/609026049/608698392.png">image-20230125-143042.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/609026049/609058819.png">image-20230125-151602.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/609026049/644481034.png">image-20230301-124043.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

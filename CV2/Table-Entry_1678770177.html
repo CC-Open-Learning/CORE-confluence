@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Table Entry</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UI-Prefabs_1496186887.html">UI Prefabs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tables_1674412053.html">Tables</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Table Entry
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Harris Ibrahimi</span>, last modified on Mar 10, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="dc1f0434-1c3d-4c48-88a4-b279e545b09e" class="confluenceTable"><colgroup><col style="width: 216.0px;"/><col style="width: 544.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Implements</p></td><td class="confluenceTd"><p /></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Inherits</p></td><td class="confluenceTd"><p /></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Sample Scene</p></td><td class="confluenceTd"><p>Table Scene</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544469705 {padding: 0px;}
+div.rbtoc1748544469705 ul {list-style: none;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544469705 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544469705'>
+<ul class='toc-indentation'>
+<li><a href='#TableEntry-TableEntry'>Table Entry</a>
+<ul class='toc-indentation'>
+<li><a href='#TableEntry-Scripting'>Scripting</a>
+<ul class='toc-indentation'>
+<li><a href='#TableEntry-Properties&amp;Methods'>Properties &amp; Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="TableEntry-TableEntry">Table Entry</h1><p>Table Entry is a class representing an entry inside a category on the table. It contains properties that allow users to modify individual entries.</p><a class="external-link" data-card-appearance="embed" data-layout="center" data-width="100.00" href="https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=4110-1521&amp;m=dev" rel="nofollow">https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=4110-1521&amp;m=dev</a><p> </p><h2 id="TableEntry-Scripting">Scripting</h2><h3 id="TableEntry-Properties&amp;Methods">Properties &amp; Methods</h3><div class="table-wrap"><table data-table-width="1800" data-layout="center" data-local-id="239aacbd-ed9b-4cea-950d-a39500068943" class="confluenceTable"><colgroup><col style="width: 527.0px;"/><col style="width: 1273.0px;"/></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Property/Method</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Description</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Table </strong>Owner</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>The owning table of the entry</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>TableCategory </strong>Category</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>The owning category of the entry</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>IEnumerable</strong>&lt;<strong>TableElement</strong>&gt; Elements</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>The elements contained inside the entry</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>FindElementByText()</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>Definitions</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public TableElement FindElementByText(string text)</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Returns the first element found with the specified text if it exists, otherwise returns null</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>RemoveFromCategory()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void RemoveFromCategory()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Removes the entry from its parent category</p></li><li><p>Invokes TableCategory.OnEntryRemoved</p></li></ul></td></tr></tbody></table></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770186.png">image-20250303-162238.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770189.png">image-20250303-162217.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770192.png">image-20250303-162138.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770195.gif">GIF 2024-08-14 1-54-12 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770198.gif">GIF 2024-08-13 3-26-21 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770201.gif">GIF 2024-08-13 3-07-11 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770204.gif">GIF 2024-08-13 2-57-58 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1678770177/1678770207.png">image-20240813-133555.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

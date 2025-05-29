@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Comparison of old and new package management systems</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Unity-Packages-Registry-Status_715653122.html">CORE Unity Packages Registry Status</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Comparison of old and new package management systems
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> estronge</span>, last modified by <span class='editor'> David Inglis</span> on Aug 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-layout="default" data-local-id="41b152ff-fda8-43ed-b978-90ab14b977e7" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><th colspan="2" class="confluenceTh"><p style="text-align: center;"><strong>OLD</strong></p></th><th colspan="2" class="confluenceTh"><p style="text-align: center;"><strong>NEW</strong></p></th></tr><tr><td data-highlight-colour="#abf5d1" class="confluenceTd"><p style="text-align: center;">Strengths</p></td><td data-highlight-colour="#ffbdad" class="confluenceTd"><p style="text-align: center;">Weaknesses</p></td><td data-highlight-colour="#abf5d1" class="confluenceTd"><p style="text-align: center;">Strengths</p></td><td data-highlight-colour="#ffbdad" class="confluenceTd"><p style="text-align: center;">Weaknesses</p></td></tr><tr><td class="confluenceTd"><ul><li><p>All functions to interact with the system are available within the package manager window (as far as I know)</p></li></ul><p /><ul><li><p>Allows easy reinstallation of outdated versions of packages through the git branches</p></li></ul><p /><ul><li><p>Samples work as intended</p></li></ul><p /><ul><li><p>UI integrated elements give a better visual representation of the properties and characteristics of a package upon first glance</p></li></ul></td><td class="confluenceTd"><ul><li><p>Requires a setup for users to get SSH authentication before any packages can be accessed</p></li></ul><p /><ul><li><p>Without proper permissions for individual repositories or packages, Unity will show an error before launching, even if the user is SSH authenticated (I ran into this with node canvas package since it isn’t part of com.varlab)</p></li></ul><p /><ul><li><p>Multiple copies of the same version existing on different branches could cause some confusion and/or inconsistencies</p></li></ul><p /><ul><li><p>Some command line involvement for setting up the SSH keys</p></li></ul><p /><ul><li><p>There isn’t very much documentation on the process of interacting with this system</p></li></ul></td><td class="confluenceTd"><ul><li><p>Setup only done at the beginning of a project, rather than needing to be consistently modified as new packages are added</p></li></ul><p /><ul><li><p>Config files only need to be created once and they will work for all projects on a given computer</p></li></ul><p /><ul><li><p>Older projects should be able to transfer to this system without too many issues regarding the package versions that they are using, even if the version they are on doesn’t exist in the registry</p></li></ul><p /><ul><li><p>Packages are isolated in a specific location, which ideally will make managing them easier over time</p></li></ul><p /><ul><li><p>Separates our custom packages into a separate window within unity to make things a little bit easier to navigate as more packages are created</p></li></ul><p /><ul><li><p>Documentation for using this version is more extensive and all in one place</p></li></ul><p /><ul><li><p>As far as I know, outdated package versions will be available in a dropdown under each package (assuming they have been published to the registry)</p></li></ul></td><td class="confluenceTd"><ul><li><p>As of now, samples require a low-moderate amount of extra work to set up, and may require an alternative solution, which as a result would further complicate the workflow and may not pay off</p></li></ul><p /><ul><li><p>Currently, there is still a lot of command line involvement for the people that manage the registry itself (adding, updating, deleting)</p></li></ul><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Both of the above concerns should be resolved by <a class="external-link" href="https://varlab-dev.atlassian.net/browse/CORE-360" rel="nofollow">CORE-360</a></p></div></div></td></tr></tbody></table></div><p /><hr/><h1 id="Comparisonofoldandnewpackagemanagementsystems-KeyTakeaways"><strong><u>Key Takeaways</u></strong></h1><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><ul><li><p>If the process of setting up SSH authentication was fully eliminated, the config process of setting up a computer for accessing the VARLAB custom package registry would be shorter and guarantee that projects only need to set it up once per project, rather than consistently having to manually add new packages as new mechanics are implemented</p></li></ul><p /><ul><li><p>Ideally, the new system would eventually host all of CORE’s custom and third party packages in the Verdaccio registry</p></li></ul><p /><ul><li><p>In order to increase scalability of our systems overall, it is near essential that we begin storing our packages externally so that project production doesn’t begin to slow down</p></li></ul></div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

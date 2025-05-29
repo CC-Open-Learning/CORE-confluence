@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Comparison of Azure Services</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Research-Recommendation---Analytic-Services-and-Tools_717324363.html">Research Recommendation - Analytic Services and Tools</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Comparison of Azure Services
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on May 26, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will outline basic information about the many analytic services that Azure provides.</p><p /><div class="table-wrap"><table data-layout="wide" data-local-id="aa0b7aae-6216-4387-9fbf-cad4e701ba26" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p style="text-align: center;"><strong>Service Name</strong></p></th><th class="confluenceTh"><p style="text-align: center;"><strong>Source(s)</strong></p></th><th class="confluenceTh"><p style="text-align: center;"><strong>Notes</strong></p></th></tr><tr><td class="confluenceTd"><p><a href="#playfab" rel="nofollow">Azure PlayFab</a></p></td><td class="confluenceTd"><p><a class="external-link" href="https://azure.microsoft.com/en-ca/products/playfab/" rel="nofollow">PlayFab | Microsoft Azure</a></p><p><a class="external-link" href="https://playfab.com/pricing/" rel="nofollow">Pricing (playfab.com)</a></p><p><a class="external-link" href="https://azure.microsoft.com/en-ca/products/playfab/multiplayer-services" rel="nofollow">Azure PlayFab Multiplayer Services – Servers for Gaming | Microsoft Azure</a></p></td><td class="confluenceTd"><ul><li><p>Event driven</p><ul><li><p>Uses raw JSON data</p></li></ul></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/automation/cloudscript/" rel="nofollow">Cloudscripting</a></p><ul><li><p>Can be written in both C# or JavaScript</p></li></ul></li><li><p>Supports multiplayer using their own multiplayer service</p></li><li><p>Data can be sent externally via webhooks</p></li><li><p>Supports A/B (split) testing</p></li></ul></td></tr><tr><td class="confluenceTd"><p><a href="#synapse" rel="nofollow">Azure Synapse Analytics</a></p><p>(probably not the best choice for DLX)</p></td><td class="confluenceTd"><p><a class="external-link" href="https://azure.microsoft.com/en-us/products/synapse-analytics/" rel="nofollow">Azure Synapse Analytics | Microsoft Azure</a></p></td><td class="confluenceTd"><ul><li><p>SQL based- an enhancement to Azure SQL Data Warehouse</p></li><li><p>Uses Apache Spark and Azure Data Explorer</p></li><li><p>Seems to be <strong>best used for organizations with large databases </strong>and in combination with multiple Azure services</p></li></ul></td></tr><tr><td class="confluenceTd"><p><a href="#analysis" rel="nofollow">Azure Analysis Services</a></p><p>(also not the best choice for DLX, more for data visualization than gathering)</p></td><td class="confluenceTd"><p><a class="external-link" href="https://azure.microsoft.com/en-us/products/analysis-services/" rel="nofollow">Analysis Services | Microsoft Azure</a></p></td><td class="confluenceTd"><ul><li><p>For use with large amounts of data</p></li><li><p>Not an analytics tracker- essentially a data merger/a place to combine and analyze datasets</p></li><li><p>Data modeling/visualization</p></li></ul></td></tr></tbody></table></div><p><span class="confluence-anchor-link" id="ComparisonofAzureServices-playfab"><span class="confluence-anchor-link" id="playfab"></span></span></p><h2 id="ComparisonofAzureServices-AzurePlayFab">Azure PlayFab</h2><h3 id="ComparisonofAzureServices-CloudScripting">CloudScripting</h3><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/automation/cloudscript-af/quickstart" rel="nofollow">PlayFab CloudScript using Azure Functions Quickstart Guide - PlayFab | Microsoft Learn</a></p><h4 id="ComparisonofAzureServices-Description">Description</h4><p>Cloud Scripting allows client code to request for server-side code to be executed. </p><h4 id="ComparisonofAzureServices-HttpTrigger">Http Trigger</h4><p>Functions that are invoked by HTTP requests to build serverless APIs and respond to webhooks. The function result will return in the HTTP response. </p><h4 id="ComparisonofAzureServices-QueueTrigger">Queue Trigger</h4><p>Requests are queued to Azure Function then processed in order. The function result will not be returned. </p><h3 id="ComparisonofAzureServices-Playstream">Playstream</h3><h4 id="ComparisonofAzureServices-Description.1">Description</h4><p>The event processing system used in PlayFab to take the entire data flow and put into single event stream. </p><p>(Temp source: <a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/personas/bi" rel="nofollow">Getting Started for Business Intelligence - PlayFab | Microsoft Learn</a>)</p><h4 id="ComparisonofAzureServices-PlaystreamEvents">Playstream Events</h4><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/gaming/playfab/features/analytics/metrics/playstream-events" rel="nofollow">https://learn.microsoft.com/en-us/gaming/playfab/features/analytics/metrics/playstream-events</a> </p><ol start="1"><li><p>Automatic Events: “Out of the Box” PlayFab events, ie. Player logs in with valid email/pass. </p></li><li><p>Custom events: Creating a custom event specific to your game., fully reflected through real time analytic tools available. These are classified by entity bound to a player, character, or title. An event reference is specified using 2 fields <strong>EntityType </strong>and <strong>EntityID</strong>. </p></li></ol><p /><p><span class="confluence-anchor-link" id="ComparisonofAzureServices-synapse"><span class="confluence-anchor-link" id="synapse"></span></span></p><h2 id="ComparisonofAzureServices-AzureSynapseAnalytics">Azure Synapse Analytics</h2><p /><p /><p><span class="confluence-anchor-link" id="ComparisonofAzureServices-analysis"><span class="confluence-anchor-link" id="analysis"></span></span></p><h2 id="ComparisonofAzureServices-AzureAnalysisServices">Azure Analysis Services</h2><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

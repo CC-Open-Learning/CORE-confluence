@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Point &amp; Click Navigation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Point &amp; Click Navigation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Amila Abeygunasekara</span>, last modified on Apr 01, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="c08e92bf-33a8-42f0-be36-e1b63eb59bf9" class="confluenceTable"><colgroup><col style="width: 363.0px;"/><col style="width: 363.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>Point and Click Navigation</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">1.2.1</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Provides the ability to navigate between custom waypoints/point of interests (POIs) while avoiding obstacles.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/point-and-click-navigation/" rel="nofollow">https://bitbucket.org/VARLab/point-and-click-navigation/</a></p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p>com.varlab.navigation.pointclick</p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span>  </p></td></tr><tr><th class="confluenceTh"><p><strong>Code Coverage</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh">TODO</span></p></td></tr></tbody></table></div></div><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240110-155945.png" width="633" loading="lazy" src="attachments/906657797/906592269.png?width=633" data-image-src="attachments/906657797/906592269.png" data-height="579" data-width="1031" data-unresolved-comment-count="0" data-linked-resource-id="906592269" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240110-155945.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="906657797" data-linked-resource-container-version="8" data-media-id="5e551df7-69fc-4ba8-bd8c-760323495682" data-media-type="file"></span><h1 id="Point&amp;ClickNavigation-Overview">Overview</h1><p>The Point &amp; Click Navigation package lets developers easily set up a navigation system with custom waypoints. This system is mainly built on top of Unity’s AI Navigation and Cinemachine packages. Additionally, it uses some components of our in-house CORE Cinema package.</p><h2 id="Point&amp;ClickNavigation-HowitWorks">How it Works</h2><p>The Point &amp; Click package consists of three main components: the player, camera and waypoints.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-150422.png" width="323" loading="lazy" src="attachments/906657797/912687122.png?width=323" data-image-src="attachments/906657797/912687122.png" data-height="427" data-width="411" data-unresolved-comment-count="0" data-linked-resource-id="912687122" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-150422.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="906657797" data-linked-resource-container-version="8" data-media-id="88e72620-ff7b-4da6-a7a7-1de48a96127b" data-media-type="file"></span><h3 id="Point&amp;ClickNavigation-ThePlayer">The Player</h3><p>Unity’s AI Navigation package mostly drives the player. Features such as obstacle avoidance are inherited from the AI Navigation package.</p><h3 id="Point&amp;ClickNavigation-TheCamera">The Camera</h3><p>There are actually two cameras included in this package, which are the Main Camera and the POV Camera. The Main Camera is basically the default Unity Main Camera. The POV Camera, on the other hand, is a Cinemachine Virtual Camera. It is named “POV Camera” because the <em>Aim</em> section of its <code>CinemachineVirtualCamera</code> component is set to <em>POV</em>.</p><p>The Cinemachine package controls the POV Camera, and the POV Camera drives the Main Camera. POV Camera and Main Camera will always have the same rotation values. It’s important to note that the camera rotations are independent of player rotations.</p><h3 id="Point&amp;ClickNavigation-Waypoints">Waypoints</h3><p>These are the points of interest (POIs) that the player can be walked into. Once the user clicks on one of these waypoints, the player will navigate into it while looking straight.</p><h1 id="Point&amp;ClickNavigation-HowtoSetup">How to Setup</h1><p>The setup is pretty much straightforward. There is one prerequisite, which is setting up the floor/ground. We will need a NavMesh Surface on the ground GameObject for the player to walk.</p><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/CreateNavMesh.html" rel="nofollow">Create a NavMesh | AI Navigation | 1.1.5 (unity3d.com)</a></p><h3 id="Point&amp;ClickNavigation-CreatingtheMainHandler">Creating the Main Handler</h3><p>Once we have <code>NavMeshSurface</code> attached to the ground GameObject, we can go ahead and create the main “handler/controller” and waypoints in the scene for point-and-click navigation.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-153909.png" width="589" loading="lazy" src="attachments/906657797/912883731.png?width=589" data-image-src="attachments/906657797/912883731.png" data-height="586" data-width="589" data-unresolved-comment-count="0" data-linked-resource-id="912883731" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-153909.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="906657797" data-linked-resource-container-version="8" data-media-id="9be7157d-9fbe-40c5-ab35-b98da0a4e2b6" data-media-type="file"></span><p>Go to GameObject → VARLab → Point Click Navigation Handler to create the <em>Point Click Navigation</em> GameObject on the scene. Alternatively, we can right-click on the Unity Hierarchy to access this menu.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>You should have only a single <em>Point Click Navigation Handler</em> in the scene.</p>
+</div></div><h4 id="Point&amp;ClickNavigation-[Optional]SettingaLook-atTarget:">[Optional] Setting a Look-at Target:</h4><p>You can set a target to look at once the player reaches a destination/waypoint.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-215344.png" width="499" loading="lazy" src="attachments/906657797/913440773.png?width=499" data-image-src="attachments/906657797/913440773.png" data-height="111" data-width="499" data-unresolved-comment-count="0" data-linked-resource-id="913440773" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-215344.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="906657797" data-linked-resource-container-version="8" data-media-id="7aa8a8db-8a15-451e-9dd1-cfeda597e8e5" data-media-type="file"></span><p>This can be done by serializing a GameObject into the <em>Look At After Walking</em> field. If we leave this empty, the player will keep looking straight after walking. </p><h3 id="Point&amp;ClickNavigation-CreatingWaypoints">Creating Waypoints</h3><p>As you may have already figured out, you can use the same context menu shown above to instantiate waypoints by clicking on <em>Navigation Waypoint</em>. You can have multiple waypoints in the scene and put them under any GameObject.</p><p>And that’s it! Now you have a functional Point &amp; Click navigation system in your project.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/906657797/906592269.png">image-20240110-155945.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/906657797/912687122.png">image-20240115-150422.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/906657797/912883731.png">image-20240115-153909.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/906657797/913440773.png">image-20240115-215344.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

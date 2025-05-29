@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Viewer &amp; Player Clients</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Viewer &amp; Player Clients
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Feb 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This section will detail information about viewer and player client interactions. <br/>Parrelsync is used to have multiple Unity editors running at once. More info about Parrelsync <a href="Adding-Fish-Net-and-ParrelSync_497680417.html" data-linked-resource-id="497680417" data-linked-resource-version="7" data-linked-resource-type="page">here</a>.</p><hr/><p><strong>Repo Link:</strong> <a class="external-link" href="https://bitbucket.org/VARLab/networkingtests/src/main/" rel="nofollow">VARLab / networkingtests — Bitbucket</a></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Latest update: TBA</p></div></div><p><strong>Description</strong></p><p>Players and Viewers are two types of clients. </p><p>Players can physically interact with the environment. Viewers are not visible to Players, they are able to move around the server in third-person view or watch what a Player is doing in real-time using their camera.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/619282435/626851899.png" data-image-src="attachments/619282435/626851899.png" data-height="1022" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="626851899" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230209-091208.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="619282435" data-linked-resource-container-version="2" data-media-id="b83453e4-21e9-4896-8a6c-fcb8ccdf18ab" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/619282435/627245065.png" data-image-src="attachments/619282435/627245065.png" data-height="1022" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="627245065" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230209-091409.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="619282435" data-linked-resource-container-version="2" data-media-id="adabf5ec-e582-4f60-b670-8ad544075ae7" data-media-type="file"></span><p><strong>Scripts</strong></p><ul><li><p>Player controller</p><ul><li><p>Used for both viewer and player</p></li><li><p>Using Unity’s new <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.5/manual/index.html" rel="nofollow">input system</a></p></li></ul></li><li><p>Camera controller</p><ul><li><p>Used for both viewer and player</p></li><li><p>Viewer will be able to lock/unlock camera panning when attached to a player</p></li></ul></li><li><p>View switcher</p><ul><li><p>Used for viewer-type clients to switch between their own camera and player cameras</p></li></ul></li><li><p>Player interaction</p><ul><li><p>Used for players to interact with the environment</p></li></ul></li></ul><p /><p><strong>Quick Start Guide</strong></p><p>Player and viewer prefabs are included, at the moment you will have to switch them on manually in play mode (spawner script TBA).</p><p>[WIP]</p><hr/><p><strong>Goals</strong></p><ul><li><p>Optimizing the viewer script for latency</p></li><li><p>Custom spawning so you can choose between being a Viewer or Player upon joining the server</p></li><li><p>'Logout/Quit' from the server</p></li><li><p>Make the viewer script ‘easier’ to use</p><ul><li><p>Scroll wheel to zoom in and out</p></li><li><p>Click and drag to pan around the environment</p></li></ul></li><li><p>Viewer to be able to switch between more than one player</p><ul><li><p>Using a ‘registering’ system where spawned in Players will auto-register their cameras to a List</p><ul><li><p>Viewers will be able to access the list and choose which Player to watch</p></li></ul></li></ul></li><li><p>Test in the CORE Sandbox repo</p></li><li><p>Testing multiple viewers in the same server</p></li><li><p>Testing in WebGL</p></li><li><p>Testing using <a href="PlayFlow--Testing-on-a-Dedicated-Server_500531346.html" data-linked-resource-id="500531346" data-linked-resource-version="10" data-linked-resource-type="page">Playflow</a></p></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/619282435/626851899.png">image-20230209-091208.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/619282435/627245065.png">image-20230209-091409.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

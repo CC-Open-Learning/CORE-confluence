@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using The Analytics System</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Getting-Started-With-Analytics_781844520.html">Getting Started With Analytics</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using The Analytics System
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joshua Moore</span>, last modified on Aug 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page assumes you have setup Analytics, if you are unsure please see <a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/eiPGa4c1" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/eiPGa4c1</a> </p></div></div><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544185741 {padding: 0px;}
+div.rbtoc1748544185741 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544185741 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544185741'>
+<ul class='toc-indentation'>
+<li><a href='#UsingTheAnalyticsSystem-Whatyouneedtoknow'>What you need to know</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingTheAnalyticsSystem-EventContainers'>Event Containers</a></li>
+<li><a href='#UsingTheAnalyticsSystem-TheAnalyticsChannel'>The Analytics Channel</a></li>
+<li><a href='#UsingTheAnalyticsSystem-DLXEventFlow'>DLX Event Flow</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingTheAnalyticsSystem-StandardQuiz/InspectionStructure'>Standard Quiz/Inspection Structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#UsingTheAnalyticsSystem-SendingDefaultEvents'>Sending Default Events</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingTheAnalyticsSystem-StepstoSendanEvent'>Steps to Send an Event</a></li>
+</ul>
+</li>
+<li><a href='#UsingTheAnalyticsSystem-CreatingCustomEvents'>Creating Custom Events</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingTheAnalyticsSystem-Introduction'>Introduction</a></li>
+<li><a href='#UsingTheAnalyticsSystem-HowEventsWork'>How Events Work</a></li>
+<li><a href='#UsingTheAnalyticsSystem-CreatingYourOwnEvent'>Creating Your Own Event</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="UsingTheAnalyticsSystem-Whatyouneedtoknow">What you need to know</h1><p>Before we get into how to fire events there are a couple things we should cover first.</p><h2 id="UsingTheAnalyticsSystem-EventContainers">Event Containers</h2><p>There are 3 default events currently in the package, these events each have a corresponding container class.</p><ol start="1"><li><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/782434326/Analytics+API+Documentation#ProgressContainer" rel="nofollow"><strong>ProgressContainer</strong></a></p></li><li><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/782434326/Analytics+API+Documentation#Segment-Complete-Container" rel="nofollow"><strong>Segment Complete Container</strong></a></p></li><li><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/782434326/Analytics+API+Documentation#DLX-Complete-Container" rel="nofollow"><strong>DLX Complete Container</strong></a></p></li></ol><p>These 3 containers correspond to the 3 events, Progress event, Segment Complete event, and DLX Complete event that will appear in PlayFab, and contain the necessary information for the event. They all inherit from <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/782434326/Analytics+API+Documentation#EventContainer" rel="nofollow"><strong>EventContainer</strong></a> which can be used to make custom events(see <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/781844533/Using+The+Analytics+System#Creating-Custom-Events" rel="nofollow"><u>Creating Custom Events</u></a>).</p><h2 id="UsingTheAnalyticsSystem-TheAnalyticsChannel">The Analytics Channel</h2><p>We use a scriptable object called <strong>AnalyticsChannel</strong>(<a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/782434326/Analytics+API+Documentation#AnalyticsEvent.cs" rel="nofollow">AnalyticsEvent.cs</a>), this is used for the analytics system to communicate on and acts as a “radio channel”. This is located in <strong>Package/COREAnalytics/Runtime/Scripts/Channels</strong>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785350888.png" data-image-src="attachments/781844533/785350888.png" data-height="235" data-width="643" data-unresolved-comment-count="0" data-linked-resource-id="785350888" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-191210.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="d66ada44-18d0-41dc-a948-12e57189e4c1" data-media-type="file"></span><p>This is referenced by scripts to allow communication between them, the Analytics Prefab has it referenced and will be listening on the channel, and you as a developer will reference it and “broadcast” on the channel to our listener.</p><h2 id="UsingTheAnalyticsSystem-DLXEventFlow">DLX Event Flow</h2><p>Below are a couple flowcharts to represent the location in the DLX flow where events would typically be fired.</p><h3 id="UsingTheAnalyticsSystem-StandardQuiz/InspectionStructure">Standard Quiz/Inspection Structure</h3><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785481922.png" data-image-src="attachments/781844533/785481922.png" data-height="781" data-width="851" data-unresolved-comment-count="0" data-linked-resource-id="785481922" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="DLXOverall.drawio (1).png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="36c5b7db-23ff-42be-ae0b-4804f5b022de" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785481928.png" data-image-src="attachments/781844533/785481928.png" data-height="621" data-width="641" data-unresolved-comment-count="0" data-linked-resource-id="785481928" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="QuizStruct.drawio.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="4106a704-8543-4fa8-a35f-378002b44ea2" data-media-type="file"></span><hr/><h1 id="UsingTheAnalyticsSystem-SendingDefaultEvents">Sending Default Events</h1><h2 id="UsingTheAnalyticsSystem-StepstoSendanEvent">Steps to Send an Event</h2><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Please read the <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/781844533/Using+The+Analytics+System#What-you-need-to-know" rel="nofollow"><u>What you need to know</u></a> section for context!</p></div></div><ol start="1"><li><p>Reference the <strong>AnalyticsChannel</strong></p></li><li><p>Create an event container</p></li><li><p>on the AnalyticsChannel reference, call Raise(). Passing in the container.</p></li></ol><p>These 3 steps are all it takes to send an event on our “radio channel” which the analytics system will be listening on! Below are some examples.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/781844533/785219797.png?width=680" data-image-src="attachments/781844533/785219797.png" data-height="72" data-width="817" data-unresolved-comment-count="0" data-linked-resource-id="785219797" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230704-194357.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="7ad8b620-ed93-4b07-803f-de273ee6c862" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/781844533/785219803.png?width=680" data-image-src="attachments/781844533/785219803.png" data-height="534" data-width="807" data-unresolved-comment-count="0" data-linked-resource-id="785219803" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230713-141456.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="1edf9bee-75af-4eaf-bd7b-9abe34a0b7b3" data-media-type="file"></span><p>That’s all it takes! The analytics system will handle the rest.</p><hr/><h1 id="UsingTheAnalyticsSystem-CreatingCustomEvents">Creating Custom Events</h1><h2 id="UsingTheAnalyticsSystem-Introduction">Introduction</h2><p>In PlayFab there are some events that are handled “out of the box” such as tracking unique users, and average screen time. Since it is a game based tool and every title has unique needs it includes the ability to create your own events! We have included a class called <strong>EventContainer</strong> which will be used as a parent class for all events.</p><h2 id="UsingTheAnalyticsSystem-HowEventsWork">How Events Work</h2><p><span class="inline-comment-marker" data-ref="7a754ad2-7180-402f-8dc6-9f72f6f89504">Events in PlayFab are essentially just JSON objects, containing information about whatever you want! As an example:</span></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785940577.png" data-image-src="attachments/781844533/785940577.png" data-height="460" data-width="367" data-unresolved-comment-count="0" data-linked-resource-id="785940577" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="examplejson.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="962ba970-72bc-44fc-86d3-94a076aa45d3" data-media-type="file"></span><p>The highlighted line is the event name property from above and how the event can be easily queried, the circled area is the dictionary that will contain what ever you want! The other stuff is all handled by PlayFab and you won’t need to worry about. It is recommended to pass in some identifying information such as how far in the DLX the event occurred as well as details about the event.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/784564633.png" data-image-src="attachments/781844533/784564633.png" data-height="326" data-width="714" data-unresolved-comment-count="0" data-linked-resource-id="784564633" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-192041.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="a789caa3-8040-4fe7-8aeb-cf9aa20c274f" data-media-type="file"></span><h2 id="UsingTheAnalyticsSystem-CreatingYourOwnEvent">Creating Your Own Event</h2><p>The first step to creating your own event will be creating a file which will hold the container class for your event. This will be something like MyEventContainer. This class will need a public constructor which will take the information you want to include with your event. Once this file is made it should look something like this.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785481977.png" data-image-src="attachments/781844533/785481977.png" data-height="274" data-width="531" data-unresolved-comment-count="0" data-linked-resource-id="785481977" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230628-180409.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="da4366a6-5c7f-4e3b-942f-1fb19e9c2cd6" data-media-type="file"></span><p>And that is all it takes to create your own “event”! This container will be instantiated where you want to send an event and then using our “channel” you will do something like</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781844533/785481983.png" data-image-src="attachments/781844533/785481983.png" data-height="69" data-width="632" data-unresolved-comment-count="0" data-linked-resource-id="785481983" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230628-181111.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781844533" data-linked-resource-container-version="22" data-media-id="bb5c7745-8f6f-49d5-88f7-b094b12dcc9b" data-media-type="file"></span><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785481922.png">DLXOverall.drawio (1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785481928.png">QuizStruct.drawio.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785481971.png">image-20230620-153140.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785481977.png">image-20230628-180409.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785481983.png">image-20230628-181111.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785350888.png">image-20230816-191210.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/784564633.png">image-20230816-192041.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785219797.png">image-20230704-194357.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785219803.png">image-20230713-141456.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781844533/785940577.png">examplejson.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

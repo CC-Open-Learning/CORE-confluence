@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using Unity Cloud Content Delivery</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Addressable-Assets_158629987.html">Addressable Assets</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using Unity Cloud Content Delivery
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified on May 06, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544534686 {padding: 0px;}
+div.rbtoc1748544534686 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544534686 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544534686'>
+<ul class='toc-indentation'>
+<li><a href='#UsingUnityCloudContentDelivery-Whatisit?'>What is it?</a></li>
+<li><a href='#UsingUnityCloudContentDelivery-CreatingaBucket'>Creating a Bucket</a></li>
+<li><a href='#UsingUnityCloudContentDelivery-UsingBadges'>Using Badges</a></li>
+<li><a href='#UsingUnityCloudContentDelivery-AddressablesWithCloudBuild'>Addressables With Cloud Build</a></li>
+</ul>
+</div><h2 id="UsingUnityCloudContentDelivery-Whatisit?">What is it?</h2><p><a class="external-link" href="https://unity.com/products/cloud-content-delivery" rel="nofollow">Unity Cloud Content Delivery</a> (CCD) is a first-party solution for distributing <a class="external-link" href="https://docs.unity3d.com/Manual/AssetBundlesIntro.html" rel="nofollow">Asset Bundles</a> to users with automatic download and update functionality. This allows developers to publish only their code and a few shared assets while the rest of their assets are delivered via CCD.</p><p>As the assets can be downloaded or updated for all users whenever developers decide, it can be used to distribute specific content to certain users or swap over the theme of assets for an event or holiday.</p><p>For CORE Engine we can pack a module’s assets into its own separate bundle and place it on CCD. This allows us to distribute just the engine itself and have users download their module assets as needed. If we make any changes to the assets for a module, users will automatically download those updates when they run the simulation.</p><p>This is crucial for <a href="https://varlab-dev.atlassian.net/wiki/spaces/CE/pages/156794902/WebGL+Deployment" data-linked-resource-id="156794902" data-linked-resource-version="7" data-linked-resource-type="page">WebGL deployment</a> as it reduces the initial download for users significantly and allows us to download the module assets in the background while they navigate the menus.</p><h2 id="UsingUnityCloudContentDelivery-CreatingaBucket">Creating a Bucket</h2><p>The first step to setting up CCD is to go to the <a class="external-link" href="https://dashboard.unity3d.com/landing" rel="nofollow">Unity Dashboard</a> and select <strong>Explore </strong>under <strong>Cloud Content Delivery</strong>. From there click the <strong>Projects</strong> tab and select our project. Once there select <strong>Create Bucket</strong>, fill out the information needed and click <strong>Submit</strong>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158629922/158597180.png" data-image-src="attachments/158629922/158597180.png" data-height="326" data-width="592" data-unresolved-comment-count="0" data-linked-resource-id="158597180" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-193813.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158629922" data-linked-resource-container-version="10" data-media-id="8b0b2e51-57f8-4045-b9af-13bf5438edb9" data-media-type="file"></span><p>With the bucket created, we will need to upload our Asset Bundles and catalog files from when we built our Asset Bundles from the Addressables system. To do so, follow the Uploading Instructions provided on the page, using either the website, <a class="external-link" href="https://content-api.cloud.unity3d.com/doc/" rel="nofollow">API </a>or <a class="external-link" href="https://docs.unity3d.com/Manual/UnityCCDCLI.html" rel="nofollow">Command-line interface (CLI)</a> as desired.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158629922/158629948.png" data-image-src="attachments/158629922/158629948.png" data-height="131" data-width="369" data-unresolved-comment-count="0" data-linked-resource-id="158629948" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-194253.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158629922" data-linked-resource-container-version="10" data-media-id="9d5d288a-a247-4b88-ae89-3f45e81e7258" data-media-type="file"></span><p>Once all of your content is uploaded and ready to go, release the content at the top of the page and your content is now ready to be accessed remotely using the <a href="Addressable-Assets_158629987.html" data-linked-resource-id="158629987" data-linked-resource-version="5" data-linked-resource-type="page">Addressables system</a>. To learn how to use Cloud Content Delivery with the Addressables system, check out <a href="160563240.html" data-linked-resource-id="160563240" data-linked-resource-version="13" data-linked-resource-type="page">Addressables &amp; Cloud Content Delivery</a> .</p><h2 id="UsingUnityCloudContentDelivery-UsingBadges">Using Badges</h2><p>Badges in Cloud Content Delivery are a way to mark releases with a specific label. This label can be used by the code to access specific releases. The default badge included with CCD is the <strong>latest</strong> badge, applied to the most recent release at all times. To add more badges, click on the <strong>Badges</strong> tab in the CCD bucket you would like to create a label in.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158629922/160628992.png" data-image-src="attachments/158629922/160628992.png" data-height="392" data-width="1122" data-unresolved-comment-count="0" data-linked-resource-id="160628992" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210506-162712.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158629922" data-linked-resource-container-version="10" data-media-id="8d911b2b-b6aa-4152-bc36-3be12b10c3ab" data-media-type="file"></span><p>Here we can add a new badge, for this example we’ll add in a badge called <strong>production</strong> so that if our newest content isn’t necessarily production-ready, having users load from the production badge instead lets us hold back that release until we know it’s stable.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158629922/160694642.png" data-image-src="attachments/158629922/160694642.png" data-height="323" data-width="590" data-unresolved-comment-count="0" data-linked-resource-id="160694642" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210506-162832.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158629922" data-linked-resource-container-version="10" data-media-id="bc3357c5-5063-4ebd-bfa6-6334f1006241" data-media-type="file"></span><p>Once we click <strong>Submit </strong>we can now use our badge for any of the releases for this bucket. Switch to the Releases tab and you can now assign your badge to any release.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158629922/160628998.png" data-image-src="attachments/158629922/160628998.png" data-height="272" data-width="1238" data-unresolved-comment-count="0" data-linked-resource-id="160628998" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210506-162950.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158629922" data-linked-resource-container-version="10" data-media-id="e9db6746-bb0c-4d1e-8e55-07eb400f3707" data-media-type="file"></span><p>To learn about how to load content from your Cloud Content Delivery buckets with these badges, check out <a href="160563240.html" data-linked-resource-id="160563240" data-linked-resource-version="13" data-linked-resource-type="page">Addressables &amp; Cloud Content Delivery</a> .</p><h2 id="UsingUnityCloudContentDelivery-AddressablesWithCloudBuild">Addressables With Cloud Build</h2><p>Cloud Build can be configured to build your addressable asset bundles along with the player content and upload the result to Cloud Content Delivery. This saves us the effort of having to manually build and upload our asset bundles. For more information, <a class="external-link" href="https://docs.unity3d.com/2019.4/Documentation/Manual/UnityCloudBuildAddressables.html" rel="nofollow">click here</a>.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158597180.png">image-20210504-193813.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158629948.png">image-20210504-194253.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158662776.png">image-20210504-194950.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158662784.png">image-20210504-195228.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158597201.png">image-20210504-195242.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158597207.png">image-20210504-195443.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/158564493.png">image-20210504-195914.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/160628992.png">image-20210506-162712.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/160694642.png">image-20210506-162832.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/160628998.png">image-20210506-162950.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158629922/162660353.png">image-20210506-184105.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

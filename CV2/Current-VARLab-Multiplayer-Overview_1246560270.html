@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Current VARLab Multiplayer Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Current VARLab Multiplayer Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Aug 01, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Welcome to the VARLab Multiplayer Overview page. This page is just the landing page and holds all of the multiplayer documentation. If you are interested in checking out anything multiplayer, please visit the <a class="external-link" href="https://bitbucket.org/VARLab/core-sandbox-development-environment/src/main/" rel="nofollow">CORE Sandbox Repository</a> as that is where everything is being kept for the time being.<br/><br/>The current goal with multiplayer is to allow for a DLX to be able to be played in a multiplayer setting, in either flatscreen or VR, utilizing Unity Lobby for a seamless lobbying system and using Unity Relay to let Unity handle hosting our DLX, allowing for a peer-to-peer architecture.<br/><br/>In the future, we hope to have the option to utilize a dedicated server architecture where we host a DLX on our own personal Azure server. This would change a few things, such as us having to handle encryption ourselves, but would give us more control over basically everything since we are hosting it.</p><p>The following packages will be used for multiplayer DLXs in the future</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="7a585f4c-edda-416c-82f6-cd250d0e786f" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><th class="confluenceTh"><p><strong>Usage</strong></p></th><th class="confluenceTh"><p><strong>Documentation Link</strong></p></th></tr><tr><th class="confluenceTh"><p>Netcode For GameObjects</p><p /></th><td class="confluenceTd"><p>The main multiplayer framework, allows GameObjects to be synced across clients.</p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/about/" rel="nofollow">NGO Docs</a></p><p> </p></td></tr><tr><th class="confluenceTh"><p>Unity Lobby</p></th><td class="confluenceTd"><p>Used to create a lobby system, allows players to create and join lobbies to start a multiplayer experience.</p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs.unity.com/ugs/manual/lobby/manual/unity-lobby-service" rel="nofollow">Lobby Docs</a></p></td></tr><tr><th class="confluenceTh"><p>Unity Relay</p></th><td class="confluenceTd"><p>Used to create a server instance on Unity Servers that the game will be played on in a peer to peer architecture</p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/relay/" rel="nofollow">Relay Docs</a></p></td></tr><tr><th class="confluenceTh"><p>Unity Transport</p></th><td class="confluenceTd"><p>The low-level interface for connecting and sending data through a network</p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.transport@2.3/manual/index.html" rel="nofollow">Transport Docs</a></p></td></tr><tr><th class="confluenceTh"><p>ParrelSync</p></th><td class="confluenceTd"><p>Allows you to create a clone of your Unity project so you can test your multiplayer game with 2+ players locally and without needing to build</p></td><td class="confluenceTd"><p><a class="external-link" href="https://github.com/VeriorPies/ParrelSync" rel="nofollow">ParrelSync Docs</a></p></td></tr><tr><th class="confluenceTh"><p>Multiplayer Play Mode</p></th><td class="confluenceTd"><p>An alternative to ParrelSync, made directly by Unity</p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/mppm/current/about/" rel="nofollow">Multiplayer Play Mode Docs</a></p></td></tr></tbody></table></div><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>The following is a list of notes about the packages mentioned, more can be added if necessary</p>
+</div></div><ul><li><p>ParrelSync and Multiplayer Play Mode essentially do the same thing, but both were mentioned in case there is a preference, try out both and pick which one you like more</p></li><li><p>There was an issue that Unity Lobby saw the ParrelSync clones as the same client. In order to fix this, the arguments of the ParrelSync clones need to be different. Unsure if Multiplayer Play Mode also faces this issue</p></li><li><p>Unity Relay handles encryption for us. However, if a dedicated server model is ever desired, encryption will have to be handled manually.</p></li></ul><p /><p /><p><br/></p><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the Developer Console</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Developer-Tools-for-Unity_501547060.html">Developer Tools for Unity</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the Developer Console
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Nov 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In order to access the developer console during playmode, hit the ` or ~ key on your keyboard.</p><p>From here you can list all the available commands by typing in <strong>help</strong> and pressing <strong>Enter</strong>.</p><p>There are a number of builtin commands to choose from as well as support for adding and removing commands depending on context. A trucking sim for example does not need a command to bake a pie while a kitchen sim does not need a command to open the truck’s hood.</p><h2 id="UsingtheDeveloperConsole-AddingNewCommands"><span class="inline-comment-marker" data-ref="dc521f91-3c86-4514-987a-0988d5348747">Adding New Commands</span></h2><p>To add a new command, we need to define the command’s <strong>Prefix</strong>, <strong>Description</strong>, and what to do when it runs.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using VARLab.DeveloperConsole;
+
+public class SayHelloCommand : ICommand
+{
+    public string Prefix =&gt; &quot;sayhello&quot;;
+
+    public string Description =&gt; &quot;Outputs &#39;Hi&#39; to the Unity Console.&quot;;
+
+    public void RunCommand(OnCommandEventArgs e)
+    {
+        if (!e.IsThisCommand(Prefix))
+            return;
+
+        Debug.Log(&quot;Hi&quot;);
+        e.HideMessage = true;
+    }
+}</pre>
+</div></div><p>In this example you can see a command called <strong>sayhello</strong> that outputs “Hi” to the Unity console when run from the VARLab developer console. When it’s successful it sets HideMessage to false in order to prevent the console command from presenting a message back to the user. This is a super simple example but now we can add it to our list of commands by calling <strong>AddCommand</strong>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence"> VARConsole.AddCommand(new SayHelloCommand());</pre>
+</div></div><p>Once this line of code is run, the command will be added to the list of commands and we can use it from the console.</p><h2 id="UsingtheDeveloperConsole-Arguments">Arguments</h2><p>Since the input to all commands is just a string, we can grab a substring from it and use that as arguments.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">using VARLab.DeveloperConsole;
+
+public class SayCommand : ICommand
+{
+    public string Prefix =&gt; &quot;say&quot;;
+
+    public string Description =&gt; &quot;Outputs a message to the Unity Console.&quot;;
+
+    public void RunCommand(OnCommandEventArgs e)
+    {
+        if (!e.IsThisCommand(Prefix))
+            return;
+
+        var arguments = e.Command.Substring(Prefix.Length + 1).Trim();
+
+        Debug.Log(arguments);
+        e.HideMessage = true;
+    }
+}</pre>
+</div></div><p>In this example we’re grabbing the arguments after the command “say” and outputting them to the Unity console.</p><h3 id="UsingtheDeveloperConsole-Non-StringArguments">Non-String Arguments</h3><p>If we wanted to use types other than strings though we can use some wrapper methods to make things easier. In this example we’re using the <strong>TryGetValue </strong>wrapper method to try to convert the arguments of the message to a float. If unsuccessful, it returns false.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using VARLab.DeveloperConsole;
+
+public class TimeScale : ICommand
+{
+    public string Prefix =&gt; &quot;time&quot;;
+
+    public string Description =&gt; &quot;Sets Time.timeScale to the given float value.&quot;;
+
+    public void RunCommand(OnCommandEventArgs e)
+    {
+        if (e.IsThisCommand(Prefix) &amp;&amp; e.TryGetValue(out float value, Prefix.Length, Description))
+        {
+            Time.timeScale = value;
+            e.HideMessage = true;
+        }
+    }
+}</pre>
+</div></div><h2 id="UsingtheDeveloperConsole-CustomErrorMessages">Custom Error Messages</h2><p>If we want to communicate information back after a command we can use the Message property of the OnCommandEventArgs object passed into RunCommand.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using VARLab.DeveloperConsole;
+
+public class TimeScale : ICommand
+{
+    public string Prefix =&gt; &quot;time&quot;;
+
+    public string Description =&gt; &quot;Sets Time.timeScale to the given float value.&quot;;
+
+    public void RunCommand(OnCommandEventArgs e)
+    {
+        if (e.IsThisCommand(Prefix) &amp;&amp; e.TryGetValue(out float value, Prefix.Length, Description))
+        {
+            Time.timeScale = value;
+            e.Message = $&quot;Time.timeScale has been set to {value}.&quot;;
+        }
+    }
+}</pre>
+</div></div><p>Notice that we did not set HideMessage to true in this case as we wanted to show the user a message.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

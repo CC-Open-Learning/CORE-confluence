@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Analytics V2 Design and Remaining Tasks</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V2-Overview_1237155865.html">Analytics V2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Analytics V2 Design and Remaining Tasks
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nilupul Vithanage</span>, last modified by <span class='editor'> Richard Colbourne</span> on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="AnalyticsV2DesignandRemainingTasks-Overview">Overview</h3><p>The Analytics V2 system is a redesigned and enhanced framework intended to streamline and optimize analytics handling within our application. It encompasses essential components such as core analytics functionalities, network management, time tracking, and SDK integration. This system is crafted to efficiently log user interactions, monitor time-based events, and manage analytics data under various network conditions.</p><h3 id="AnalyticsV2DesignandRemainingTasks-RequirementsandIntegrationDocument">Requirements and Integration Document</h3><p><a class="external-link" data-card-appearance="inline" href="https://stuconestogacon-my.sharepoint.com.mcas.ms/:w:/r/personal/nvithanage_conestogac_on_ca/_layouts/15/doc2.aspx?sourcedoc=%7BF3306F36-D556-4423-AB1F-400F3D68EA2B%7D&amp;file=Analytics%20V2%20Final%20Scope.docx&amp;action=default&amp;mobileredirect=true&amp;DefaultItemOpen=1&amp;login_hint=Nvithanage%40conestogac.on.ca&amp;ct=1723737614825&amp;wdOrigin=OFFICECOM-WEB.START.EDGEWORTH&amp;cid=fb0b153b-1c1d-48b1-886c-d36be19a6ccf&amp;wdPreviousSessionSrc=HarmonyWeb&amp;wdPreviousSession=bc32e70c-02d1-464e-a227-40ebd3374bbf" rel="nofollow">https://stuconestogacon-my.sharepoint.com.mcas.ms/:w:/r/personal/nvithanage_conestogac_on_ca/_layouts/15/doc2.aspx?sourcedoc=%7BF3306F36-D556-4423-AB1F-400F3D68EA2B%7D&amp;file=Analytics%20V2%20Final%20Scope.docx&amp;action=default&amp;mobileredirect=true&amp;DefaultItemOpen=1&amp;login_hint=Nvithanage%40conestogac.on.ca&amp;ct=1723737614825&amp;wdOrigin=OFFICECOM-WEB.START.EDGEWORTH&amp;cid=fb0b153b-1c1d-48b1-886c-d36be19a6ccf&amp;wdPreviousSessionSrc=HarmonyWeb&amp;wdPreviousSession=bc32e70c-02d1-464e-a227-40ebd3374bbf</a> </p><p><a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1288863783#Requirement-Document" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1288863783#Requirement-Document</a> </p><h3 id="AnalyticsV2DesignandRemainingTasks-DesignDiagram">Design Diagram</h3><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="DD.png" width="760" loading="lazy" src="attachments/1288863783/1288634412.png?width=760" data-image-src="attachments/1288863783/1288634412.png" data-height="473" data-width="784" data-unresolved-comment-count="0" data-linked-resource-id="1288634412" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="DD.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1288863783" data-linked-resource-container-version="5" data-media-id="d4bd58f9-2d9a-4e83-99c0-9a8f00e77ad5" data-media-type="file"></span><h3 id="AnalyticsV2DesignandRemainingTasks-RemainingTasks">Remaining Tasks</h3><p>Send Network Infomation.</p><ul><li><p>In <code>NetworkHandler.cs</code>, a method named PingServer() is used to measure the network response time. Upon retrieving this information, we need to ensure that a network information event is triggered and sent to log the network status and response details.</p></li></ul><p>Browser Close Handling</p><ul><li><p>We can handle “unexpected shutdown handling” from the browser side. There is a way to communicate with the browser and Unity application. We can send a javascript call(<code>beforeunload</code>) from the browser to unity application using <a class="external-link" href="https://docs.unity3d.com/Manual/web-interacting-browser-js-to-unity.html" rel="nofollow">browser scripting</a>. This requirement is an optional one.</p></li></ul><p>Analytics for external simulations.</p><ul><li><p>We can add analytics to external simulations by modifying the build files. Note that the amount you can track is greatly reduced and their is still a potential issues with gathering the learner ID. A proof of concept has been made for how to implement analytics into external sims. See
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue resolved" data-jira-key="CORE-855" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-855" class="jira-issue-key"><img class="icon" src="https://varlab-dev.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium" />CORE-855</a>
+                    -
+            <span class="summary">As a developer I need to investigate how PlayFab JS works so we can obtain metrics from external DLXs</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Done</span>
+            </span>
+  and  
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue resolved" data-jira-key="CORE-692" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-692" class="jira-issue-key"><img class="icon" src="https://varlab-dev.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium" />CORE-692</a>
+                    -
+            <span class="summary">Investigate the PlayFab JavaScript library to retrieve and manage unique user data from external simulation systems.</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Done</span>
+            </span>
+ For more details.</p></li></ul><p>Uplift Legacy DLX with Analytics V2</p><ul><li><p>MPC</p><ul><li><p>Labs</p></li><li><p>Digital Twin</p></li></ul></li><li><p>Heavy Equipment</p><ul><li><p>Backhoe</p></li><li><p>Bulldozer</p></li><li><p>Excavator</p></li></ul></li></ul><p>Build Version Check Notification Dashboards (Either for each sim or as a summary of all sims)</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1288863783/1288634412.png">DD.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Project Configuration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-XR_1283883075.html">CORE XR</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Project Configuration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacob Martens</span> on Aug 14, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This guide covers how to configure a project to support XR development using OpenXR and XR Interaction Toolkit</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544254322 {padding: 0px;}
+div.rbtoc1748544254322 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544254322 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544254322'>
+<ul class='toc-indentation'>
+<li><a href='#ProjectConfiguration-InstallingRequiredPackages'>Installing Required Packages</a></li>
+<li><a href='#ProjectConfiguration-ConfiguringtheProject'>Configuring the Project</a></li>
+<li><a href='#ProjectConfiguration-SimpleProjectValidation'>Simple Project Validation</a></li>
+</ul>
+</div><h1 id="ProjectConfiguration-InstallingRequiredPackages">Installing Required Packages</h1><p>From a Unity project, open <strong>Window-&gt;Package Manager</strong>, and locate <strong>Unity Registry</strong>. In Unity 6, this will be located along the left side of the window. In previous versions, it can be found by clicking <strong>Packages: In Project</strong> along the top. Using the search, find and install <strong>OpenXR Plugin</strong> (com.unity.xr.openxr) and the <strong>XR Interaction Toolkit</strong> (com.unity.xr.interaction.toolkit). Click <strong>Yes</strong> to any popup prompt that occurs when installing packages.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Known Issue</strong></p><p>OpenXR needs to be version 1.10.0 for use with the Meta Quest 3 headset. There is an issue where one of the Project Validation checks incorrectly fails that is fixed with this version. To force update the package, open the project in Windows Explorer, and open <strong>[BASEFOLDER]\Packages\manifest.json</strong>. Locate &quot;com.unity.xr.openxr&quot; and change the version to &quot;1.10.0&quot;. The full entry should be <strong>&quot;com.unity.xr.openxr&quot;: &quot;1.10.0&quot;</strong>. Upon saving and returning to the Unity Editor, it will re-import and install the updated version</p></div></div><h1 id="ProjectConfiguration-ConfiguringtheProject">Configuring the Project</h1><p>In the Unity Editor, open <strong>Edit-&gt;Project Settings</strong> and select <strong>XR Plug-in Management</strong>. For the relevant build-platforms (the different menu tabs), select <strong>OpenXR</strong> under <em>Plug-in Providers</em>. In the left-side menu, select <strong>OpenXR</strong>. For each of the build-platforms you enabled OpenXR for in the previous step, an option needs to be added to the <strong>Enabled Interaction Profiles</strong> list. Click the plus icon, and select the controller you will be using for development. <em><strong>Additional side step</strong></em>: If you are working with a Meta Quest 3 Headset, ensure <strong>Meta Quest Support</strong> under <em>OpenXR Feature Groups</em> is enabled. Following this, select <strong>Project Validation</strong> from the left-side menu. For each previously selected build-platform, click <strong>Fix All</strong> in the top right corner. After clicking the button it will take some time to compile scripts and reload domain. When it has completed, ensure there are only green checks left. Continue clicking <strong>Fix All</strong> until there are no more issues left.</p><h1 id="ProjectConfiguration-SimpleProjectValidation">Simple Project Validation</h1><p>To validate the project has been confiugred correctly, go back to the Package Manager and navigate back to Packages: In Project. Locate the <strong>XR Interaction Toolkit</strong> and select <strong>Samples</strong>. Install the <strong>Starter Assets</strong> sample. In the Project tab, navigate to Assets-&gt;Samples-&gt;XR Interaction Toolkit-&gt;2.5.4-&gt;Starter Assets, and open <strong>DemoScene</strong>. This scene is pre-configured for everything XR and should work with any configured headset.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

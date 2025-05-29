@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Setting Up Analytics</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Getting-Started-With-Analytics_781844520.html">Getting Started With Analytics</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Setting Up Analytics
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joshua Moore</span>, last modified on Aug 16, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page assume PlayFab has been installed, as well as the CORE Analytics package. If these are not installed please see the following page.</p><p><a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/NR07KCmq" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/NR07KCmq</a> </p></div></div><h1 id="SettingUpAnalytics-AnalyticsPrefab">Analytics Prefab</h1><p>Once everything has been installed you will need to drag a prefab from the Analytics Package into your first/start up scene if it is a multi scene DLX, or if the DLX only has one scene you will drag it into that scene.</p><h2 id="SettingUpAnalytics-PrefabLocation">Prefab Location</h2><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785186836.png" data-image-src="attachments/782565419/785186836.png" data-height="280" data-width="465" data-unresolved-comment-count="0" data-linked-resource-id="785186836" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-133948.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="23cf8600-89b6-4e59-9598-abcc59f390b2" data-media-type="file"></span><p>This is the location of the Prefab to be placed in your <strong>first/initial</strong> scene. This is because the object will persist through scenes. If your DLX has one scene you can just place it in that scene.</p><h1 id="SettingUpAnalytics-IntegratingwithSCORM">Integrating with SCORM</h1><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There is a known edge case, if you have a project that only has 1 scene that also has a restart functionality please expand the dropdown box below.</p></div></div><div id="expander-1477211827" class="expand-container"><div id="expander-control-1477211827" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Singleton replacement for single scene</span></div><div id="expander-content-1477211827" class="expand-content"><p>Due to the behaviour of the implementation of the singleton in the Analytics object. There is a known issue where if you have a single scene in your DLX and there is the ability to restart the experience which will reload the scene breaking a reference to the login in the new scene. to fix this check this box on the CORE Analytics script.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785154136.png" data-image-src="attachments/782565419/785154136.png" data-height="83" data-width="348" data-unresolved-comment-count="0" data-linked-resource-id="785154136" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2023-08-16 133123.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="991dfaf3-70f4-4b4d-a765-e7399f59ea6d" data-media-type="file"></span><p>This will cause the new object to replace the original analytics object in the scene maintaining references.</p></div></div><p>Our system uses the learner ID that SCORM retrieves as the unique login for tracking users. Most DLX have a SCORM integrator script that should look something like this.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785580036.png" data-image-src="attachments/782565419/785580036.png" data-height="43" data-width="343" data-unresolved-comment-count="0" data-linked-resource-id="785580036" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-135306.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="d82fd091-7634-4b53-af6a-1e57c374981b" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785350688.png" data-image-src="attachments/782565419/785350688.png" data-height="324" data-width="916" data-unresolved-comment-count="0" data-linked-resource-id="785350688" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-135504.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="098f02ef-b65b-4cac-bd8f-7e0081cb89bb" data-media-type="file"></span><p>As shown above you will need to add a private member of the type CORE Analytics which is serialized and referenced in the editor, this is to be able to call the login method. The SCORM Integrator may have a method somewhere that looks like the following.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785023002.png" data-image-src="attachments/782565419/785023002.png" data-height="252" data-width="1049" data-unresolved-comment-count="0" data-linked-resource-id="785023002" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-140234.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="67ce2cca-ba6c-4895-b27c-67bd6dc9973f" data-media-type="file"></span><p>Above shows calling the LoginLearner() method and passing the retrieved Learner ID. For testing purposes in another script you will also reference the CORE Analytics object. A suggestion would be to create a “Editor Login” script and attach it to an object in the scene. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785219618.png" data-image-src="attachments/782565419/785219618.png" data-height="406" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="785219618" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-141359.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="8779205d-eef2-4799-b473-f589ce4bbecb" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/782565419/785186843.png" data-image-src="attachments/782565419/785186843.png" data-height="280" data-width="452" data-unresolved-comment-count="0" data-linked-resource-id="785186843" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-141508.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="782565419" data-linked-resource-container-version="12" data-media-id="f648e892-808b-420a-96f5-aaeb7a7641d1" data-media-type="file"></span><p>With all these steps complete you are now able to start using the system! For how to send events with the analytics system please see <a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/NjN0NFJX" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/NjN0NFJX</a> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785186836.png">image-20230816-133948.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785580036.png">image-20230816-135306.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785350688.png">image-20230816-135504.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785023002.png">image-20230816-140234.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785219618.png">image-20230816-141359.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785186843.png">image-20230816-141508.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785154130.png">Screenshot 2023-08-15 130653.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/782565419/785154136.png">Screenshot 2023-08-16 133123.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

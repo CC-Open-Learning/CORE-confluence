@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Walls And Studs</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Procedural-World-Generation_869138443.html">Procedural World Generation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Walls And Studs
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ali Kaya (Unlicensed)</span> on Dec 14, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><h2 id="WallsAndStuds-Overview"><strong>Overview</strong></h2><p>The Procedurally Generated Worlds project aims to facilitate the procedural generation of buildings by incorporating essential features such as Walls, Windows, Doors, Studs, Pillars, and Floors. These elements collectively enable the creation of diverse building structures within the procedural generation system.</p><p /><h2 id="WallsAndStuds-KeyFeatures"><strong>Key Features</strong></h2><p /><h3 id="WallsAndStuds-Pillars">Pillars</h3><p>Pillars serve as crucial points for defining walls within the building structure. They act as connected points that facilitate the creation of walls between them. To manually connect two pillars:</p><ul><li><p>Obtain two pillar prefabs.</p></li><li><p>In the Inspector, select one of the pillars.</p></li><li><p>Navigate to the &quot;LookAt.cs&quot; Script component.</p></li><li><p>Under the &quot;target&quot; section, choose the other pillar prefab.</p></li><li><p>This linkage enables the creation of walls between the selected pillars during play mode.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="394" loading="lazy" src="attachments/887193626/886898723.png?width=394" data-image-src="attachments/887193626/886898723.png" data-height="93" data-width="394" data-unresolved-comment-count="0" data-linked-resource-id="886898723" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-155540.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="aefa178d-00e9-450d-88df-21cb54239cf3" data-media-type="file"></span><p /><h3 id="WallsAndStuds-Studs">Studs</h3><p>Studs, originally designed for the Trades Electrical project, are utilized to convert a wall object. By accessing the &quot;WallToStuds.cs&quot; script component in the Inspector for a wall object, the &quot;Place Studs&quot; checkbox can be toggled to transform the wall into studs.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="760" loading="lazy" src="attachments/887193626/887291916.png?width=760" data-image-src="attachments/887193626/887291916.png" data-height="370" data-width="927" data-unresolved-comment-count="0" data-linked-resource-id="887291916" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-155733.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="4afd34e9-ce94-4e5f-828f-f06cdcfa3cd4" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="380" loading="lazy" src="attachments/887193626/887390230.png?width=380" data-image-src="attachments/887193626/887390230.png" data-height="147" data-width="380" data-unresolved-comment-count="0" data-linked-resource-id="887390230" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-155755.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="b6798eb9-0105-41d9-a334-90a344809fbb" data-media-type="file"></span><p /><h3 id="WallsAndStuds-Walls">Walls</h3><p>Walls are dynamically generated when two pillars are connected. They can be modified to incorporate windows or doors by interacting with the &quot;WindowAndDoorManager.cs&quot; script. Key functionalities include:</p><ul><li><p>Transformation into studs</p></li><li><p>Addition of windows or doors by connecting corresponding objects to the wall</p></li><li><p>Checkbox options such as &quot;Is Door,&quot; &quot;Done,&quot; and &quot;Check Collision&quot; for managing window and door placement and collision detection</p></li></ul><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="516" loading="lazy" src="attachments/887193626/887455755.png?width=516" data-image-src="attachments/887193626/887455755.png" data-height="391" data-width="516" data-unresolved-comment-count="0" data-linked-resource-id="887455755" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-160212.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="3f1a9491-c661-4693-8612-8e7cae09cf38" data-media-type="file"></span><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="386" loading="lazy" src="attachments/887193626/887357471.png?width=386" data-image-src="attachments/887193626/887357471.png" data-height="128" data-width="386" data-unresolved-comment-count="0" data-linked-resource-id="887357471" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-155837.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="63c43cad-eff9-4234-a6a6-1814a8814283" data-media-type="file"></span><p /><h3 id="WallsAndStuds-DoorandWindows">Door and Windows</h3><p>Door and Window objects are represented as default Unity 3D rectangle objects. The &quot;WindowAndDoorManager.cs&quot; script recognizes and manages these objects, allowing the designation of windows or doors through the &quot;Is Door&quot; and &quot;Done&quot; checkboxes.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="461" loading="lazy" src="attachments/887193626/887095325.png?width=461" data-image-src="attachments/887193626/887095325.png" data-height="267" data-width="461" data-unresolved-comment-count="0" data-linked-resource-id="887095325" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-160629.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="2a6d721b-882a-4c85-b3e4-d6ad8939d8bf" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="591" loading="lazy" src="attachments/887193626/887390236.png?width=591" data-image-src="attachments/887193626/887390236.png" data-height="289" data-width="591" data-unresolved-comment-count="0" data-linked-resource-id="887390236" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-160655.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="674ac347-767b-4a37-a042-51fd05324c3d" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="640" loading="lazy" src="attachments/887193626/886865950.png?width=640" data-image-src="attachments/887193626/886865950.png" data-height="313" data-width="640" data-unresolved-comment-count="0" data-linked-resource-id="886865950" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-160733.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="78057072-2c44-42cb-8697-bbf2e7dbcf88" data-media-type="file"></span><p /><h3 id="WallsAndStuds-Floor">Floor</h3><p>Floors are generated via the Grid Building System and are plane objects placed within the grid. They serve as anchor points for walls, studs, and interior design elements within the building structure.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="760" loading="lazy" src="attachments/887193626/886898733.png?width=760" data-image-src="attachments/887193626/886898733.png" data-height="435" data-width="881" data-unresolved-comment-count="0" data-linked-resource-id="886898733" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-160902.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="0cefd8d6-c5b9-498d-9703-6b7c0096c220" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="730" loading="lazy" src="attachments/887193626/887455761.png?width=730" data-image-src="attachments/887193626/887455761.png" data-height="451" data-width="730" data-unresolved-comment-count="0" data-linked-resource-id="887455761" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-161232.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887193626" data-linked-resource-container-version="1" data-media-id="1b29957c-28d5-4a6a-870e-2aacf27d0461" data-media-type="file"></span><p /><p><strong>Usage Instructions</strong></p><ol start="1"><li><p><strong>Pillar Connection</strong></p><ul><li><p>Obtain pillar prefabs.</p></li><li><p>Connect pillars using the &quot;LookAt.cs&quot; script.</p></li></ul></li><li><p><strong>Stud Placement</strong></p><ul><li><p>Access the &quot;WallToStuds.cs&quot; script for a wall object in the Inspector.</p></li><li><p>Toggle the &quot;Place Studs&quot; checkbox to transform the wall into studs.</p></li></ul></li><li><p><strong>Wall Customization</strong></p><ul><li><p>Utilize the &quot;WindowAndDoorManager.cs&quot; script for wall modifications.</p></li><li><p>Manage window and door addition using checkboxes and object snapping.</p></li></ul></li></ol>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/886898723.png">image-20231214-155540.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887291916.png">image-20231214-155733.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887390230.png">image-20231214-155755.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887357471.png">image-20231214-155837.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/886964259.png">image-20231214-160143.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887291923.png">image-20231214-160200.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887455755.png">image-20231214-160212.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887095325.png">image-20231214-160629.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887390236.png">image-20231214-160655.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887226382.png">image-20231214-160717.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/886865950.png">image-20231214-160733.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/886898733.png">image-20231214-160902.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887193626/887455761.png">image-20231214-161232.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

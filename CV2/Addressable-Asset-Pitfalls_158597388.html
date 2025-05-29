@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Addressable Asset Pitfalls</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Addressable-Assets_158629987.html">Addressable Assets</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Addressable Asset Pitfalls
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified on May 06, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article we’ll discuss potential issues that can arise due to misunderstandings with the <a href="Addressable-Assets_158629987.html" data-linked-resource-id="158629987" data-linked-resource-version="5" data-linked-resource-type="page">Addressable Assets system</a>.</p><p><strong>Potential Issues</strong></p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544530970 {padding: 0px;}
+div.rbtoc1748544530970 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544530970 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544530970'>
+<ul class='toc-indentation'>
+<li><a href='#AddressableAssetPitfalls-UsingInstantiate'>Using Instantiate</a></li>
+<li><a href='#AddressableAssetPitfalls-IncorrectProfileforPlatform'>Incorrect Profile for Platform</a></li>
+<li><a href='#AddressableAssetPitfalls-WrongAddressableSettings'>Wrong Addressable Settings</a></li>
+<li><a href='#AddressableAssetPitfalls-CloudContentDelivery&amp;CloudBuild'>Cloud Content Delivery &amp; Cloud Build</a>
+<ul class='toc-indentation'>
+<li><a href='#AddressableAssetPitfalls-EmptyCloudContentDeliveryBucket'>Empty Cloud Content Delivery Bucket</a></li>
+<li><a href='#AddressableAssetPitfalls-AssetsBundlesCannotBeFound'>Assets Bundles Cannot Be Found</a></li>
+<li><a href='#AddressableAssetPitfalls-SceneCouldNotBeLoaded'>Scene Could Not Be Loaded</a></li>
+</ul>
+</li>
+</ul>
+</div><h2 id="AddressableAssetPitfalls-UsingInstantiate">Using Instantiate</h2><p>While you can use <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" rel="nofollow">Instantiate</a> on assets loaded from Addressables, it is not recommended. The Load and Release system using handles is recommended as it keeps track of how many instances of that asset are currently in the scene. Using LoadAssetAsync to create subsequent copies of an asset is recommended over Instantiate as it increments the instance counter while Instantiate does not.</p><p>Why is this an issue? If you initially load the asset via LoadAssetAsync, InstantiateAsync, etc, you are loading that asset into memory with an instance count of one. If you then use normal <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" rel="nofollow">Object.Instantiate</a> on the result you have created a copy but not incremented the instance counter. This means that when you call Release on the first handle it will decrement the counter from one to zero, think there are no more references, and unload all the associated asset memory.</p><p>This is a problem as you still have instantiated objects in your scene based on those assets that have now been released from memory as the hidden instance counter thought there were no more references.</p><p>It does not mean “never use Instantiate on Addressables,” but it does mean you really have to be smart about it. If in doubt, use Addressables.InstantiateAsync instead.</p><h2 id="AddressableAssetPitfalls-IncorrectProfileforPlatform">Incorrect Profile for Platform</h2><p>If we are building for a platform, we need to make sure that our Addressable Assets profile is set to the platform we are building for. This can be automated through a build script/configuration however at the moment no such system has been implemented.</p><p>If we are doing a Windows 64-bit build we would want to select the “Windows64” Addressables profile before we begin our build.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/158662996.png" data-image-src="attachments/158597388/158662996.png" data-height="95" data-width="145" data-unresolved-comment-count="0" data-linked-resource-id="158662996" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-161239.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="cd971a07-7914-40d7-90a1-0fd2509414a2" data-media-type="file"></span><p>This will tell the build to point to the correct <a href="Using-Unity-Cloud-Content-Delivery_158629922.html" data-linked-resource-id="158629922" data-linked-resource-version="10" data-linked-resource-type="page">Cloud Content Delivery</a> bucket so that the build is grabbing assets for the correct platform.</p><h2 id="AddressableAssetPitfalls-WrongAddressableSettings">Wrong Addressable Settings</h2><p>If we are testing and for whatever reason would like to change from using remote asset loading to local asset loading, we can open the Addressable Asset Settings and set the Build and Load paths to Local.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/158663003.png" data-image-src="attachments/158597388/158663003.png" data-height="332" data-width="585" data-unresolved-comment-count="0" data-linked-resource-id="158663003" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-161628.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="41671411-5772-4fbf-9d5e-9cf493ada9cd" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/158630145.png" data-image-src="attachments/158597388/158630145.png" data-height="390" data-width="577" data-unresolved-comment-count="0" data-linked-resource-id="158630145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-161647.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="6c7f91d2-fbd1-480a-8b97-b5a8a864c2fc" data-media-type="file"></span><p>Once we have done this, we need to do the same for each Addressables Group we have by selecting them individually in the <strong>Addressables Groups</strong> window and setting their <strong>Build &amp; Load Paths</strong> in the Unity Inspector.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/158630155.png" data-image-src="attachments/158597388/158630155.png" data-height="308" data-width="588" data-unresolved-comment-count="0" data-linked-resource-id="158630155" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-161928.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="2066ed48-224b-4405-9c2b-484e53380582" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/158630161.png" data-image-src="attachments/158597388/158630161.png" data-height="252" data-width="579" data-unresolved-comment-count="0" data-linked-resource-id="158630161" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210505-161941.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="d73c2213-2450-4400-87ac-35e8667063bb" data-media-type="file"></span><h2 id="AddressableAssetPitfalls-CloudContentDelivery&amp;CloudBuild">Cloud Content Delivery &amp; Cloud Build</h2><p>Cloud build can be set to automatically build and update our asset bundles using a specified Addressables profile. However this process is not very well documented by Unity.</p><p>If you are experiencing any issues, make sure all of your settings in the Addressables Profiles, Settings, and Groups windows are correct as outlined in <a href="160563240.html" data-linked-resource-id="160563240" data-linked-resource-version="13" data-linked-resource-type="page">Addressables &amp; Cloud Content Delivery</a> .</p><h3 id="AddressableAssetPitfalls-EmptyCloudContentDeliveryBucket">Empty Cloud Content Delivery Bucket</h3><p>After a successful Cloud Build you may find that your Cloud Content Delivery bucket is empty. This is due to the Build/Load Paths for the<strong> Addressable Settings</strong> and <strong>Addressables Groups</strong> being set to <strong>Local</strong> instead of <strong>Remote</strong>. Follow the steps outlined above in <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/158597388/Addressable+Asset+Pitfalls#Incorrect-Addressable-Settings" rel="nofollow">Incorrect Addressable Settings </a>to see how you can fix this.</p><h3 id="AddressableAssetPitfalls-AssetsBundlesCannotBeFound">Assets Bundles Cannot Be Found</h3><p>When attempting to load your content from the build you may get an error stating that the file could not be found. This error message will provide you with the full address that the player was attempting to load.</p><p>If your content was built by Cloud Build it does not exist in the same location it would if you had built it locally and manually uploaded the content to Cloud Content Delivery.</p><p>For instance, in your <strong>Addressables Profile</strong>, the <strong>RemoteLoadPath</strong> may be <code>https://{projectId}.client-api.unity3dusercontent.com/client_api/v1/buckets/{bucketId}/release_by_badge/latest/entry_by_path/content/?path=</code> but your assets are actually located at <code>{ThatGiganticURL}/?path=ServerData/StandaloneWindows64/</code>.</p><p>In order to account for this, append the <strong>RemoteBuildPath</strong> to <strong>RemoteLoadPath</strong> in the Addressables Profile that is used by Cloud Build.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/158597388/160628970.png" data-image-src="attachments/158597388/160628970.png" data-height="128" data-width="1494" data-unresolved-comment-count="0" data-linked-resource-id="160628970" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210506-160927.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="158597388" data-linked-resource-container-version="9" data-media-id="a005a977-3ca3-4b17-9a7f-7ea3fc554261" data-media-type="file"></span><h3 id="AddressableAssetPitfalls-SceneCouldNotBeLoaded">Scene Could Not Be Loaded</h3><p>When attempting to load your content from within the build you may get an error message in the console or log file stating:</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Scene 'HydraulicsLab.unity' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.</p></div></div><p>If this occurs, it is because your scene is in the incorrect location relative to where the Addressables system thinks it should be. This is because the <strong>Addressables Group</strong> the scene is a part has <strong>Internal Id Naming Mode </strong>not set to <strong>Full Path</strong>.</p><p>The sim is trying to load your asset from a root directory rather than its full path. This is why it cannot find your asset if you are using <strong>RemoteBuildPath </strong>for that <strong>Addressables Group</strong> along with Cloud Build automatically uploading your assets to Cloud Content Delivery.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/158662996.png">image-20210505-161239.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/158663003.png">image-20210505-161628.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/158630145.png">image-20210505-161647.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/158630155.png">image-20210505-161928.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/158630161.png">image-20210505-161941.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/160661794.png">image-20210506-160902.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/158597388/160628970.png">image-20210506-160927.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

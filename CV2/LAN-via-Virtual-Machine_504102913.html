@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : LAN via Virtual Machine</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LAN-Multiplayer_502726663.html">LAN Multiplayer</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : LAN via Virtual Machine
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jul 28, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>If you do not want to to use the FishNet LAN Discovery asset you can set up a virtual machine to run your LAN server.</p><p>We will be using VirtualBox and Ubuntu (x64) 22.04 LTS.</p><p><strong>VirtualBox:</strong> <a class="external-link" href="https://www.virtualbox.org/wiki/Downloads" rel="nofollow">Downloads – Oracle VM VirtualBox</a></p><p><strong>Ubuntu:</strong> <a class="external-link" href="https://ubuntu.com/download/desktop" rel="nofollow">Download Ubuntu Desktop | Download | Ubuntu</a></p><hr/><h2 id="LANviaVirtualMachine-Installation">Installation</h2><p>Install VirtualBox and Ubuntu. Create a new virtual machine and set it up like so:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/504102913/504135684.png?width=340" data-image-src="attachments/504102913/504135684.png" data-height="372" data-width="396" data-unresolved-comment-count="0" data-linked-resource-id="504135684" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-141721.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="f1d31e56-68a1-4156-a4b9-a1df1a2ed719" data-media-type="file"></span><p>&gt; Keep the default RAM (1024 mb).</p><p>&gt; Create a virtual hard disk now</p><p>&gt; Select VDI (VirtualBox Disk Image)</p><p>&gt; Dynamically Allocated</p><p>&gt; Set the size of the hard disk to <strong>at least 13GB</strong>, we will need this space to install packages in Ubuntu (and it’s easier than having to change the size and partition later on)</p><p>&gt; Start the VM and select the Ubuntu iso that you installed earlier</p><p>&gt; Try or Install Ubuntu</p><p>&gt; Install Ubuntu and choose your keyboard </p><p>&gt; Choose a minimal installation</p><p>&gt; Erase disk and install Ubuntu</p><p>&gt; Set up your account and wait for the installation to finish, no need to link any accounts when you restart the machine</p><h3 id="LANviaVirtualMachine-SSH">SSH</h3><p>To enable SSH and access your terminal from your host, open the terminal and type in these commands:</p><p style="margin-left: 30.0px;"><code>sudo apt install openssh-server</code></p><p style="margin-left: 30.0px;"><code>sudo systemctl enable ssh</code></p><p style="margin-left: 30.0px;"><code>sudo systemctl start ssh</code></p><p>Exit the VM, open the settings and navigate over to the Network tab.</p><p>Open an unused Adapter tab and add a Bridged Adapter, keep all the defaults- ensure that ‘Cable Connected’ is checked off.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504102913/504233985.png?width=442" data-image-src="attachments/504102913/504233985.png" data-height="520" data-width="612" data-unresolved-comment-count="0" data-linked-resource-id="504233985" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-140522.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="5365878e-6749-40b5-8e9f-580d2a2b1633" data-media-type="file"></span><p>Start the VM again and open the terminal. Type in <code>ip a</code> , a new address will appear at the end of the list, this inet address will be needed to access with SSH and used as your LAN server address.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504102913/504299557.png?width=442" data-image-src="attachments/504102913/504299557.png" data-height="474" data-width="646" data-unresolved-comment-count="0" data-linked-resource-id="504299557" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-145057.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="5d714873-9da8-49ba-9733-486ca9ac06f7" data-media-type="file"></span><p>To access your terminal with SSH open the Windows Command Prompt on your Host.</p><p>Type <code>ssh user@inet address</code> filling it out with your own information. Accepting the connection will allow you to access the terminal of your VM on your Host as long as the VM is running in some way (normally or headless).</p><h3 id="LANviaVirtualMachine-PortForwarding+LAN">Port Forwarding + LAN</h3><p>Close the VM again and open a new Windows Command Prompt. Cd to the folder where you installed VirtualBox:</p><p><code>cd &quot;C:\Program Files\Oracle\VirtualBox&quot;</code></p><p><code>VBoxManage modifyvm [VM-name] --natdnshostresolver1 on</code></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504102913/504234021.png?width=442" data-image-src="attachments/504102913/504234021.png" data-height="405" data-width="585" data-unresolved-comment-count="0" data-linked-resource-id="504234021" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-171331.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="178193c0-a0a4-4bcf-ae85-d1c8716ed96f" data-media-type="file"></span><p>You should be able to ping your inet address from another device on the same network and receive a reply.</p><h2 id="LANviaVirtualMachine-ConnectingWithFishNet">Connecting With FishNet</h2><p>For LAN connections we can use the Tugboat transport. Put the inet address into the ‘Client Address’ field and use the port that you set up during the port forwarding stage.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/504102913/504103001.png" data-image-src="attachments/504102913/504103001.png" data-height="364" data-width="398" data-unresolved-comment-count="0" data-linked-resource-id="504103001" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-174119.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="0f353a9c-3fed-41ca-a5d5-100c06fc04e4" data-media-type="file"></span><p>Switch build platforms to a Linux Dedicated Server and build using the new address and port fields. Build the project then switch back to a Windows build.</p><h3 id="LANviaVirtualMachine-SettingUpaSharedFolder">Setting Up a Shared Folder</h3><p>The shared folder will be used to get and run the server, but first you need to do some set up before the folder can become visible to your user.</p><p>In your terminal install these packages (this is why having extra storage is good):</p><p><code>sudo apt install virtualbox-ext-pack</code></p><p>When this screen pops up, use your left-right arrow keys to be able to click, use the enter key to accept:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504102913/504266851.png?width=442" data-image-src="attachments/504102913/504266851.png" data-height="487" data-width="636" data-unresolved-comment-count="0" data-linked-resource-id="504266851" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-174424.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="c380d4eb-a5bd-49ad-9819-4b3d0cfc7cce" data-media-type="file"></span><p><code>sudo apt-get install virtualbox-guest-x11</code></p><p><code>sudo adduser [user] vboxsf</code></p><p>Restart the VM. Go to Settings&gt;Shared Folders and set up the folder where you built the Linux server, check off ‘Auto Mount’. Setting it up here will have the folder be in ‘Machine Folders’, so you won’t need to re-set up the folder every time you run the VM.</p><p>Another way is a Transient Folder, temporary folder connections that are accessible until you close or restart the VM.</p><p>When you go into your VM and open up ‘Files’ the shared folder should be visible.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/504102913/504299587.png?width=442" data-image-src="attachments/504102913/504299587.png" data-height="609" data-width="705" data-unresolved-comment-count="0" data-linked-resource-id="504299587" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-175846.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="bb9cd509-e92a-474b-a4a4-a43f288142df" data-media-type="file"></span><p>Right click on your .x86_64 server file and run it (or cd to the directory it is in and run it through the terminal).</p><p>Now when you go to the Unity Editor (or a Windows build), click play and start the client, you can now connect to the server running in the VM.</p><h2 id="LANviaVirtualMachine-WebServerwithApache">Web Server with Apache</h2><p>Open your terminal and go to the root directory using <code>sudo -s</code>.</p><p>Install Apache2 using this line: <code>apt-get install apache2</code></p><p>If you go into any web browser (on the same network) you can type in the inet address into the search bar and you should be routed to the Apache default page.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="564" loading="lazy" src="attachments/504102913/504168522.png?width=564" data-image-src="attachments/504102913/504168522.png" data-height="814" data-width="1173" data-unresolved-comment-count="0" data-linked-resource-id="504168522" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-182705.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504102913" data-linked-resource-container-version="4" data-media-id="5b52ac4f-bc4c-4452-b8bb-574b7f295a93" data-media-type="file"></span><h2 id="LANviaVirtualMachine-/UsefulCommands">/Useful Commands</h2><p>Remove a Package</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">sudo apt-get purge --auto-remove packagename</pre>
+</div></div><p>Go to Root</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo -s</pre>
+</div></div><p>Turn on Firewall</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo ufw enable</pre>
+</div></div><p>Allow for Ports to be Open</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo ufw allow [port number]</pre>
+</div></div><p>Close a Port</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo ufw deny [port number]</pre>
+</div></div><p>Delete a Rule</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo ufw delete deny [port nmumber]</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504168449.png">image-20220728-140343.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504168456.png">image-20220728-140436.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504168462.png">image-20220728-140444.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504233985.png">image-20220728-140522.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504299524.png">image-20220728-141126.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504201222.png">image-20220728-141129.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504266759.png">image-20220728-141135.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504135684.png">image-20220728-141721.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504299557.png">image-20220728-145057.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504234021.png">image-20220728-171331.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504234029.png">image-20220728-172738.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504103001.png">image-20220728-174119.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504266851.png">image-20220728-174424.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504299587.png">image-20220728-175846.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504102913/504168522.png">image-20220728-182705.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

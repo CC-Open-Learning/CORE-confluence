@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Web API (Save and Load)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Web API (Save and Load)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ujjwal Prashar</span>, last modified by <span class='editor'> Jordan Robinson</span> on Jan 27, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document contains information regarding the Web API that is hosted on Azure Portal which acts as a middle man to receive and send calls to the The Storage Account. All calls are made to the Web API and the API validates calls. If the validation is successful then the web API will use the access key stored inside it to make a connection with the storage and perform the task.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Developers are not required to interact with the code on the Web API, they can simply make calls to the API and the API will handle the rest.</p></div></div><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Video Tutorial</p><ul><li><p><a class="external-link" href="https://stuconestogacon.sharepoint.com/:v:/s/VARLab/EaOfJWXpbaFEmcmndZsTtiIB8rtCrjO0DvuneWNsQebcVQ?e=6m1gJb" rel="nofollow">Web API</a></p></li></ul>
+</div></div><h2 id="WebAPI(SaveandLoad)-WhatisaWebAPI">What is a Web API</h2><p>A Web API is an Application Programming Interface (API) which can be accessed over the HTTP protocol. It is a framework that allows developers to make HTTP based RESTFUL services. Web API can either be used in a web server or a web browser. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The API is made on .NET Core 3.1</p></div></div><h2 id="WebAPI(SaveandLoad)-Infrastructure">Infrastructure</h2><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The following dependecies are used to make the API </p><p><br/>Azure.Storage.Blobs(12.3.0)</p><p>Microsoft.AspNetCore.Authentication(2.2.0)</p><p>Microsoft.AspNetCore.Authentication.JwtBearer(3.1.0) (There are new versions but as we are using the .net core 3.1 this exact version is required)</p><p>System.IdentityModel.Tokens.Jwt(6.15.0)</p><p /></div></div><h3 id="WebAPI(SaveandLoad)-Startup.cs">Startup.cs</h3><p>The startup established a connection with the Azure portal using the Access key stored in the appsettings.json and also sets up the Authentication’s groundwork.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    services.AddSingleton(x =&gt;
+      new BlobServiceClient(Configuration.GetValue&lt;string&gt;(&quot;AzureBlobStorageConnectionString&quot;)));
+
+    services.AddSingleton&lt;IBlobService, BlobService&gt;();
+
+    var TokenKey = Configuration.GetValue&lt;string&gt;(&quot;TokenKey&quot;);
+
+    services.AddAuthentication(x =&gt;
+    {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(x =&gt;
+    {    
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(TokenKey)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+    services.AddSingleton&lt;IjwtAuthentication&gt;(new jwtAuthentication(TokenKey));
+}</pre>
+</div></div><h3 id="WebAPI(SaveandLoad)-BlobService.cs">BlobService.cs</h3><p>BlobService.cs implements the IBlobService.cs Interface and lays the ground work for the RESTFUL services</p><p>GetBlobAsync(string Containername, string name) is used to get the data from the Azure storage system and send it to the source where the call is originate. In our case it will be Unity.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public async Task&lt;BlobInfo&gt; GetBlobAsync(string Containername, string name)
+{
+    var containerClient = _blobServiceClient.GetBlobContainerClient(Containername);
+    var blobClient = containerClient.GetBlobClient(name);
+    var blobDownloadInfo = await blobClient.DownloadAsync();
+    return new BlobInfo(blobDownloadInfo.Value.Content, blobDownloadInfo.Value.ContentType);
+}</pre>
+</div></div><p>UploadContentBlobAsync(string content, string blobName, string Containername) is used to upload json data to the storage system</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public async Task UploadContentBlobAsync(string content, string blobName, string Containername)
+{
+    var containerClient = _blobServiceClient.GetBlobContainerClient(Containername);
+    var blobClient = containerClient.GetBlobClient(blobName);
+    var bytes = Encoding.UTF8.GetBytes(content);
+    await using var memoryStream = new MemoryStream(bytes);
+    await blobClient.UploadAsync(memoryStream, new BlobHttpHeaders { ContentType = blobName.GetContentType() });
+}</pre>
+</div></div><p>DeleteBlobAsync(string blobName, string Containername) is used to delete a pre existing blob from the storage services</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public async Task DeleteBlobAsync(string blobName, string Containername)
+{
+    var containerClient = _blobServiceClient.GetBlobContainerClient(Containername);
+    var blobClient = containerClient.GetBlobClient(blobName);
+    await blobClient.DeleteIfExistsAsync();
+}</pre>
+</div></div><h3 id="WebAPI(SaveandLoad)-MainBlobController.cs">MainBlobController.cs</h3><p>The MainBlobController.cs is responsible for Handing the Calls that are made to the Web API by implementing the BlobService class.</p><p>The Route is set to “varlabs“ and authorization is also enabled in this controller.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[Route(&quot;varlabs&quot;)]
+[Authorize]</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><a class="external-link" href="https://saveloadapi.azurewebsites.net/varlabs" rel="nofollow">https://saveloadapi.azurewebsites.net/varlabs</a>     &lt;&lt; Don’t Click It’s to show the route </p></div></div><p>All the functions are locked behind an authorization barrier which can only be accessed if the connection is established with the Web API using an authorized JWT token.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[AllowAnonymous]
+[HttpPost(&quot;authenticate&quot;)]
+public IActionResult Authenticate([FromBody] UserCredentials usercred)
+{
+  var token = _jwtAuthentication.Authenticate(usercred.password);
+    if (token == null)
+    {
+        return Unauthorized();
+    }  
+    return Ok(token);
+}</pre>
+</div></div><p> [AllowAnonymous] allows for calls to be made with “authenticate“ to obtain the Token. The call that must be made is a post call with the password written on it.</p><p>If the password is correct it will return a Token which must be used in the Authorization Header to make other calls to the API</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/469729283/469631012.png?width=680" data-image-src="attachments/469729283/469631012.png" data-height="182" data-width="640" data-unresolved-comment-count="0" data-linked-resource-id="469631012" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-192615.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="469729283" data-linked-resource-container-version="4" data-media-id="debef88d-f6a9-4a1a-bf15-b445b292c9e7" data-media-type="file"></span><p>If Get or Post calls are made without the authorization header then it will throw a 401 Unauthorized error</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/469729283/469696548.png?width=680" data-image-src="attachments/469729283/469696548.png" data-height="40" data-width="295" data-unresolved-comment-count="0" data-linked-resource-id="469696548" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-192722.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="469729283" data-linked-resource-container-version="4" data-media-id="d8a6146b-589b-49f7-be4c-e0fb0083950c" data-media-type="file"></span><p>If a valid Authorization token is provided in the header then it will carry out the given request</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/469729283/469663773.png?width=680" data-image-src="attachments/469729283/469663773.png" data-height="387" data-width="650" data-unresolved-comment-count="0" data-linked-resource-id="469663773" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-192805.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="469729283" data-linked-resource-container-version="4" data-media-id="1832b493-429c-4715-8c4d-b23c61bdda8b" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[HttpGet(&quot;{Containername}/{blobName}&quot;)]
+public async Task&lt;IActionResult&gt; GetBlob(string Containername, string blobName)
+{
+    var data = await _blobService.GetBlobAsync(Containername, blobName);
+    return File(data.Content, data.ContentType);
+}
+
+[HttpPost(&quot;{Containername}/{blobName}/uploadcontent&quot;)]
+public async Task&lt;IActionResult&gt; UploadContent([FromBody] UploadContentRequest request, string Containername, string blobName)
+{
+    await _blobService.UploadContentBlobAsync(request.Content, blobName, Containername);
+    return Ok();
+}
+
+[HttpDelete(&quot;{Containername}/{blobName}&quot;)]
+public async Task&lt;IActionResult&gt; DeleteFile(string Containername, string blobName)
+{
+    await _blobService.DeleteBlobAsync(Containername, blobName);
+    return Ok();
+}
+
+[AllowAnonymous]
+[HttpPost(&quot;authenticate&quot;)]
+public IActionResult Authenticate([FromBody] UserCredentials usercred)
+{
+  var token = _jwtAuthentication.Authenticate(usercred.password);
+    if (token == null)
+    {
+        return Unauthorized();
+    }  
+    return Ok(token);
+}</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/469729283/469729324.png">image-20220120-192214.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/469729283/469631012.png">image-20220120-192615.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/469729283/469696548.png">image-20220120-192722.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/469729283/469663773.png">image-20220120-192805.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

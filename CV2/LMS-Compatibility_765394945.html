@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : LMS Compatibility</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integration-Research_763592710.html">LMS Integration Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : LMS Compatibility
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hayden Auterhoff (Unlicensed)</span>, last modified on Jul 21, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The SCORM standard and the Brightspace API are different systems used to communicate with an LMS (Learning Management  System), and the compatibility by a Unity-based DLX project using one of these systems of communication will need to be investigated.</p><hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544324516 {padding: 0px;}
+div.rbtoc1748544324516 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544324516 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544324516'>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-SCORMStandard'>SCORM Standard</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-Overview'>Overview</a></li>
+<li><a href='#LMSCompatibility-CommunicationStructurebetweenLMSandUnity'>Communication Structure between LMS and Unity</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-scorm.js'>scorm.js</a></li>
+<li><a href='#LMSCompatibility-ScormAPIWrapper'>ScormAPIWrapper</a></li>
+<li><a href='#LMSCompatibility-ScormManager'>ScormManager</a></li>
+<li><a href='#LMSCompatibility-DevController'>DevController</a></li>
+</ul>
+</li>
+<li><a href='#LMSCompatibility-CompatibilitywithUnity'>Compatibility with Unity</a></li>
+<li><a href='#LMSCompatibility-Summary'>Summary</a></li>
+</ul>
+</li>
+<li><a href='#LMSCompatibility-BrightspaceAPI'>Brightspace API</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-Overview.1'>Overview</a></li>
+<li><a href='#LMSCompatibility-CommunicationStructurebetweenLMSandUnity.1'>Communication Structure between LMS and Unity</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-ActionRequestBlue'>ACTION REQUEST</a></li>
+<li><a href='#LMSCompatibility-Structure'>STRUCTURE</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-targethost'>target host</a></li>
+<li><a href='#LMSCompatibility-component'>component</a></li>
+<li><a href='#LMSCompatibility-version'>version</a></li>
+<li><a href='#LMSCompatibility-path'>path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#LMSCompatibility-CompatibilitywithUnity.1'>Compatibility with Unity</a>
+<ul class='toc-indentation'>
+<li><a href='#LMSCompatibility-AuthenticationandSecurity'>Authentication and Security</a></li>
+</ul>
+</li>
+<li><a href='#LMSCompatibility-Summary.1'>Summary</a></li>
+</ul>
+</li>
+</ul>
+</div><hr/><h1 id="LMSCompatibility-SCORMStandard">SCORM Standard</h1><h3 id="LMSCompatibility-Overview">Overview</h3><p>The Sharable Content Object Reference Model (SCORM) is a set of technical standards and specifications that define how e-learning should be packaged, delivered, and tracked. The SCORM standard provides a framework for communication between e-learning content and the Learning Management System (LMS). SCORM defines how to create “sharable content objects” (SCOs) that can be reused in different systems and specifies how the LMS should launch and the SCOs. </p><h3 id="LMSCompatibility-CommunicationStructurebetweenLMSandUnity">Communication Structure between LMS and Unity</h3><p>In the interest of having the SCORM standard create a connection between the LMS (eConestoga) and the DLX projects in Unity, the setup follows an established structure for easy integration.</p><p>The <a class="external-link" href="https://assetstore.unity.com/packages/tools/integration/scorm-api-53523" rel="nofollow"><u>SCORM API</u></a> Structure is a communication that consists of several components, involving the web application (eConestoga), the scorm.js library, and several Unity scripts, including the ScormAPIWrapper, ScormManager, and DevController. <br/></p><div id="expander-1615847062" class="expand-container"><div id="expander-control-1615847062" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SCORM API Structure </span></div><div id="expander-content-1615847062" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="c69b4d95-7682-4498-b2d4-2b8d8c7cdf50" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Web Application</strong></p></th><th class="confluenceTh"><p><strong>Unity</strong></p></th></tr><tr><td class="confluenceTd"><ul><li><p>scorm.js</p></li></ul></td><td class="confluenceTd"><ul><li><p>ScormAPIWrapper</p></li><li><p>ScormManager</p></li><li><p>DevController</p></li></ul></td></tr></tbody></table></div><div class="table-wrap"><table data-layout="default" data-local-id="98b5e8b4-b16a-42ec-a61f-2dc786f729b1" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Supported Platforms</strong></p></th><th class="confluenceTh"><p><strong>Features</strong></p></th></tr><tr><td class="confluenceTd"><ul><li><p>WebGL support</p></li></ul><p /><p><u>Note</u>: <strong>WebPlayer </strong>support <strong>has been removed</strong>. The last Unity compatible version was 5.3.</p></td><td class="confluenceTd"><ul><li><p>Scorn 1.2 and Scorm 2004 support</p></li><li><p>Builds Scorm packages automatically</p></li><li><p>Fully object oriented API</p></li><li><p>C# Source Code</p></li><li><p>Easy integration</p></li></ul></td></tr></tbody></table></div></div></div><h5 id="LMSCompatibility-scorm.js"><u>scorm.js</u></h5><p>The web application (LMS) is responsible for launching and tracking SCOs that are created in Unity. These SCOs communicate with the ScormAPIWrapper in Unity to pass data back and forth between the LMS and the DLX project. the scorm.js library is a JavaScript API that provides a standardized way of communicating with an LMS from a web application.</p><h5 id="LMSCompatibility-ScormAPIWrapper"><u>ScormAPIWrapper</u></h5><p>The ScormAPIWrapper is a Unity script that provides an interface between the web application and the DLX project. It is responsible for receiving data from the LMS and passing it to the ScormManager script, which handles the tracking and reporting of data to the LMS. </p><h5 id="LMSCompatibility-ScormManager"><u>ScormManager</u></h5><p>The ScormManager script is responsible for implementing the SCORM standard by acting as a connection between the code and the ScormAPI. The ScormManager sends the data to the ScormAPIWrapper, which includes launching SCOs, tracking progress, and reporting data back to the LMS. Overall, ScormManager handles the overall management and coordination of the communication and ensures that SCORM API calls are sent correctly and data is handled properly.</p><h5 id="LMSCompatibility-DevController"><u>DevController</u></h5><p>The DevController script implements and exposes a specific part of the SCORM API by calling a method from ScormManger. The DevController handles the actual communication and translation of the specific API calls (Ex. SetActivityComplete()) for the SCORM API. Additionally, the DevContoller allows developers to test and debug the SCORM API structure. It provides a way to simulate an LMS and test the communication between the LMS and the DLX project.</p><h3 id="LMSCompatibility-CompatibilitywithUnity">Compatibility with Unity</h3><p>The SCORM standard is a guideline that defines a set of technical standards and does not have a preference for any specific technology, as long as the technology is SCORM-compliant. That said, tracking an embedded Unit project on an LMS <em>can</em> be compatible, but it depends on several factors:</p><ol start="1"><li><p>SCORM Compliance</p></li></ol><p style="margin-left: 30.0px;">Non-compliant content may not be trackable or may cause compatibility issues with the LMS. There are four different implementable <a class="external-link" href="https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/#scorm20044" rel="nofollow"><u>versions</u></a><u> </u>of SCORM. <a class="external-link" href="https://adlnet.gov/past-projects/scorm/#scorm-12" rel="nofollow"><u>SCORM 1.2</u></a> and <a class="external-link" href="https://adlnet.gov/past-projects/scorm/#scorm-2004-4th-edition" rel="nofollow"><u>SCORM 2004</u></a> are used most widely, and <a class="external-link" href="https://xapi.com/?_ga=2.260778120.424948987.1689897223-1119177925.1689693396" rel="nofollow"><u>xAPI</u></a> makes data collection possible.</p><div id="expander-539463310" class="expand-container"><div id="expander-control-539463310" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SCORM Non-complaint Example</span></div><div id="expander-content-539463310" class="expand-content"><p>Using the SCORM API Structure does not mean being SCORM compliant. Here is an example:</p><p>A Unity project using the SCORM API Structure tracks completion and score but does not properly report them back to the LMS.</p></div></div><ol start="2"><li><p>Version of Unity</p></li></ol><p style="margin-left: 30.0px;">Some versions of Unity have built-in support for SCORM, while other versions may require additional plugins, extensions, or scripts. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>SCORM support was added to Unity in version 5.6. However, the SCORM API Structure will still need to be implemented in later versions to ensure compatibility. </p></div></div><ol start="3"><li><p>LMS Compatibility</p></li></ol><p style="margin-left: 30.0px;">The LMS hosting the web application and the embedded Unity project should support the SCORM standard, but it is possible that LMSs that support SCORM have limitations or issues with tracking embedded content. </p><ol start="4"><li><p>Communication Protocol</p></li></ol><p style="margin-left: 30.0px;">The communication protocol used between the embedded Unity project and the LMS can also impact compatibility. If a different protocol or implementation is used, this may cause issues.</p><div id="expander-745206683" class="expand-container"><div id="expander-control-745206683" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Different SCROM protocol Example</span></div><div id="expander-content-745206683" class="expand-content"><p>If an embedded project is designed to use SCORM 1.2, but the LMS supports SCROM 2004, this could cause compatibility issues with the tracking and reporting of data. In addition, embedded content using a custom implementation of the SCORM API structure may also cause issues.</p></div></div><h3 id="LMSCompatibility-Summary">Summary</h3><p>Ensuring the compatibility of a Unity project embedded in a SCORM-compliant LMS is compatible requires following the specific guidelines and rules of the SCORM standard. By ensuring that the Unity project is SCORM compliant, the LMS is capable of supporting the SCORM standard, and the communication protocol is implemented correctly, compatibility between the DLX project and the LMS can be ensured. Compatibility allows proper tracking and reporting of data to be achieved.</p><hr/><h1 id="LMSCompatibility-BrightspaceAPI">Brightspace API</h1><h3 id="LMSCompatibility-Overview.1">Overview</h3><p>The Brightspace API is a set of REST (Representational State Transfer) web services that enable developers to integrate D2L Brightspace with other systems or applications. It allows for the exchange of data between D2L Brightspace and external systems, which can provide greater flexibility and customization options for users.</p><h3 id="LMSCompatibility-CommunicationStructurebetweenLMSandUnity.1">Communication Structure between LMS and Unity</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In-depth documentation about Calling the API can be found <a class="external-link" href="https://docs.valence.desire2learn.com/basic/apicall.html" rel="nofollow"><u>here</u></a></p></div></div><h4 id="LMSCompatibility-ActionRequestBlue"><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">ACTION REQUEST</span></h4><p>The Brightspace API allows clients to create, modify, retrieve, or delete resources used by an LMS. These actions consist of an HTTP URL and parameters and can be accessed directly or through a library that abstracts the URL manipulation. API calls must use HTTPS and comply with the same security requirements as accessing Brightspace through a browser.</p><h4 id="LMSCompatibility-Structure"><span class="status-macro aui-lozenge aui-lozenge-visual-refresh">STRUCTURE</span> </h4><p>Each action has an HTTP method (eg. GET, POST, DELETE), and a URL structure that includes the target host, LMS product component, API version, and path to the particular action.</p><h5 id="LMSCompatibility-targethost"><u>target host</u></h5><p style="margin-left: 30.0px;">The host name for the LMS deployment (Ex. eConestoga).</p><h5 id="LMSCompatibility-component"><u>component</u></h5><p style="margin-left: 30.0px;">A short string identifying an LMS product component.</p><h5 id="LMSCompatibility-version"><u>version</u></h5><p style="margin-left: 30.0px;">API version supported by the product component.</p><h5 id="LMSCompatibility-path"><u>path</u></h5><p style="margin-left: 30.0px;">Path to the particular action. This will have static structural information about the kind of action you’re taking, but may also include parameterized data like entity identifiers, or action types. </p><h3 id="LMSCompatibility-CompatibilitywithUnity.1">Compatibility with Unity</h3><p>The compatibility of an embedded Unity project on eConestoga using the Brightspace API will depend on specific requirements and implementation. However, the authentication and security of user information.</p><h5 id="LMSCompatibility-AuthenticationandSecurity"><u>Authentication and Security</u></h5><p>OAuth 2.0 is the authentication protocol this is supported by the Brightspace API for user authentication. When using OAuth 2.0, a user needs to grant permission for an application (such as the DLX project) to access their data in Brightspace. Once the user grants permission, the application receives an access token that can be used to make requests to the API on behalf of the user.</p><p>The compatibility concern involves the implementation of OAuth 2.0 authentication in Unity, as the process is complex. There are several steps involved, including:</p><ul><li><p>registering your application with the Brightspace API</p></li><li><p>Configuration of authentication flow in Unity</p></li><li><p>Handling the access token from user permission</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>More information about setting up and registering OAuth 2.0 can be found <a class="external-link" href="https://docs.valence.desire2learn.com/basic/oauth2.html" rel="nofollow"><u>here</u></a></p></div></div><h3 id="LMSCompatibility-Summary.1">Summary</h3><p>Brightspace API is a set of REST web services that allow developers to integrate D2L Brightspace with external systems. The API uses HTTPS and complies with the same security requirements as accessing Brightspace through a browser. The compatibility of an embedded Unity project with the Brightspace API depends on specific requirements and implementation, but authentication and security are important considerations.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

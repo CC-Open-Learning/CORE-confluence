@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : [NEEDS REVIEW] UI Toolkit Performance Improvements</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : [NEEDS REVIEW] UI Toolkit Performance Improvements
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Harris Ibrahimi</span>, last modified by <span class='editor'> Balazs Karner</span> on Apr 08, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="a61b66bb-8a1b-4272-adbd-d96b3bc955e1" class="confluenceTable"><colgroup><col style="width: 255.0px;"/><col style="width: 504.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>On This Page</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544511322 {padding: 0px;}
+div.rbtoc1748544511322 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544511322 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544511322'>
+<ul class='toc-indentation'>
+<li><a href='#id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-USSClasses/Selectors:'>USS Classes/Selectors:</a></li>
+<li><a href='#id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-VisualElements:'>Visual Elements:</a></li>
+<li><a href='#id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-DrawCalls:'>Draw Calls:</a></li>
+<li><a href='#id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-DeactivatingElements:'>Deactivating Elements:</a></li>
+<li><a href='#id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-References:'>References:</a></li>
+</ul>
+</div></th></tr></tbody></table></div><h2 id="id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-USSClasses/Selectors:">USS Classes/Selectors:</h2><ul><li><p>Avoid inline properties</p></li><li><p>Use BEM</p></li><li><p> Use child selector (selector1 &gt; selector2 &gt; selector3) instead of the descendant selector (selector1 selector2 selector3)</p></li></ul><p>In terms of performance, classes are applied when an element first appears or when their classes change during runtime and only affect initialization performance.</p><p>Each USS file is turned into a lookup table, so having a lot of them is not an issue. However, performance decreases when you add a class to an element (I assume during runtime using AddToClassList()).</p><p>The :hover pseudo class can cause some performance issues depending on how it's used. Unity says that hover is the main culprit for restyling and classes being reloaded. It is also advised to avoid using the hover pseudo class for classes on elements that contain many child elements.</p><p>Currently, there is no good and efficient way to detect which classes are being used in each style sheet and then remove them.</p><h2 id="id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-VisualElements:">Visual Elements:</h2><p>Some of VECLRO’s specialized UIs instantiate and destroy new visual elements (task list, toolbar, etc.). Anytime a visual element is destroyed using the RemoveFromHierarchy() method, it is cleaned up by the garbage collector, which can be a little performant. It would be best to implement a system similar to object pooling that reuses cloned visual elements and instantiates new ones when necessary.</p><p>It is important to note that Unity’s ListView has a built-in object pooling system that recycles elements as the user scrolls.</p><h2 id="id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-DrawCalls:">Draw Calls:</h2><p>Reducing the number of draw calls can increase performance with UI Toolkit. To see how many draw calls the UI toolkit has for your scene, run the scene and click on the frame debugger. To manage the number of draw calls there are, modify the <strong>Vertex Budget</strong> field in your panel settings. By default it is set to 0, meaning Unity will automatically find a good number for you. Setting it to a larger number will allocate more memory for UI, resulting in fewer draw calls. Depending on your scene and how much UI you have, you could be allocating more memory than you need. To utilize this, it is best to find the right balance.</p><h2 id="id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-DeactivatingElements:">Deactivating Elements:</h2><p>There are many ways to hide an element in UI toolkit, and each has its upsides and drawbacks.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250331-182228.png" width="680" loading="lazy" src="attachments/1734541410/1734606939.png?width=680" data-image-src="attachments/1734541410/1734606939.png" data-height="265" data-width="844" data-unresolved-comment-count="0" data-linked-resource-id="1734606939" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250331-182228.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1734541410" data-linked-resource-container-version="2" data-media-id="e5936eeb-bf0f-4b8d-a502-b7836fd2dbd0" data-media-type="file"></span><h2 id="id-[NEEDSREVIEW]UIToolkitPerformanceImprovements-References:">References:</h2><p><a class="external-link" data-card-appearance="inline" href="https://youtu.be/bECmaYIvZJg?si=rIX_lBST_bVQT2kP" rel="nofollow">https://youtu.be/bECmaYIvZJg?si=rIX_lBST_bVQT2kP</a></p><p> <a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/Manual/UIE-USS-WritingStyleSheets.html" rel="nofollow">https://docs.unity3d.com/Manual/UIE-USS-WritingStyleSheets.html</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-best-practices-for-managing-elements.html" rel="nofollow">https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-best-practices-for-managing-elements.html</a> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1734541410/1734606939.png">image-20250331-182228.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Interpreting Unity Code Coverage Results</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage_731480070.html">Code Coverage</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Introduction_776306763.html">Code Coverage Introduction</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Unity-Setup_776306788.html">Code Coverage Unity Setup</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Interpreting Unity Code Coverage Results
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan S (Unlicensed)</span>, last modified on Aug 04, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544569600 {padding: 0px;}
+div.rbtoc1748544569600 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544569600 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544569600'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#InterpretingUnityCodeCoverageResults-Introduction'>Introduction</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#InterpretingUnityCodeCoverageResults-HTMLReport'>HTML Report</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>2.1</span> <a href='#InterpretingUnityCodeCoverageResults-Summary'>Summary</a></li>
+<li><span class='TOCOutline'>2.2</span> <a href='#InterpretingUnityCodeCoverageResults-CoverageHistory'>Coverage History</a></li>
+<li><span class='TOCOutline'>2.3</span> <a href='#InterpretingUnityCodeCoverageResults-RiskHotspots'>Risk Hotspots</a></li>
+<li><span class='TOCOutline'>2.4</span> <a href='#InterpretingUnityCodeCoverageResults-Coverage'>Coverage</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>2.4.1</span> <a href='#InterpretingUnityCodeCoverageResults-IndividualFileCoverage'>Individual File Coverage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='TOCOutline'>3</span> <a href='#InterpretingUnityCodeCoverageResults-Conclusion'>Conclusion</a></li>
+<li><span class='TOCOutline'>4</span> <a href='#InterpretingUnityCodeCoverageResults-NextSteps'>Next Steps</a></li>
+</ul>
+</div><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>To better understand the terms used in this page, please refer to the document on <a href="Code-Coverage-Definitions_776307347.html" data-linked-resource-id="776307347" data-linked-resource-version="2" data-linked-resource-type="page">Code Coverage Definitions</a></p></div></div><h2 id="InterpretingUnityCodeCoverageResults-Introduction">Introduction</h2><p>This page discusses interpreting your code coverage results, which sections of the HTML report you should focus on, and why.</p><h2 id="InterpretingUnityCodeCoverageResults-HTMLReport">HTML Report</h2><p>When you run Unity tests with the Code Coverage package, an HTML report document is created using the results and statistics of your tests.</p><h3 id="InterpretingUnityCodeCoverageResults-Summary">Summary</h3><p>The first section is the Summary. This provides an overview of the test results.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307136/776307169.png" data-image-src="attachments/776307136/776307169.png" data-height="319" data-width="1326" data-unresolved-comment-count="0" data-linked-resource-id="776307169" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-131434.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="03be0d55-a3df-4a37-8810-b72bc77a91ec" data-media-type="file"></span><p><strong>Line Coverage</strong> measures how many lines have been covered by the tests that ran, throughout the entire project. While this can be a useful measurement, it’s important to employ a <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/775225368/Testable+Behaviour#Risk-Based-Code-Coverage" rel="nofollow">risk-based code coverage</a> strategy. Be sure to focus on covering testable behaviour.</p><h3 id="InterpretingUnityCodeCoverageResults-CoverageHistory">Coverage History</h3><p>This section provides a line graph, which displays the general coverage history. Ideally, this graph should be level or increasing. This graph should only drop when adding new tests during development.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307136/776307166.png" data-image-src="attachments/776307136/776307166.png" data-height="208" data-width="1335" data-unresolved-comment-count="0" data-linked-resource-id="776307166" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-131803.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="634df21b-f032-45aa-8f1c-745369209a19" data-media-type="file"></span><h3 id="InterpretingUnityCodeCoverageResults-RiskHotspots">Risk Hotspots</h3><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>To see this section in your Code Coverage summary, you must enable the <strong>Generate Additional Metrics</strong> option in the Code Coverage window.</p><ul><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307136/776307151.png" data-image-src="attachments/776307136/776307151.png" data-height="389" data-width="587" data-unresolved-comment-count="0" data-linked-resource-id="776307151" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230803-153914.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="c1a2b4e8-5e14-4bf5-9caf-011a29916c81" data-media-type="file"></span><p /></li></ul></div></div><p>This section displays which parts of your code have too many branches or too many paths. It’s important to know if your class is too complex or poorly covered and might need to be broken down into new classes or implementations.</p><p>The number highlighted in green generally means that the corresponding metric is acceptable, and red means it is unacceptable. However, please note that this can be followed and vary how teams see fit.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/776307136/776307163.png?width=680" data-image-src="attachments/776307136/776307163.png" data-height="285" data-width="1324" data-unresolved-comment-count="0" data-linked-resource-id="776307163" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-203120.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="4153abef-2b92-44b0-a6a2-c0f28b65a91e" data-media-type="file"></span><p>In this table, we are most concerned with Cyclomatic Complexity and CRAP score. The larger the Cyclomatic Complexity, the more complex your code is; the bigger your CRAP Score, the worse your code is. These numbers should be as low as possible, indicating clean, non-complex code. Learn more about these two topics <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/720437265" rel="nofollow">here</a>.</p><p>A rule of thumb for cyclomatic complexity: </p><ul><li><p>1-10 simple procedure, little risk</p></li><li><p>11-20 More complex, moderate risk</p></li><li><p>21-50 Complex, high risk</p></li><li><p>&gt;50 Untestable code, very high risk</p></li></ul><p>CRAP score is calculated using coverage and complexity.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Note:</strong> At the time of writing this documentation, the NPath section does not work and is not properly implemented within Unity code coverage. It will be ignored for now. This document should be updated when the NPath complexity has been properly implemented.</p></div></div><h3 id="InterpretingUnityCodeCoverageResults-Coverage">Coverage</h3><p>This section shows individual files and the coverage statistics related to each part. Click the plus sign to display more files. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307136/776307160.png" data-image-src="attachments/776307136/776307160.png" data-height="546" data-width="1326" data-unresolved-comment-count="0" data-linked-resource-id="776307160" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-132441.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="ca226b4d-6996-4ec2-accd-5e93216c280b" data-media-type="file"></span><p>To check an individual file, double-click on the desired file to open a new page. This displays the line coverage within the code itself.</p><h4 id="InterpretingUnityCodeCoverageResults-IndividualFileCoverage">Individual File Coverage</h4><p>You should see a new page like this if you double-clicked a file in the coverage section. This page shows you much more in-depth information.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307136/776307157.png" data-image-src="attachments/776307136/776307157.png" data-height="775" data-width="892" data-unresolved-comment-count="0" data-linked-resource-id="776307157" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-132948.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307136" data-linked-resource-container-version="3" data-media-id="293a9b4f-70b6-4ace-9300-3ccf28980617" data-media-type="file"></span><p>Notice the information available on this page. Specifically, how the summary, coverage history and Metrics are now specific to the file you clicked on rather than a comprehensive report. In addition, you can see your code previewed with highlights in the files section.</p><p>The files section shows a preview of the code. The green code is the code that has been covered in your tests. The red lines highlight code that has not been covered. Ideally, red lines should be avoided as much as possible, as that means you have not tested this code at all.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Note:</strong> The Unity code coverage highlighting does not highlight if a line is only partially covered. For example, if you have a statement such as <em>if(a ==5  || b == 5)</em> and only check variable <em>a</em>, the highlighting will still be green even though it has been only partially covered.</p></div></div><h2 id="InterpretingUnityCodeCoverageResults-Conclusion">Conclusion</h2><p>When documenting your results, distill the necessary information (mainly the coverage), and add it to the reporting page on your project's Confluence space.</p><h2 id="InterpretingUnityCodeCoverageResults-NextSteps">Next Steps</h2><p>Now that you know how to interpret the results you were given, it is time to document them. Find out how by following the next guide on <a href="Documenting-Coverage_776307207.html" data-linked-resource-id="776307207" data-linked-resource-version="2" data-linked-resource-type="page">Documenting Code Coverage Results</a>.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307151.png">image-20230803-153914.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307154.png">image-20230803-153904.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307157.png">image-20230524-132948.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307160.png">image-20230524-132441.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307163.png">image-20230523-203120.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307166.png">image-20230524-131803.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307169.png">image-20230524-131434.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307172.png">image-20230524-130916.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307175.png">image-20230523-203740.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307136/776307178.png">image-20230523-174302.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:49</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

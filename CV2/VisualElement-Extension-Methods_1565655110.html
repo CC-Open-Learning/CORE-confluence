@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : VisualElement Extension Methods</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1566081045.html">Helper &amp; Extension Scripts</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : VisualElement Extension Methods
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Mar 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="d56970db-ef6b-42a3-b742-1e0d774fb222" class="confluenceTable"><colgroup><col style="width: 259.0px;"/><col style="width: 500.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>On This Page</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544474062 {padding: 0px;}
+div.rbtoc1748544474062 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544474062 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544474062'>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Helper&amp;ExtensionMethods'>Helper &amp; Extension Methods</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Show()'>Show()</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Definition'>Definition</a></li>
+<li><a href='#VisualElementExtensionMethods-Parameter(s)'>Parameter(s)</a></li>
+<li><a href='#VisualElementExtensionMethods-Example'>Example</a></li>
+</ul>
+</li>
+<li><a href='#VisualElementExtensionMethods-Hide()'>Hide()</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Definition.1'>Definition</a></li>
+<li><a href='#VisualElementExtensionMethods-Parameter(s).1'>Parameter(s)</a></li>
+<li><a href='#VisualElementExtensionMethods-Example.1'>Example</a></li>
+</ul>
+</li>
+<li><a href='#VisualElementExtensionMethods-SetElementSprite()'>SetElementSprite()</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Definition.2'>Definition</a></li>
+<li><a href='#VisualElementExtensionMethods-Parameter(s).2'>Parameter(s)</a></li>
+<li><a href='#VisualElementExtensionMethods-Example.2'>Example</a></li>
+</ul>
+</li>
+<li><a href='#VisualElementExtensionMethods-SetBorderColour()'>SetBorderColour()</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Definition.3'>Definition</a></li>
+<li><a href='#VisualElementExtensionMethods-Parameter(s).3'>Parameter(s)</a></li>
+<li><a href='#VisualElementExtensionMethods-Example.3'>Example</a></li>
+</ul>
+</li>
+<li><a href='#VisualElementExtensionMethods-SetBackgroundColour()'>SetBackgroundColour()</a>
+<ul class='toc-indentation'>
+<li><a href='#VisualElementExtensionMethods-Definition.4'>Definition</a></li>
+<li><a href='#VisualElementExtensionMethods-Parameter(s).4'>Parameter(s)</a></li>
+<li><a href='#VisualElementExtensionMethods-Example.4'>Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></th></tr></tbody></table></div><h1 id="VisualElementExtensionMethods-Helper&amp;ExtensionMethods">Helper &amp; Extension Methods</h1><p>VELCRO UI has various extension and helper scripts which are public static methods. Most helper scripts are used for specific UI prefabs, but VisualElementExtensions.cs, TextElementExtensions.cs, PositionHelper.cs, and StyleHelper.cs have methods for common use cases in many UI scripts.</p><p /><h2 id="VisualElementExtensionMethods-Show()">Show()</h2><h3 id="VisualElementExtensionMethods-Definition">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void Show(this VisualElement visualElement)</pre>
+</div></div><ul><li><p>Sets DisplayStyle of incoming VisualElement to <code>DisplayStyle.Flex</code></p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="VisualElementExtensionMethods-Parameter(s)">Parameter(s)</h3><p>none</p><p /><h3 id="VisualElementExtensionMethods-Example">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Shows the root of the information dialog and triggers OnDialogShown
+/// &lt;/summary&gt;
+public void Show()
+{
+    Root.Show();
+    OnDialogShown?.Invoke();
+}</pre>
+</div></div><p /><h2 id="VisualElementExtensionMethods-Hide()">Hide()</h2><h3 id="VisualElementExtensionMethods-Definition.1">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void Hide(this VisualElement visualElement)</pre>
+</div></div><ul><li><p>Sets DisplayStyle of incoming VisualElement to <code>DisplayStyle.None</code></p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="VisualElementExtensionMethods-Parameter(s).1">Parameter(s)</h3><p>none</p><p /><h3 id="VisualElementExtensionMethods-Example.1">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Hide the root of the information dialog and triggers OnDialogHidden
+/// &lt;/summary&gt;
+public void Show()
+{
+    Root.Hide();
+    OnDialogHidden?.Invoke();
+}</pre>
+</div></div><p /><h2 id="VisualElementExtensionMethods-SetElementSprite()">SetElementSprite()</h2><h3 id="VisualElementExtensionMethods-Definition.2">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetElementSprite(this VisualElement element, Sprite sprite, bool hideIfNull = true)</pre>
+</div></div><ul><li><p>Sets the <code>VisualElement.style.backgroundImage</code> property of the incoming VisualElement to the incoming sprite</p></li><li><p>If the incoming sprite is null, the VisualElement will be set to <code>DisplayStyle.None</code> by default, but the <strong>hideIfNull </strong>bool can be changed if desired.</p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="VisualElementExtensionMethods-Parameter(s).2">Parameter(s)</h3><p><code>Sprite</code> The sprite to set</p><p><code>hideIfNull</code> Whether or not to set the incoming VisualElement to DisplayStyle.None if the incoming sprite is null</p><p /><h3 id="VisualElementExtensionMethods-Example.2">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Populates the information dialog with content from the incoming scriptable object
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;informationDialogSO&quot;&gt;&lt;/param&gt;
+public void SetContent(InformationDialogSO informationDialogSO)
+{
+    //This will hide the visual element if sprite is null
+    imageElement.SetElementSprite(informationDialogSO.Sprite);
+    
+    //This will not hide the visual element if sprite is null
+    imageElement.SetElementSprite(informationDialogSO.Sprite, false);
+}</pre>
+</div></div><p /><h2 id="VisualElementExtensionMethods-SetBorderColour()">SetBorderColour()</h2><h3 id="VisualElementExtensionMethods-Definition.3">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetBorderColour(this VisualElement element, StyleColor borderColour)</pre>
+</div></div><ul><li><p>Sets the border colour of the incoming VisualElement to the incoming StyleColor</p><ul><li><p><code>VisualElement.style.borderTopColor</code></p></li><li><p><code>VisualElement.style.borderBottomColor</code></p></li><li><p><code>VisualElement.style.borderLeftColor</code></p></li><li><p><code>VisualElement.style.borderRightColor</code></p></li></ul></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="VisualElementExtensionMethods-Parameter(s).3">Parameter(s)</h3><p><code>StyleColor</code> The color to set</p><p /><h3 id="VisualElementExtensionMethods-Example.3">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Updates the progress bar in the task list. Reset inline styling applied 
+/// to progress bar before the new value is set
+/// &lt;/summary&gt;
+private void UpdateProgressBar()
+{
+    progressBarFill.SetBorderColour(StyleKeyword.Null);
+    //Set value
+}</pre>
+</div></div><p /><h2 id="VisualElementExtensionMethods-SetBackgroundColour()">SetBackgroundColour()</h2><h3 id="VisualElementExtensionMethods-Definition.4">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetBackgroundColour(this VisualElement element, StyleColor backgroundColour)</pre>
+</div></div><ul><li><p>Sets the <code>VisualElement.style.backgroundColor</code> property of the incoming VisualElement to the incoming StyleColor</p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="VisualElementExtensionMethods-Parameter(s).4">Parameter(s)</h3><p><code>StyleColor</code> The color to set</p><p /><h3 id="VisualElementExtensionMethods-Example.4">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Updates the progress bar in the task list. Reset inline styling applied 
+/// to progress bar before the new value is set
+/// &lt;/summary&gt;
+private void UpdateProgressBar()
+{
+    progressBarFill.SetBackgroundColour(StyleKeyword.Null);
+    //Set value
+}</pre>
+</div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

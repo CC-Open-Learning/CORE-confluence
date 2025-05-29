@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Project Structure, Best Practices &amp; Performance</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Project Structure, Best Practices &amp; Performance
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 15, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544355569 {padding: 0px;}
+div.rbtoc1748544355569 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544355569 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544355569'>
+<ul class='toc-indentation'>
+<li><a href='#ProjectStructure,BestPractices&amp;Performance-ProjectStructure'>Project Structure</a></li>
+<li><a href='#ProjectStructure,BestPractices&amp;Performance-Performance'>Performance</a></li>
+<li><a href='#ProjectStructure,BestPractices&amp;Performance-BestPractices'>Best Practices</a>
+<ul class='toc-indentation'>
+<li><a href='#ProjectStructure,BestPractices&amp;Performance-UsingFontinVELCRO&amp;UIToolkit'>Using Font in VELCRO &amp; UI Toolkit</a></li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><p>Before we get into creating our first piece of UI in VELCRO, it’s important to understand where the tools are and why the package is structured the way it is.</p><p /><h1 id="ProjectStructure,BestPractices&amp;Performance-ProjectStructure">Project Structure</h1><p>USS classes in VELCRO will only be in 2 forms. Small bite sized classes that mostly only ever change 1 property (Ex. Changing the alignment of an element from flex-start to flex-end), or complete classes that when applied, change an element from the default Unity theme to a ready to use VELCRO control (Ex. A primary button that changes size, padding, margin, border properties, colour, hover effects, etc.). </p><p /><ol start="1"><li><p><strong>Building Block Classes </strong>that only change ~1 property is what you will use most of the time when creating and structuring new UI in a DLX that is not included in VELCRO.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.align-items-start {
+    align-items: flex-start;
+}</pre>
+</div></div></li><li><p><strong>Complete Classes</strong> are what you will use when you want to add the standard VELCRO look of a UI control (button, slider, etc.) to your new UI in a DLX. Alternatively, you can also drag in the template UXML document into your UXML document.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">/* Shared between all buttons in VELCRO */
+.button {
+    margin: 0;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -unity-font-definition: var(--font-bold);
+}
+
+/* Shared between all large buttons in VELCRO */
+.button-large {
+    width: 300px;
+    height: 62px;
+    font-size: 28px;
+}
+
+/* Applies the styles specific to primary buttons only */
+.button-primary {
+    border-width: 0;
+    background-color: var(--colour-button-primary-default);
+    color: var(--colour-text-primary-default);
+}</pre>
+</div></div></li></ol><p /><p>All USS classes affecting the structure of UI elements (Ex. layout, justification, alignment, size, margin, etc.) will be contained in the USS file<strong> velcro-structure.uss</strong>. All USS classes affecting the look, feel, and behaviour of UI elements (Ex. colour, typography, border properties, hover effects, etc.) will be contained in the USS file <strong>velcro-style.uss</strong>. All USS classes that turn default unity theme controls (Ex. button, slider, etc.) into the standard VELCRO look will be contained in the USS file <strong>velcro-components.uss</strong>. Each separate template UI (Ex. Modal, Notification, Toast) will have it’s own USS file “<strong>velcro-[UI Name].uss”</strong>.</p><p /><h1 id="ProjectStructure,BestPractices&amp;Performance-Performance">Performance</h1><p>UI Toolkit is less performant than Unity UI on startup as of 2015. Unity has stated they want to improve performance starting in Unity 2022, but who knows if that has already happened to match Unity UI or if it’s coming in 2035 + 15 years. In the meantime, there are ways we can mitigate this.</p><p /><p>For any sim that VARLab creates, performance from UI realistically won’t be an issue, but we should still be mindful of our decisions. The UI that DLX require is simple enough where we won’t run into most/all of these issues so we can ignore a little for the ease of development.</p><p /><p>Each USS file linked to your UXML document is turned into a lookup table. The number of elements in the hierarchy is the main fact that affects performance. Performance decreases linearly as you add classes to an element. Each class in the list is used to query the lookup table. The complexity is <code>N1 x N2</code>, where:</p><ul><li><p><code>N1</code> is the number of classes on the element</p></li><li><p><code>N2</code> is the current number of applicable USS files linked to your UXML document</p></li></ul><p /><p>So why VELCRO is designed around building block USS classes that only affect 1 property and split into multiple USS files? That jumps both <code>N1</code> and <code>N2</code> up a bunch, but this really only begins to be an issue for large UI that has several thousand elements. The answer is <strong>reusability and clarity</strong>. This is one of those rules that we can ignore for the ease of development.</p><p /><p>Ex. Think of it this way when creating UI. </p><p><strong>Scenario 1</strong>: You have to create a modal that pops up when you finish finding all objects in the scene that says “Congratulations! Would you like to replay the sim?”. Text is centered at size 28px and has an 8px margin.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.scenario1 {
+  -unity-text-align: center;
+  font-size: 28px;
+  margin: 8px;
+}</pre>
+</div></div><p /><p><strong>Scenario 2</strong>: You now have to create a new modal that pops up if the learner tries to leave the sim early that says, “Are you sure you want to quit?” on one line and a second line that says, “Your progress will not be saved.”. For this modal, the font is smaller due to more text, left justified, and has some additional styling.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.scenario2 {
+  -unity-text-align: left;
+  font-size: 24px;
+  margin: 0px;
+}
+
+.warning-text {
+  font-size: 18px;
+  -unity-font-style: italic;
+  color: red;
+}</pre>
+</div></div><p /><p>If you try to reduce the number of USS classes to an absolute minimum, you’ll end up with 2-3, but any new UI will require you to make a new class. Instead if we have classes set up for individual properties, we can apply any property we want without creating new classes in the future. If a child element needs 2 of the 3 properties in scenario 1 above, you don’t need to create another USS class. </p><p><strong>VELCRO Approach</strong>: This is how the USS would look like in VELCRO for the scenario 2 modal</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.text-align-left {
+  -unity-text-align: left;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.m-0 {
+  margin: 0px;
+}
+
+.italic {
+  -unity-font-style: italic;
+}
+
+.red-3 {
+    background-color: var(--red-3);
+}</pre>
+</div></div><p /><p>Yes our class list is initially much larger, but now it’s fairly static over the course of the project, and standardized from one project to another. We can apply these individual classes to any element we want. Another big win here is that constantly making new USS classes is tedious. We can speed up UI development by having lots of development and pull those in when needed. Now you might ask why don’t we just use inline styles if multiple USS class performance is poor? <strong>Inline style are the worst</strong>. Inline styles are hard to debug, have the highest memory usage, can’t be re-used, stop us from implementing good practices like variables, and stop us from supporting light/dark mode. Inline styles are like using magic numbers in your code. <strong>They are evil. They are bad. They are the worst</strong>. However, that isn’t to say they should never be used. There might be small changes that are only needed once in the entire project or UI document. An acceptable location for the use of inline styles is the size property of a UI parent wrapper that is likely unique to every UXML document.</p><p /><h1 id="ProjectStructure,BestPractices&amp;Performance-BestPractices">Best Practices</h1><ol start="1"><li><p>Link the fewest number of USS classes to your UXML file as possible. The most performant solution is to put every single USS class in the entire project into 1 giant style sheet. However, that’s not the best solution when it comes to organization and development. We can ignore this performance hit and use around 2-4 style sheets per piece of UI. If the UI that is created does not require <strong>style </strong>or <strong>component </strong>classes, then those should be removed.</p><ol start="1"><li><p>velcro-structure.uss</p></li><li><p>velcro-style.uss</p></li><li><p>velcro-component.uss</p></li><li><p>velcro-[UI Name].uss</p></li></ol></li></ol><p /><ol start="2"><li><p>Use BEM (<strong>B</strong>lock-<strong>E</strong>lement-<strong>M</strong>odifier naming convention where possible to reduce complex USS selectors. You will find minimal complex USS selectors that rely on parent classes (Ex. .myClass1 &gt; .myClass2 &gt; .myClass3 <strong>OR </strong>.myClass #Element2) in VELCRO. The biggest culprits are check boxes, sliders, toggles, etc. It is necessary to use in some instances because some child elements in controls such as toggles are inaccessible.</p><ol start="1"><li><p>Instead of this, VELCRO uses multiple individual classes that work together and are related by class name. </p><ol start="1"><li><p>Ex. “.<strong>button</strong>” (All shared USS in all button classes), “<strong>.button-large</strong>” (All shared USS in all large button classes), “.<strong>button-primary</strong>” (All shared USS in all button primary classes).</p></li></ol></li></ol></li></ol><p /><ol start="3"><li><p>Avoid the use of “*” selector, It means that EVERY potential element will be tested against the selector which can be very costly as the number of elements increases.</p><ol start="1"><li><p><strong>Note</strong>: The “:hover” selector is also a “*” selector, however this one is a necessary evil for us</p></li></ol></li></ol><p /><ol start="4"><li><p>Try to predefine as much of your hierarchy in the UI builder ahead of time so there is as little generation at runtime as possible.</p><ol start="1"><li><p>Creating the UI on Awake()/Start() and hiding it with <strong>Display.None</strong> until needed is more performant than creating the hierarchy at runtime when needed and destroying it when no longer needed.</p></li></ol></li></ol><p /><ol start="5"><li><p>All values for font, and colour should be put into <a class="external-link" href="https://docs.unity3d.com/Manual/UIE-USS-CustomProperties.html#:~:text=To%20create%20a%20USS%20variable,()%20function%20to%20call%20it." rel="nofollow">USS variables</a> in your style sheets. There should be no hard coded hex or font value in your USS classes. This stops colours/font from being changed when the theme is swapped for light/dark mode.</p></li></ol><p /><ol start="6"><li><p>Avoid the use of inline styles as much as possible. Inline styles override classes. it’s like an <strong>!important</strong> from CSS which makes debugging issues very difficult at times. Anything changed from the applied styles in USS classes in your properties inspector will be denoted by a little white line by the property just like when there are overrides for a prefab in the unity inspector.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240516-202653.png" width="297" loading="lazy" src="attachments/1121189929/1120862263.png?width=297" data-image-src="attachments/1121189929/1120862263.png" data-height="270" data-width="297" data-unresolved-comment-count="0" data-linked-resource-id="1120862263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240516-202653.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121189929" data-linked-resource-container-version="19" data-media-id="53d75ef2-934d-43d4-8de2-23afc13b5fd4" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240516-202608.png" width="536" loading="lazy" src="attachments/1121189929/1121091673.png?width=536" data-image-src="attachments/1121189929/1121091673.png" data-height="241" data-width="536" data-unresolved-comment-count="0" data-linked-resource-id="1121091673" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240516-202608.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121189929" data-linked-resource-container-version="19" data-media-id="b46b1a12-a589-42be-a1b5-0b5faf866e9c" data-media-type="file"></span><p /><h2 id="ProjectStructure,BestPractices&amp;Performance-UsingFontinVELCRO&amp;UIToolkit">Using Font in VELCRO &amp; UI Toolkit</h2><p>Font is a bit of a clown fiesta in Unity/UI Toolkit. You are unable to adjust font weights of text manually, so the best solution is to set up custom USS classes that point to a USS variable that points to a font asset that the font supports. VELCRO uses the Lato font that supports font weights of 100 (Thin), 300 (Light), 400 (Regular), 700 (Bold), and 900 (Black). However, you can still manually apply a bold or italics property in the UI toolkit inspector to an already bolded/italicized font asset. You end up with a <em><strong>bolded italicized bold italics font </strong></em><img class="emoticon emoticon-blue-star" data-emoji-id="1f921" data-emoji-shortname=":clown:" data-emoji-fallback="🤡" src="images/icons/emoticons/72/1f921.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/>.</p><p /><p>The resulting combination is slightly different than expected and are in between the font weights/italics amount specified in the font asset.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240518-021504.png" width="760" loading="lazy" src="attachments/1121189929/1301020698.png?width=760" data-image-src="attachments/1121189929/1301020698.png" data-height="307" data-width="1355" data-unresolved-comment-count="0" data-linked-resource-id="1301020698" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240518-021504.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121189929" data-linked-resource-container-version="19" data-media-id="b6bd24b7-ead9-40bf-b0a4-330b2740cc45" data-media-type="file"></span><p /><p>The best solution is to set up USS variables for font in the theme files for light and dark mode. Then in <strong>velcro-style.uss</strong>, the font weight classes will point to that USS variable. The advantages to this are that DLX can override the font style if desired by creating a new theme file and pointing “<strong>--font-bold</strong>” and others to a different font asset. Additionally this also keeps all font references out of USS classes.</p><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>When implementing font in UI toolkit, it is better to use the font weight classes in VELCRO if possible before resorting to using “<strong>.bold</strong>” or “<strong>.italic</strong>” classes.</p></div></div><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240518-022955.png" width="515" loading="lazy" src="attachments/1121189929/1301020704.png?width=515" data-image-src="attachments/1121189929/1301020704.png" data-height="60" data-width="515" data-unresolved-comment-count="0" data-linked-resource-id="1301020704" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240518-022955.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121189929" data-linked-resource-container-version="19" data-media-id="bfbb4949-d73d-4544-99a7-6518c235e0ff" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240518-023128.png" width="361" loading="lazy" src="attachments/1121189929/1301020710.png?width=361" data-image-src="attachments/1121189929/1301020710.png" data-height="136" data-width="361" data-unresolved-comment-count="0" data-linked-resource-id="1301020710" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240518-023128.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121189929" data-linked-resource-container-version="19" data-media-id="c316b812-87e5-49e2-9bfc-1efac6e77464" data-media-type="file"></span><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1121288211.png">image-20240516-171743.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1121091673.png">image-20240516-202608.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1120862263.png">image-20240516-202653.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1301020698.png">image-20240518-021504.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1301020704.png">image-20240518-022955.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121189929/1301020710.png">image-20240518-023128.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

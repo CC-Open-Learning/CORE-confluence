@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Debugging</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Debugging
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 06, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><style>[data-colorid=f3y0jvwntr]{color:#fff0b3} html[data-color-mode=dark] [data-colorid=f3y0jvwntr]{color:#4c3d00}[data-colorid=cc1yzbliif]{color:#ffc400} html[data-color-mode=dark] [data-colorid=cc1yzbliif]{color:#ffc400}[data-colorid=pxbvzhlzt1]{color:#ff5630} html[data-color-mode=dark] [data-colorid=pxbvzhlzt1]{color:#cf2600}</style><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;" /><col style="width: 543.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1748544507198 {padding: 0px;}
+div.rbtoc1748544507198 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544507198 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1748544507198">
+<ul class="toc-indentation">
+<li><a href="#Debugging-Debugging">Debugging</a>
+<ul class="toc-indentation">
+<li><a href="#Debugging-DebuggingExamples">Debugging Examples</a>
+<ul class="toc-indentation">
+<li><a href="#Debugging-UIBuilderDebugging">UI Builder Debugging</a></li>
+<li><a href="#Debugging-RuntimeDebugging">Runtime Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="Debugging-Debugging">Debugging</h1><p>This page is intended to give a quick overview of debugging in UI Toolkit. To read more about UI Toolkit Debugging, visit <a class="external-link" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-ui-debugger.html#:~:text=Select%20Window%20%3E%20UI%20Toolkit%20%3E%20Debugger,to%20enable%20the%20Preview%20mode." rel="nofollow">Unity&rsquo;s documentation</a>. I also highly encourage a quick skim through the <a href="Common-Pitfalls_1174765590.html" data-linked-resource-id="1174765590" data-linked-resource-version="20" data-linked-resource-type="page">[OUTDATED] Common Pitfalls</a> page.</p><p /><h2 id="Debugging-DebuggingExamples">Debugging Examples</h2><h3 id="Debugging-UIBuilderDebugging">UI Builder Debugging</h3><p>The runtime debugger can be accessed from the UI Builder in Unity 6+, but if a piece of UI doesn&rsquo;t behave as expected in the UI builder, it is usually easier to find the issue without it. The most common issues in the UI Builder are inline styles overriding classes, margin/padding and/or styling not applying due to an incorrect theme being previewed.</p><p /><ol start="1"><li><p>Ensure either <strong>Dark.tss</strong>, <strong>Light.tss</strong>, or the project&rsquo;s <strong>[Name]Dark.tss</strong>, and <strong>[Name]Light.tss</strong> are being used.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-205649.png" width="760" loading="lazy" src="attachments/1506902062/1541701664.png?width=760" data-image-src="attachments/1506902062/1541701664.png" data-height="1029" data-width="1916" data-unresolved-comment-count="0" data-linked-resource-id="1541701664" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-205649.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="79666f1c-ef55-4656-840f-3cfb0dcc3beb" data-media-type="file" /></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-210244.png" width="760" loading="lazy" src="attachments/1506902062/1541570661.png?width=760" data-image-src="attachments/1506902062/1541570661.png" data-height="1025" data-width="1917" data-unresolved-comment-count="0" data-linked-resource-id="1541570661" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-210244.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="87067e17-c6f5-4c0f-a884-9448463cd00e" data-media-type="file" /></span><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>All USS variables holding colours, sprites, etc. will not display correctly if the theme file being previewed is set to <strong>Unity Default Runtime Theme.</strong></p></div></div><p /><ol start="2"><li><p>Skim through elements to check for <strong>inline styles</strong> that could potentially be causing the issue. Inline styles are denoted by a white bar.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-211311.png" width="478" loading="lazy" src="attachments/1506902062/1542455369.png?width=478" data-image-src="attachments/1506902062/1542455369.png" data-height="115" data-width="316" data-unresolved-comment-count="0" data-linked-resource-id="1542455369" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-211311.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="0610891a-4b0b-4db4-840a-37f8ca7810a3" data-media-type="file" /></span><p /><ol start="3"><li><p>Select the &ldquo;<strong>preview</strong>&rdquo; button in the top right of the viewport to help debug hover/click transitions quicker outside of paly mode.</p></li><li><p>Try to <strong>group up where margin and padding</strong> are placed on as few elements as possible. This is not required, and not always an option, but it is much easier to debug and match UI to Figma designs if only a handful of elements have margin/padding as opposed to 8px on every VisualElement, etc.</p></li><li><p>Use the temporary USS class below to help see where each element&rsquo;s bounds are. This can be especially useful to outline invisible wrapper containers that exist to move child elements around such as the <strong>#Header</strong>, <strong>#Content</strong>, and <strong>#Footer</strong> elements in the screenshot below.</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">/* DEBUG. Remove this when done */
+* {
+    border-width: 1px;
+    border-color: red;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-211135.png" width="760" loading="lazy" src="attachments/1506902062/1542062124.png?width=760" data-image-src="attachments/1506902062/1542062124.png" data-height="1025" data-width="1913" data-unresolved-comment-count="0" data-linked-resource-id="1542062124" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-211135.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="7bcf8222-791c-483d-b964-634c7f2bcd08" data-media-type="file" /></span><p /><h3 id="Debugging-RuntimeDebugging">Runtime Debugging</h3><p>The runtime debugger is similar to your browser&rsquo;s developer tools by pressing <strong>F12 </strong>and switching to the &ldquo;<strong>Elements</strong>&rdquo; tab. It will display the UXML hierarchy of every UI document in the scene, the box model, and all applied USS of the selected element.</p><p /><p>To access the runtime debugger, <strong>Window </strong>&gt; <strong>UI Toolkit </strong>&gt; <strong>Debugger</strong></p><p /><p>If a specific element or piece of UI is behaving differently from expected during runtime, open the debugger, and select the element to view all applied USS. The properties of elements can also be changed here at runtime using the debugger to test changes. <strong>All changes will be discarded when play mode is ended.</strong></p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-201425.png" width="478" loading="lazy" src="attachments/1506902062/1542258729.png?width=478" data-image-src="attachments/1506902062/1542258729.png" data-height="81" data-width="478" data-unresolved-comment-count="0" data-linked-resource-id="1542258729" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-201425.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="f4c086c9-21f6-4566-af6c-7919fcb57bcb" data-media-type="file" /></span><p /><p>In the example below:</p><ul><li><p><strong><span data-colorid="pxbvzhlzt1">Red </span></strong>is the hierarchy of every piece of UI active in the scene. This is the demo scene for toasts in VELCRO which has a toolbar, simple toast and complex toast.</p></li><li><p><strong><span data-colorid="cc1yzbliif">Orange </span></strong>displays the box model of the currently selected element which displays the size in pixels of the margin, border, padding, and element itself. The currently selected element is the Label <strong>#TODO</strong></p></li><li><p><strong><span data-colorid="f3y0jvwntr">Yellow </span></strong>displays the list of active USS classes, and the outcome of the classes' properties.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250106-201633.png" width="760" loading="lazy" src="attachments/1506902062/1542062102.png?width=760" data-image-src="attachments/1506902062/1542062102.png" data-height="1030" data-width="1915" data-unresolved-comment-count="0" data-linked-resource-id="1542062102" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250106-201633.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506902062" data-linked-resource-container-version="6" data-media-id="211157ee-650f-4d32-bb6e-4ef3d9921da0" data-media-type="file" /></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542258723.png">image-20250106-201008.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1541767237.png">image-20250106-201411.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542258729.png">image-20250106-201425.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542062102.png">image-20250106-201633.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542062115.png">image-20250106-205051.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542160416.png">image-20250106-205620.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1541701664.png">image-20250106-205649.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1541570661.png">image-20250106-210244.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1541275751.png">image-20250106-211030.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542062124.png">image-20250106-211135.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506902062/1542455369.png">image-20250106-211311.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

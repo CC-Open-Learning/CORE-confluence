@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Easy - Card Example (Text)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Creating-UI-with-VELCRO_1601601550.html">Creating UI with VELCRO</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Easy - Card Example (Text)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Feb 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><style>[data-colorid=ph890eaf4f]{color:#6554c0} html[data-color-mode=dark] [data-colorid=ph890eaf4f]{color:#503fab}[data-colorid=d7kowj81aq]{color:#6554c0} html[data-color-mode=dark] [data-colorid=d7kowj81aq]{color:#503fab}[data-colorid=w9hr0tk1wi]{color:#6554c0} html[data-color-mode=dark] [data-colorid=w9hr0tk1wi]{color:#503fab}[data-colorid=s866eg673h]{color:#6554c0} html[data-color-mode=dark] [data-colorid=s866eg673h]{color:#503fab}[data-colorid=h2ihyi71i5]{color:#6554c0} html[data-color-mode=dark] [data-colorid=h2ihyi71i5]{color:#503fab}[data-colorid=hmme9pquqb]{color:#6554c0} html[data-color-mode=dark] [data-colorid=hmme9pquqb]{color:#503fab}</style><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;" /><col style="width: 543.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1748544477156 {padding: 0px;}
+div.rbtoc1748544477156 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544477156 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1748544477156">
+<ul class="toc-indentation">
+<li><a href="#Easy-CardExample(Text)-HowtoApproachCreatingNewUI">How to Approach Creating New UI</a>
+<ul class="toc-indentation">
+<li><a href="#Easy-CardExample(Text)-UIBuilderSetup">UI Builder Setup</a></li>
+<li><a href="#Easy-CardExample(Text)-Structuring&amp;StylingUI">Structuring &amp; Styling UI</a>
+<ul class="toc-indentation">
+<li><a href="#Easy-CardExample(Text)-1.CreatetheParent-MostUIElement">1. Create the Parent-Most UI Element</a></li>
+<li><a href="#Easy-CardExample(Text)-2.Createthe#Topand#BottomElements">2. Create the #Top and #Bottom Elements</a></li>
+<li><a href="#Easy-CardExample(Text)-3.Stylethe#Topand#BottomElements">3. Style the #Top and #Bottom Elements</a></li>
+<li><a href="#Easy-CardExample(Text)-4.CreatetheSeparatingBar">4. Create the Separating Bar</a></li>
+<li><a href="#Easy-CardExample(Text)-5.CreatetheLabel">5. Create the Label</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><p>This page is not meant to be a comprehensive beginner tutorial, however it will cover some basics in the beginning and gradually get less detailed towards the end. This page is intended to teach you how to approach implementing new UI in UI toolkit once you are familiar with the bare minimum. I recommend viewing the page <a href="Introduction-to-UI-Toolkit_1174667287.html" data-linked-resource-id="1174667287" data-linked-resource-version="13" data-linked-resource-type="page">Introduction to UI Toolkit</a> and the resources at the bottom of that page for beginner tutorials.</p><p /><h1 id="Easy-CardExample(Text)-HowtoApproachCreatingNewUI">How to Approach Creating New UI</h1><ol start="1"><li><p>Create a blank UXML document by <strong>Assets/Right Click &gt; Create &gt; UI Toolkit &gt; UI Document</strong></p></li><li><p><strong>(Optional)</strong> Box your UI</p><ol start="1"><li><p>The first step to implementing UI is structuring your hierarchy. Styling and functionality can come afterwards. Your hierarchy will usually be full of invisible wrapper classes and parent <strong>VisualElement </strong>objects that simply exist to shift elements around in your UI. A good way to help visualize these elements is by boxing your UI design. <strong>This step is optional. It can help developers who not familiar with UI Toolkit, but is by no means required.</strong> What I mean by this, is to literally draw boxes around the elements to see the building blocks of <strong>VisualElements</strong>/&lt;<strong>divs</strong>&gt; in your UI.</p></li></ol></li></ol><div class="table-wrap"><table data-table-width="1011" data-layout="center" data-local-id="07a91868-f578-4111-a3db-5cc4a4d57f02" class="confluenceTable"><tbody><tr><td class="confluenceTd"><p>Default:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-192724.png" width="360" loading="lazy" src="attachments/1601699863/1602715652.png?width=360" data-image-src="attachments/1601699863/1602715652.png" data-height="363" data-width="360" data-unresolved-comment-count="0" data-linked-resource-id="1602715652" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-192724.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="2cad6369-5f8e-40aa-8dc5-705178652348" data-media-type="file" /></span></td><td class="confluenceTd"><p>Boxed</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-194808.png" width="359" loading="lazy" src="attachments/1601699863/1603305473.png?width=359" data-image-src="attachments/1601699863/1603305473.png" data-height="359" data-width="359" data-unresolved-comment-count="0" data-linked-resource-id="1603305473" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-194808.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="8801f8e0-e165-4c53-bee8-bf4e6a30ba39" data-media-type="file" /></span><ul><li><p><strong>Red</strong>: The parent most VisualElement that wraps the entire card. This has the size and alignment rules for children elements </p></li><li><p><strong>Orange and Yellow</strong>: Separate the parent into the larger usable blocks such as #Top, and #Bottom that have different justification/alignment</p></li><li><p><strong>Purple</strong>: Description label of the card in the #Bottom block</p></li></ul></td></tr></tbody></table></div><ol start="3"><li><p>Structure your UXML</p></li><li><p>Style your UXML through USS classes. These should point to colour variables in the Dark/Light theme files</p></li><li><p>Write your script</p></li></ol><p /><h2 id="Easy-CardExample(Text)-UIBuilderSetup">UI Builder Setup</h2><ol start="1"><li><p>Set your canvas larger than default. I like to set it to <strong>1920x1080</strong>. You can also set it to match your editor window.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-200126.png" width="760" loading="lazy" src="attachments/1601699863/1603305479.png?width=760" data-image-src="attachments/1601699863/1603305479.png" data-height="1028" data-width="1916" data-unresolved-comment-count="0" data-linked-resource-id="1603305479" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-200126.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="1fd8f1a2-bf1e-4873-91d3-6b3a8cce978a" data-media-type="file" /></span><p /><ol start="2"><li><p>Link your required USS filles. Most UI will have <strong>velcro-structure.uss</strong> (margin, positioning, layout classes), <strong>velcro-style.uss</strong> (colour, border, typography classes), and their specific sheet for this it will be <strong>rt-card.uss</strong>.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-200239.png" width="320" loading="lazy" src="attachments/1601699863/1603010566.png?width=320" data-image-src="attachments/1601699863/1603010566.png" data-height="299" data-width="320" data-unresolved-comment-count="0" data-linked-resource-id="1603010566" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-200239.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="ea5785b7-da7c-4c79-bd34-977348b785c2" data-media-type="file" /></span><p /><h2 id="Easy-CardExample(Text)-Structuring&amp;StylingUI">Structuring &amp; Styling UI</h2><p>I&rsquo;ll be using USS classes from <strong>velcro-structure.uss</strong>, and <strong>velcro-style.uss</strong> to do this. These classes can be applied to elements by dragging them from the USS class selector panel on top of the element in the hierarchy panel or by typing in the class name in the inspector and pressing &ldquo;<strong>Add Style Class to List</strong>&rdquo;.</p><p /><h3 id="Easy-CardExample(Text)-1.CreatetheParent-MostUIElement">1. Create the Parent-Most UI Element</h3><p>We can start with an empty <strong>VisualElement </strong>container. Here, I named it &ldquo;<strong>Card</strong>&rdquo;. You can do this by dragging the <strong>VisualElement </strong>in the <strong>Library </strong>panel into the <strong>Hierarchy </strong>panel and renaming it.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>By default, Unity will set an override inline style of <strong>flex-grow: 1</strong>. This means the element will expand to take up all available space. We don&rsquo;t want this behaviour for the card, so we will <strong>Right Click &gt; Unset</strong>.</p></div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-201021.png" width="760" loading="lazy" src="attachments/1601699863/1603141647.png?width=760" data-image-src="attachments/1601699863/1603141647.png" data-height="1020" data-width="1913" data-unresolved-comment-count="0" data-linked-resource-id="1603141647" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-201021.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="0c6b73e6-d3de-471a-b729-91cffad3c567" data-media-type="file" /></span><p /><p>We don&rsquo;t have access to a Figma design for this card, so for the sake of this example, the card will be 330px x 330px. Over in the style sheet, create a USS class to style your base card element. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.card {
+    width: 330px;
+    height: 330px;
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>Make sure to save changes in the UI builder before saving changes to the USS/TSS files. Unity will discard all changes if you save the USS/TSS files first. It is a big headache.</p></div></div><p /><p>Now apply the USS class to the element by either dragging it onto the element, or by adding it in the inspector.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-202204.png" width="490" loading="lazy" src="attachments/1601699863/1602519063.png?width=490" data-image-src="attachments/1601699863/1602519063.png" data-height="439" data-width="490" data-unresolved-comment-count="0" data-linked-resource-id="1602519063" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-202204.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="ce76075b-4c12-4cdb-960c-6f2d5253dca1" data-media-type="file" /></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-202229.png" width="309" loading="lazy" src="attachments/1601699863/1603076102.png?width=309" data-image-src="attachments/1601699863/1603076102.png" data-height="189" data-width="309" data-unresolved-comment-count="0" data-linked-resource-id="1603076102" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-202229.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="0677df00-a4a8-479a-a7b2-d7652e2ac9ab" data-media-type="file" /></span><p /><h3 id="Easy-CardExample(Text)-2.Createthe#Topand#BottomElements">2. Create the #Top and #Bottom Elements</h3><p>Add two more empty <strong>VisualElement </strong>containers. Here, I named it &ldquo;<strong>Top</strong>&rdquo; and &ldquo;<strong>Bottom</strong>&rdquo;. Unset the override inline flex-grow: 1 that Unity applies (<strong>Right Click &gt; Unset</strong>), but add the <code>.grow</code> class back onto the &ldquo;<strong>#Bottom</strong>&rdquo; element. Unsetting the override inline, and adding it back to the element is safer.</p><p /><p>Over in the style sheet, create a USS class to style both elements. Don&rsquo;t forget to apply the USS classes to the new elements.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--card-background-top-colour: #C4C4C4;
+--card-background-bottom-colour: #2D2D2D;
+
+.card-top{
+    background-color: var(--card-background-top-colour);
+    height: 105px;
+}
+
+.card-bottom {
+    background-color: var(--card-background-bottom-colour);
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-210711.png" width="760" loading="lazy" src="attachments/1601699863/1602846732.png?width=760" data-image-src="attachments/1601699863/1602846732.png" data-height="1024" data-width="1899" data-unresolved-comment-count="0" data-linked-resource-id="1602846732" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-210711.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="011811b7-91da-401f-a01e-76004b4095fc" data-media-type="file" /></span><p /><h3 id="Easy-CardExample(Text)-3.Stylethe#Topand#BottomElements">3. Style the #Top and #Bottom Elements</h3><p>In the previous step, the elements are coloured, but we are missing the border radius. This can be added using <strong>velcro-style.uss</strong> classes <code>.br-tl-20</code> and <code>br-tr-20</code> to the <strong>#Top</strong> element and <code>.br-bl-20</code> and <code>br-br-20</code> to the <strong>#Bottom</strong> element.</p><p /><p>Where properties include:</p><ul><li><p><strong><span data-colorid="w9hr0tk1wi">br</span></strong> for border radius</p></li></ul><p>Where direction includes:</p><ul><li><p><strong><span data-colorid="d7kowj81aq">tl</span></strong> for top left</p></li><li><p><strong><span data-colorid="s866eg673h">tr</span></strong> for top right</p></li><li><p><strong><span data-colorid="ph890eaf4f">bl</span></strong> for bottom left</p></li><li><p><strong><span data-colorid="hmme9pquqb">br</span></strong> for bottom right</p></li></ul><p>Where value includes:</p><ul><li><p><strong><span data-colorid="h2ihyi71i5">#</span></strong> value of the border radius for that border property</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>Read more about style classes at <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1125089290/Style+USS+Classes#Border-Radius" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1125089290/Style+USS+Classes#Border-Radius</a> </p></div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-210009.png" width="760" loading="lazy" src="attachments/1601699863/1602813959.png?width=760" data-image-src="attachments/1601699863/1602813959.png" data-height="1022" data-width="1912" data-unresolved-comment-count="0" data-linked-resource-id="1602813959" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-210009.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="0fa0c8af-7156-4847-a363-f3e964b943d7" data-media-type="file" /></span><p /><h3 id="Easy-CardExample(Text)-4.CreatetheSeparatingBar">4. Create the Separating Bar</h3><p>Add another empty <strong>VisualElement </strong>and place it in between Top/Bottom. Here, I named it &ldquo;<strong>Bar</strong>&rdquo;. Unset the override inline flex-grow: 1 that Unity applies (<strong>Right Click &gt; Unset</strong>). </p><p /><p>Over in the style sheet, create a USS class to style the bar element. Don&rsquo;t forget to apply the USS classes to the new elements.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--card-bar-colour: #FFC009;
+
+.card-bar {
+    background-color: var(--card-bar-colour);
+    min-height: 2px;
+    max-height: 2px;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-204717.png" width="760" loading="lazy" src="attachments/1601699863/1602650119.png?width=760" data-image-src="attachments/1601699863/1602650119.png" data-height="1029" data-width="1914" data-unresolved-comment-count="0" data-linked-resource-id="1602650119" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-204717.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="1d9c8eb2-8003-4cf6-a714-3856a71d4cac" data-media-type="file" /></span><p /><h3 id="Easy-CardExample(Text)-5.CreatetheLabel">5. Create the Label</h3><p>Add an empty <strong>Label</strong> to the &ldquo;<strong>#Bottom</strong>&rdquo; element. Here, I named it &ldquo;<strong>DescriptionLabel</strong>&rdquo;. By default, Unity adds a 4px/2px margin/padding to labels. I remove those by using <strong>velcro-structure.uss</strong> classes <code>m-0</code>, and <code>p-0</code>. I also added the classes <code>text-wrap</code>, <code>fw-700</code>, and <code>fs-36</code>.</p><ul><li><p><code>m-0</code> sets margin to 0px</p></li><li><p><code>p-0</code> sets padding to 0px</p></li><li><p><code>text-wrap</code> makes the text wrap inside the #Bottom element</p></li><li><p><code>fw-700</code> sets the font to bold and use Lato font</p></li><li><p><code>fs-36</code> sets the font size to 36</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>Read more about font use <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1121189929/Project+Structure+Best+Practices+Performance#Using-Font-in-VELCRO-%26-UI-Toolkit" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1121189929/Project+Structure+Best+Practices+Performance#Using-Font-in-VELCRO-%26-UI-Toolkit</a> and more about typography style classes <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1125089290/Style+USS+Classes#Typography" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1125089290/Style+USS+Classes#Typography</a> </p></div></div><p /><p>Over in the style sheet, create a USS class to style the label element. Don&rsquo;t forget to apply the USS classes to the new elements. Additionally, add the <code>p-20</code> (padding: 20px) class to the &ldquo;<strong>#Bottom</strong>&rdquo; element to space the label away from the edge.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--card-bottom-label-colour: #FFFFFF;
+
+.card-bottom-label {
+    color: var(--card-bottom-label-colour);
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-205547.png" width="760" loading="lazy" src="attachments/1601699863/1602879517.png?width=760" data-image-src="attachments/1601699863/1602879517.png" data-height="1023" data-width="1911" data-unresolved-comment-count="0" data-linked-resource-id="1602879517" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-205547.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="00d31e64-4c96-4372-9f2c-c4958e6f2a44" data-media-type="file" /></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-205608.png" width="760" loading="lazy" src="attachments/1601699863/1602781206.png?width=760" data-image-src="attachments/1601699863/1602781206.png" data-height="1025" data-width="1916" data-unresolved-comment-count="0" data-linked-resource-id="1602781206" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-205608.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="1f1c152b-5bf7-425c-993f-c20d23f80735" data-media-type="file" /></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-205851.png" width="457" loading="lazy" src="attachments/1601699863/1602650126.png?width=457" data-image-src="attachments/1601699863/1602650126.png" data-height="470" data-width="457" data-unresolved-comment-count="0" data-linked-resource-id="1602650126" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-205851.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1601699863" data-linked-resource-container-version="6" data-media-id="c493f687-9d87-4651-b4c6-64fb4e6ff5fc" data-media-type="file" /></span>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1601961998.png">image-20250204-190940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602715652.png">image-20250204-192724.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603305473.png">image-20250204-194808.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603305479.png">image-20250204-200126.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603010566.png">image-20250204-200239.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603141647.png">image-20250204-201021.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602519063.png">image-20250204-202204.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603076102.png">image-20250204-202229.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603436550.png">image-20250204-202958.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603010575.png">image-20250204-203553.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602650119.png">image-20250204-204717.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602879517.png">image-20250204-205547.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603010581.png">image-20250204-205604.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602781206.png">image-20250204-205608.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602650126.png">image-20250204-205851.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602813959.png">image-20250204-210009.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1603043374.png">image-20250204-210051.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1601699863/1602846732.png">image-20250204-210711.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

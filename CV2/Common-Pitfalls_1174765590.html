@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Common Pitfalls</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Common Pitfalls
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 07, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544510218 {padding: 0px;}
+div.rbtoc1748544510218 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544510218 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544510218'>
+<ul class='toc-indentation'>
+<li><a href='#CommonPitfalls-UILooksCompletelyBrokenwithNoStyling'>UI Looks Completely Broken with No Styling</a></li>
+<li><a href='#CommonPitfalls-CustomControlsNotShowingUpinUIBuilder'>Custom Controls Not Showing Up in UI Builder</a></li>
+<li><a href='#CommonPitfalls-USSClassPropertiesareNotApplyingtoUIelements'>USS Class Properties are Not Applying to UI elements</a></li>
+<li><a href='#CommonPitfalls-HoverTransitionsStillActiveWhenElementisDisabled'>Hover Transitions Still Active When Element is Disabled</a></li>
+<li><a href='#CommonPitfalls-HoverTransitionsShowUnityDefaultEvenWith:HoverStates'>Hover Transitions Show Unity Default Even With :Hover States</a></li>
+</ul>
+</div></td></tr></tbody></table></div><p /><h2 id="CommonPitfalls-UILooksCompletelyBrokenwithNoStyling">UI Looks Completely Broken with No Styling</h2><p><strong>Possible Solution(s)</strong>: </p><ol start="1"><li><p>Ensure the theme dropdown in the top right of the UI Builder is set to Dark.tss, Light.tss, or the DLX’s overridden theme.</p></li></ol><p /><p><strong>Explanation</strong>: All USS variables holding colours, sprites, etc. will not display correctly if the theme file being previewed is set to Unity Default Runtime Theme. Read more at <a href="Debugging_1506902062.html" data-linked-resource-id="1506902062" data-linked-resource-version="6" data-linked-resource-type="page">Debugging</a>. All colours/sprites are defined in theme files. Individual USS files only have references to those variables.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240823-232816.png" width="544" loading="lazy" src="attachments/1174765590/1302888507.png?width=544" data-image-src="attachments/1174765590/1302888507.png" data-height="229" data-width="544" data-unresolved-comment-count="0" data-linked-resource-id="1302888507" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240823-232816.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174765590" data-linked-resource-container-version="20" data-media-id="3a29730b-349e-4524-98bb-f64e0c7824ea" data-media-type="file"></span><p /><h2 id="CommonPitfalls-CustomControlsNotShowingUpinUIBuilder">Custom Controls Not Showing Up in UI Builder</h2><p><strong>Possible Solution(s)</strong>: </p><ol start="1"><li><p>Use the template UXML file in <strong>Library Panel </strong>&gt; <strong>Project </strong>&gt; <strong>Assets </strong>&gt;<strong> VELCRO UI </strong>&gt;<strong> Templates </strong>&gt;<strong> Toggle </strong>&gt; <strong>Toggle.uxml</strong></p></li></ol><p /><p><strong>Explanation</strong>: Unlike other templates, custom controls have scripts defining their behaviour such as SlideToggle.cs and rely on the velcro-components style sheet for its visuals to be displayed. Always use the UXML templates rather than the raw scripts themselves since the templates have all the setup complete.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Screenshot 2024-06-24 151825.png" width="263" loading="lazy" src="attachments/1174765590/1189347329.png?width=263" data-image-src="attachments/1174765590/1189347329.png" data-height="413" data-width="263" data-unresolved-comment-count="0" data-linked-resource-id="1189347329" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2024-06-24 151825.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174765590" data-linked-resource-container-version="20" data-media-id="5c33646b-134d-4c9c-9af2-0d1aad9c7e39" data-media-type="file"></span><p /><h2 id="CommonPitfalls-USSClassPropertiesareNotApplyingtoUIelements">USS Class Properties are Not Applying to UI elements</h2><p><strong>Possible Solution(s)</strong>: </p><ol start="1"><li><p>Unset overridden inline properties. They will always take priority over a USS class.</p></li></ol><p /><p><strong>Explanation</strong>: An inline property is when you change a property directly on the UI element itself in the inspector rather than through a USS class. Inlined properties always have more priority than everything else meaning your classes won’t be able to overwrite those values. Inline properties are similar to <strong>!important</strong> in CSS. Inline properties are denoted by a little white bar in the UI Builder, similar to the blue bar for GameObject prefab overrides.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250107-164640.png" width="345" loading="lazy" src="attachments/1174765590/1545043996.png?width=345" data-image-src="attachments/1174765590/1545043996.png" data-height="155" data-width="345" data-unresolved-comment-count="0" data-linked-resource-id="1545043996" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250107-164640.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174765590" data-linked-resource-container-version="20" data-media-id="ec7fe5b9-62fe-49c7-bccc-30f7872557ee" data-media-type="file"></span><p /><ol start="2"><li><p>Remove classes that target the same USS property as other properties. This is most common with margin and padding utilities.</p></li></ol><p /><p><strong>Explanation</strong>: It is very common for UI elements to have multiple classes applied that affect the same property. The greatest USS class applied will override all other changes to that property. For example, Label elements come with a default 2px/4px margin and padding which is not used many times. Say you only want a left/right margin of 16px, an easy strategy is to first 0 everything, then apply classes <strong>p-0, m-0, ml-16, mr-16</strong>. Now say requirements change and you now require a 12px left margin. If you apply ml-12 at any point, ml-16 will still be used unless removed.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">p-0 {
+    padding: 0px;
+}
+
+m-0 {
+    margin: 0px;
+}
+
+ml-16 {
+    margin-left: 16px;
+}
+
+mr-16 {
+    margin-right: 16px;
+}</pre>
+</div></div><p /><h2 id="CommonPitfalls-HoverTransitionsStillActiveWhenElementisDisabled">Hover Transitions Still Active When Element is Disabled</h2><h2 id="CommonPitfalls-HoverTransitionsShowUnityDefaultEvenWith:HoverStates">Hover Transitions Show Unity Default Even With :Hover States</h2><p><strong>Possible Solution(s)</strong>: </p><ol start="1"><li><p>Ensure the “<strong>:hover</strong>” USS class also has the “<strong>:enabled</strong>” state</p></li></ol><p /><p><strong>Explanation</strong>: Hover states will still trigger when the element is disabled if the “<strong>:enabled</strong>” state is missing in all Unity versions. In Unity 6+, the Unity Default Runtime Theme takes priority or does not trigger the “<strong>:hover</strong>&quot; state without also defining “<strong>:enabled</strong>” or “<strong>:disabled</strong>”.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.button-primary:hover:enabled {
+    border-width: 4px;
+    border-color: var(--colour-button-primary-border-hover);
+    background-color: var(--colour-button-primary-hover);
+    color: var(--colour-text-primary-hover);
+}</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174765590/1188397064.png">image-20240624-153241.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174765590/1189347329.png">Screenshot 2024-06-24 151825.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174765590/1302888507.png">image-20240823-232816.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174765590/1545043996.png">image-20250107-164640.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

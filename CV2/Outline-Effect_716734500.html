@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Outline Effect</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Universal-Render-Pipeline_716636205.html">Universal Render Pipeline</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Outline Effect
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="c08e92bf-33a8-42f0-be36-e1b63eb59bf9" class="confluenceTable"><colgroup><col style="width: 363.0px;"/><col style="width: 363.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>Easy Performant Outline</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">3.4.3</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Provides visual effects for highlighting and outlining objects in 2D and 3D Unity projects.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/easy-performant-outline" rel="nofollow">https://bitbucket.org/VARLab/easy-performant-outline</a>   </p></td></tr></tbody></table></div></div><h2 id="OutlineEffect-Summary">Summary</h2><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" width="272" loading="lazy" src="attachments/716734500/716046594.png?width=272" data-image-src="attachments/716734500/716046594.png" data-height="1300" data-width="1950" data-unresolved-comment-count="0" data-linked-resource-id="716046594" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230529-143319.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="716734500" data-linked-resource-container-version="9" data-media-id="b86ea2b1-aead-4bef-9b25-91e1ae5165bc" data-media-type="file"></span><p>The <a class="external-link" href="https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/easy-performant-outline-2d-3d-urp-hdrp-and-built-in-renderer-157187" rel="nofollow"><strong>Easy Performant Outline</strong></a> Unity asset provides visual effects for highlighting and outlining objects in 2D and 3D Unity projects.</p><p>While all of Unity’s modern render pipelines are supported, CORE packages and DLX projects use the Universal Render Pipeline.</p><p /><h2 id="OutlineEffect-UnityPackage">Unity Package</h2><a class="external-link" data-card-appearance="block" href="https://bitbucket.org/VARLab/easy-performant-outline/src/main/" rel="nofollow">https://bitbucket.org/VARLab/easy-performant-outline/src/main/</a><p> </p><p>In addition to importing the UPM package, <strong>Easy Performant Outline</strong> has additional configuration steps:</p><p /><h2 id="OutlineEffect-Installation">Installation</h2><h3 id="OutlineEffect-UPMPackage">UPM Package</h3><p><strong>Easy Performant Outline </strong>is a third-party asset developed by <a class="external-link" href="https://assetstore.unity.com/publishers/21614" rel="nofollow"><strong>Pirate Parrot</strong></a>. VARLab maintains and internally distributes <strong>EPOutline</strong> as a UPM-compatible package through a Bitbucket repository.</p><p><span class="inline-comment-marker" data-ref="a2d508e4-aa47-4867-b1b4-4ebf6eb5c1fe">In the </span><code><span class="inline-comment-marker" data-ref="a2d508e4-aa47-4867-b1b4-4ebf6eb5c1fe">Packages/manifest.json</span></code><span class="inline-comment-marker" data-ref="a2d508e4-aa47-4867-b1b4-4ebf6eb5c1fe"> file of a DLX Unity project, add the following line to dependencies:</span></p><p><code>&quot;com.pirateparrot.outline&quot;: &quot;ssh://git@bitbucket.org/VARLab/easy-performant-outline.git#3.4.3&quot;</code></p><p /><p>This will install the specific stable version of Easy Performant Outline as a UPM package into the Unity project.</p><h3 id="OutlineEffect-ShadersandMaterials">Shaders and Materials</h3><p>Navigate to the project folder structure and go to <strong>Packages → Easy Performant Outline → Package Resources </strong>and select the <code>EP Outline Shaders.unitypackage</code> in order to import the required shaders and materials.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/716734500/733872134.png?width=340" data-image-src="attachments/716734500/733872134.png" data-height="669" data-width="481" data-unresolved-comment-count="0" data-linked-resource-id="733872134" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-180755.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="716734500" data-linked-resource-container-version="9" data-media-id="7329c704-7693-4748-8261-2e5d4a21b72e" data-media-type="file"></span><p /><h3 id="OutlineEffect-RenderFeatures">Render Features</h3><p>Most projects built on the CORE Framework will be using the <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@16.0/manual/index.html" rel="nofollow"><strong>Universal Render Pipeline</strong></a> (URP) for Unity. The UPM package for this Outline feature is specifically intended for use with the URP.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Review Unity’s documentation on <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@16.0/manual/InstallingAndConfiguringURP.html" rel="nofollow"><strong>getting started with the Universal Render Pipeline</strong></a> if it is not already installed in the project. </p></div></div><p>Navigate to <strong>Tools → EP Outline → Setup</strong> to open the setup dialogue, then select <strong>URP</strong> as the setup type. No projects are currently using the <a class="external-link" href="http://dotween.demigiant.com/" rel="nofollow">DOTween animation engine</a>, so leave the <strong>DOTween support</strong> checkbox blank.</p><p>The dialogue will dynamically update itself based on the correctly configured steps in the process:</p><ol start="1"><li><p>Install <strong>Universal Render Pipeline</strong> asset (consult Unity documentation linked above)</p></li><li><p>Add the URP_OUTLINE compiler flag by clicking the <strong>Add</strong> button in the dialogue</p></li><li><p>Create at least one <strong>renderer asset </strong>(this step will already be completed for existing projects using URP)</p></li><li><p>Add the <strong>URP Outline Feature</strong> as a <strong>Renderer Feature</strong> to each of the renderer assets. This can be done from the setup dialogue, or in the inspector window when selecting a renderer asset in the project.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/716734500/733806636.png?width=340" data-image-src="attachments/716734500/733806636.png" data-height="218" data-width="402" data-unresolved-comment-count="0" data-linked-resource-id="733806636" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-181110.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="716734500" data-linked-resource-container-version="9" data-media-id="736190cb-0f79-4e5f-b0b2-3e9bb94274c0" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/716734500/733708305.png?width=340" data-image-src="attachments/716734500/733708305.png" data-height="230" data-width="402" data-unresolved-comment-count="0" data-linked-resource-id="733708305" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-192040.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="716734500" data-linked-resource-container-version="9" data-media-id="85ee9234-37c9-43c3-a823-8a76e890001b" data-media-type="file"></span><h3 id="OutlineEffect-RenderGraphCompatibility">RenderGraph Compatibility</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Unity 6 </strong>encourages the use of the RenderGraph API, though the Easy Performant Outline package does not currently support this. </p></div></div><p>After installing the package into a project using <strong>Unity 6</strong>, navigate to <strong>Edit → Project Settings → Graphics → Render Graph </strong>and check the box for <em>Compatibility Mode (Render Graph Disabled)</em>. This will allow the outline features to be rendered properly, until EPO is updated to support Render Graph.</p><p>You will likely see the following warning message in the console once <em>Compatibility Mode</em> is enabled:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">The project currently uses the compatibility mode where the Render Graph API is disabled.
+Support for this mode will be removed in future Unity versions. 
+Migrate existing ScriptableRenderPasses to the new RenderGraph API. 
+After the migration, disable the compatibility mode in Edit &gt; Projects Settings &gt; Graphics &gt; Render Graph.
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()</pre>
+</div></div><h2 id="OutlineEffect-Usage">Usage</h2><p>After installation, review the page on <a href="Applying-Effects-to-GameObjects_733249547.html" data-linked-resource-id="733249547" data-linked-resource-version="1" data-linked-resource-type="page">Applying Effects to GameObjects</a>.</p><h2 id="OutlineEffect-References">References</h2><p><a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@16.0/manual/InstallingAndConfiguringURP.html" rel="nofollow">https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@16.0/manual/InstallingAndConfiguringURP.html</a>  </p><p><a class="external-link" data-card-appearance="inline" href="https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/easy-performant-outline-2d-3d-urp-hdrp-and-built-in-renderer-157187" rel="nofollow">https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/easy-performant-outline-2d-3d-urp-hdrp-and-built-in-renderer-157187</a> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/716046594.png">image-20230529-143319.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/733741078.png">image-20230613-174235.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/733282310.png">image-20230613-174250.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/733872134.png">image-20230613-180755.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/733806636.png">image-20230613-181110.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/716734500/733708305.png">image-20230613-192040.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

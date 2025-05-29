@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Pull Request Automation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Pull Request Automation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benjamin Smith</span>, last modified by <span class='editor'> Blake Hadaway</span> on Aug 16, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="b97df1ff-d7a5-428a-84eb-386c2b9ca9f8" class="confluenceTable"><colgroup><col style="width: 214.0px;"/><col style="width: 512.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Objectives</strong></p></th><td class="confluenceTd"><p>Automated linting, test running, and code coverage reporting when pull requests are created for both CORE Framework and DLX projects</p></td></tr><tr><th class="confluenceTh"><p><strong>Deliverables</strong></p></th><td class="confluenceTd"><p>Build pipeline automations in Bitbucket</p></td></tr><tr><th class="confluenceTh"><p><strong>Completion</strong></p></th><td class="confluenceTd"><p><time datetime="2023-06-16" class="date-past">16 Jun 2023</time> </p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">IN PROGRESS</span></p></td></tr><tr><th class="confluenceTh"><p><strong>Resources</strong></p></th><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-account-id="712020:350c4026-74fd-481d-a78c-bd557eb9086e" href="https://varlab-dev.atlassian.net/wiki/people/712020:350c4026-74fd-481d-a78c-bd557eb9086e?ref=confluence" target="_blank" data-base-url="https://varlab-dev.atlassian.net/wiki">Blake Hadaway (Unlicensed)</a> <br/><a class="confluence-userlink user-mention" data-account-id="712020:d0f56afc-c2bc-4a08-98e9-ba78f561c73e" href="https://varlab-dev.atlassian.net/wiki/people/712020:d0f56afc-c2bc-4a08-98e9-ba78f561c73e?ref=confluence" target="_blank" data-base-url="https://varlab-dev.atlassian.net/wiki">vtummillo (Unlicensed)</a><br/><a class="confluence-userlink user-mention" data-account-id="712020:10cc597f-95bb-4d38-bf41-ac2d592c743c" href="https://varlab-dev.atlassian.net/wiki/people/712020:10cc597f-95bb-4d38-bf41-ac2d592c743c?ref=confluence" target="_blank" data-base-url="https://varlab-dev.atlassian.net/wiki">Benjamin Smith (Unlicensed)</a> </p></td></tr></tbody></table></div></div><p /><p>This section will provide documentation, research, and design information for VARLab’s automated pull request system.</p><div class="table-wrap"><table data-layout="default" data-local-id="6ff32b51-3f0a-4d6c-8ea2-9112d081a3fc" class="confluenceTable"><colgroup><col style="width: 151.0px;"/><col style="width: 151.0px;"/><col style="width: 151.0px;"/><col style="width: 151.0px;"/><col style="width: 151.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Now</strong></p></th><th class="confluenceTh"><p><strong>Next</strong></p></th><th class="confluenceTh"><p><strong>Last</strong></p></th><th class="confluenceTh"><p><strong>Blocked</strong></p></th><th class="confluenceTh"><p><strong>Deliverable/Final Workflow</strong></p></th></tr><tr><td class="confluenceTd"><p>C# static code analysis</p><ul><li><p>Testing within Visual Studio and VS Code to ensure code follows and confroms to <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/59507580/Code+Style+Guide" data-linked-resource-id="59507580" data-linked-resource-version="15" data-linked-resource-type="page">VARLab style guide </a></p></li><li><p>Display conflicts as errors within the IDE</p></li></ul></td><td class="confluenceTd"><p>Docker Testing Environemnt</p><ul><li><p>Docker environment that contains:</p><ul><li><p>Visual Studio with Code Style configured to <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/59507580/Code+Style+Guide" data-linked-resource-id="59507580" data-linked-resource-version="15" data-linked-resource-type="page">VARLab style guide </a></p></li><li><p>Unity Editor using version <strong>Unity 2021.3.24f1</strong> as of <time datetime="2023-05-08" class="date-past">08 May 2023</time></p></li></ul></li><li><p>This environment will automatically build and run the current branch after a Pull Request is submitted</p></li></ul></td><td class="confluenceTd"><p>Bitbucket/Automation Integration</p><p>Automate pull request fail conditions based on test results (represented as flags provided to Bitbucket)</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Step 1: Utilize Visual Studio’s built in Code Style Tool, configured to enforce and adhere to <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/59507580/Code+Style+Guide" data-linked-resource-id="59507580" data-linked-resource-version="15" data-linked-resource-type="page">VARLab style guide </a> </p><p>Step 2: Test Unity build - does it compile without errors or warnings?</p><ul><li><p> When submitting a pull request the following happens automatically:</p><ul><li><p>the branch is cloned into the test enviroment </p></li><li><p>It is built using Visual Studio and Unity within the environemt, and the exectuable is run.</p></li><li><p>The results of this test will be passed back to Bitbucket </p></li></ul></li></ul><p>Step 3: TDD and Unit Test integration/automation</p><p>Step 4: Based on the results of the testing, the Pull Request is automatically approved or denied </p></td></tr></tbody></table></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : TextElement Extension Methods</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1566081045.html">Helper &amp; Extension Scripts</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : TextElement Extension Methods
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Mar 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="d56970db-ef6b-42a3-b742-1e0d774fb222" class="confluenceTable"><colgroup><col style="width: 259.0px;"/><col style="width: 500.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>On This Page</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544474089 {padding: 0px;}
+div.rbtoc1748544474089 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544474089 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544474089'>
+<ul class='toc-indentation'>
+<li><a href='#TextElementExtensionMethods-Helper&amp;ExtensionMethods'>Helper &amp; Extension Methods</a>
+<ul class='toc-indentation'>
+<li><a href='#TextElementExtensionMethods-SetElementText()'>SetElementText()</a>
+<ul class='toc-indentation'>
+<li><a href='#TextElementExtensionMethods-Definition'>Definition</a></li>
+<li><a href='#TextElementExtensionMethods-Parameter(s)'>Parameter(s)</a></li>
+<li><a href='#TextElementExtensionMethods-Example'>Example</a></li>
+</ul>
+</li>
+<li><a href='#TextElementExtensionMethods-SetElementFontSize()'>SetElementFontSize()</a>
+<ul class='toc-indentation'>
+<li><a href='#TextElementExtensionMethods-Definition.1'>Definition</a></li>
+<li><a href='#TextElementExtensionMethods-Parameter(s).1'>Parameter(s)</a></li>
+<li><a href='#TextElementExtensionMethods-Example.1'>Example</a></li>
+</ul>
+</li>
+<li><a href='#TextElementExtensionMethods-SetElementColour()'>SetElementColour()</a>
+<ul class='toc-indentation'>
+<li><a href='#TextElementExtensionMethods-Definition.2'>Definition</a></li>
+<li><a href='#TextElementExtensionMethods-Parameter(s).2'>Parameter(s)</a></li>
+<li><a href='#TextElementExtensionMethods-Example.2'>Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></th></tr></tbody></table></div><h1 id="TextElementExtensionMethods-Helper&amp;ExtensionMethods">Helper &amp; Extension Methods</h1><p>VELCRO UI has various extension and helper scripts which are public static methods. Most helper scripts are used for specific UI prefabs, but VisualElementExtensions.cs, TextElementExtensions.cs, PositionHelper.cs, and StyleHelper.cs have methods for common use cases in many UI scripts.</p><p /><h2 id="TextElementExtensionMethods-SetElementText()">SetElementText()</h2><h3 id="TextElementExtensionMethods-Definition">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetElementText(this TextElement textElement, string text, bool hideIfNull = true)</pre>
+</div></div><ul><li><p>Sets the <code>TextElement.text</code> property of the incoming TextElement to the incoming text</p></li><li><p>If the incoming string is null or whitespace, the TextElement will be set to <code>DisplayStyle.None</code> by default, but the <strong>hideIfNull </strong>bool can be changed if desired.</p></li><li><p>All UI elements that have text inherit from TextElement such as Labels and Buttons</p></li></ul><p /><h3 id="TextElementExtensionMethods-Parameter(s)">Parameter(s)</h3><p><code>string</code> The string to set</p><p><code>hideIfNull</code> Whether or not to set the incoming TextElement to DisplayStyle.None if the incoming string is null or whitespace</p><p /><h3 id="TextElementExtensionMethods-Example">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Populates the information dialog with content from the incoming scriptable object
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;informationDialogSO&quot;&gt;&lt;/param&gt;
+public void SetContent(InformationDialogSO informationDialogSO)
+{
+    //This will hide the label if null or whitespace
+    titleLabel.SetElementText(informationDialogSO.Title);
+    
+    //This will not hide the label if null or whitespace
+    titleLabel.SetElementText(informationDialogSO.Title, false);
+}</pre>
+</div></div><p /><h2 id="TextElementExtensionMethods-SetElementFontSize()">SetElementFontSize()</h2><h3 id="TextElementExtensionMethods-Definition.1">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetElementFontSize(this TextElement textElement, FontSize fontSize)</pre>
+</div></div><ul><li><p>Sets the <code>TextElement.style.fontSize</code> property of the incoming TextElement to the incoming FontSize enum</p></li><li><p>All UI elements that have text inherit from TextElement such as Labels and Buttons</p></li></ul><p /><h3 id="TextElementExtensionMethods-Parameter(s).1">Parameter(s)</h3><p><code>FontSize</code> The font size to set</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//Supported font sizes
+public enum FontSize
+{
+    Medium = 24,
+    Large = 28
+}</pre>
+</div></div><p /><h3 id="TextElementExtensionMethods-Example.1">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Populates the notification with content from the incoming scriptable object
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;notificationSO&quot;&gt;&lt;/param&gt;
+public void SetContent(NotificationSO notificationSO)
+{
+    messageLabel.SetElementFontSize(notificationSO.FontSize);
+}</pre>
+</div></div><p /><h2 id="TextElementExtensionMethods-SetElementColour()">SetElementColour()</h2><h3 id="TextElementExtensionMethods-Definition.2">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetElementColour(this TextElement element, StyleColor colour)</pre>
+</div></div><ul><li><p>Sets the <code>TextElement.style.color</code> property of the incoming TextElement to the incoming StyleColor</p></li><li><p>All UI elements that have text inherit from TextElement such as Labels and Buttons</p></li></ul><p /><h3 id="TextElementExtensionMethods-Parameter(s).2">Parameter(s)</h3><p><code>StyleColor</code> The color to set</p><p /><h3 id="TextElementExtensionMethods-Example.2">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Populates the notification with custom styles that don&#39;t match the default 
+/// success, info, or error states
+/// &lt;/summary&gt;
+public void SetCustomNotification()
+{
+    messageLabel.SetElementColour(customTextColour);
+}</pre>
+</div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

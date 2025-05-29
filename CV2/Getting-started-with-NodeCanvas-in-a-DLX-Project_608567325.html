@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Getting started with NodeCanvas in a DLX Project</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Graph-Based-Editor_600768582.html">Graph-Based Editor</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Getting started with NodeCanvas in a DLX Project
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jonah Pearce</span> on Mar 01, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Creating a new Graph</strong></p><p>You can create a new graph by right-clicking in the Unity project window and selecting &quot;Assets&quot; -&gt;&quot;Create&quot; -&gt; &quot;ParadoxNotion&quot; -&gt;&quot;Node Canvas.”. You can choose the type of graph from the menu, creating a new asset file with the extension .ncgraph that you can open in the NodeCanvas editor.</p><p>The NodeCanvas editor is a powerful tool that allows you to create and manipulate the behavior of your graph visually using a flowchart-like system of nodes. The editor provides a wide variety of tools and options that you can use to create custom behavior for your Unity projects.</p><p>A lot of functionality is possible with this editor and its built-in actions without writing any code. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/608567325/644317204.png" data-image-src="attachments/608567325/644317204.png" data-height="978" data-width="1635" data-unresolved-comment-count="0" data-linked-resource-id="644317204" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230301-124744.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="608567325" data-linked-resource-container-version="1" data-media-id="aade1897-6d00-4404-bc97-a1dfe965053c" data-media-type="file"></span><p><strong>Adding Nodes to the Graph</strong></p><p>To add nodes to your graph, right-click in the NodeCanvas editor, and you will be prompted with many options depending on the graph type. This is a list of available node types that you can use to build your graph, including:</p><ul><li><p>Action nodes represent a specific action, from modifying a game object, such as moving, rotating, or playing an animation, to changing a variable. One node can perform multiple actions.</p></li><li><p>Dialogue nodes, when using a Dialogue Tree, can also be used on some other graph types as well, provided text or a string that will be used on whatever actor you specify from the scene.</p></li><li><p>Other Nodes: Special nodes are available that trigger not in the flow or order off of your graph but off of graph details like on graph update or any state nodes which trigger no matter the current state of the graph.</p></li><li><p>SubGraphs: Subgraphs can be created and added, which will be an entirely new graph saved to its asset file that gets triggered once the main graph you are using reaches that point, which is how we created nested graphs.</p></li></ul><p>Each node type has unique properties and options you can set to customize its behavior based on the actions you give it to perform. For example, an action node that moves a game object might have properties for the speed and direction of the movement.</p><p><strong>Connecting Nodes</strong></p><p>To connect nodes, you can click and drag from one node's output to another's input. This creates a connection between the two nodes, allowing the output of one node to be used as the input for another. By default, the graph will follow that flow to the node you connected once the previous node is completed, but if you are using a state machine, a condition can be added to it. For example, you might want the user to click a button before moving to the next node.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/608567325/644513820.png" data-image-src="attachments/608567325/644513820.png" data-height="249" data-width="558" data-unresolved-comment-count="0" data-linked-resource-id="644513820" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230301-130438.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="608567325" data-linked-resource-container-version="1" data-media-id="baa694ec-9229-4619-af35-bdd1d0e5f4bd" data-media-type="file"></span><p><strong>Editing Properties</strong></p><p>Each node and connection has properties you can set to customize its behavior. You can access these properties by selecting and looking at the inspector window. The properties will vary depending on the type of node. For example, an action node might have properties for the speed and direction of the movement, while a connection might have properties for the button or variable it checks.</p><p><strong>Running the Graph</strong></p><p>To run the graph or series of charts you have made and connected to your scene, you need a graph controller for whatever graph type is your first graph that triggers on a game object in that scene, you must attach it to a GameObject in your Unity scene. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/608567325/644612101.png" data-image-src="attachments/608567325/644612101.png" data-height="568" data-width="602" data-unresolved-comment-count="0" data-linked-resource-id="644612101" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230301-130826.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="608567325" data-linked-resource-container-version="1" data-media-id="efdb02ee-4c6f-40a6-bbca-6727d7c39559" data-media-type="file"></span><p>Once the graph is attached and bound to that owner in your scene when you run it, it will trigger based on the behavior you set in the owner.</p><p><strong>Using the Graph Editor</strong></p><p>The graph editor of NodeCanvas is extremely powerful. It comes with an intuitive and clear interface. A visual node canvas graph editor is highly flexible, allowing users to easily make changes to the design of a system or process. Nodes can be moved, resized, and connected in many ways, making it easy to experiment with different designs and configurations.</p><p><strong>Visual Debugging</strong></p><p>The graph editor is extremely visual when a program is running, showing what node the graph is currently on, what conditions its waiting for, and what is currently active. It creates a very easy way to debug and understand your graph as you run the scene because it's very clear what is happening with the graph. It updates in real-time as its runs. </p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/608567325/644317204.png">image-20230301-124744.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/608567325/644513820.png">image-20230301-130438.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/608567325/644612101.png">image-20230301-130826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/608567325/644251670.png">image-20230301-131530.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

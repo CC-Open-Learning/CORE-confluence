@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Analytics V2 Connecting ADX to Power BI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V2-Overview_1237155865.html">Analytics V2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Analytics V2 Connecting ADX to Power BI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Blake Hadaway</span>, last modified on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1280704527?draftShareId=3976fee5-9926-42e7-885e-5a29e8491d0c#Create-your-first-dashboard!" rel="nofollow">Create your first dashboard</a></p><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1280704527?draftShareId=3976fee5-9926-42e7-885e-5a29e8491d0c#Getting-data-from-Azure-Data-Explorer" rel="nofollow">Getting data from Azure Data Explorer</a></p><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1280704527?draftShareId=3976fee5-9926-42e7-885e-5a29e8491d0c#Connecting-to-Azure-Data-Explorer%3A" rel="nofollow">Connecting to Azure Data Explorer</a></p><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1280704527?draftShareId=3976fee5-9926-42e7-885e-5a29e8491d0c#Loading-data-into-your-Dashboard%3A" rel="nofollow">Loading data into your Dashboard</a></p><h2 id="AnalyticsV2ConnectingADXtoPowerBI-Createyourfirstdashboard!">Create your first dashboard!</h2><p>First, we’re going to want to create a blank report. To do this, open the Power BI desktop app and click the blank report button:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-181556.png" width="760" loading="lazy" src="attachments/1280704527/1280671763.png?width=760" data-image-src="attachments/1280704527/1280671763.png" data-height="711" data-width="1232" data-unresolved-comment-count="0" data-linked-resource-id="1280671763" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-181556.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="9577c6a1-5d22-4f35-b5dd-d1daaf319996" data-media-type="file"></span><h2 id="AnalyticsV2ConnectingADXtoPowerBI-GettingdatafromAzureDataExplorer">Getting data from Azure Data Explorer</h2><p>After that, you will see your blank report. The next step is to connect to Azure and get our data. For this, click the Get Data button on the top ribbon bar in Power BI:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-181944.png" width="760" loading="lazy" src="attachments/1280704527/1281097743.png?width=760" data-image-src="attachments/1280704527/1281097743.png" data-height="673" data-width="1172" data-unresolved-comment-count="0" data-linked-resource-id="1281097743" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-181944.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="11b2afc7-24c5-4e04-98de-306c45807ff8" data-media-type="file"></span><h2 id="AnalyticsV2ConnectingADXtoPowerBI-ConnectingtoAzureDataExplorer">Connecting to Azure Data Explorer</h2><p>After clicking Get Data, we’re going to want to type in the search bar “Kusto“, this will bring up the option we want. Click that option then click Connect: </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-182135.png" width="682" loading="lazy" src="attachments/1280704527/1280999445.png?width=682" data-image-src="attachments/1280704527/1280999445.png" data-height="658" data-width="682" data-unresolved-comment-count="0" data-linked-resource-id="1280999445" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-182135.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="15b7e0e3-0f5b-41a5-9610-e82dc4ced23e" data-media-type="file"></span><p> After that, we’re going to want to navigate to Azure, and find our Azure Data Explorer Cluster, and copy the URL for it and paste it into the cluster field. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-182507.png" width="760" loading="lazy" src="attachments/1280704527/1280409621.png?width=760" data-image-src="attachments/1280704527/1280409621.png" data-height="415" data-width="2171" data-unresolved-comment-count="0" data-linked-resource-id="1280409621" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-182507.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="ef85b43d-b4e1-4930-9624-7d5c58e18eca" data-media-type="file"></span><p> <br/>After that were also going to want to get the database name, and input that into the database field. The database were using right now is “playfab-event-db”. After we input this, we want to select import as the last option. With bigger datasets we would want to create a query to get specific data, but since we have a small amount of data, we can skip that. After were done everything, we can click OK.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-182902.png" width="696" loading="lazy" src="attachments/1280704527/1281359893.png?width=696" data-image-src="attachments/1280704527/1281359893.png" data-height="555" data-width="696" data-unresolved-comment-count="0" data-linked-resource-id="1281359893" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-182902.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="eed84688-bc89-4dd4-ac7c-20d34e53ed1d" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-182915.png" width="698" loading="lazy" src="attachments/1280704527/1281228811.png?width=698" data-image-src="attachments/1280704527/1281228811.png" data-height="550" data-width="698" data-unresolved-comment-count="0" data-linked-resource-id="1281228811" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-182915.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="049236f4-be87-4c64-8e8e-1eb65b6bc5d9" data-media-type="file"></span><h2 id="AnalyticsV2ConnectingADXtoPowerBI-LoadingdataintoyourDashboard">Loading data into your Dashboard</h2><p>It will prompt us to login, which we will do by clicking the sign in button and logging in with our work credentials. After logging in we should see all the data that is in the database we specified (the “playfab-event-db“ database).</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-183524.png" width="760" loading="lazy" src="attachments/1280704527/1280966674.png?width=760" data-image-src="attachments/1280704527/1280966674.png" data-height="697" data-width="875" data-unresolved-comment-count="0" data-linked-resource-id="1280966674" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-183524.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="566041b5-af50-44b1-8d57-13c6519db283" data-media-type="file"></span><p>Check whatever data we want to use in the dashboard and click load.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-183611.png" width="760" loading="lazy" src="attachments/1280704527/1281359899.png?width=760" data-image-src="attachments/1280704527/1281359899.png" data-height="696" data-width="877" data-unresolved-comment-count="0" data-linked-resource-id="1281359899" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-183611.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="e2edac38-b6fc-4dee-86d1-069914d0ecb6" data-media-type="file"></span><p>Then it will load and now you will have your data in your dashboard!</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-183808.png" width="176" loading="lazy" src="attachments/1280704527/1280507930.png?width=176" data-image-src="attachments/1280704527/1280507930.png" data-height="429" data-width="176" data-unresolved-comment-count="0" data-linked-resource-id="1280507930" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-183808.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1280704527" data-linked-resource-container-version="3" data-media-id="664549b5-2832-4338-943d-4f3f88ab9d52" data-media-type="file"></span><p>And it’s as simple as that, you have connected to Azure Data Explorer and pulled data from the database! </p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280376853.png">image-20240813-181500.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280671763.png">image-20240813-181556.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1281097743.png">image-20240813-181944.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280999445.png">image-20240813-182135.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280409621.png">image-20240813-182507.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1281359893.png">image-20240813-182902.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1281228811.png">image-20240813-182915.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280966674.png">image-20240813-183524.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1281359899.png">image-20240813-183611.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1280704527/1280507930.png">image-20240813-183808.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

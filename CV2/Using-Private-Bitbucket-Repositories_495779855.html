@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using Private Bitbucket Repositories</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using Private Bitbucket Repositories
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Sept 30, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Spring 2023 the use of Bitbucket repositories as the main access point for UPM packages is no longer recommended. Instead, packages should be hosted in the <a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow"><strong>CORE Package Registry</strong></a>.</p></div></div><h2 id="UsingPrivateBitbucketRepositories-Summary">Summary</h2><p>This article covers the usage of a private Bitbucket repository for a Unity project as a package dependency.</p><h2 id="UsingPrivateBitbucketRepositories-OpeningaUnityProjectwithaPrivatePackage">Opening a Unity Project with a Private Package</h2><p>First, we’ll cover how to access a Unity project that has a private Bitbucket repository included in it. This information is useful during onboarding to get developers set up to start working on an existing project that contains a private package.</p><h3 id="UsingPrivateBitbucketRepositories-SettingUpSSHClientService">Setting Up SSH Client Service</h3><p>In order to access the package Unity will authenticate that you are allowed to access the package by using your PC’s OpenSSH Agent and Git. If you do not have Git installed so that you can use it from the command line, you will need to install Git for Windows first.</p><p>To see if you have OpenSSH installed on your PC, click the Windows Icon, type in Services, and open the Services App.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/495779855/495779865.png" data-image-src="attachments/495779855/495779865.png" data-height="77" data-width="353" data-unresolved-comment-count="0" data-linked-resource-id="495779865" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220624-190315.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="495779855" data-linked-resource-container-version="6" data-media-id="7352a0b9-dfbe-4283-9bd1-2b469f4aeedb" data-media-type="file"></span><p>Scroll down until you see <strong>OpenSSH Authentication Agent. </strong>If this service is not set to <strong>Automatic </strong>and is not running, right-click it and open <strong>Properties</strong>. In properties, you can set the <strong>Startup type</strong> to <strong>Automatic</strong>. After doing so, right-click on the service again and click <strong>Start</strong>.</p><h3 id="UsingPrivateBitbucketRepositories-CreatingSSHKeys">Creating SSH Keys</h3><p>With your SSH Agent running automatically now on startup you can always authenticate via SSH using the Git CLI. We now need to generate the keys that we will use for this process and then set up our public key in Bitbucket.</p><p>The first step is to open the command prompt by clicking the Windows icon and typing in <code>cmd</code>. Use Shift+Click to open as Administrator just in case.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/495779855/495812620.png" data-image-src="attachments/495779855/495812620.png" data-height="71" data-width="342" data-unresolved-comment-count="0" data-linked-resource-id="495812620" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220624-191530.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="495779855" data-linked-resource-container-version="6" data-media-id="cc9cb8bc-a5c9-4218-9598-178900ae9e97" data-media-type="file"></span><p>Once you’re in the command prompt, type in <code>ssh-keygen</code> to generate your SSH key pair. For every prompt make sure you do not type anything at all and just hit Enter until it generates your keys. </p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you include a passcode for your keys, Unity will not be able to use them as they would require you to input a password manually each time.</p></div></div><p>You will now have an SSH key pair located in C:/Users/YourName/.ssh where id_rsa is your private key and id_rsa.pub is your public key.</p><h4 id="UsingPrivateBitbucketRepositories-PrivateKey">Private Key</h4><p>While in the command prompt, type in <code>ssh-add</code> followed by the path to your id_rsa file such as <code>ssh-add C:/Users/YourName/.ssh/id_rsa</code></p><h4 id="UsingPrivateBitbucketRepositories-PublicKey">Public Key</h4><p>Open up the folder you have with id_rsa.pub in it and open the file in Notepad or any other text editor. Copy the contents of that file and open up Bitbucket.</p><p>Once you’re in Bitbucket, click your icon and go to Personal Settings-&gt;SSH Keys and paste in your public key.</p><p>With that complete, return to the command prompt and type in <code>ssh -T git@bitbucket.org</code> to connect to Bitbucket via SSH and store your authentication for later use.</p><h3 id="UsingPrivateBitbucketRepositories-RestartUnity&amp;UnityHub">Restart Unity &amp; Unity Hub</h3><p>After setting up SSH, it’s possible your authentication hasn’t carried over into Unity Hub if it’s already running. Since Unity launches with whatever credentials are present in the Unity Hub, you’ll need to exit that as well.</p><h2 id="UsingPrivateBitbucketRepositories-AddingaPrivatePackagetoaUnityProject">Adding a Private Package to a Unity Project</h2><p>With the ability to access all the private VARLab Bitbucket repositories, we can begin adding packages as dependencies in our Unity projects. If other members of your team have followed the steps above to SSH set up properly they can also access these repositories and development will be seamless.</p><h3 id="UsingPrivateBitbucketRepositories-Unity’sPackageManagerIntegration">Unity’s Package Manager Integration</h3><p>To add a Bitbucket repository that uses SSH to your packages, you will need to go to the Unity Project’s root folder in the file explorer and open <strong>Packages/manifest.json</strong></p><p>In manifest.json you can add in the repository and package key for the package. In this example, we’re showing how you would add in the Objectives repo’s Unity Package branch (#upm).</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/495779855/495747079.png" data-image-src="attachments/495779855/495747079.png" data-height="518" data-width="768" data-unresolved-comment-count="0" data-linked-resource-id="495747079" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220624-192346.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="495779855" data-linked-resource-container-version="6" data-media-id="196163c2-c19a-4d8a-a3bb-49edae237568" data-media-type="file"></span><p>Be aware that the SSH url provided by Bitbucket will <strong>not</strong> work here despite <a class="external-link" href="https://docs.unity3d.com/Manual/upm-git.html#Git-SSH" rel="nofollow">Unity claiming SSH shorthand urls work in the package manager</a>.</p><h2 id="UsingPrivateBitbucketRepositories-CreatingaSupportedSSHPackageURL">Creating a Supported SSH Package URL</h2><p>Using a shorthand such as <code>git@bitbucket.org:VARLab/objectives.git</code> will not work despite being marked as supported by Unity’s documentation.</p><p>To create a proper URL, we need to take the HTTP link and convert it into the supported SSH format.</p><h3 id="UsingPrivateBitbucketRepositories-Example">Example</h3><p><code>https://TimeSinkInc@bitbucket.org/VARLab/objectives.git</code></p><p>Can be modified into:</p><p><code>ssh://git@bitbucket.org/VARLab/objectives.git</code></p><p>This format works for authenticating via SSH for any git repo packages we create that require authentication.</p><h3 id="UsingPrivateBitbucketRepositories-AccessingthePackageBranch">Accessing the Package Branch</h3><p>One last thing to keep in mind is that the packages for each repository are generated automatically and stored in another branch. To add a specific branch of a repository as a package, add <strong>#branchname</strong> to the end of it. By default, our packages use the branch name <strong>upm.</strong></p><p>This would give us a final package URL of <code>ssh://git@bitbucket.org/VARLab/objectives.git#upm</code></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/495779855/495779865.png">image-20220624-190315.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/495779855/495714314.png">image-20220624-190656.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/495779855/495812620.png">image-20220624-191530.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/495779855/495747079.png">image-20220624-192346.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

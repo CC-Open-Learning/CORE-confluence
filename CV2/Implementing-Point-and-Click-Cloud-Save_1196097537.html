@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Implementing Point and Click Cloud Save</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Implementing Point and Click Cloud Save
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan Wallace</span> on Jun 27, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Cloud Save and the Point and Click Packages are to separate packages that are accessible at VAR Lab, in this documentation I will be going over how I combined the two to allow for a saving and loading system into a sample point and click scene.</p><p>We have created a script called Serialized NAV Properties, when applying a GUID System and Save System in the point and click scene. </p><p>Add the NAV Properties Script to the main camera object in the scene producing the following:<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240627-125922.png" width="445" loading="lazy" src="attachments/1196097537/1196195843.png?width=445" data-image-src="attachments/1196097537/1196195843.png" data-height="182" data-width="445" data-unresolved-comment-count="0" data-linked-resource-id="1196195843" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240627-125922.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1196097537" data-linked-resource-container-version="1" data-media-id="70f1b19a-5b67-4b30-b1d4-b527f6c1fa7c" data-media-type="file"></span><p>This Shows it is saving the rotation and position to cloud save underneath drag the POV Camera into the POV Cam part of the script allow the script to serialize the POV cameras vertical and horizontal values into cloud save. In the GUID System click the button to updated tracked objects this configure the script into a tracked component for the Cloud save system.</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240627-130234.png" width="452" loading="lazy" src="attachments/1196097537/1195802643.png?width=452" data-image-src="attachments/1196097537/1195802643.png" data-height="221" data-width="452" data-unresolved-comment-count="0" data-linked-resource-id="1195802643" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240627-130234.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1196097537" data-linked-resource-container-version="1" data-media-id="fc2c9f89-63db-4a98-bc5e-56de624b0beb" data-media-type="file"></span><p>After that cloud save and load should be set up in a point and click environment, Next implement the button canvas creating 3 buttons save, load, and delete. When the save button is clicked it should save the position, rotation and POV camera view coordinates. When load it will take what was saved and re-position the camera back to the previous place. Delete will delete all saves that have been sent to the cloud save resetting you to zero.</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240627-130957.png" width="435" loading="lazy" src="attachments/1196097537/1195966474.png?width=435" data-image-src="attachments/1196097537/1195966474.png" data-height="133" data-width="435" data-unresolved-comment-count="0" data-linked-resource-id="1195966474" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240627-130957.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1196097537" data-linked-resource-container-version="1" data-media-id="3f2db398-d77c-416c-8cd4-7f5c0761240b" data-media-type="file"></span><p style="text-align: center;">This is the save on click example set the other one’s to load, and delete.</p><p>Next Hide button canvas and add an empty object to the scene called menu manager that will help manage the appearance of the menu. Add the Menu Toggle script onto the menu manager attached to the button canvas. Then make sure the scene has an Event System. With this configuration in the scene whenever you click the ESC key it will show the button canvas and allow you to interact with it in a point and click environment. This combination should result in the following in your point and click game.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240627-131414.png" width="760" loading="lazy" src="attachments/1196097537/1195868171.png?width=760" data-image-src="attachments/1196097537/1195868171.png" data-height="526" data-width="1101" data-unresolved-comment-count="0" data-linked-resource-id="1195868171" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240627-131414.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1196097537" data-linked-resource-container-version="1" data-media-id="4fbba8f5-6f69-48aa-a85f-4f6621e7ebbc" data-media-type="file"></span><p style="text-align: center;"> That is how you can implement Save and Load from Cloud Save into a point and click environment.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1196097537/1196195843.png">image-20240627-125922.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1196097537/1195802643.png">image-20240627-130234.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1196097537/1195966474.png">image-20240627-130957.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1196097537/1195868171.png">image-20240627-131414.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

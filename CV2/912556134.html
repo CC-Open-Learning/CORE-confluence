@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Fine-Tuning Player &amp; Camera</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="906657797.html">Point &amp; Click Navigation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Fine-Tuning Player &amp; Camera
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Amila Abeygunasekara</span>, last modified on Jan 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Fine-TuningPlayer&amp;Camera-PlayerSettings">Player Settings</h1><p>You can adjust parameters related to player movement using the <em>Nav Mesh Agent</em> component attached to the <em>Player</em> GameObject.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-212148.png" width="500" loading="lazy" src="attachments/912556134/912457848.png?width=500" data-image-src="attachments/912556134/912457848.png" data-height="394" data-width="500" data-unresolved-comment-count="0" data-linked-resource-id="912457848" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-212148.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="912556134" data-linked-resource-container-version="3" data-media-id="ccfea1fc-3623-4c44-8f7e-16b5be463be6" data-media-type="file"></span><p>Additionally, Unity’s <em>Navigation</em> window will offer more options to fine-tune its AI Navigation system.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-212351.png" width="501" loading="lazy" src="attachments/912556134/912720021.png?width=501" data-image-src="attachments/912556134/912720021.png" data-height="437" data-width="501" data-unresolved-comment-count="0" data-linked-resource-id="912720021" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-212351.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="912556134" data-linked-resource-container-version="3" data-media-id="29e068d3-b35b-4487-b886-1536cfa5e618" data-media-type="file"></span><p>You can get this window by heading into Window → AI → Navigation in Unity’s context menu.</p><h1 id="Fine-TuningPlayer&amp;Camera-CameraSettings">Camera Settings</h1><p>You will find a ton of settings in the Cinemachine components of the <em>POV Camera </em>GameObject. I will not overwhelm you by going through each of them. I will only point out the settings that usually matter the most.</p><p>The settings we should focus on are in the <em>Aim</em> section of the <em>CinemachineVirtualCamera</em> component of the <em>POV Camera</em> GameObject.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240115-213142.png" width="501" loading="lazy" src="attachments/912556134/912785500.png?width=501" data-image-src="attachments/912556134/912785500.png" data-height="872" data-width="501" data-unresolved-comment-count="0" data-linked-resource-id="912785500" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240115-213142.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="912556134" data-linked-resource-container-version="3" data-media-id="c727a8a1-e932-405c-8921-0acf8cc6772f" data-media-type="file"></span><p>All the settings we are going to discuss will be included in the <em>Aim</em> section.</p><h2 id="Fine-TuningPlayer&amp;Camera-AdjustingMouseSensitivity">Adjusting Mouse Sensitivity</h2><p>Mouse sensitivity can be adjusted by editing the <em>Speed</em> values in the <em>Vertical Axis</em> and <em>Horizontal Axis</em> sections.</p><p>Additionally, you can tune the acceleration and deceleration effects by tinkering with <em>Accel Time</em> and <em>Decel Time</em> values.</p><h2 id="Fine-TuningPlayer&amp;Camera-Clipping/LimitingRotationAngles">Clipping/Limiting Rotation Angles</h2><p>You can limit camera rotation/orbit angles by editing <em>Value Range</em> values under the <em>Vertical Axis</em> and <em>Horizontal Axis</em> sections.</p><h2 id="Fine-TuningPlayer&amp;Camera-TimetoStartLookingAtaWaypointoraGivenTarget">Time to Start Looking At a Waypoint or a Given Target</h2><p>The wait time and look-at time can be adjusted by editing the <em>Wait Time</em> and <em>Recentering Time</em> values in <em>Vertical Recentering</em> and <em>Horizontal Recentering</em> sections.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912556134/912457848.png">image-20240115-212148.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912556134/912720021.png">image-20240115-212351.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912556134/912457858.png">image-20240115-213109.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/912556134/912785500.png">image-20240115-213142.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Random Room Generator</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Procedural-World-Generation_869138443.html">Procedural World Generation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Random Room Generator
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Richard Colbourne</span>, last modified on Dec 14, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="RandomRoomGenerator-Purpose:">Purpose:  </h3><p>Create a tool to generate random floor layouts of a defined number of rooms.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="419" loading="lazy" src="attachments/887128093/887128105.png?width=419" data-image-src="attachments/887128093/887128105.png" data-height="319" data-width="419" data-unresolved-comment-count="0" data-linked-resource-id="887128105" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-182803.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887128093" data-linked-resource-container-version="2" data-media-id="536a2a79-a75d-4e97-bbf9-293d742a0eb7" data-media-type="file"></span><h3 id="RandomRoomGenerator-Status:">Status:</h3><p>Currently, the generator allows the user to enter how many rooms wide by how many rooms deep they would like the floor to contain (in the picture above, 3 rooms wide by 2 rooms deep).  The algorithm needs refinement as it is only guarantied one point of connection (the algorithm looks at the deepest created room in the first row and starts the second row generation using that point as the initial depth).  As the planes are procedurally generated, the wall and stud creation tools should be able to integrate with this tool without a lot of re-work. </p><h3 id="RandomRoomGenerator-Usage:">Usage:</h3><p>In the Procedural Worlds project, double-click the Room Generator scene to launch to grid-based level editor section of the project.</p><p>While in scene mode, click on the Floor object in the hierarchy.  The options for creating the layout are presented in the Inspector as follows:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="324" loading="lazy" src="attachments/887128093/887095349.png?width=324" data-image-src="attachments/887128093/887095349.png" data-height="147" data-width="324" data-unresolved-comment-count="0" data-linked-resource-id="887095349" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-183323.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="887128093" data-linked-resource-container-version="2" data-media-id="2e04aea9-f02c-464e-8c30-f98b12aad6f8" data-media-type="file"></span><p><strong>Room Number:</strong> is the number of rooms wide the layout will be.</p><p><strong>Depth:  </strong>is the number of rooms deep the layout will be.</p><p><strong>Max Size:  </strong>is the maximum size a side of the room can be.</p><p><strong>Min Size:  </strong>is the minimum size a side of the room can be.</p><p>Once these properties are set to the desired settings by the user, going into play mode will generate the layout.  Note: the larger the layout, the longer it will take to generate.  The generator has been tested with rooms up to 250 x 250 without issue.  Testing a 1000 x 1000 room caused the generator to become unresponsive as resources were likely exceeded.</p><h3 id="RandomRoomGenerator-KnownBugs:">Known Bugs:</h3><p>The floor material doesn’t work in the main Procedural Worlds project.  In the stand-alone project the materials worked without issue.  Due to the late addition of the Floor Generator to the main Procedural Worlds project, a cause was not determined.</p><p>A new floor generation method was being developed, but unable to be completed.  oldGenerate() contains the original method (currently in use) with much of the new generation method still contained in the project in a commented out fashion.  Work was shifted to the Grid-Based Level editor so this work was not completed.</p><h3 id="RandomRoomGenerator-NextSteps:">Next Steps:</h3><p>The generation algorithm needs refining and expanding to create more realistic house layouts.  As this was a completely experimental project, the overall structure of the project also needs updating and refining.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887128093/887128105.png">image-20231214-182803.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887128093/887095349.png">image-20231214-183323.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/887128093/887324722.png">image-20231214-183336.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Code Coverage w/Unity Research</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage_731480070.html">Code Coverage</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Introduction_776306763.html">Code Coverage Introduction</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Code Coverage w/Unity Research
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan S (Unlicensed)</span> on Aug 03, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page is summarized research, it is not properly formatted and not meant to be followed as instructions for anything, it is meant for learning purposes</p></div></div><h1 id="CodeCoveragew/UnityResearch-TableofContents"><strong>Table of Contents</strong></h1><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544599419 {padding: 0px;}
+div.rbtoc1748544599419 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544599419 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544599419'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#CodeCoveragew/UnityResearch-TableofContents'>Table of Contents</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#CodeCoveragew/UnityResearch-Automatic/ManualTesting'>Automatic/Manual Testing</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>2.1</span> <a href='#CodeCoveragew/UnityResearch-AutomaticTesting'>Automatic Testing</a></li>
+<li><span class='TOCOutline'>2.2</span> <a href='#CodeCoveragew/UnityResearch-ManualTesting'>Manual Testing</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>3</span> <a href='#CodeCoveragew/UnityResearch-ReportDocument'>Report Document</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>3.1</span> <a href='#CodeCoveragew/UnityResearch-CyclomaticComplexity'>Cyclomatic Complexity</a></li>
+<li><span class='TOCOutline'>3.2</span> <a href='#CodeCoveragew/UnityResearch-CRAPScore'>CRAP Score</a></li>
+<li><span class='TOCOutline'>3.3</span> <a href='#CodeCoveragew/UnityResearch-NPathComplexity'>NPath Complexity</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>4</span> <a href='#CodeCoveragew/UnityResearch-IntegratingCodeCoveragewithBitBucket'>Integrating Code Coverage with BitBucket</a></li>
+<li><span class='TOCOutline'>5</span> <a href='#CodeCoveragew/UnityResearch-Conclusion'>Conclusion</a></li>
+</ul>
+</div><h1 id="CodeCoveragew/UnityResearch-Automatic/ManualTesting"><strong>Automatic/Manual Testing</strong></h1><p>Unity Code Coverage relies on two different types of testing, <strong>Manual </strong>and <strong>Automatic </strong>Testing</p><p>VARLab wants to focus more on <strong>automatic </strong>testing, as it allows for many tests to be run in quick succession,  so try to focus more on automatic testing and perform manual where necessary</p><h2 id="CodeCoveragew/UnityResearch-AutomaticTesting"><strong>Automatic Testing</strong></h2><ul><li><p>Simple unit tests with the arrange, act, assert formula</p></li><li><p>Specifically test one feature</p></li><li><p>Tests are pass/fail</p></li><li><p>Unity's Code Coverage Package allows for automatic testing with the Test Runner tab and code coverage results with the report</p></li><li><p>Allows your application's tests to be recorded and saved to a report where you can view stats on your tests</p></li></ul><h2 id="CodeCoveragew/UnityResearch-ManualTesting"><strong>Manual Testing</strong></h2><ul><li><p>Some things can not be tested automatically in Unity due to various reasons, these will need to be performed manually.</p></li><li><p>Unity's Code Coverage Package allows for manual testing with the Test Runner tab and code coverage results with the report</p></li><li><p>Allows your application's code to be recorded and saved to a report where any code that was executed during runtime is put into the document.</p></li><li><p>The developer will need to install the code coverage package and enable it in the settings, once this setup has been completed the developer can set personal settings for what they or their team needs.</p></li><li><p>Once the developer is ready they can hit the record button and then run their application, now whatever code is executed while their application is running will be recorded and saved into the HTML report document upon saving the recording. It is important to note that the recording is not what your screen looks like as you use the application, it is simply the execution of code that is being recorded.</p></li></ul><h1 id="CodeCoveragew/UnityResearch-ReportDocument"><strong>Report Document</strong></h1><p>Figure 1 is an example of an HTML report document, it was auto-generated upon ending the recording with the code coverage package. During this recording the main menu was loaded, a few buttons were hit and the game was closed</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/776307479/776307515.png?width=680" data-image-src="attachments/776307479/776307515.png" data-height="715" data-width="1488" data-unresolved-comment-count="0" data-linked-resource-id="776307515" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-174302.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307479" data-linked-resource-container-version="1" data-media-id="d9993d54-6ce7-4d25-92cb-5051ee359910" data-media-type="file"></span><p>The best part about this report is that it also works for automatic testing if you want it for your automatic tests you start your recording, like you do for manual, but then hit the run all button on your Test Runner tab, or just the tests you want to run, it does not have to be all of them, and you will get the results for those specific tests in your report</p><p>We care about every tab in Figure 1 as they will all help us figure out our next steps in properly testing our application, we also care about the main summary as a general overview of our test results</p><p /><h2 id="CodeCoveragew/UnityResearch-CyclomaticComplexity"><strong>Cyclomatic Complexity</strong></h2><p>One thing that is less important but should be enabled as it can save you from time to time is the “Additional Metrics” button, this generates a new tab for Cyclomatic Complexity, which will help us to determine if our code is excessively complex by testing how many branches or decisions it has if we want to follow the standard, then Figure 2 is what we want to follow as it appears to be the industry standard, but it can be changed for the needs of VARLab if needed. This is something that we should enable as it can tell us as developers if our classes are bloated and should be changed or split up.</p><p>We believe Cyclomatic Complexity is something we should be paying attention to, it does not need to be followed extensively but should be looked at in the results and if it is really bad, should be fixed.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307479/776307503.png" data-image-src="attachments/776307479/776307503.png" data-height="113" data-width="261" data-unresolved-comment-count="0" data-linked-resource-id="776307503" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-203740.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307479" data-linked-resource-container-version="1" data-media-id="3dbcc0ee-4a26-4f18-9383-8961d94afc49" data-media-type="file"></span><p style="margin-left: 180.0px;"></p><h2 id="CodeCoveragew/UnityResearch-CRAPScore"><strong>CRAP Score</strong></h2><p><a class="external-link" data-card-appearance="inline" href="https://testing.googleblog.com/2011/02/this-code-is-crap.html" rel="nofollow">https://testing.googleblog.com/2011/02/this-code-is-crap.html</a>  - About CRAP</p><p>The second thing that the additional metrics option lets us use is CRAP score, which stands for Change Risk, Anti Patterns. This is a formula that uses your Cyclomatic Complexity and code coverage % of a method to determine your code's CRAP score. This can be an extra measure to determine if your code has any glaring issues in it. CRAP score is about assessing risk, it tells us if a piece of code is risky to change, the higher the CRAP score, the more risk there is changing that code</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307479/776307500.png" data-image-src="attachments/776307479/776307500.png" data-height="112" data-width="700" data-unresolved-comment-count="0" data-linked-resource-id="776307500" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230524-130916.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307479" data-linked-resource-container-version="1" data-media-id="a97934a5-2ed9-49df-9b63-e123a7dbcddb" data-media-type="file"></span><h2 id="CodeCoveragew/UnityResearch-NPathComplexity"><strong>NPath Complexity</strong></h2><p>The NPath Complexity of a class determines how many execution paths or outcomes a method has, this feature is currently not working on the Unity code coverage report and will always show up as 0, but in the future, it may be something worthy of looking at</p><p>Figure 4 shows the Risk Hotspots which include some important features such as Cyclomatic Complexity and CRAP score, this is where the developer would check to see their scores upon making the report document. If it is highlighted red it means it is bad and green means good.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/776307479/776307506.png?width=680" data-image-src="attachments/776307479/776307506.png" data-height="285" data-width="1324" data-unresolved-comment-count="0" data-linked-resource-id="776307506" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230523-203120.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307479" data-linked-resource-container-version="1" data-media-id="cf444693-70e5-4539-9e3f-53db06bc5076" data-media-type="file"></span><p /><h1 id="CodeCoveragew/UnityResearch-IntegratingCodeCoveragewithBitBucket"><strong>Integrating Code Coverage with BitBucket</strong></h1><p><a class="external-link" href="https://about.codecov.io/" rel="nofollow">Codecov</a></p><p><a class="external-link" href="https://www.qmetry.com/" rel="nofollow">QMetry</a></p><p>Make our own <img class="emoticon emoticon-smile" data-emoji-id="1f642" data-emoji-shortname=":slight_smile:" data-emoji-fallback="🙂" src="images/icons/emoticons/smile.png" width="16" height="16" data-emoticon-name="smile" alt="(smile)"/> </p><p><a class="external-link" href="https://bitbucket.org/atlassian/bitbucket-code-coverage/src/master/" rel="nofollow">Plugin</a></p><p>We may need a <a class="external-link" href="https://www.atlassian.com/software/bitbucket" rel="nofollow">Bitbucket Server</a> to make this all work, a server may even be useful for other teams such as the Pull Request Automation team</p><h1 id="CodeCoveragew/UnityResearch-Conclusion"><strong>Conclusion</strong></h1><ul><li><p>Unity Code Coverage Package - Needed</p></li><li><p>Code Coverage Report for both manual and automatic testing - Needed</p></li><li><p>Additional Metrics - Nice to haves, can be helpful, no reason not to enable</p><ul><li><p>Cyclomatic Complexity </p></li><li><p>CRAP Score</p></li><li><p>NPath Complexity - Does not currently work</p></li></ul></li><li><p>How can we integrate Code Coverage with Bitbucket</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307500.png">image-20230524-130916.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307503.png">image-20230523-203740.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307506.png">image-20230523-203120.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307509.png">image-20230523-201540.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307512.png">image-20230523-174650.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307479/776307515.png">image-20230523-174302.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:49</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

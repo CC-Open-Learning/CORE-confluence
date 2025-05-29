@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Netcode For GameObjects Features Guide</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Current-VARLab-Multiplayer-Overview_1246560270.html">Current VARLab Multiplayer Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Netcode For GameObjects Features Guide
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Aug 14, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544270199 {padding: 0px;}
+div.rbtoc1748544270199 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544270199 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544270199'>
+<ul class='toc-indentation'>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-Introduction'>Introduction</a></li>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-Setup'>Setup</a></li>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-NetworkVariable'>Network Variable</a></li>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-NetworkedAnimations'>Networked Animations</a></li>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-NetworkedMovement'>Networked Movement</a></li>
+<li><a href='#NetcodeForGameObjectsFeaturesGuide-RemoteProcedureCalls(RPCs)'>Remote Procedure Calls (RPCs)</a></li>
+</ul>
+</div><h1 id="NetcodeForGameObjectsFeaturesGuide-Introduction">Introduction</h1><p>NGO offers features to help create a multiplayer experience; not all of them will be used, but a lot of them will, and they will be explained here.</p><p> Also included will be an example in the <a class="external-link" href="https://bitbucket.org/VARLab/core-sandbox-development-environment/src/main/" rel="nofollow">CORE Sandbox repository</a> that includes said feature and highlights its usage; furthermore, a video going over each example will be included here if you do not want to go through the trouble of getting everything set up.</p><h1 id="NetcodeForGameObjectsFeaturesGuide-Setup">Setup</h1><p>This section discusses how to view the examples for yourself, and the setup that is required to do so.</p><p>Begin by cloning the <a class="external-link" href="https://bitbucket.org/VARLab/core-sandbox-development-environment/src/main/" rel="nofollow">CORE Sandbox Repository</a> (for now, being moved to CORE Networking). You can just stay on Main; no need to check out any branches.</p><p><br/> If you want to look at the scripts or how the GameObjects are set up, that can now be done without any more setup. </p><p>However, in order to see these examples in action, we need a Server and a Client running. The easiest way to achieve this is by using Unity Relay in the editor, which means you will need to run a clone of the project through either ParrelSync or Multiplayer Play Mode. Whichever one you decide to pick doesn’t matter. Just open the second player on it.</p><p>Start the game in your main editor and the clone. Go to the NetworkManager on both hierarchies. Ensure “Try relay in the editor” is checked in the inspector of both NetworkManagers, then hit “Start Host” on one of them. After this, a join code will be displayed; copy it and go to the other inspector, paste the code and click “Start Client”. Both clients should now be in the same game, and you can check out these examples.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If the code does not appear upon hitting Start Host, just hit Stop Host and Start Host again, it should appear the second time (hopefully <img class="emoticon emoticon-smile" data-emoji-id="1f642" data-emoji-shortname=":slight_smile:" data-emoji-fallback="🙂" src="images/icons/emoticons/smile.png" width="16" height="16" data-emoticon-name="smile" alt="(smile)"/>)</p></div></div><h1 id="NetcodeForGameObjectsFeaturesGuide-NetworkVariable">Network Variable</h1><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/basics/networkvariable/" rel="nofollow">Official Unity Documentation</a><br/><br/>A NetworkVariable is a variable that is shared with everyone inside of a game, meaning every single person sees the current value of that variable. In order for the variable to be correctly synced across the network, it needs to be changed on the server, this can be done through an RPC. Not every type can be stored as a NetworkVariable. More information on what is allowed can be found in the Unity documentation<br/><br/>A very simple use case for a NetworkVariable would be a player's health stored as an int between 1-100. Each person can see it, so it can be used to update UI correctly, and when it goes up/down, it can be changed and shared with everyone.<br/><br/>A NetworkVariable can also have different read/write permissions for clients/servers. This is helpful to keep control over who has access to the variable. The default permissions are that the server has read/write permissions and the client only has read permissions.</p><h1 id="NetcodeForGameObjectsFeaturesGuide-NetworkedAnimations">Networked Animations</h1><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/components/networkanimator/" rel="nofollow">Official Unity Documentation</a></p><p>In order for animations to play across all instances of a multiplayer game, they need to be set up properly to play across a network. This is done by attaching a NetworkAnimator component to the GameObject that will be playing the animation; by adding this, you will be able to play the animation in Server Authoritative mode, meaning the server can trigger the animation. If you want a client to be able to trigger an animation themselves, you need to set the “OnIsServerAuthorative” bool of that same component to false, allowing for clients to trigger animations on GameObjects they own, to do this, you can make a new script that inherits from NetworkAnimator, allowing you to override that bool, allowing for client authoritative animations.</p><h1 id="NetcodeForGameObjectsFeaturesGuide-NetworkedMovement">Networked Movement</h1><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/components/networktransform/" rel="nofollow">Official Unity Documentation</a></p><p>Similar to Networked Animations, movement can be synced by adding a “Network Transform” component to the Game Object you want to be synced; this will put that GameObject in Server Authoritative mode, meaning if the server moves the transform of that GameObject, it will be synced for all clients. If you want a client to be able to move the object themselves, you need to set the “OnIsServerAuthorative” bool of that same component to false, allowing for clients to change their own transform, to do this, you can make a new script that inherits from NetworkAnimator, allowing you to override that bool, allowing for client authoritative movement.</p><h1 id="NetcodeForGameObjectsFeaturesGuide-RemoteProcedureCalls(RPCs)">Remote Procedure Calls (RPCs)</h1><p><a class="external-link" href="https://docs-multiplayer.unity3d.com/netcode/current/advanced-topics/messaging-system/" rel="nofollow">Official Unity Documentation</a></p><p>Remote Procedure Calls, or RPCs, are how the server and client(s) communicate with each other; by using RPCs, you can trigger code on each other, allowing for a responsive and full game. RPCs are used a lot in multiplayer games, and there are many different ways to use them for different scenarios one may face.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>A script must inherit from <strong>NetworkBehaviour </strong>for the RPCs to work correctly.</p>
+</div></div><p>An RPC can be used by adding it as an attribute to a method, this can be seen in the code snippet, which includes a method that will be ran on the server due to the [Rpc(SendTo.Server)] attribute.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[Rpc(SendTo.Server)]
+private void ServerMethodRpc()
+{
+}</pre>
+</div></div><p>The following is a list of all available RPCs, what they do, and the attribute that needs to be added to use them</p><ul><li><p>SendTo.Server</p><ul><li><p>Send to the server</p></li><li><p>[Rpc(SendTo.Server)]</p></li></ul></li><li><p>SendTo.NotServer</p><ul><li><p>Send to everyone but the server</p></li></ul></li><li><p>SendTo.Authority</p><ul><li><p>Send to whoever has authority of the NetworkObject</p></li></ul></li><li><p>SendTo.NotAuthority</p><ul><li><p>Send to everyone except whoever has authority of the NetworkObject</p></li></ul></li><li><p>SendTo.Owner</p><ul><li><p>Send to the owner of the NetworkObject</p></li></ul></li><li><p>SendTo.Me</p><ul><li><p>Send to yourself</p></li></ul></li><li><p>SendTo.NotMe</p><ul><li><p>Send to everyone but yourself</p></li></ul></li><li><p>SendTo.Everyone</p><ul><li><p>Send to everyone</p></li></ul></li><li><p>SendTo.ClientsAndHost</p><ul><li><p>Send to all clients, including the client who is considered the host</p></li></ul></li><li><p>SendTo.SpecifiedInParams</p><ul><li><p>Send to a specific client</p></li></ul></li></ul><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1246134289/1262616605.mkv">2024-08-06 15-57-26.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1246134289/1263566875.mkv">NetworkVariable.mkv</a> (video/x-matroska)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

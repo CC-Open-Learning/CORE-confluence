@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : PlayFlow- WebAPI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WebGL_500564089.html">WebGL</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : PlayFlow- WebAPI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jul 25, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Using the WebAPI you can start, stop, restart, and get information from your PlayFlow server without having to open it in the Unity Editor. Your PlayFlow server must be uploaded in order to use this.</p><p><strong>Link:</strong> <a class="external-link" data-card-appearance="inline" href="https://api.cloud.playflow.app/docs" rel="nofollow">https://api.cloud.playflow.app/docs</a> </p><hr/><h3 id="PlayFlow-WebAPI-UsingtheWebAPI">Using the WebAPI</h3><p>Click ‘Try it out’ on the top right to be able to fill out the fields. Use the token given to you on the <a class="external-link" href="https://app.playflowcloud.com/" rel="nofollow">PlayFlow Dashboard</a>. Your serverid will also be found there.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501809170/501874695.png" data-image-src="attachments/501809170/501874695.png" data-height="696" data-width="1260" data-unresolved-comment-count="0" data-linked-resource-id="501874695" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220721-171202.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501809170" data-linked-resource-container-version="6" data-media-id="79e76c7f-a6f4-4097-9f13-4a9408b43d49" data-media-type="file"></span><p>SSL is needed for WebGL builds, if it’s not running for WebGL keep this field false. You can get the SSL port from the first time you start your PlayFlow server.</p><p>Keep the default ‘medium’ for the type parameter and keep the arguments field blank.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501809170/501743658.png" data-image-src="attachments/501809170/501743658.png" data-height="518" data-width="1268" data-unresolved-comment-count="0" data-linked-resource-id="501743658" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220721-173904.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501809170" data-linked-resource-container-version="6" data-media-id="26f9e0f3-7338-44fa-8273-3d741863ed8e" data-media-type="file"></span><h3 id="PlayFlow-WebAPI-UsingVSCodeandRESTClientExtension">Using VSCode and REST Client Extension</h3><p>Install the REST Client extension (<a class="external-link" href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" rel="nofollow">REST Client - Visual Studio Marketplace</a>).</p><p>Using either HTTP or plaintext you can send requests to the WebAPI.</p><p>Your request will look something like this:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501809170/502267909.png" data-image-src="attachments/501809170/502267909.png" data-height="164" data-width="548" data-unresolved-comment-count="0" data-linked-resource-id="502267909" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220722-142840.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501809170" data-linked-resource-container-version="6" data-media-id="b0b75e68-f33d-4c37-a78b-ee5f4f16c96c" data-media-type="file"></span><p style="margin-left: 30.0px;">**These are meant to be used as examples, replace the fields with your own information, all parameters are found on the PlayFlow WebAPI site.</p><h4 id="PlayFlow-WebAPI-StartingServer">Starting Server</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">POST https://api.cloud.playflow.app/start_game_server
+Content-Type: application/json
+token: eb23bcbdb01040047f4b95b8a342d23e
+version: 2
+region: us-east
+ssl: true
+sslport: 49598
+type: medium</pre>
+</div></div><h4 id="PlayFlow-WebAPI-StoppingServer">Stopping Server</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">POST https://api.cloud.playflow.app/stop_game_server
+Content-Type: application/json
+token: eb23bcbdb01040047f4b95b8a342d23e
+version: 2
+region: us-east
+serverid: 21027</pre>
+</div></div><h4 id="PlayFlow-WebAPI-RestartingServer">Restarting Server</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">POST https://api.cloud.playflow.app/restart_game_server
+Content-Type: application/json
+token: eb23bcbdb01040047f4b95b8a342d23e
+version: 2
+region: us-east
+serverid: 21027
+ssl: true</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501809170/501874695.png">image-20220721-171202.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501809170/501743658.png">image-20220721-173904.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501809170/502267909.png">image-20220722-142840.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

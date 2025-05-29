@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Inventory</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Inventory
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Liam Stanziani</span>, last modified on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="cf028fce-bace-4727-85c2-6894d6450748" data-table-display-mode="default" class="confluenceTable"><tbody><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest, #F4F5F7)" class="confluenceTh"><p><strong>Status</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-current">IN PROGRESS</span></p></th></tr><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest, #F4F5F7)" class="confluenceTh"><p><strong>Start Date</strong></p></th><td class="confluenceTd"><p>May S24-3</p></td></tr><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest, #F4F5F7)" class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p>com.varlab.inventory</p></td></tr><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest, #F4F5F7)" class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p>1.0.5</p></td></tr><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest, #F4F5F7)" class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/inventory/src/main/?search_id=8e6ce8ea-cc33-4282-bfe7-ec13000cd04f" rel="nofollow">https://bitbucket.org/VARLab/inventory/src/main/?search_id=8e6ce8ea-cc33-4282-bfe7-ec13000cd04f</a> </p></td></tr></tbody></table></div><p><strong>Table of Contents:</strong></p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544628584 {padding: 0px;}
+div.rbtoc1748544628584 ul {list-style: none;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544628584 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544628584'>
+<ul class='toc-indentation'>
+<li><a href='#Inventory-AbouttheInventory'>About the Inventory</a></li>
+<li><a href='#Inventory-AboutInventoryUI'>About Inventory UI</a>
+<ul class='toc-indentation'>
+<li><a href='#Inventory-UIAssets'>UI Assets</a></li>
+<li><a href='#Inventory-UIComponentVisualElementNames'>UI Component Visual Element Names</a></li>
+<li><a href='#Inventory-UIComponentButtonNames'>UI Component Button Names</a></li>
+<li><a href='#Inventory-UnityEvents'>Unity Events</a></li>
+</ul>
+</li>
+<li><a href='#Inventory-AboutInventoryData'>About Inventory Data</a>
+<ul class='toc-indentation'>
+<li><a href='#Inventory-Type'>Type</a></li>
+<li><a href='#Inventory-Title'>Title</a></li>
+<li><a href='#Inventory-Image'>Image</a></li>
+<li><a href='#Inventory-Object'>Object</a></li>
+</ul>
+</li>
+<li><a href='#Inventory-AboutthebuiltinObjectViewer'>About the built in Object Viewer</a></li>
+<li><a href='#Inventory-SettingupPackagewithExamples'>Setting up Package with Examples</a></li>
+<li><a href='#Inventory-KnownIssues'>Known Issues</a></li>
+</ul>
+</div><h2 id="Inventory-AbouttheInventory">About the Inventory</h2><p>The inventory is a unity package that implements a dynamically created inventory that can include containers of items or sub-containers that the developer can modify to include the title, image, or game object/prefab of the item or container that is able to be nested as many times as they would like and is. created on runtime. This works with inputted UI and data into their respective component classes that will be found when implementing the system.</p><h2 id="Inventory-AboutInventoryUI">About Inventory UI</h2><p>Inventory UI is a component class that is responsible for modifying and storing the UI UXML assets for the button to get into the UI and the Inventory UI itself. This is also responsible for keeping track of all of the Visual Element and Button names used for functionality in the Inventory System. Here are all of the modifiable inspector values that will be used with the system:</p><h3 id="Inventory-UIAssets">UI Assets</h3><ul><li><p>Panel Settings - An inputted Unity Panel Settings asset that will be used with the built in UI document</p></li><li><p>Base UI - An inputted UXML asset file that is used to access the Inventory UI when trying to open or re-open the system in game</p></li><li><p>Inventory UI - An inputted UXML asset file that is used for the entire Inventory UI, which should have all of the Visual Elements inside named correctly to match the following names so that the Inventory functionality works correctly</p></li></ul><h3 id="Inventory-UIComponentVisualElementNames">UI Component Visual Element Names</h3><ul><li><p>Item Row - An inputted string that is related to the name of the Visual Element parent that will hold all of the dynamically created items/containers on runtime</p></li><li><p>Object Viewer - An inputted string that is related to the name of the Visual Element that will hold the parent for the built in Object Viewer functionality</p></li></ul><h3 id="Inventory-UIComponentButtonNames">UI Component Button Names</h3><ul><li><p>Open Inventory Button - An inputted string that is related to the name of the button for opening the Inventory UI, this Button should be created in the “Base UI” UXML asset file, which was stated above</p></li><li><p>Item Button - An inputted string that is related to the name of the button that will be used as a template for every other item/container that is created dynamically at runtime</p></li><li><p>Back Button - An inputted string that is related to the name of the button that closes the Object Viewer functionality, this will only show when the object viewer is active (when an item is clicked)</p></li><li><p>Close Container - An inputted string that is related to the name of the button that closes the current container that is opened and goes back one to the previous container</p></li><li><p>Inventory Close Button - An inputted string that is related to the name of the button that closes the entire Inventory</p></li></ul><h3 id="Inventory-UnityEvents">Unity Events</h3><ul><li><p>Open Inventory UI - A Unity event that is called when the Inventory UI is opened</p></li><li><p>Close Inventory UI - A Unity event that is called when the Inventory UI is closed</p></li></ul><h2 id="Inventory-AboutInventoryData">About Inventory Data</h2><p>Inventory Data is a component class that is responsible for storing the data for all of the items/containers that is inputted in the inspector. These values that are inputted can be nested as many times as the developer wants and can include titles, images, and game object/prefabs of items or containers. Here are all of the modifiable inspector values that will be used in this system;</p><h3 id="Inventory-Type">Type</h3><p>&lt;null&gt; - This type is the default value when adding a new item to the Inventory data component, this should not be used and is just used as a default</p><p>Item - This type is used for any items that are created to be singular objects that will use the Object Viewer functionality</p><p>Container - This type is used as a storage for any other items or containers that you want to be categorized under</p><h3 id="Inventory-Title">Title</h3><p>Title - The title of the item or container that is being added, this will show in the correct object UI that it is inputted under</p><h3 id="Inventory-Image">Image</h3><p>Image - The image of the item or container that is being added, this will show inside the correct object UI that it is inputted </p><h3 id="Inventory-Object">Object</h3><p>Object - The object that can either be a game object or prefab that will be used with the item types so that they will be shown in the Object Viewer when clicked</p><h2 id="Inventory-AboutthebuiltinObjectViewer">About the built in Object Viewer</h2><p>The Inventory System is using the VARLab package “Object Viewer” for its built in 3D object viewer functionality. This will work automatically and a version of this package will be installed alongside the installation of this package.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>More information about this package and how to setup the values can be found here: <a href="Object-Viewer_1237712913.html" data-linked-resource-id="1237712913" data-linked-resource-version="17" data-linked-resource-type="page">Object Viewer</a>  </p>
+</div></div><h2 id="Inventory-SettingupPackagewithExamples">Setting up Package with Examples</h2><a href="Setting-up-the-Inventory-Package-in-Your-Project_1287028752.html" data-linked-resource-id="1287028752" data-linked-resource-version="5" data-linked-resource-type="page">Setting up the Inventory Package in Your Project</a><p> </p><h2 id="Inventory-KnownIssues"> Known Issues</h2><ul><li><p>Arrows on Inventory Data sometimes don’t work correctly</p><ul><li><p>To avoid this, click the label instead of the arrow if you encounter this problem</p></li></ul></li><li><p>Inventory Data inspector values can be too close to each other to ready correctly</p><ul><li><p>To fix this, enlarge the inspector window so that the inspector values can show correctly</p></li></ul></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

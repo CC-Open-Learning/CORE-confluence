@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Pipeline Configuration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Delivery-Pipeline_619020291.html">Delivery Pipeline</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Pipeline Configuration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacky Lam</span> on Apr 19, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>There are a couple steps you need to do to set up a project repository for build automation.</p><h2 id="PipelineConfiguration-Contents">Contents</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544150142 {padding: 0px;}
+div.rbtoc1748544150142 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544150142 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544150142'>
+<ul class='toc-indentation'>
+<li><a href='#PipelineConfiguration-Contents'>Contents</a></li>
+<li><a href='#PipelineConfiguration-EnvironmentVariables'>Environment Variables</a>
+<ul class='toc-indentation'>
+<li><a href='#PipelineConfiguration-UnityHubaccountcredentials'>Unity Hub account credentials</a></li>
+<li><a href='#PipelineConfiguration-UnityLicenseFile'>Unity License File</a></li>
+<li><a href='#PipelineConfiguration-BuildSpecificVariables'>Build Specific Variables</a></li>
+</ul>
+</li>
+<li><a href='#PipelineConfiguration-Configurationinbitbucket-pipelines.yml'>Configuration in bitbucket-pipelines.yml</a>
+<ul class='toc-indentation'>
+<li><a href='#PipelineConfiguration-Property-image'>Property - image</a></li>
+<li><a href='#PipelineConfiguration-Property-caches'>Property - caches</a></li>
+</ul>
+</li>
+<li><a href='#PipelineConfiguration-BuildScript'>Build Script</a></li>
+<li><a href='#PipelineConfiguration-Self-HostedRunner'>Self-Hosted Runner</a></li>
+<li><a href='#PipelineConfiguration-AdditionalResources'>Additional Resources</a></li>
+</ul>
+</div><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Make sure all the environment variables are set and the image specify in <code>bitbucket-pipelines.yml</code> matches the Unity Editor version for the project and the build platform.</p></div></div><h2 id="PipelineConfiguration-EnvironmentVariables">Environment Variables</h2><p>You need to set these environment variables before running the pipeline. It can be set as <strong>Repository variables</strong> or <strong>Workspace variables</strong> depending on the use cases. Workspace variables can be access by all repository within the workspace, and Repository variables can only be access by the repository that the variable is set in. Repository variables override variables added on the workspace level.</p><p>To add a Repository variable, go to the repository, then go to Repository settings → Pipelines → Repository variables.</p><p>To add a Workspace variable, going to settings(gear icon top right), then go to Workspace settings → Pipelines → Workspace variables.</p><h3 id="PipelineConfiguration-UnityHubaccountcredentials">Unity Hub account credentials</h3><p>These can be set in workspace variables to avoid setting it for individual project repository.</p><p><code>UNITY_USERNAME</code> - The username of Unity Hub account.</p><p><code>UNITY_PASSWORD</code> - The password of Unity Hub account. <img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/> Make sure the option <code>Secure</code> is checked.</p><h3 id="PipelineConfiguration-UnityLicenseFile">Unity License File</h3><p><code>UNITY_LICENSE_FILE</code> - The file name of the unity license file (with extension <code>.ulf</code>)</p><p><code>UNITY_LICENSE_FILE_B64</code> - Base64 encode of the file content. <img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/> Make sure the option <code>Secure</code> is checked.</p><h3 id="PipelineConfiguration-BuildSpecificVariables">Build Specific Variables</h3><p><code>BUILD_NAME</code> - The name of the build or the name of the executable.</p><hr/><h2 id="PipelineConfiguration-Configurationinbitbucket-pipelines.yml">Configuration in <code>bitbucket-pipelines.yml</code></h2><h3 id="PipelineConfiguration-Property-image">Property - <code>image</code></h3><p>This property specify the docker image that will be used in the pipeline.</p><p>We are using docker image from GameCI with Unity Editor installed on the image. The image you use for the pipeline should match the Unity Editor version and the target platform you want to build.</p><p>For example, you use Unity Editor Version 2021.3.4f1 and you want to build in WebGL, you need to use the image of <code>unityci/editor:ubuntu-2021.3.4f1-webgl-1.0.1</code>.</p><p>Docker Image of Unity Editor: <a class="external-link" href="https://hub.docker.com/r/unityci/editor/tags" rel="nofollow">https://hub.docker.com/r/unityci/editor/tags</a></p><h3 id="PipelineConfiguration-Property-caches">Property - <code>caches</code></h3><p>Caching can be configure to reduce the build time. It saves the library or app caches to avoid rebuilding those assets between runs. </p><p /><p>Read about more configuration options at <a class="external-link" data-card-appearance="inline" href="https://support.atlassian.com/bitbucket-cloud/docs/bitbucket-pipelines-configuration-reference/" rel="nofollow">https://support.atlassian.com/bitbucket-cloud/docs/bitbucket-pipelines-configuration-reference/</a>.</p><hr/><h2 id="PipelineConfiguration-BuildScript">Build Script</h2><p>For Unity to build in command line, you need to specify a build script to run with <code>-executeMethod</code> command line argument. </p><hr/><h2 id="PipelineConfiguration-Self-HostedRunner">Self-Hosted Runner</h2><p>Self-hosted runner is a option to look at if cost of cloud solution becomes an issue. Two main factor that affect the build time of self-hosted runner is hardware and internet speed. For hardware, the amount of RAM is important, it is recommended to have at least 32 GB of RAM if the host system more than 2 runners building at a time. For CPU, any modern decent spec multi-core CPU (6-8 cores) is sufficient. Internet speed is also a big factor that affect build time because of all the download when cloning repository and uploading artifacts to storage.</p><p /><p>To set up self-hosted runner for a project repository, in project repository, go to Repository settings → Pipelines → Runners → Add runner, and follow the instruction in the installation wizard.</p><p>Runners can also be set up in the workspace level, allowing all repositories in the workspace to have access to workspace runner, avoiding the need to set up runner for individual repository.</p><p /><p>It is recommended to use Ubuntu Server as the host OS if you’re building for Windows Mono or WebGL. The only time you want the host OS be Windows Server is when build for Windows IL2CPP, because Windows IL2CPP option is not available in Linux Container and you can’t run Windows Container in Linux-based OS.</p><hr/><h2 id="PipelineConfiguration-AdditionalResources">Additional Resources</h2><p>Bitbucket Pipelines configuration reference: <a class="external-link" data-card-appearance="inline" href="https://support.atlassian.com/bitbucket-cloud/docs/bitbucket-pipelines-configuration-reference/" rel="nofollow">https://support.atlassian.com/bitbucket-cloud/docs/bitbucket-pipelines-configuration-reference/</a> </p><p>Learn more about GameCI: <a class="external-link" data-card-appearance="inline" href="https://game.ci/docs/" rel="nofollow">https://game.ci/docs/</a> </p><p>Bitbucket Pipelines example:  <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/jmschrack/unity3d-bitbucket-ci-example/src/master/" rel="nofollow">https://bitbucket.org/jmschrack/unity3d-bitbucket-ci-example/src/master/</a></p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Unity License Activation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Delivery-Pipeline_619020291.html">Delivery Pipeline</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Unity License Activation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacky Lam</span>, last modified on Apr 19, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>There are a couple steps you need to do to set up a project repository for build automation.</p><h2 id="UnityLicenseActivation-ManualLicenseActivation">Manual License Activation</h2><p>Using a Personal License requires manual activation because activating license in command line requires a serial number and Personal License doesn’t have a serial number.</p><h3 id="UnityLicenseActivation-GetactivationfilefromtheunityeditorbyrunningthemanualpipelineGetActivationFile">Get activation file from the unity editor by running the manual pipeline GetActivationFile</h3><ol start="1"><li><p>Go to the Bitbucket Repository &gt; Pipelines &gt; Run Pipeline</p></li><li><p>Select a branch and select the pipeline “custom: GetActivationFile”</p></li><li><p>After the pipeline run is successful, download the license request file (with extension .alf) in the artifacts.</p></li></ol><h3 id="UnityLicenseActivation-GetlicensefilefromUnity">Get license file from Unity</h3><ol start="1"><li><p>Upload the license request file to <a class="external-link" data-card-appearance="inline" href="https://license.unity3d.com/manual" rel="nofollow">https://license.unity3d.com/manual</a>  to receive a license file.</p></li><li><p>You need to log in the Unity account and answer some questions.</p></li><li><p>Download the license file, the file should end with an extension .ulf.</p></li></ol><h3 id="UnityLicenseActivation-Storethelicensefileintherepository">Store the license file in the repository</h3><p>We want to store the license file as repository variable, to do that we need to first encode the file with base64.</p><ol start="1"><li><p>To base64 encode on Windows, open command line and use the following command:</p><ul><li><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">certutil -encode inputfile outputfile</pre>
+</div></div></li></ul></li><li><p>Replace inputfile with the path to the .ulf file, example: C:\Users\UserName\Downloads\Unity_v2021.x.ulf</p></li><li><p>Replace outputfile with your desire path + license.b64, you will need this file later, example:<br/>C:\Users\UserName\Downloads\license.b64</p></li><li><p>Next step is to open the license.b64 file with notepad, copy everything in between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----”.</p></li><li><p>In the repository, create a variable name UNITY_LICENSE_FILE_B64, and paste the content into value.</p></li></ol><p /><h2 id="UnityLicenseActivation-PossibleAutomationforActivationProcessforPersonalLicense">Possible Automation for Activation Process for Personal License</h2><p>Automate Activation Process: <a class="external-link" data-card-appearance="inline" href="https://github.com/mob-sakai/unity-activate" rel="nofollow">https://github.com/mob-sakai/unity-activate</a> </p><p>This automation tool requires node package manager (npm) to be installed to install the tool.</p><h3 id="UnityLicenseActivation-(Issue)AutomatedLicenseActivationSometimeRequireSecurityCode">(Issue) Automated License Activation Sometime Require Security Code</h3><p>The automated license activation is achieved by automating the manual license activation process in a handless, and sometime it will ask you for a security code if your geographic location changed, which is typical for cloud computer. If this happens in the pipeline, there is no way to provide a security code and the pipeline would stall.</p><h2 id="UnityLicenseActivation-NumberofActivationsPerLicense">Number of Activations Per License</h2><p><a class="external-link" data-card-appearance="inline" href="https://support.unity.com/hc/en-us/articles/360021433091-Does-my-licence-allow-me-to-use-the-Unity-Editor-on-multiple-platforms" rel="nofollow">https://support.unity.com/hc/en-us/articles/360021433091-Does-my-licence-allow-me-to-use-the-Unity-Editor-on-multiple-platforms</a> </p><p>Unity Personal users have an infinite amount of activations whereas Plus and Pro users only have two activations per license seat.</p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

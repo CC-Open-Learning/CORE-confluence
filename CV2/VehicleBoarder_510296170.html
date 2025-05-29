@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : VehicleBoarder</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1284505699.html">COREV2 VR (Archived)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicle_502988874.html">Vehicle</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : VehicleBoarder
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Geyang Liu</span> on Aug 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style>[data-colorid=tpxwsrzz75]{color:#ff5630} html[data-color-mode=dark] [data-colorid=tpxwsrzz75]{color:#cf2600}</style>The VehicleBoarder class handles the logic of boarding and unboarding players from vehicles, using the public methods Board and Unboard. Here are the necessary steps to step it up:</p><h2 id="VehicleBoarder-Attachthescripttotheplayer">Attach the script to the player </h2><p>The script can be attached to any gameobject, but it is recommended to attach it to the player tracker offset. There are three public fields:</p><p>For the player body field, assign the AutoHandPlayer script. This component will be disabled when the player is boarded on a vehicle.</p><p>For the Original parent field, assign the player root gameobject. The playerbody will be renested here when it  unboards a vehicle.</p><p>For the Vehicle Input field, leave it blank for VR players. For PC players, attach a new player input component here and assign it to the field. The vehicle will accept input using this component after boarding.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510296170/510656575.png" data-image-src="attachments/510296170/510656575.png" data-height="365" data-width="431" data-unresolved-comment-count="0" data-linked-resource-id="510656575" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="vehicleBoarder.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510296170" data-linked-resource-container-version="1" data-media-id="fe7a7127-2127-4bbf-9126-fbb24a88f8d7" data-media-type="file" /></span><h1 id="VehicleBoarder-Setupboardingevent">Setup boarding event</h1><p>For each vehicle, you need to manually setup an event to trigger the boarding function. In the jetbike model, the boarding event is binded to the left handle. When the handle is grabbed, it will board the player onto the vehicle.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510296170/510623830.png" data-image-src="attachments/510296170/510623830.png" data-height="218" data-width="414" data-unresolved-comment-count="0" data-linked-resource-id="510623830" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="board.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510296170" data-linked-resource-container-version="1" data-media-id="1a72da14-3028-42bf-a91e-3edacd5ff160" data-media-type="file" /></span><p><strong><span data-colorid="tpxwsrzz75">Note: This solution will not work correctly if there are multiple player instances in the scene. A new solution is needed.</span></strong></p><p>For PC mode, the boarding method is called in the OnInteract method in the vehicle base class.</p><h1 id="VehicleBoarder-Setupunboardingevent">Setup unboarding event</h1><p>For each player, you need to manually setup an event to trigger the unboarding method for VR mode. Currently the event is binded to the secondary button of the left hand controller.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510296170/510591103.png" data-image-src="attachments/510296170/510591103.png" data-height="385" data-width="404" data-unresolved-comment-count="0" data-linked-resource-id="510591103" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="unboard.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510296170" data-linked-resource-container-version="1" data-media-id="abcdef1a-2b66-4b77-8e70-abb6b67be928" data-media-type="file" /></span><p>For PC mode, the unboarding method  will be triggered by by the player input asset.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510296170/510656575.png">vehicleBoarder.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510296170/510623830.png">board.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510296170/510591103.png">unboard.PNG</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

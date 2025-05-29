@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the SCORM API in Unity</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="SCORM_504037419.html">SCORM</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the SCORM API in Unity
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span> on Jul 27, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article we’ll cover some simple examples of how to use SCORM from within our Unity scripts.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544322317 {padding: 0px;}
+div.rbtoc1748544322317 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544322317 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544322317'>
+<ul class='toc-indentation'>
+<li><a href='#UsingtheSCORMAPIinUnity-Setup'>Setup</a></li>
+<li><a href='#UsingtheSCORMAPIinUnity-ScriptingWithSCORMCalls'>Scripting With SCORM Calls</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingtheSCORMAPIinUnity-CompletionStatus'>Completion Status</a></li>
+</ul>
+</li>
+</ul>
+</div><h2 id="UsingtheSCORMAPIinUnity-Setup">Setup</h2><p>The first step to accessing SCORM in Unity is to create a <strong>ScormManager </strong>object in your Unity scene.</p><p>You can do so by navigating to <strong>Window &gt; Build &gt; SCORM</strong> and clicking Create<strong> SCORM Manager</strong>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/504004665/504037428.png" data-image-src="attachments/504004665/504037428.png" data-height="140" data-width="624" data-unresolved-comment-count="0" data-linked-resource-id="504037428" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220727-191628.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504004665" data-linked-resource-container-version="1" data-media-id="533cc4ee-b2c3-44ec-bb44-6175453e8f57" data-media-type="file"></span><p>With this in our scene, we will have access to all of the SCORM calls in our deployed builds on eConestoga.</p><h2 id="UsingtheSCORMAPIinUnity-ScriptingWithSCORMCalls">Scripting With SCORM Calls</h2><p>If we want to start creating new components that access SCORM we can start by creating a new GameObject as a child of our <strong>ScormManager </strong>object. </p><p>Due to how this plugin was programmed, it uses SendMessage to send a method call received on the JavaScript side down the child hierarchy. This is the reason why if you want to hook into method calls such as <code>Scorm_Commit_Complete</code> you need to place your component on a child of the <strong>ScormManager</strong>.</p><p>For this example, I’ve created a new child object named “Example” and placed a new script on it called <strong>SimpleController</strong>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/504004665/503939201.png" data-image-src="attachments/504004665/503939201.png" data-height="92" data-width="450" data-unresolved-comment-count="0" data-linked-resource-id="503939201" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220727-192220.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504004665" data-linked-resource-container-version="1" data-media-id="a47a1b81-81bc-499e-bee3-820fd89ac0eb" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/504004665/503840862.png" data-image-src="attachments/504004665/503840862.png" data-height="230" data-width="596" data-unresolved-comment-count="0" data-linked-resource-id="503840862" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220727-192249.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="504004665" data-linked-resource-container-version="1" data-media-id="fda214a7-19d9-4bef-a24e-bb1d3b51ba94" data-media-type="file"></span><p>In this new script, I’ll place the initialization method that SCORM calls when it’s ready.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System;
+using System.Collections;
+using UnityEngine;
+using VARLab.SCORM;
+
+public class SimpleController : MonoBehaviour
+{
+    public void Scorm_Initialize_Complete()
+    {
+        StartCoroutine(Startup());
+    }
+
+    public IEnumerator Startup()
+    {
+        // Recommended delay before calling data after initializing.
+        // Seems like a race condition to me but the docs for SCORM say to do it.
+        yield return new WaitForSeconds(2);
+        InitializeData();
+    }
+    ...
+}</pre>
+</div></div><p>This will make it so a method called <code>InitializeData</code> is called when SCORM is ready to be used.</p><p>Now we can access whatever data we would like to from the ScormManager class in <code>InitializeData</code>. For this example we’ll grab the student’s learnerId from eConestoga and output it to the console.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private void InitializeData()
+{
+    Debug.Log(ScormManager.GetLearnerId());
+}</pre>
+</div></div><p>If we built our project and tested it on eConestoga, we’d be able to see our LearnerId in the Browser Console.</p><h3 id="UsingtheSCORMAPIinUnity-CompletionStatus">Completion Status</h3><p>If we want to use the completion status within eConestoga, we need to first set the student’s completion status to incomplete. This is because SCORM automatically assumes you want to set the completion status to completed unless you explicitly set it to incomplete first.</p><p>Here we’ll add an incomplete status call to the <code>InitializeData</code> method from the previous example.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private void InitializeData()
+{
+    // Must be set to incomplete at the start.
+    // Otherwise SCORM automatically sets the status to completed.
+    ScormManager.SetCompletionStatus(StudentRecord.CompletionStatusType.incomplete);
+    
+    Debug.Log(ScormManager.GetLearnerId());
+}</pre>
+</div></div><p>When the student has actually completed their work, we can use that same method call but set the status to complete.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">ScormManager.SetCompletionStatus(StudentRecord.CompletionStatusType.completed);</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504004665/504037428.png">image-20220727-191628.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504004665/503939201.png">image-20220727-192220.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/504004665/503840862.png">image-20220727-192249.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

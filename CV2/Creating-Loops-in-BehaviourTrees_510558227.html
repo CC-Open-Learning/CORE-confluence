@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Creating Loops in BehaviourTrees</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Graph-Based-Editor_600768582.html">Graph-Based Editor</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="NodeCanvas-Overview_609026049.html">NodeCanvas Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Behaviour-Trees_510525506.html">Behaviour Trees</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Creating Loops in BehaviourTrees
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Leo Bunting</span> on Aug 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style>[data-colorid=cxu3ku5ojz]{color:#bf2600} html[data-color-mode=dark] [data-colorid=cxu3ku5ojz]{color:#ff6640}</style>Start by creating a plane, a cube, and four spheres. Each of these spheres will be used as &ldquo;patrol points&rdquo; through which the cube will cycle through. This will be the basis for each of the different methods of creating a loop this tutorial will guide you through.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510197848.png" data-image-src="attachments/510558227/510197848.png" data-height="315" data-width="494" data-unresolved-comment-count="0" data-linked-resource-id="510197848" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-182633.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="6133a779-5a0f-4760-adbb-132b639071e3" data-media-type="file" /></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510623798.png" data-image-src="attachments/510558227/510623798.png" data-height="181" data-width="318" data-unresolved-comment-count="0" data-linked-resource-id="510623798" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-182650.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="3e462d21-67b9-4f29-b779-4a629eee14a3" data-media-type="file" /></span><p>Be sure to add the following components to your cube:</p><ul><li><p>Nav Mesh Agent</p></li><li><p>Behaviour Tree Owner</p><ul><li><p>Blackboard (which will automatically be added alongside the above component)</p></li></ul></li></ul><p>Then, click &ldquo;<strong>Create Behaviour Tree</strong>&rdquo; under the Behaviour Tree Owner component, and choose the <strong>bound</strong> option. This will create a BehaviourTree that is bound to your GameObject (the cube) within the scene. Finally, open your new BehaviourTree in the Canvas editor to get started.</p><h2 id="CreatingLoopsinBehaviourTrees-ForEachLoops">For Each Loops</h2><p>To start, we want to add a new variable to the cube&rsquo;s Blackboard. You can add variables to the blackboard in either the Canvas window or the cube&rsquo;s inspector window.</p><p>Click the &ldquo;<strong>Add Variable</strong>&rdquo; button at the top of the Blackboard. Then, navigate the options in this manner to create a new List of GameObjects.</p><p><em><span data-colorid="cxu3ku5ojz">New -&gt; Collections -&gt; List (T) -&gt; UnityEngine -&gt; List (GameObject)</span></em></p><p>We can name this List <strong>patrolPoints</strong>. Next to your variable&rsquo;s name, under the Value column, should be a button that says &ldquo;<strong>(null) Create</strong>.&rdquo; It will then say &ldquo;<strong>List (GameObject) 0.</strong>&rdquo; Click it again, and it will open up the Object Editor. When you expand the dropdown for your variable, click the <strong>Add Element</strong> button four times, one for each patrol point.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510656544.png" data-image-src="attachments/510558227/510656544.png" data-height="450" data-width="245" data-unresolved-comment-count="0" data-linked-resource-id="510656544" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-183010.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="bb3cd250-a502-4ac1-891a-4cdf51e5fc74" data-media-type="file" /></span><p>Close this window. Your blackboard should now look something like this.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510165076.png" data-image-src="attachments/510558227/510165076.png" data-height="172" data-width="350" data-unresolved-comment-count="0" data-linked-resource-id="510165076" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-184749.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="58d86772-2128-4329-9a59-f45c34a6be39" data-media-type="file" /></span><p>Then, right click the black space inside the Canvas to open the &ldquo;<strong>Add Node</strong>&rdquo; menu. Click the &ldquo;<strong>Composites</strong>&rdquo; folder, then the &ldquo;<strong>Sequencer</strong>.&rdquo;</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510165060.png" data-image-src="attachments/510558227/510165060.png" data-height="338" data-width="323" data-unresolved-comment-count="0" data-linked-resource-id="510165060" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-183033.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="12ee6275-6e89-43a0-bc7b-e09a54c21748" data-media-type="file" /></span><p>Following this fashion, add two more nodes. The first, an <strong>Iterate</strong> node under the <strong>Decorators</strong> folder. And second, an <strong>Action</strong> node.</p><p>Click your Iterate node. This will open a window in the upper left corner of the Canvas. Click the drop-down menu for &ldquo;<strong>Target List</strong>&rdquo;, navigate to your cube, then select the <strong>patrolPoints </strong>list we just created.</p><p>Using the &ldquo;<strong>Current Element</strong>&rdquo; box, we can create a custom variable inside the Iterate node that will hold the current patrol point. Let&rsquo;s call this variable <strong>_point</strong>. We can leave the rest of the fields be. Your Iterate node should look like the image below.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510656550.png" data-image-src="attachments/510558227/510656550.png" data-height="318" data-width="334" data-unresolved-comment-count="0" data-linked-resource-id="510656550" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-183800.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="d796aa58-183e-4099-a8a6-da0540e87ba2" data-media-type="file" /></span><p>Now, click your Action node. A new window for this node should open in the upper left corner. Inside that window, click the &ldquo;<strong>Assign Action Task</strong>&rdquo; button. Using the search bar, find the &ldquo;<strong>Move Towards</strong>&rdquo; action task and assign it to your node.</p><p>You should now be able to see the fields for this new action task. In the <strong>Target </strong>field, select the black radio button next to the GameObject reference. This will allow you to assign a variable to the field instead of a scene reference. Click the drop-down menu that appears, and select <strong>(DynamicVar)</strong>. Then, type in the name of the variable you created in the Iterate node, <strong>_point</strong>.</p><p>The last important thing to do in the action task is to select the <strong>Wait Action Finish</strong> checkbox. This forces the Iterate node to wait until this action task is finished before moving on to the next index. Your Action node should now look like the image below. Speed and Stop Distance can be adjusted to your preference.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510591056.png" data-image-src="attachments/510558227/510591056.png" data-height="330" data-width="331" data-unresolved-comment-count="0" data-linked-resource-id="510591056" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-184519.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="52736027-8e2a-4cdb-9811-734be4535dd4" data-media-type="file" /></span><p>Now, all that&rsquo;s left to do is connect your Sequencer node to your Iterate node, and then your Iterate node to your Action node. Your Canvas should now look something like this. When you press play, your cube should travel between each patrol point!</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510558227/510296164.png" data-image-src="attachments/510558227/510296164.png" data-height="333" data-width="442" data-unresolved-comment-count="0" data-linked-resource-id="510296164" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-184659.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510558227" data-linked-resource-container-version="1" data-media-id="f552cb25-a9de-4958-81a7-21331da02b39" data-media-type="file" /></span><h2 id="CreatingLoopsinBehaviourTrees-RepeatNodes">Repeat Nodes</h2><p>To be added.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510197848.png">image-20220818-182633.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510623798.png">image-20220818-182650.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510656544.png">image-20220818-183010.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510165060.png">image-20220818-183033.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510656550.png">image-20220818-183800.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510591056.png">image-20220818-184519.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510296164.png">image-20220818-184659.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510558227/510165076.png">image-20220818-184749.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

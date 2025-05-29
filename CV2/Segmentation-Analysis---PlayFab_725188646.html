@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Segmentation Analysis - PlayFab</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Analysis-Pipeline_717357141.html">Data Analysis Pipeline</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Interpretation_717193301.html">Data Interpretation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Segmentation Analysis - PlayFab
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hayden Auterhoff</span>, last modified on Jun 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544205135 {padding: 0px;}
+div.rbtoc1748544205135 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544205135 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544205135'>
+<ul class='toc-indentation'>
+<li><a href='#SegmentationAnalysis-PlayFab-Overview'>Overview</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-AccessPlayFabSegments'>Access PlayFab Segments</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-Segments'>Segments</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-PlayerSegmentConfiguration'>Player Segment Configuration</a>
+<ul class='toc-indentation'>
+<li><a href='#SegmentationAnalysis-PlayFab-Howtocreateoraccessasegment'>How to create or access a segment</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-Howtoconfigureasegment'>How to configure a segment</a>
+<ul class='toc-indentation'>
+<li><a href='#SegmentationAnalysis-PlayFab-Prerequisites'>Prerequisites</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-Configuring'>Configuring</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-AdvancedSegmentFiltering'>Advanced Segment Filtering</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-Howtomanageactions'>How to manage actions</a></li>
+<li><a href='#SegmentationAnalysis-PlayFab-Howtoinspectplayerssegments'>How to inspect players segments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#SegmentationAnalysis-PlayFab-Resources'>Resources</a></li>
+</ul>
+</div><h2 id="SegmentationAnalysis-PlayFab-Overview">Overview</h2><hr/><p>Segmentation allows groups of users to be categorized based on specific properties or behaviours, which are actionable categories that provide valuable insight for decision-making. For DLX projects, these categories may include UX improvements and learning outcomes. Once the segment is defined, you can monitor the total number of users in the segment and run custom actions to discover opportunities for improvement.<br/><br/>In PlayFab, the PlayStream events are processed in real time and based on the configuration, will drive the new information on these users into or out of the defined segments. By having an event tie to a ‘thing of interest’ you can use these events as a differentiating factor in the decision-making process by making a segment for it.<br/><br/>An example of user segmentation is the time of completion of an event. Each user will be placed within a specific segment based on the time of completion, then each segment will be evaluated. In PlayFab, this can be tracked by using a statistic called TotalTime, and when the condition for TotalTime changes, then the user will enter a new segment based on the specific configuration. </p><h2 id="SegmentationAnalysis-PlayFab-AccessPlayFabSegments">Access PlayFab Segments</h2><hr/><p>In the PlayFab Dashboard, to access the player segments:</p><ol start="1"><li><p>Navigate to <strong>Players</strong> in the menu<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="374" loading="lazy" src="attachments/725188646/728399877.png?width=374" data-image-src="attachments/725188646/728399877.png" data-height="564" data-width="571" data-unresolved-comment-count="0" data-linked-resource-id="728399877" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230608-203942.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="725188646" data-linked-resource-container-version="10" data-media-id="1cd86370-ac3e-4990-84af-d89c6d539e02" data-media-type="file"></span><p /></li><li><p>Select the <strong>Segments</strong> tab<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="374" loading="lazy" src="attachments/725188646/729022465.png?width=374" data-image-src="attachments/725188646/729022465.png" data-height="487" data-width="532" data-unresolved-comment-count="0" data-linked-resource-id="729022465" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230608-204447.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="725188646" data-linked-resource-container-version="10" data-media-id="c7f700dc-acb0-467f-9795-b8e3a17a4751" data-media-type="file"></span></li></ol><h2 id="SegmentationAnalysis-PlayFab-Segments">Segments</h2><hr/><p>The Segments page displays the segments that you currently have defined, and offers basic management capabilities.</p><ol start="1"><li><p>Use the <strong>NEW SEGMENT</strong> button to create a new segment.</p></li><li><p>The segment <strong>ID</strong> uniquely identifies the segment.</p></li><li><p>The segment <strong>Name </strong>identifies the user(s).</p></li><li><p>The <strong>Player count </strong>area displays the total number of players matching the segment filter.</p></li><li><p>Using the checkboxes to the left of the screen, you can select certain segments, and <strong>X Delete </strong>or &gt; <strong>Run Task</strong>… custom actions on the chosen segments.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/725188646/728498181.png" data-image-src="attachments/725188646/728498181.png" data-height="373" data-width="1101" data-unresolved-comment-count="0" data-linked-resource-id="728498181" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230608-205355.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="725188646" data-linked-resource-container-version="10" data-media-id="05a8e2f5-3176-4caa-ba53-efb001e40314" data-media-type="file"></span><h2 id="SegmentationAnalysis-PlayFab-PlayerSegmentConfiguration">Player Segment Configuration</h2><hr/><p>The segment configuration page allows you to configure new or existing segments. You can:</p><ul><li><p>Adjust the name</p></li><li><p>Define the filters</p></li><li><p>Assign tasks</p></li></ul><p>Each segment allows you to define useful or interesting groups of players, and perform exclusive actions on that group.</p><h3 id="SegmentationAnalysis-PlayFab-Howtocreateoraccessasegment">How to create or access a segment</h3><p>To access segment configurations:</p><ol start="1"><li><p>On the left side select the <strong>Players </strong>area.</p></li><li><p>Select the <strong>Segments</strong> tab. From there you can then opt to:</p><ol start="1"><li><p>Us the <strong>New Segment </strong>button<strong> </strong>to create and configure a new Segment</p></li><li><p>Locate an existing Segment, and select its <strong>Name</strong> label to configure the Segment.</p></li></ol></li></ol><h3 id="SegmentationAnalysis-PlayFab-Howtoconfigureasegment">How to configure a segment</h3><h4 id="SegmentationAnalysis-PlayFab-Prerequisites"><u>Prerequisites</u></h4><p>Some things must already exist for you to configure a segment. There must already be:</p><ul><li><p>Players with and without a distinctive characteristic defined in PlayFab</p></li><li><p>A defined CloudScript PlayStream hook.</p></li></ul><p><u>Note</u>: a CloudScript PlayStream hook is a prerequisite because PlayStream is a real-time data pipeline that allows the capture, process, and routing of user data in real-time. Therefore, the hook is required as a prerequisite for configuring a segment in PlayFab because it is the mechanism by which you can customize the processing of PlayStream events related to the segment.</p><p>For more information about CloudScripting, please refer to the <a class="external-link" href="https://github.com/MicrosoftDocs/playfab-docs/blob/docs/playfab-docs/features/automation/actions-rules/using-cloudscript-actions-with-playstream.md" rel="nofollow">PlayFab Docs</a> or the <a href="CloudScripting_723353601.html" data-linked-resource-id="723353601" data-linked-resource-version="5" data-linked-resource-type="page">CloudScripting section</a>.</p><h4 id="SegmentationAnalysis-PlayFab-Configuring"><br/><u>Configuring</u></h4><p>When a segment is defined, you have a variety of action options to run when a player enters or leaves the segment.</p><p>Cloudscript is by far the most flexible action, granting you full control of the player and segment information at the time of segment transition.</p><p>Use the second parameter - <em>context </em>- in your <a class="external-link" href="https://github.com/MicrosoftDocs/playfab-docs/blob/docs/playfab-docs/features/automation/actions-rules/using-cloudscript-actions-with-playstream.md" rel="nofollow">CloudScript handler</a> to identify the player and segment transition. Afterwards, you can perform any action you wish for the player, such as user data, or statistics.</p><p>The segment configuration requires 4 simple steps:</p><ol start="1"><li><p>Assign an appropriate <strong>Segment name</strong></p></li><li><p>In the <strong>Player </strong>area, assign any conditions that the <strong>Player </strong>must meet to enter the segment.</p></li><li><p>In the <strong>Type</strong> area, add an <strong>Execute Cloudscript</strong> action for the entered segment trigger. Configure the action to run the function.</p></li><li><p>Use the <strong>Save Segment </strong>button to commit your activities.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="414" loading="lazy" src="attachments/725188646/728924179.png?width=414" data-image-src="attachments/725188646/728924179.png" data-height="633" data-width="653" data-unresolved-comment-count="0" data-linked-resource-id="728924179" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230608-213842.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="725188646" data-linked-resource-container-version="10" data-media-id="88f52300-f744-4833-96af-ccd2086dafba" data-media-type="file"></span></li></ol><p /><h4 id="SegmentationAnalysis-PlayFab-AdvancedSegmentFiltering"><u>Advanced Segment Filtering</u></h4><p>Segment filtering allows you to define what players are included in the segment. An in-depth analysis of funneling can be found <a href="Funnel-Analysis_724140085.html" data-linked-resource-id="724140085" data-linked-resource-version="2" data-linked-resource-type="page">here</a>.</p><p>Each filter has a unique configuration and purpose. Here are the following filters available:</p><ul><li><p><strong>All Players</strong> - this filter has no configuration and is unique because it allows you to create a segment of all players. This comes in handy when you want to run automatic operations for every player.</p></li><li><p><strong>First login (date)</strong> - allows you to filter based on the first login datetime.</p></li><li><p><strong>First login (timespan)</strong> - allows you to filter based on the first login timespan relative to the current datetime.</p></li><li><p><strong>Last login (date)</strong> - allows you to filter based on the last login datetime.</p></li><li><p><strong>Last login (timespan) </strong>- allows you to filter based on the last login timespan relative to the current datetime.</p></li><li><p><strong>Linked user account</strong> - allows you to filter based on the users' linked accounts (ex. student emails)</p></li><li><p><strong>Location (country/region)</strong> - allows you to filter based on the user’s country/region</p></li><li><p><strong>Push notifications enabled</strong> - allows you to filter based on player push notifications settings and capabilities (ex. players that have Google push notifications enabled)</p></li><li><p><strong>Statistics value </strong>- allows you to filter based on your own custom statistic attributes (ex. players that complete a quiz with an 80%+ score)</p></li></ul><p /><h4 id="SegmentationAnalysis-PlayFab-Howtomanageactions"><u>How to manage actions</u></h4><p>Each action needs a <em>trigger</em> in order to run. Some actions are run manually and triggered right from the page. But sometimes, you have to select a trigger - an event that causes an action to run. A trigger defines the context of the action.</p><p>For example, the Player Entered Segment Trigger passes you the context containing a reference to the player.</p><p>The general workflow for the <strong>Actions</strong> panel is the following:</p><ol start="1"><li><p>Select and <strong>event condition</strong> (the trigger)</p></li><li><p>Select the <strong>Type </strong>of action</p></li><li><p><strong>Configure the action</strong> (specific for each action type)</p></li><li><p><strong>Remove an action</strong> from the trigger</p></li><li><p>Use <strong>Add Action</strong> to add an action to the trigger.</p></li></ol><p /><h4 id="SegmentationAnalysis-PlayFab-Howtoinspectplayerssegments"><u>How to inspect players segments</u></h4><p>It is possible to look up what segments a player belongs to by means of the Player Segments page.</p><p>To access Players Segments:</p><ol start="1"><li><p>Select the <strong>Players </strong>section</p></li><li><p>Select the <strong>Players </strong>tab</p></li><li><p>Click on the <strong>ID </strong>label for the player you want to inspect</p></li><li><p>Select <strong>Segments</strong> in the Players toolbar</p></li></ol><p>On the Player Segments page, you will see the following:</p><ul><li><p>The <strong>Player ID</strong> label identifies the player that you are currently inspecting.</p></li><li><p>The <strong>Segment </strong>table contains a list of all segments that a player belongs to</p></li><li><p>Select the <strong>Segment </strong>name label to configure the segment.</p></li></ul><h2 id="SegmentationAnalysis-PlayFab-Resources">Resources</h2><hr/><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/analytics/segmentation/" rel="nofollow">PlayFab Documentation - Segmentation</a></p><p><a class="external-link" href="https://github.com/MicrosoftDocs/playfab-docs/blob/docs/playfab-docs/features/data/playerdata/player-segments.md" rel="nofollow">PlayFab Segments</a></p><p><a class="external-link" href="https://github.com/MicrosoftDocs/playfab-docs/blob/docs/playfab-docs/features/data/playerdata/player-segment-configuration.md" rel="nofollow">PlayFab Segment Configuration</a></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/725188646/728399877.png">image-20230608-203942.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/725188646/728924163.png">image-20230608-204205.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/725188646/729022465.png">image-20230608-204447.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/725188646/728498181.png">image-20230608-205355.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/725188646/728924179.png">image-20230608-213842.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

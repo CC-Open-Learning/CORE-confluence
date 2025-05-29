@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : PlayFlow- Testing on a Dedicated Server</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WebGL_500564089.html">WebGL</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : PlayFlow- Testing on a Dedicated Server
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Nov 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of 07/18/22 PlayFlow does not support Multipass. Make sure you are only using one transport when making a WebGL build.</p></div></div><h2 id="PlayFlow-TestingonaDedicatedServer-PlayFlow-ServerHosting">PlayFlow- Server Hosting</h2><p>PlayFlow can be used to create and host a dedicated server to test WebGL builds using Fish-Net. We will be using the Bayou transport for WebGL builds.</p><p><strong>Asset Store: </strong><a class="external-link" href="https://assetstore.unity.com/packages/tools/network/playflow-cloud-206903#description" rel="nofollow">PlayFlow Cloud | Network | Unity Asset Store</a></p><p><strong>Documentation: </strong><a class="external-link" href="https://docs.playflowcloud.com/" rel="nofollow">PlayFlow Cloud - PlayFlow Cloud Documentation</a></p><p><strong>Tutorial Video: </strong><a class="external-link" href="https://www.youtube.com/watch?v=0PrwG9XZ5us" rel="nofollow">PlayFlow - Dedicated Server Tool, Unity Multiplayer with Fish-Networking - YouTube</a></p><h3 id="PlayFlow-TestingonaDedicatedServer-SetupSteps">Setup Steps</h3><ol start="1"><li><p>Get the PlayFlow asset from the Unity Asset Store and add it to your project.</p></li><li><p>Open the PlayFlow window and click “Get PlayFlow Token”, you will be redirected to a webpage where you will be prompted to sign in with a Google account.</p></li><li><p>Copy the app token and paste it into the App Token field in the PlayFlow Cloud window. Copy the port and put it into the port field of the Bayou transport.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/500531346/501874689.png" data-image-src="attachments/500531346/501874689.png" data-height="409" data-width="864" data-unresolved-comment-count="0" data-linked-resource-id="501874689" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220721-141737.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500531346" data-linked-resource-container-version="10" data-media-id="a18e6418-89c6-4311-8bf3-811ae552606d" data-media-type="file"></span></li><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/500531346/500498535.png" data-image-src="attachments/500531346/500498535.png" data-height="471" data-width="983" data-unresolved-comment-count="0" data-linked-resource-id="500498535" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220718-190809.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500531346" data-linked-resource-container-version="10" data-media-id="ac928966-cd17-4ca4-af37-50ac075f8039" data-media-type="file"></span><p> Before you can upload your server make sure that your current build platform is Linux Dedicated Server.** </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="476" loading="lazy" src="attachments/500531346/502661145.png?width=476" data-image-src="attachments/500531346/502661145.png" data-height="668" data-width="713" data-unresolved-comment-count="0" data-linked-resource-id="502661145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220725-145226.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500531346" data-linked-resource-container-version="10" data-media-id="f5d91e14-878c-4d43-b6d8-f430222aa040" data-media-type="file"></span></li><li><p>Click ‘Upload Server’, your first upload may take a long time. After the server is uploaded you can switch to another build platform. ‘<strong>Use Wss' in the Bayou script inspector and 'Enable SSL’ in the PlayFlow window have to be unchecked when you upload the server.</strong></p></li><li><p>After uploading, check off the ‘Enable SSL’ box and start the server. When the server starts you will get the ‘server url’ and ‘ssl port’ which you use to update the Bayou transport script. For client builds and editor testing, check off the ‘Use Wss’ box in the Bayou inspector.</p></li><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/500531346/500498548.png" data-image-src="attachments/500531346/500498548.png" data-height="388" data-width="388" data-unresolved-comment-count="0" data-linked-resource-id="500498548" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220718-185146.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500531346" data-linked-resource-container-version="10" data-media-id="f3ac15cc-f456-4a48-9943-b2f7221435d8" data-media-type="file"></span><p>From here these fields should not change. You can use ‘Build and Run’ or run it in the editor to test your project before uploading the WebGL build to an external site (ex. Itch.io or GitHub Pages).</p></li></ol><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>**When you upload your server, it has to use the port that was given in the PlayFlow Cloud Dashboard. Once you start your server and get the SSL port, replace the one in Bayou, connecting clients will be using the new port.</p></div></div><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The free plan has an active time limit of 60 minutes. This limit can be reset as many times as you want by clicking the ‘Restart Server’ button.</p></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/500498535.png">image-20220718-190809.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/500498542.png">image-20220718-183837.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/500498548.png">image-20220718-185146.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/501678088.png">image-20220721-141735.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/501874689.png">image-20220721-141737.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500531346/502661145.png">image-20220725-145226.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

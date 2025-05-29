@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Accessing Samples</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Unity-Packages-Registry-Status_715653122.html">CORE Unity Packages Registry Status</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Accessing Samples
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> estronge</span>, last modified on Jun 15, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This page is primarily for documentation of the current state regarding samples and could be modified in the future</p></div></div><p /><p>Currently, the ability to access samples in each package through the package manager has been changed due to some odd behavior with the Verdaccio registry (They aren’t appearing for download in the package manager window). Until a workaround is implemented, here is the easiest method to access samples without too much extra hassle.</p><hr/><p>After importing a package into Unity, navigate to the packages “Samples” folder in the Project Window. For this example, I will be using the CloudSave package.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/730333185/730726405.png?width=680" data-image-src="attachments/730333185/730726405.png" data-height="560" data-width="1112" data-unresolved-comment-count="0" data-linked-resource-id="730726405" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-151141.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="730333185" data-linked-resource-container-version="4" data-media-id="f98acdd7-65f4-42d5-8743-10f19bc90e79" data-media-type="file"></span><p>Click “Example” in the the right hand display and drag it into either a Samples folder in your Assets folder, or just into the Assets folder directly.</p><p /><p>With this done, the sample is imported, and the only issue now may appear when you open the scene. For some reason, the materials attached to each gameobject is lost when the sample is imported and will look something like this:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/730333185/730497029.png?width=680" data-image-src="attachments/730333185/730497029.png" data-height="515" data-width="1109" data-unresolved-comment-count="0" data-linked-resource-id="730497029" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-151829.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="730333185" data-linked-resource-container-version="4" data-media-id="68518dc6-ddb2-4e26-8371-cae7d61dd75d" data-media-type="file"></span><p>UPDATE: This was because I was working in a project that didn’t have URP installed, but I will leave this in case anyone makes the same mistake</p><hr/><p>Therefore if the visuals are important, you will need to create a new material by right clicking in the project window and navigating to Create &gt; Material. Finally, drag it onto any meshes you would like a material on and the scene should be ready to go.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/730333185/730890245.png" data-image-src="attachments/730333185/730890245.png" data-height="521" data-width="1105" data-unresolved-comment-count="0" data-linked-resource-id="730890245" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230612-152619.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="730333185" data-linked-resource-container-version="4" data-media-id="22cc6f1a-dda1-4942-bd1b-9c79e054c8fb" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/730333185/730726405.png">image-20230612-151141.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/730333185/730497029.png">image-20230612-151829.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/730333185/730890245.png">image-20230612-152619.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

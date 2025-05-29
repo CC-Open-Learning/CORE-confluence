@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Package Registry Azure Configuration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Package Registry Azure Configuration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> estronge</span>, last modified by <span class='editor'> David Inglis</span> on Jul 02, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="PackageRegistryAzureConfiguration-Contents"><style>[data-colorid=gc8w8fbdru]{color:#006644} html[data-color-mode=dark] [data-colorid=gc8w8fbdru]{color:#99ffdd}[data-colorid=i73vrozu1g]{color:#006644} html[data-color-mode=dark] [data-colorid=i73vrozu1g]{color:#99ffdd}</style>Contents</h2><style type="text/css">/*<![CDATA[*/
+div.rbtoc1748544146165 {padding: 0px;}
+div.rbtoc1748544146165 ul {list-style: disc;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544146165 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1748544146165">
+<ul class="toc-indentation">
+<li><a href="#PackageRegistryAzureConfiguration-RegistryAddress">Registry Address</a></li>
+<li><a href="#PackageRegistryAzureConfiguration-RegistryStorage">Registry Storage</a></li>
+<li><a href="#PackageRegistryAzureConfiguration-ConfiguringDocker🐳">Configuring Docker 🐳</a>
+<ul class="toc-indentation">
+<li><a href="#PackageRegistryAzureConfiguration-PackageAccessControl">Package Access Control</a></li>
+</ul>
+</li>
+</ul>
+</div><h2 id="PackageRegistryAzureConfiguration-RegistryAddress">Registry Address</h2><p>The registry is hosted as a <strong>Docker container</strong> <strong>instance </strong>in <strong>Azure</strong> under the name <code>upm-package-registry</code>.</p><p>A fully-qualified domain name (FQDN) has been configured for the registry:</p><p style="margin-left: 30.0px;"><code>upm-package-registry.canadacentral.azurecontainer.io</code></p><p /><p>Additionally, the alias <code>upm.core.varlab.org</code> forwards to this domain.</p><p>Verdaccio is hosted typically on port <code>4873</code>; the server can be queried or browsed via the web interface at</p><p style="margin-left: 30.0px;"><a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow"><strong><span data-colorid="i73vrozu1g">http://upm.core.varlab.org:4873/</span></strong></a><strong><span data-colorid="gc8w8fbdru"> </span></strong></p><h2 id="PackageRegistryAzureConfiguration-RegistryStorage">Registry Storage</h2><p>The registry hosts its persistent storage in an <strong>Azure File Share </strong>so that registry configuration and package files are preserved between container restarts.</p><p /><h2 id="PackageRegistryAzureConfiguration-ConfiguringDocker🐳">Configuring Docker 🐳</h2><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>Stopping or restarting the container, or pushing a new container configuration, will reset the IP address for the Azure resource. Address forwarding will need to be reconfigured in the <code>varlab.org</code> <a class="external-link" href="https://portal.azure.com/#@stu.conestogac.on.ca/resource/subscriptions/09101b24-b4ec-4c44-8562-fc8ec404eccc/resourceGroups/VARLab-Shared/providers/Microsoft.Network/dnszones/varlab.org/overview" rel="nofollow"><strong>DNS Zone</strong></a>.</p></div></div><p>Using the <strong>Azure CLI</strong>, we can appropriately configure the Docker container hosting the registry to be publicly accessible with an IP address and FQDN, and connect it to our Azure File Share.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>The custom <strong>Docker</strong> 🐳 image <a class="external-link" href="https://hub.docker.com/r/varlab/verdaccio-bitbucket" rel="nofollow">varlab/verdaccio-bitbucket</a> is used by the <code>upm-package-registry</code> to allow for authentication through <strong>Bitbucket</strong> accounts.</p></div></div><p>The container instance will keep this configuration between restarts, but can be modified by editing and executing the script below:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">$env:RESOURCE_NAME=&quot;upm-package-registry&quot;
+$env:DNS_LABEL=$env:RESOURCE_NAME
+$env:RESOURCE_GROUP=&quot;CoreUnity&quot;
+$env:STORAGE_ACCOUNT=&quot;varlabsazurestorage&quot;
+$env:STORAGE_KEY=$(az storage account keys list --resource-group $env:RESOURCE_GROUP --account-name $env:STORAGE_ACCOUNT --query &quot;[0].value&quot; --output tsv)
+$env:VOLUME_SHARE=$env:RESOURCE_NAME
+
+
+az container create --resource-group $env:RESOURCE_GROUP  `
+  --name $env:RESOURCE_NAME                               `
+  --image varlab/verdaccio-bitbucket                      `
+  --dns-name-label $env:DNS_LABEL                         `
+  --ports 4873 --ip-address Public --protocol TCP         `
+  --azure-file-volume-account-name $env:STORAGE_ACCOUNT   `
+  --azure-file-volume-account-key $env:STORAGE_KEY        `
+  --azure-file-volume-share-name $env:VOLUME_SHARE        `
+  --azure-file-volume-mount-path /verdaccio/</pre>
+</div></div><p>💾</p><p /><h3 id="PackageRegistryAzureConfiguration-PackageAccessControl">Package Access Control</h3><p>The file <code>config.yaml</code> defines the configuration for the Verdaccio server and is version-controlled in the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/upm-registry-configuration/src/main/" rel="nofollow">https://bitbucket.org/VARLab/upm-registry-configuration/src/main/</a> repository. </p><p>A snippet of the access controls section of the configuration is provided below:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">auth:
+  bitbucket:
+    allow: VARLab
+
+packages:
+  '@*/*':
+    # scoped packages
+    access: $authenticated
+    publish: packagingpete
+    unpublish: packagingpete
+    proxy: npmjs
+
+  '**':
+    access: $authenticated
+    publish: packagingpete
+    unpublish: packagingpete
+    proxy: npmjs</pre>
+</div></div><p /><p>Using the <a class="external-link" data-card-appearance="inline" href="https://www.npmjs.com/package/verdaccio-bitbucket" rel="nofollow">https://www.npmjs.com/package/verdaccio-bitbucket</a> plugin, <strong>Bitbucket</strong> user accounts can be used for authentication with the package registry.</p><p>This security configuration allows any authenticated user to read packages from the registry. Information on configuring a local development environment to access these packages within Unity can be found in the <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/778273124/Accessing+the+Scoped+Registry#Authentication-Steps" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/778273124/Accessing+the+Scoped+Registry#Authentication-Steps</a> document.</p><p>Additionally, a specific user account named <code>packagingpete</code> is used for publishing packages from Bitbucket to the UPM package registry.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714080311/714833973.png">image-20230525-201838.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714080311/734625836.png">image-20230614-171112.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714080311/751829171.png">image-20230704-164920.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714080311/751992943.png">image-20230704-164917.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/714080311/751960231.png">image-20230704-165011.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

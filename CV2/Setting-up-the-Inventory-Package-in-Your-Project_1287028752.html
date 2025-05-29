@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Setting up the Inventory Package in Your Project</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Inventory_1286471690.html">Inventory</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Setting up the Inventory Package in Your Project
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Liam Stanziani</span>, last modified on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This page will provide an example on the installation of the components that are required to use this package.</p><h3 id="SettinguptheInventoryPackageinYourProject-Step1-ImportthePackageintoUnity.">Step 1 - Import the Package into Unity.</h3><p>Go to Window &gt; Package Manager &gt; My Registries, find the Inventory package and download it.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240815-145907.png" width="754" loading="lazy" src="attachments/1287028752/1288732732.png?width=754" data-image-src="attachments/1287028752/1288732732.png" data-height="657" data-width="869" data-unresolved-comment-count="0" data-linked-resource-id="1288732732" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240815-145907.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1287028752" data-linked-resource-container-version="5" data-media-id="447f1deb-f4c2-4488-a41d-96bd92f2cbba" data-media-type="file"></span><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>If you need to setup your unity registry for VARLab, please refer to this document: <a href="https://varlab-dev.atlassian.net/wiki/x/wAC1Lg" rel="nofollow">Accessing the Package Registry for Developers</a></p>
+</div></div><h3 id="SettinguptheInventoryPackageinYourProject-Step2-ImportanInventoryGameObjectintoyourscene">Step 2 - Import an Inventory Game Object into your scene</h3><p>Go into your scene that you want to use the Inventory system in, right-click the in the scene hierarchy, go to VARLab &gt; Inventory and left-click</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240815-014845.png" width="458" loading="lazy" src="attachments/1287028752/1287356436.png?width=458" data-image-src="attachments/1287028752/1287356436.png" data-height="712" data-width="458" data-unresolved-comment-count="0" data-linked-resource-id="1287356436" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240815-014845.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1287028752" data-linked-resource-container-version="5" data-media-id="a4601a07-5f4a-45be-a7b1-c7a610a46b9a" data-media-type="file"></span><h3 id="SettinguptheInventoryPackageinYourProject-Step3-SetuptheInventoryGameObjectvalues">Step 3 - Setup the Inventory Game Object values</h3><p>Go into the Inventory Game Object and set all of the inspector fields under the components:</p><h3 id="SettinguptheInventoryPackageinYourProject-InventoryUI">Inventory UI</h3><p>The header sections that you will need to modify are:</p><ul><li><p><strong>Visual Tree Assets</strong></p><ul><li><p>The UXML assets that will be used for the UI that is shown before the Inventory that will give access to the system and the Inventory UI which will include all of the functionality of the Inventory system and its values</p></li></ul></li><li><p><strong>UI Component Visual Element Names</strong></p><ul><li><p>The names of the visual elements relating to the parent of the items that will be inputted directly and the parent of the object viewer functionality</p></li></ul></li><li><p><strong>UI Component Button Names</strong></p><ul><li><p>The names of the buttons relating to the ability to open the inventory from the base UI, an item template that will be under the item row parent, the back button to close the object viewer functionality, the back button to close the current container that is opened and go to the previous one, and the inventory close button that will close the entire inventory UI</p></li></ul></li></ul><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>To Learn more about these what these inspector fields mean see this page: <a href="Inventory_1286471690.html" data-linked-resource-id="1286471690" data-linked-resource-version="6" data-linked-resource-type="page">Inventory</a> </p>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240815-023640.png" width="1174" loading="lazy" src="attachments/1287028752/1287225375.png?width=1174" data-image-src="attachments/1287028752/1287225375.png" data-height="339" data-width="1180" data-unresolved-comment-count="0" data-linked-resource-id="1287225375" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240815-023640.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1287028752" data-linked-resource-container-version="5" data-media-id="01b37a1b-51d7-4143-82ab-c02ff5dfb06e" data-media-type="file"></span><h3 id="SettinguptheInventoryPackageinYourProject-InventoryData">Inventory Data</h3><p>The inventory data component needs to have values inputted values to dynamically create the items/containers in the inventory UI.</p><h3 id="SettinguptheInventoryPackageinYourProject-Addinganewitem">Adding a new item</h3><p>To add a new item, select the plus option at the bottom of the Inventory section, select the type as “Item”, then set a title, image and object for that item. The object can either be a game object or a prefab</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><a href="attachments/1287028752/1287389253.mkv?width=754">ezgif-5-efdc8265e3.mkv</a></span><p /><h3 id="SettinguptheInventoryPackageinYourProject-Addinganewcontainer">Adding a new container</h3><p>To add a new container, select the plus option at the bottom of the Inventory section, select the type as “Container”, then set a title, image, and create a inventory container under that. This can include more items that will be under the container when clicked, or other containers that can include more items under themselves</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><a href="attachments/1287028752/1287290954.mkv?width=766">ezgif-5-12ae473e0e.mkv</a></span><h3 id="SettinguptheInventoryPackageinYourProject-PrebuiltexampleofInventoryDatavalues">Prebuilt example of Inventory Data values</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240815-023856.png" width="781" loading="lazy" src="attachments/1287028752/1287225381.png?width=781" data-image-src="attachments/1287028752/1287225381.png" data-height="441" data-width="681" data-unresolved-comment-count="0" data-linked-resource-id="1287225381" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240815-023856.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1287028752" data-linked-resource-container-version="5" data-media-id="2265a665-b747-4004-a617-ab714a5e37f4" data-media-type="file"></span><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>To Learn more about these what these inspector fields mean see this page: <a href="Inventory_1286471690.html" data-linked-resource-id="1286471690" data-linked-resource-version="6" data-linked-resource-type="page">Inventory</a> </p>
+</div></div><h3 id="SettinguptheInventoryPackageinYourProject-Step4-SetuptheObjectViewerManagerGameObjectvalues">Step 4 - Setup the Object Viewer Manager Game Object values</h3><p>Go to the game object named “Object Viewer Manager” under the Inventory game object you setup in the last step, create the Keybindings scriptable object anywhere in your project files, select it under the “Keybindings” field, set the “Clone Game Object” field to true if you are using a prefabs for inventory data and set it to false if you are using active game objects for inventory data, and set the “Main Camera” field to be connected to your main camera.</p><h3 id="SettinguptheInventoryPackageinYourProject-PrebuiltexampleoftheObjectViewerControllervalues">Prebuilt example of the Object Viewer Controller values</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240815-031835.png" width="760" loading="lazy" src="attachments/1287028752/1287356487.png?width=760" data-image-src="attachments/1287028752/1287356487.png" data-height="796" data-width="867" data-unresolved-comment-count="0" data-linked-resource-id="1287356487" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240815-031835.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1287028752" data-linked-resource-container-version="5" data-media-id="b0138b8a-baf5-4267-a74e-b8e12819b4f7" data-media-type="file"></span><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>To Learn more about these what these inspector fields mean see this page: <a href="Object-Viewer_1237712913.html" data-linked-resource-id="1237712913" data-linked-resource-version="17" data-linked-resource-type="page">Object Viewer</a>  </p>
+</div></div><h3 id="SettinguptheInventoryPackageinYourProject-Step5-Runthescene">Step 5 - Run the scene</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><a href="attachments/1287028752/1288470582.mkv?width=766">ezgif-1-59920ac316.mkv</a></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287389199.png">image-20240815-014312.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287356436.png">image-20240815-014845.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287323664.png">image-20240815-020613.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287290917.png">image-20240815-023514.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287225375.png">image-20240815-023640.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287225381.png">image-20240815-023856.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287258178.mkv">2024-08-14 22-48-49.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287258185.mkv">2024-08-14 22-52-21.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287258195.png">image-20240815-030507.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287389253.mkv">ezgif-5-efdc8265e3.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287290954.mkv">ezgif-5-12ae473e0e.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287356487.png">image-20240815-031835.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1287389271.mkv">ezgif-5-7c135e7a64.mkv</a> (video/x-matroska)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1288732732.png">image-20240815-145907.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1287028752/1288470582.mkv">ezgif-1-59920ac316.mkv</a> (video/x-matroska)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

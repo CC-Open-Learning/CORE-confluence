@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the Save System</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the Save System
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ujjwal Prashar</span>, last modified by <span class='editor'> Jordan Robinson</span> on Jan 27, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This Document contains steps to upload and download data from the azure portal using the WebAPI</p></div></div><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Video Tutorial</p><p>- <a class="external-link" href="https://stuconestogacon.sharepoint.com/:v:/s/VARLab/ERRyhDWAl9VIqyzXqTDsCN4BdCHEu2OJWu2g9JD1I1Xx-A?e=noEbmx" rel="nofollow">Load</a></p><p>- <a class="external-link" href="https://stuconestogacon.sharepoint.com/:v:/s/VARLab/EVn_Vtxeni5LgSD9vVwbM_wBrOjLoNnBcC0NiQDEgNS9IA?e=7Qzt3F" rel="nofollow">Save pt.1</a></p><p>- <a class="external-link" href="https://stuconestogacon.sharepoint.com/:v:/s/VARLab/EaD-zikdMb5Aq1hLgiNJjUsBKzACB_ajKDQp3iHKx78ovw?e=jrOzOD" rel="nofollow">Save pt.2</a></p>
+</div></div><h2 id="UsingtheSaveSystem-Overview">Overview</h2><p>In order to send or retrieve data, developers must specify which file and container they want to interact with. These calls save and load calls are made to the Web API which checks for authorization token and if that token is valid will establish a connection with the Azure storage and send or retrieve the date depending upon the request.</p><h2 id="UsingtheSaveSystem-Interface">Interface</h2><p>Implementing the <strong>ICloudSaveSystem.cs</strong> will have the developers incorporate 2 functions which are Save and Load. </p><p>The Load Function only takes in one argument which is the filename while the save function takes in 2 arguments which are file name and the save data.</p><h2 id="UsingtheSaveSystem-FileName">File Name</h2><p>File name refers to the name of the file stored in the Azure portal. In order to send and retrieve date from azure a file name is required. The LMS assigns a Unique ID to each student account and that Unique ID can be retrieved from the ScormIntegrator.cs</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">ScormIntegrator.LearnerId;</pre>
+</div></div><h2 id="UsingtheSaveSystem-ContainerName">Container Name</h2><p>Container name refers to the specific container that houses data. Each Scenario has a Container named after its Identifier. eg - Hydraulics Lab 1 has a container called Scenario0 </p><p>Not sure where to find the identifier that is being used in the given scene go to Packages &gt; RemoteEducation &gt; [Scenario Folder] &gt; Resources &gt; Scenario &gt; [Scenario XML File]</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/461472087/461701138.png" data-image-src="attachments/461472087/461701138.png" data-height="23" data-width="440" data-unresolved-comment-count="0" data-linked-resource-id="461701138" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211129-233555.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="461472087" data-linked-resource-container-version="6" data-media-id="95d4f3cd-799b-45bd-990a-39d9e8d9eac4" data-media-type="file"></span><p>There is a function present in AzureSaveSystem.cs which is used returns the current Scenario’s container name.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private const string DEFAULT_CONTAINER = &quot;azureplayground&quot;;
+
+public string GetContainer()
+{
+    if (ScenarioManager.Instance != null)
+        return (&quot;Scenario&quot; + ScenarioManager.Instance.CurrentScenario.Identifier.ToString());
+
+    return DEFAULT_CONTAINER;
+}</pre>
+</div></div><p>If the Scenario Manager is not active then it will it return the azureplayground container name which is the testing container.</p><p>This is a list of all the Containers currently added in the Storage Account.</p><ul><li><p>azureplayground</p></li><li><p>scenario0</p></li><li><p>scenario1</p></li><li><p>scenario10</p></li><li><p>scenario100</p></li><li><p>scenario101</p></li><li><p>scenario2</p></li><li><p>scenario2040</p></li><li><p>scenario2041</p></li><li><p>scenario3</p></li><li><p>scenario3010</p></li><li><p>scenario4</p></li><li><p>varlabstorageblobcontainer</p></li></ul><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p> When new Projects and made and new Identifiers are made their Containers must be added manually Azure Storage Container. Access is needed to the portal and Currently Only Jordan Robinson and Ujjwal Prashar have access to the Azure portal so Contact either one for your Scenario name to be added to the Storage Container.</p></div></div><h2 id="UsingtheSaveSystem-LoadingData">Loading Data</h2><p>The Load(string fileName) Function only asks for the filename to be loaded in. Getting the container name and the authorization token is handled by the code.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Load(string fileName)
+    {
+        StartLoad(GetContainer(), fileName);
+    }</pre>
+</div></div><p>The second function that developers can call is the StartLoad(string containerName, string fileName) function where the developers have to manually enter a container name. The first function calls the second function automatically and uses the current active scenario’s container name.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private const string ENDPOINT_URL = &quot;https://saveloadapi.azurewebsites.net/varlabs/&quot;;
+
+private void StartLoad(string containerName, string fileName)
+{
+    StartCoroutine(AuthorizeRequest(ActionType.Load, GetFullFileUrl(containerName, fileName)));
+}</pre>
+</div></div><p>This function calls an IEnumerator which is responsible for getting the JWT token which is used for authentication purposes. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private IEnumerator AuthorizeRequest(ActionType actionType, string url, string saveData = null)
+{
+    PasswordPacket passwordData = new PasswordPacket();
+    passwordData.Password = &quot;{[INSERT PASSWORD]}&quot;;
+    string jsonPassword = JsonUtility.ToJson(passwordData);
+
+    using (UnityWebRequest request = UnityWebRequest.Put(ENDPOINT_URL + &quot;authenticate&quot;, jsonPassword))
+    {
+        request.method = UnityWebRequest.kHttpVerbPOST;
+        request.SetRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+        request.SetRequestHeader(&quot;Accept&quot;, &quot;application/json&quot;);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            authorizeToken = request.downloadHandler.text.Trim(&#39;&quot;&#39;);
+
+            if (actionType == ActionType.Save)
+            {
+                StartCoroutine(PostRequest(url, saveData));
+            }
+            else
+            {
+                StartCoroutine(GetRequest(url));
+            }
+        }
+    }
+}</pre>
+</div></div><p>This function calls an IEnumerator which takes in a string as a parameter which contains a URL. Basically the point of this IEnumerator is to open that URL and download the data that it contains. The end point url takes the users to the Web API which is hosted on Azure and the API handles making a connection with the Storage Services with the key that is stored on the API itself.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private IEnumerator GetRequest(string uri)
+{
+    using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+    {
+        webRequest.SetRequestHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + authorizeToken);
+
+        yield return webRequest.SendWebRequest();
+
+        string[] pages = uri.Split(&#39;/&#39;);
+        int page = pages.Length - 1;
+
+        switch (webRequest.result)
+        {
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(pages[page] + &quot;: Error: &quot; + webRequest.error);
+                break;
+
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError(pages[page] + &quot;: HTTP Error: &quot; + webRequest.error);
+                break;
+
+            case UnityWebRequest.Result.Success:
+                //Debug.Log(pages[page] + &quot;:\nReceived: &quot; + webRequest.downloadHandler.text); //Left for future debugging purposes if needed.
+                LoadedData = webRequest.downloadHandler.text;
+                break;
+        }
+    }
+}</pre>
+</div></div><p>The data is stored in the LoadedData string.</p><h2 id="UsingtheSaveSystem-SavingData">Saving Data</h2><p>The Save(string fileName, string saveData) function automatically calls the scenario’s container name and takes in a file name and the save data, The save data must be wrapped in the json wrapper (Save struct)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Save(string fileName, string saveData)
+{
+    StartSave(GetContainer(), fileName, saveData);
+}</pre>
+</div></div><p>The difference between the save and the load function is that the save function requires the save data to be </p><p>sent.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private IEnumerator PostRequest(string uri, string saveData)
+{
+    using (UnityWebRequest request = UnityWebRequest.Put(uri, saveData))
+    {
+        request.method = UnityWebRequest.kHttpVerbPOST;
+        request.SetRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+        request.SetRequestHeader(&quot;Accept&quot;, &quot;application/json&quot;);
+        request.SetRequestHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + authorizeToken);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            Debug.Log(&quot;Upload Successful&quot;);
+        }
+    }
+}</pre>
+</div></div><h3 id="UsingtheSaveSystem-SaveData">Save Data</h3><p>The save data must be in the form of a Json file. </p><p>the AzureSaveSystem contains a struct called Savedata which contains a public string called Content. It is important that everything much be contained in the content string. Even if there is a Json file which contains a list of lets say all the tasks than that json list needs to be wrapped up in the content string and then sent to the save call. Treat this struct as a wrapper.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private struct Savedata
+{
+    public string Content;
+}
+
+private void Start()
+{
+    Savedata jsonsavedata = new Savedata();
+    jsonsavedata.Content = &quot;Your save data&quot;;
+    string Jsonfile = JsonUtility.ToJson(jsonsavedata);
+    Save(&quot;testfile.json&quot;, Jsonfile);
+}       </pre>
+</div></div><p>The content in the jsonsavedata is used to store the save data and then in the string Jsonfile the whole struct is converted to json data and that string is then passed along on the save function as the save data.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/461472087/461832209.png">image-20211129-233444.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/461472087/461701138.png">image-20211129-233555.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/461472087/469991519.mp4">How to Load.mp4</a> (video/mp4)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

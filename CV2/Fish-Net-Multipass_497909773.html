@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Fish-Net Multipass</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WebGL_500564089.html">WebGL</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Fish-Net Multipass
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jul 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of 07/18/22 Multipass does not work with PlayFlow.</p></div></div><h2 id="Fish-NetMultipass-AddingMultipasswithTugboatandBayou">Adding Multipass with Tugboat and Bayou</h2><p>Multipass is used when you want to use more than one transport on a server.</p><p style="margin-left: 30.0px;"><strong>Component Info:</strong> <a class="external-link" href="https://fish-networking.gitbook.io/docs/manual/components/transports/multipass" rel="nofollow">Multipass - Fish-Net: Networking Evolved (gitbook.io)</a></p><p style="margin-left: 30.0px;"><strong>Guide: </strong><a class="external-link" href="https://fish-networking.gitbook.io/docs/manual/guides/transports/multipass#setup" rel="nofollow">Multipass - Fish-Net: Networking Evolved (gitbook.io)</a></p><ol><li><p>In the Network Manager add the Transport Manager, Multipass, Tugboat, and Bayou scripts. </p></li><li><p>Take the Multipass script and drag it into the Transport field in the Transport Manager. </p></li><li><p>Then drag the Tugboat and Bayou scripts into the Transports list in the Multipass script. </p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/497909773/500170937.png" data-image-src="attachments/497909773/500170937.png" data-height="332" data-width="400" data-unresolved-comment-count="0" data-linked-resource-id="500170937" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220718-193001.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497909773" data-linked-resource-container-version="13" data-media-id="c6875fe6-2732-4b40-939a-23432ea0cd34" data-media-type="file"></span><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Make sure Bayou and Tugboat are using different ports.</p></div></div><p /><p>Use the code snippet below and add that script to the Network Manager.</p><p><strong>Transports Code Snippet</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using UnityEngine;
+using FishNet.Transporting.Multipass;
+using FishNet.Transporting.Tugboat;
+using FishNet.Transporting.Bayou;
+
+public class Transports : MonoBehaviour
+{
+    [SerializeField] Multipass multipass;
+    private void Start()
+    {
+        ClientTransport();   
+    }
+
+    // determines if the player in playing on web, editor, or pc
+    private void ClientTransport()
+    {
+#if UNITY_WEBGL &amp;&amp; !UNITY_EDITOR 
+        multipass.SetClientTransport&lt;Bayou&gt;();             // WebGL transport
+#else
+        multipass.SetClientTransport&lt;Tugboat&gt;();           // Editor and pc transport
+#endif
+    }
+}</pre>
+</div></div><p>Your Network Manager inspector should look something like this after you’re done:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/497909773/499089430.png" data-image-src="attachments/497909773/499089430.png" data-height="406" data-width="358" data-unresolved-comment-count="0" data-linked-resource-id="499089430" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220711-194846.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497909773" data-linked-resource-container-version="13" data-media-id="3bc13370-5d2a-4912-8a0b-2a134c887e71" data-media-type="file"></span>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/498991108.png">image-20220711-192841.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/499154953.png">image-20220711-193024.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/499253263.png">image-20220711-194357.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/499122194.png">image-20220711-194733.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/499089430.png">image-20220711-194846.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500203523.png">image-20220715-184246.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500433010.png">image-20220718-182124.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500170902.png">image-20220718-183724.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500433020.png">image-20220718-183837.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500433044.png">image-20220718-185146.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500498510.png">image-20220718-190809.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497909773/500170937.png">image-20220718-193001.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

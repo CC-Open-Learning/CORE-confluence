@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : [WIP] Exploring Alternate First Person Camera Controllers</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Camera-Controls_527171585.html">Camera Controls</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : [WIP] Exploring Alternate First Person Camera Controllers
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ujjwal Prashar</span>, last modified on Sept 26, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This document is in construction as research is being conducted on it. This design is still being determined, as this is in its experimental stages to test how intuitive and user-friendly this design is.</p></div></div><p /><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544327310 {padding: 0px;}
+div.rbtoc1748544327310 ul {list-style: disc;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544327310 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544327310'>
+<ul class='toc-indentation'>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-Point&amp;ClickSystem'>Point &amp; Click System</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-GeneralStructure'>General Structure</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-MousePlacement'>Mouse Placement</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-Movement'>Movement</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-Navigation'>Navigation</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-UnityNavMeshAgent'>Unity Nav Mesh Agent</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-A*'>A*</a></li>
+</ul>
+</li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-AlternativeMovementOptions'>Alternative Movement Options</a></li>
+</ul>
+</li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-MapGuidedNavigationSystem'>Map Guided Navigation System</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-MultipleFloors/Stages'>Multiple Floors / Stages</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-Navigation.1'>Navigation</a></li>
+<li><a href='#id-[WIP]ExploringAlternateFirstPersonCameraControllers-Interactions'>Interactions</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-Point&amp;ClickSystem">Point &amp; Click System</h1><h2 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-GeneralStructure"><br/>General Structure</h2><p>This system relies upon the mouse’s position on the screen, and clicking in the general vicinity of the object will make the camera move to a fixed position in that direction. While in proximity / at the correct spot, the user can interact with the objects.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><a href="attachments/764477441/780140545.mp4">point and click.mp4</a></span><p /><h2 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-MousePlacement">Mouse Placement</h2><p>The mouse icon will dynamically change based on the mouse’s location on the screen. There will be a different icon for the mouse when it is hovering/pointing directly at an object that can be interacted with.</p><p>If the user can’t traverse left, the cursor will not change to point in that direction. The user has to click to interact with a particular object or move in that. direction </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/770998314.png" data-image-src="attachments/764477441/770998314.png" data-height="76" data-width="167" data-unresolved-comment-count="0" data-linked-resource-id="770998314" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-210000.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="eb275756-3804-4ef9-9fff-a682d87ccd7f" data-media-type="file"></span><h2 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-Movement">Movement </h2><p>When standing in a space, the player will have the option to move to pre-determined positions. The user has to point in that direction and click. The player will automatically navigate to that pre-determined space. The image below shows all the possible positions in an interior space.<br/>     </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/771031062.png" data-image-src="attachments/764477441/771031062.png" data-height="280" data-width="500" data-unresolved-comment-count="0" data-linked-resource-id="771031062" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-181531.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="dc20b8a5-efa0-4295-af94-6eb5a54a48e6" data-media-type="file"></span><p /><p>Based on the current location, the player can only go to these recent locations. To Turn around, they thoroughly take their mouse to the right or left side, and the player will turn around and look backwards.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/770998299.png" data-image-src="attachments/764477441/770998299.png" data-height="278" data-width="500" data-unresolved-comment-count="0" data-linked-resource-id="770998299" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-182100.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="464dbbe2-2df2-48af-8dd4-7e7749f02a5f" data-media-type="file"></span><p>If the user’s mouse faces forward, the pointer will change accordingly.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/771325972.png" data-image-src="attachments/764477441/771325972.png" data-height="128" data-width="128" data-unresolved-comment-count="0" data-linked-resource-id="771325972" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ForwardArrow.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="397fb6b7-e5f6-4ef7-9b42-e92074bfaa01" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/771391518.png" data-image-src="attachments/764477441/771391518.png" data-height="290" data-width="523" data-unresolved-comment-count="0" data-linked-resource-id="771391518" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-182959.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="3ca69e0c-9478-4b4c-aec0-6091c75f12d5" data-media-type="file"></span><p /><h2 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-Navigation">Navigation </h2><p>The player [not user] when moving from one-way point to another, the player [not the user] will use navigation agents or algorithms to ensure that it avoids obstacles. We have many options at our disposal. Unity already provides some, like the nav mesh agent, Unity’s in-house navigation solution to algorithms like A* and Dijkstra’s algorithm for navigation.</p><h3 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-UnityNavMeshAgent">Unity Nav Mesh Agent</h3><p>While this in-house solution is the easiest to use, it has shortcomings. Using this tool is straightforward, but the result can sometimes leave more to desire, especially considering resource management and precision. This tool bakes a navigation area in the ground and marks obstacles when charting that course along with slope and other variables. <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/771457073.png" data-image-src="attachments/764477441/771457073.png" data-height="288" data-width="317" data-unresolved-comment-count="0" data-linked-resource-id="771457073" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-200534.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="746bc13d-0475-4812-ba86-39495bcec6f9" data-media-type="file"></span><h3 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-A*">A*</h3><p>A* is an algorithm calculated in terms of weighted graphs where the goal is to calculate the shortest route to the destination in a graphed layout. At the starting point, the algorithm will look at the G cost (distance between the end node) and H cost (distance from the end node) and add those values to make an F cost (G cost + H cost). The node will move from node to node, charting a route from start to end and calculating the F cost for each adjacent node.<br/><br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/771063847.png" data-image-src="attachments/764477441/771063847.png" data-height="296" data-width="531" data-unresolved-comment-count="0" data-linked-resource-id="771063847" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230726-202517.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="a880d32c-5d85-4e20-805a-42c3bb5362f2" data-media-type="file"></span><p>Image Credit to <a class="external-link" href="https://www.youtube.com/@SebastianLague" rel="nofollow">Sebastian Lague</a> </p><h2 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-AlternativeMovementOptions">Alternative Movement Options</h2><p>There is a possibility that users can get dizziness from the movement in the simulation. We aim to keep the camera movement as organic as possible to avoid motion sickness. Still, in some cases, it might be inevitable, so to address that issue, we can introduce a teleportation system [Fade in / Fade out] where when the user decides to head in a particular direction will perform a fade in and out, and the camera will be at that position instead of showing the camera traverses the journey. <br/><br/>In this method, we don’t have to worry about navigation and can take the camera directly to its intended location. There are some con’s with this as the user might not get familiar with the layout of the surroundings, and it might be harder to envision the space around them (This con is based on a cursory glance at a potentially insignificant issue, and it could turn out not necessary as further prototypes are constructed)   </p><p /><p>Other avenues of camera controllers could also arise from this movement pattern, where a map/schematic of the environment will be present to the user, and there will be points on those maps representing the different points they can click and be teleported to.</p><p /><h1 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-MapGuidedNavigationSystem">Map Guided Navigation System <br/></h1><p>In this method, the user can view an overview of the entire map and be presented with points highlighted on the overview map. The user can click on that point and have the character move to that location. Upon reaching that position, the user can interact with items at that location. This method gives the users a view of the map, and they can easily select the destination, and their character moves to that location.<br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Link to Econ Build - <a class="external-link" href="https://conestoga.desire2learn.com/d2l/le/content/418015/viewContent/17089479/View" rel="nofollow">https://conestoga.desire2learn.com/d2l/le/content/418015/viewContent/17089479/View</a></p></div></div><p /><span class="confluence-embedded-file-wrapper image-center-wrapper"><a href="attachments/764477441/780075009.mp4">map overview.mp4</a></span><p> </p><h3 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-MultipleFloors/Stages">Multiple Floors / Stages</h3><p>The environment could have several floors or levels that are not linked but should be easy to navigate. In that case, a menu will be made available to the users. E.g. if the sim has three floors and the user starts at floor one, and the overview map is open, then the user will be given a menu on either the top left or right with a list of the other floors.<br/></p><h3 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-Navigation.1">Navigation</h3><p>In this system, the map switches from a first-person perspective to an overview shot of the map. This does not have to be the entire map, as multiple floors or stages could exist. Instead of moving the camera to a different position, two cameras will use different culling masks in the rendering section, as we don’t want the user to see the movement squares in the overview section.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/764477441/785383426.png" data-image-src="attachments/764477441/785383426.png" data-height="306" data-width="269" data-unresolved-comment-count="0" data-linked-resource-id="785383426" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230816-133459.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="764477441" data-linked-resource-container-version="12" data-media-id="607edbde-e94c-4c06-a0f4-ce04455efb02" data-media-type="file"></span><p>The player moves to that area once the user clicks on a specific point. For navigation, we can use Navmesh, as it is the in-house navigation system made by Unity. We won’t necessarily be taking advantage of the benefits of other algorithms like A*, as we have a pretty basic and static navigation workflow compared to several moving targets where the user must calculate ten if not 100’s of the object and calculate their path.<br/><br/>Part of the feedback received on the playtest held on the 11th of August, 2023, touched on the cons of teleporting instead of navigating to the intended destination. With Navmesh, teleporting or walking to the intended destination is straightforward.<br/></p><p>Regular movement</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">player.SetDestination(hit.collider.gameObject.transform.position);</pre>
+</div></div><p>Warp / Teleport</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">player.Warp(hit.collider.gameObject.transform.position);</pre>
+</div></div><p /><h3 id="id-[WIP]ExploringAlternateFirstPersonCameraControllers-Interactions">Interactions</h3><p>Once the user is at their desired location, they can switch the camera to the First person person perspective and then similar to the other systems the user can select the game object they want to interact with and interact with it.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/766672925.png">image-20230721-055639.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/766443546.png">image-20230721-055755.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/766410812.png">image-20230721-060001.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771031062.png">image-20230726-181531.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771424270.png">image-20230726-181959.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/770998299.png">image-20230726-182100.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771325972.png">ForwardArrow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771391518.png">image-20230726-182959.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771457073.png">image-20230726-200534.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771063847.png">image-20230726-202517.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771326000.png">image-20230726-205700.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771489858.png">image-20230726-205732.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/771063855.png">image-20230726-205745.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/770998314.png">image-20230726-210000.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/780075009.mp4">map overview.mp4</a> (video/mp4)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/780140545.mp4">point and click.mp4</a> (video/mp4)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/764477441/785383426.png">image-20230816-133459.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

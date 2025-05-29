@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Adding Voice-Over and Subtitles</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Graph-Based-Editor_600768582.html">Graph-Based Editor</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Adding Voice-Over and Subtitles
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Leo Bunting</span> on Aug 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="AddingVoice-OverandSubtitles-“Say”ActionTask">“Say” Action Task</h2><p>The best option for a single actor voice-over, or subtitles paired with Action Tasks (in sequence or in parallel), is to add the <strong>Say </strong>Action Task to an Action State. This is preferable over using nodeCanvas' Dialogue Tree.</p><p>To do so, an <strong>Action State</strong> node should be added to the graph’s Canvas. Then, a <strong>Say </strong>Action Task should be assigned to it.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510525493/510656517.png" data-image-src="attachments/510525493/510656517.png" data-height="376" data-width="362" data-unresolved-comment-count="0" data-linked-resource-id="510656517" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-154412.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510525493" data-linked-resource-container-version="1" data-media-id="9e001619-a7d7-41a6-bbc8-b28e4126f27b" data-media-type="file"></span><p>To use the <strong>Say </strong>Action Task, add an empty GameObject to the scene. Then, add the<strong> Dialogue Actor</strong> script, where we can set the name of the actor, the colour of the text, and an icon to be displayed alongside the subtitles. All these fields are optional.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510525493/510427176.png" data-image-src="attachments/510525493/510427176.png" data-height="210" data-width="499" data-unresolved-comment-count="0" data-linked-resource-id="510427176" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-154525.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510525493" data-linked-resource-container-version="1" data-media-id="fd1a8684-a1f5-4653-a88e-c1a5e552dc9a" data-media-type="file"></span><p>Next, return to the Canvas and click your Action State. Then, set up the dialogue by selecting the Actor you just created, and adding the subtitle text and the audio clip file.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510525493/510623762.png" data-image-src="attachments/510525493/510623762.png" data-height="367" data-width="318" data-unresolved-comment-count="0" data-linked-resource-id="510623762" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220818-154617.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510525493" data-linked-resource-container-version="1" data-media-id="b71759e5-7217-449b-be4a-3aa0c3dc3de5" data-media-type="file"></span><p>You’ll need to add the <strong>@DialogueUGUI</strong> prefab or a custom UI script to the scene to display the subtitles and play the voice-over files. The @DialogueUGUI prefab, which comes with NodeCanvas, has some options that may be customized.</p><p>If the <strong>Say </strong>action is used in a sub-tree (which must be saved as assets), the actor must be added as a variable to the blackboard. Sub-trees cannot reference scene objects.</p><h2 id="AddingVoice-OverandSubtitles-DialogueTree">Dialogue Tree</h2><p>The nodeCanvas <strong>Dialogue Tree</strong> is used to create dialogue between two or more actors in a game. It also allows for dynamic dialogue text by using variable names in square brackets ([variableName]), yes or no questions, or multiple-choice questions.</p><p>In the <strong>Dialogue Controller</strong> settings, you can add Actors and assign a GameObject that contains a <strong>DialogueActor </strong>component.</p><p><a class="external-link" href="https://nodecanvas.paradoxnotion.com/documentation/?section=dialogue-trees" rel="nofollow">More information on the Dialogue Tree and how to create dialogue with multiple actors is available in the nodeCanvas documentation.</a></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510525493/510296119.png">image-20220818-154345.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510525493/510656517.png">image-20220818-154412.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510525493/510427176.png">image-20220818-154525.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510525493/510623762.png">image-20220818-154617.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Behaviour Analysis - PlayFab</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Analysis-Pipeline_717357141.html">Data Analysis Pipeline</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Interpretation_717193301.html">Data Interpretation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Behaviour Analysis - PlayFab
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hayden Auterhoff</span>, last modified on Jun 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544206014 {padding: 0px;}
+div.rbtoc1748544206014 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544206014 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544206014'>
+<ul class='toc-indentation'>
+<li><a href='#BehaviourAnalysis-PlayFab-Overview'>Overview</a></li>
+<li><a href='#BehaviourAnalysis-PlayFab-Telemetry'>Telemetry</a>
+<ul class='toc-indentation'>
+<li><a href='#BehaviourAnalysis-PlayFab-Time'>Time</a></li>
+<li><a href='#BehaviourAnalysis-PlayFab-ConversionRate'>Conversion Rate</a>
+<ul class='toc-indentation'>
+<li><a href='#BehaviourAnalysis-PlayFab-A/BTesting'>A/B Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#BehaviourAnalysis-PlayFab-PlayerChrun'>Player Chrun</a></li>
+<li><a href='#BehaviourAnalysis-PlayFab-Resources'>Resources</a></li>
+</ul>
+</div><hr/><h2 id="BehaviourAnalysis-PlayFab-Overview">Overview</h2><hr/><p /><h2 id="BehaviourAnalysis-PlayFab-Telemetry">Telemetry</h2><hr/><h3 id="BehaviourAnalysis-PlayFab-Time"><u>Time</u></h3><p>In Azure PlayFab, measuring and analyzing the ‘time spent within the project’ will use the telemetry feature. By subtracting the exit time from the entry time of a user, the time spent in the game can be measured. Additionality, specific parts of a simulation can be measured to identify which areas are more engaging and which areas may need improvement.</p><p>Telemetry allows you to collect user data in real-time, including information about how long users spend in the simulation. You can use this information to analyze user behaviour, identify patterns, and make data-driven decisions to improve the experience of the simulation.</p><h3 id="BehaviourAnalysis-PlayFab-ConversionRate"><u>Conversion Rate</u></h3><p>In Azure PlayFab, measuring and analyzing the ‘conversion rate’ will use the telemetry feature to track user interactions within the simulation. </p><p>For example, if the goal of the simulation is to complete a specific task, you can track the number of users who attempt the task and the number of users who successfully complete the task. The conversion rate can then be calculated by the number of successful completions by the total number of attempts.</p><p>A/B testing is another way to measure conversion rate, as this involves creating two versions of a specific feature or task within the simulation and measuring the conversion rate for each version. This can help identify which version is more effective at achieving the desired learning outcomes and make data-driven decisions to optimize the simulation.<br/></p><h4 id="BehaviourAnalysis-PlayFab-A/BTesting">A/B Testing</h4><p>With A/B testing, you create a series of 'buckets” into which you partition your users randomly, with weights assigned to each bucket. Each bucket is assigned a different value. Users can see the value assigned to their bucket, but not others. Afterward, you compare each of the buckets and the results to determine the most efficient bucket based on the assigned value.</p><p><u>Note</u>: PlayFab can A/B Test in-game economy.</p><h2 id="BehaviourAnalysis-PlayFab-PlayerChrun">Player Chrun</h2><hr/><p /><h2 id="BehaviourAnalysis-PlayFab-Resources">Resources</h2><hr/><p><u>Telemetry</u></p><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/insights/best-practices" rel="nofollow">PlayFab Documentation - Best Practices &amp; FAQ</a></p><p><a class="external-link" href="https://learn.microsoft.com/en-us/rest/api/playfab/events/play-stream-events/write-telemetry-events?view=playfab-rest" rel="nofollow">PlayStream Events - Write Telemetry Events</a></p><p><br/><u>A/B Testing</u></p><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/analytics/ab-testing/" rel="nofollow">PlayFab Documentation - What is A/B Testing?</a><br/></p><p><u>Churn</u></p><p><a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/features/analytics/churn-prediction/overview" rel="nofollow">PlayFab Documentation - Churn Prediction Overview</a></p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

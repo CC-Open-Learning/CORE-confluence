@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Applying Effects to GameObjects</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Universal-Render-Pipeline_716636205.html">Universal Render Pipeline</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Outline-Effect_716734500.html">Outline Effect</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Applying Effects to GameObjects
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span> on Jun 13, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The <strong>Easy Performant Outline </strong>package can be used to apply outline and highlight effects to 2D and 3D objects in a Unity scene. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The author of the <strong>EP Outline </strong>package, developer Pirate Parrot, has published <a class="external-link" href="https://docs.google.com/document/d/17GvzvXNEjpEQ8DShRrVHKQ4I6s2tTVtwX6NzCZZ28AQ/edit#heading=h.2flthhdmjycr" rel="nofollow"><strong>install and usage documentation </strong></a>as a Google Doc</p></div></div><h2 id="ApplyingEffectstoGameObjects-Setup">Setup</h2><h3 id="ApplyingEffectstoGameObjects-CameraSettings">Camera Settings</h3><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" width="396" loading="lazy" src="attachments/733249547/733741104.png?width=396" data-image-src="attachments/733249547/733741104.png" data-height="292" data-width="503" data-unresolved-comment-count="0" data-linked-resource-id="733741104" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-193416.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="733249547" data-linked-resource-container-version="1" data-media-id="158d3af7-7318-4a44-9e0f-fea9962a67f0" data-media-type="file"></span><p>Locate the <strong>Main Camera</strong> in the scene and add an <strong>Outliner</strong> component. </p><p>The <strong>Mask </strong>field of the Outliner indicates which layers these global settings apply to; layers can be specified for each object on their corresponding <strong>Outlinable</strong> component described below, or the mask can be set to <code>all</code> in order to apply to all Outlinables.</p><p /><h3 id="ApplyingEffectstoGameObjects-ObjectSetup">Object Setup</h3><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" width="396" loading="lazy" src="attachments/733249547/733839375.png?width=396" data-image-src="attachments/733249547/733839375.png" data-height="420" data-width="503" data-unresolved-comment-count="0" data-linked-resource-id="733839375" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-200636.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="733249547" data-linked-resource-container-version="1" data-media-id="006db10b-4bcd-47c2-993b-74817aa0a86b" data-media-type="file"></span><p>An <strong>Outlinable </strong>component can be added to any game object to apply outline and highlight effects to one or more <strong>Renderers</strong>.</p><p>For a simple object, such as a 3D primitive cube, an Outlinable component would be added to the cube GameObject and would apply the effects to the mesh renderer for the cube.</p><p>The collection of Renderers shown at the bottom of the component indicates which renderers are going to be affected by these specific effects settings. By default, child renderers will be included in this collection when an Outlinable component is added to the parent.</p><p>Complex objects can be configured so that the same Outlinable properties are applied to all meshes </p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="453" loading="lazy" src="attachments/733249547/733511692.png?width=453" data-image-src="attachments/733249547/733511692.png" data-height="551" data-width="769" data-unresolved-comment-count="0" data-linked-resource-id="733511692" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230613-200427.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="733249547" data-linked-resource-container-version="1" data-media-id="2ba7dd7c-00d8-4f06-911c-6c0d79a5f669" data-media-type="file"></span><h3 id="ApplyingEffectstoGameObjects-Considerations">Considerations</h3><p>As warned in the <strong>Outlinable</strong> component, setting custom <em>dilate</em> and <em>blur</em> settings on each Outlinable is computationally expensive. Instead, modify the settings of the <strong>Outliner </strong>on the main camera, or create additional Outliners, in order to customize the appearance of the outline for one or more layers, then use the <code>Outline Layer</code> property on the Outlinable to organize objects into groups by layer.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/733249547/733741104.png">image-20230613-193416.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/733249547/733511692.png">image-20230613-200427.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/733249547/733839375.png">image-20230613-200636.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

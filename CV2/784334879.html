@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Next Steps (for future developers)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Next Steps (for future developers)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified by <span class='editor'> Aaron Droese</span> on Aug 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document is aimed at helping the next set of developers that may be trying to tackle the LMS Integration project for VARLab.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544325999 {padding: 0px;}
+div.rbtoc1748544325999 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544325999 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544325999'>
+<ul class='toc-indentation'>
+<li><a href='#NextSteps(forfuturedevelopers)-D2LMeeting'>D2L Meeting</a></li>
+<li><a href='#NextSteps(forfuturedevelopers)-PotentialOptions'>Potential Options</a>
+<ul class='toc-indentation'>
+<li><a href='#NextSteps(forfuturedevelopers)-SCORM'>SCORM</a></li>
+<li><a href='#NextSteps(forfuturedevelopers)-BrightspaceAPI'>Brightspace API</a></li>
+<li><a href='#NextSteps(forfuturedevelopers)-CommonCartridge'>Common Cartridge</a></li>
+<li><a href='#NextSteps(forfuturedevelopers)-LTI'>LTI</a></li>
+</ul>
+</li>
+<li><a href='#NextSteps(forfuturedevelopers)-Resources'>Resources</a></li>
+</ul>
+</div><h1 id="NextSteps(forfuturedevelopers)-D2LMeeting">D2L Meeting</h1><p>We had a meeting with developers from D2L to discuss our options. It was a very helpful meeting that we hope future developers trying to tackle LMS Integration will give listen to. If needed, it can be watched <a class="external-link" href="https://stuconestogacon-my.sharepoint.com.mcas.ms/personal/dinglis_conestogac_on_ca1/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdinglis%5Fconestogac%5Fon%5Fca1%2FDocuments%2FRecordings%2FVARLab%20%26%20LMS%20Integration%2D20230804%5F111100%2DMeeting%20Recording%2Emp4&amp;ct=1692112681241&amp;or=Teams-HL&amp;ga=1" rel="nofollow">HERE</a>.</p><p>The discussion for our project starts at 23:10 in the recording, but feel free to watch it all, as it is still relevant.</p><h1 id="NextSteps(forfuturedevelopers)-PotentialOptions">Potential Options</h1><p>Throughout this project, we have come across many options for LMS Integration. These options included:</p><ul><li><p>SCORM</p></li><li><p>Brightspace API</p></li><li><p>Common Cartridge</p></li><li><p>LTI</p></li></ul><p>each of these showed various levels of success in how they would work for VARLab, and the following is how we felt about each at the end</p><h2 id="NextSteps(forfuturedevelopers)-SCORM">SCORM</h2><p>Our research found that SCORM cannot give us everything we want. We already use SCORM objects in current DLX projects, but not much is done other than getting the students' IDs.</p><p>SCORM offers various features such as comments, progression, completion status and even time spent features.</p><p>Much was done to try and get more of the features of SCORM to work properly, but nothing seemed to work properly. Various things went wrong, data wasn’t sent, and in the end, it seems like it is not worth it to try and make it work. <br/><br/>Furthermore, after a discussion in the previously mentioned D2L meeting, we were again told that we will not be able to achieve what we want with SCORM, which further helped in making the final decision to move away from SCORM.</p><p>Unless something further happens with SCORM, it has been decided that we will not try to implement it further. If needed, the SCORM documentation can be found <a href="SCORM_504037419.html" data-linked-resource-id="504037419" data-linked-resource-version="8" data-linked-resource-type="page">HERE</a>, and our SCORM research can be found <a href="SCORM-Research_763789314.html" data-linked-resource-id="763789314" data-linked-resource-version="12" data-linked-resource-type="page">HERE</a>.</p><h2 id="NextSteps(forfuturedevelopers)-BrightspaceAPI">Brightspace API</h2><p>Brightspace API is the first-party API used in eConestoga. While eConestoga IT uses Javascript to make calls to the API, we would integrate it into Unity to make calls from the DLX projects.</p><p>Methods to integrate the API calls with Unity currently include .NET controller and Unity Web Requests.</p><p>.NET controllers require importing a .NET controller that will make the requests when we call its methods, making it easily expandable by including new methods for each endpoint. This method requires the .NET libraries that are currently problematic with using in Unity(see ticket: <a class="external-link" href="https://varlab-dev.atlassian.net/browse/CORE-456" rel="nofollow">CORE-456</a>).</p><p>Unity Web Requests is a Unity class made to create API Requests. Since it’s already part of Unity, it has no issues with integration in Unity. Unity Web Requests are not easily expandable, requiring each request to be coded from the ground up. Unity Web Request would be required if .NET cannot be supported by Unity.</p><p>Before Integrating with Unity, testing the API with JavaScript embedded in eConestoga will check if the request successfully calls the endpoint. Currently, JavaScript requests haven't been started.</p><p>Our Brightspace API research can be found <a href="Brightspace-Research_765001733.html" data-linked-resource-id="765001733" data-linked-resource-version="3" data-linked-resource-type="page">HERE</a>.</p><h2 id="NextSteps(forfuturedevelopers)-CommonCartridge">Common Cartridge</h2><p>Common Cartridge is probably our least researched option, as we did not know about it for a while. It was first mentioned during the D2L meeting as a possible option. Therefore, little was known about it to determine whether it was a good choice.</p><p><br/>It was known that it was developed by the same organization governing LTI. This means there is a lot higher chance for integration between LTI and Common Cartridge than with SCORM. This is only going to work if we decide to go with hosting our DLX projects as LTIs, and not SCORM objects.</p><p>Our Common Cartridge research can be found <a href="LTIs-and-Common-Cartridge_779812942.html" data-linked-resource-id="779812942" data-linked-resource-version="4" data-linked-resource-type="page">HERE</a>.</p><h2 id="NextSteps(forfuturedevelopers)-LTI">LTI</h2><p>LTI, at first, wasn’t one of our options. It wasn’t until we had the meeting with D2L that we considered it an option. It offers a lot of good things that we can potentially use. The problem is that no existing project hosts it as an LTI, furthermore, the only team that we know of that uses LTI is the VConestoga team, so if we were to try and host our DLX projects with LTI, it would basically be from scratch, but it may be a necessary risk in order to get more out of our LMS. This is the option we wanted to try and make work the most, if we had more time.</p><p>Currently looking into using our Moodle Instance to make a Moodle LTI to integrate into eConestoga. We don’t have credentials for the Moodle as of yet. David is looking into getting the credentials. Any questions about Moodle can be asked to David or Jacky as Jacky set up the  Moodle instance. Links to Moodle LTI integration is at the bottom of page.<br/><br/>Our LTI research can be found <a href="LTIs-and-Common-Cartridge_779812942.html" data-linked-resource-id="779812942" data-linked-resource-version="4" data-linked-resource-type="page">HERE</a>.</p><h1 id="NextSteps(forfuturedevelopers)-Resources">Resources</h1><p>The following is a list of all resources available to help this team. Even if previously linked in this document, they will be here again.</p><p><a href="SCORM-Research_763789314.html" data-linked-resource-id="763789314" data-linked-resource-version="12" data-linked-resource-type="page">Our SCORM Research</a></p><p><a href="SCORM_504037419.html" data-linked-resource-id="504037419" data-linked-resource-version="8" data-linked-resource-type="page">Uploading SCORM Objects</a></p><p><a href="Brightspace-Research_765001733.html" data-linked-resource-id="765001733" data-linked-resource-version="3" data-linked-resource-type="page">Our Brightspace API Research</a></p><p><a class="external-link" href="https://docs.valence.desire2learn.com/reference.html" rel="nofollow">D2L Brightspace API Documentation</a></p><p><a href="LTIs-and-Common-Cartridge_779812942.html" data-linked-resource-id="779812942" data-linked-resource-version="4" data-linked-resource-type="page">Our Common Cartridge and LTI Research</a></p><p><a class="external-link" href="https://stuconestogacon-my.sharepoint.com.mcas.ms/personal/dinglis_conestogac_on_ca1/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdinglis%5Fconestogac%5Fon%5Fca1%2FDocuments%2FRecordings%2FVARLab%20%26%20LMS%20Integration%2D20230804%5F111100%2DMeeting%20Recording%2Emp4&amp;ct=1692112681241&amp;or=Teams-HL&amp;ga=1" rel="nofollow">D2L Meeting Recording</a></p><p>VARLab IT Contact - Ricky Haror - <a class="external-link" href="mailto:rharor@conestogac.on.ca" rel="nofollow">rharor@conestogac.on.ca</a></p><p>Moodle LTI Links:</p><p><a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/4260-set-up-integration-with-a-tool-provider" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/4260-set-up-integration-with-a-tool-provider</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/21901-set-up-the-lti-registration-for-a-recipient" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/21901-set-up-the-lti-registration-for-a-recipient</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/4694-lti-registration-brightspace-to-moodle" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/4694-lti-registration-brightspace-to-moodle</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://docs.moodle.org/402/en/Publish_as_LTI_tool" rel="nofollow">https://docs.moodle.org/402/en/Publish_as_LTI_tool</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/4261-understanding-lti-custom-parameter-substitute-variables" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/4261-understanding-lti-custom-parameter-substitute-variables</a> </p><p /><p /><p><br/></p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

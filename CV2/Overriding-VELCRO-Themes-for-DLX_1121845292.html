@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Overriding VELCRO Themes for DLX</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Overriding VELCRO Themes for DLX
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 31, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="cbf7d656-283d-4e2f-b1a8-21aefa286bf6" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544496371 {padding: 0px;}
+div.rbtoc1748544496371 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544496371 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544496371'>
+<ul class='toc-indentation'>
+<li><a href='#OverridingVELCROThemesforDLX-DefaultDarkandLightThemes'>Default Dark and Light Themes</a></li>
+<li><a href='#OverridingVELCROThemesforDLX-OverridingthedefaultthemesforDLX'>Overriding the default themes for DLX</a>
+<ul class='toc-indentation'>
+<li><a href='#OverridingVELCROThemesforDLX-OverridingthedefaultfontinDLX'>Overriding the default font in DLX</a></li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h2 id="OverridingVELCROThemesforDLX-DefaultDarkandLightThemes">Default Dark and Light Themes</h2><p>VELCRO ships with theme support for all controls, and UI prefabs included in the package excluding notifications which are the same in both themes. All active, hover, selected, etc. colours are all contained in USS variables in the <strong>Dark.tss</strong> and <strong>Light.tss</strong> files. The default dark/light mode primary colours are shown below. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-182527.png" width="760" loading="lazy" src="attachments/1121845292/1293156370.png?width=760" data-image-src="attachments/1121845292/1293156370.png" data-height="555" data-width="964" data-unresolved-comment-count="0" data-linked-resource-id="1293156370" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-182527.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="32403b66-eb75-4a06-9c76-5734087a87a6" data-media-type="file"></span><p /><h2 id="OverridingVELCROThemesforDLX-OverridingthedefaultthemesforDLX">Overriding the default themes for DLX</h2><p>If your DLX requires a different theme, or even just a tiny shift in colour for any control/UI, then you can achieve this by creating a new theme, and changing the USS variable hex code instead of editing UXMLs.</p><p /><ol start="1"><li><p>Create a new theme file</p><ol start="1"><li><p><strong>Right Click/Assets &gt; Create &gt; UI Toolkit &gt; TSS Theme File</strong></p></li></ol></li><li><p>Reference the theme you are trying to override in the <strong>Inherited Themes</strong> section</p><ol start="1"><li><p>When creating a new theme, it must inherit from <strong>UnityDefaultRuntimeTheme </strong>or inherit from another theme that inherits from it. In this case, Dark.tss/Light.tss inherit from UnityDefaultRuntimeTheme so it is not necessary</p></li></ol></li><li><p>Reference your DLX specific style sheets in the <strong>Style Sheets</strong> section</p></li><li><p>Click Apply</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-184158.png" width="453" loading="lazy" src="attachments/1121845292/1295319042.png?width=453" data-image-src="attachments/1121845292/1295319042.png" data-height="348" data-width="453" data-unresolved-comment-count="0" data-linked-resource-id="1295319042" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-184158.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="23e0b5c7-8e00-4bf6-9a79-2e651273e10c" data-media-type="file"></span><ol start="5"><li><p>Copy the colour variables you want to override in the theme you are trying to override, and paste it into the newly created theme file</p><ol start="1"><li><p>Here, I am trying to override the default gold colour of the primary button</p></li></ol></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-184809.png" width="496" loading="lazy" src="attachments/1121845292/1295646721.png?width=496" data-image-src="attachments/1121845292/1295646721.png" data-height="383" data-width="496" data-unresolved-comment-count="0" data-linked-resource-id="1295646721" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-184809.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="aa1093f3-6d1f-417a-97d6-644121d1bfe8" data-media-type="file"></span><ol start="6"><li><p>Change the hex values to the desired colours</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-184905.png" width="488" loading="lazy" src="attachments/1121845292/1294958601.png?width=488" data-image-src="attachments/1121845292/1294958601.png" data-height="300" data-width="488" data-unresolved-comment-count="0" data-linked-resource-id="1294958601" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-184905.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="b616bd89-8556-467e-9d4b-dfb8aeb0b40e" data-media-type="file"></span><ol start="7"><li><p>Reference your new theme file in the PanelSettings asset</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-185233.png" width="457" loading="lazy" src="attachments/1121845292/1295384578.png?width=457" data-image-src="attachments/1121845292/1295384578.png" data-height="518" data-width="457" data-unresolved-comment-count="0" data-linked-resource-id="1295384578" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-185233.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="e1bd3a88-0ec1-4794-81ec-d31a7ea04da9" data-media-type="file"></span><ol start="8"><li><p>Changes can be previewed by opening the UXML files affected in the UI Builder and switching the theme in the theme drop down at the top right + preview</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-185654.png" width="286" loading="lazy" src="attachments/1121845292/1294925828.png?width=286" data-image-src="attachments/1121845292/1294925828.png" data-height="151" data-width="286" data-unresolved-comment-count="0" data-linked-resource-id="1294925828" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-185654.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="083cfceb-0481-4db8-b1d2-7a57ef1268ed" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-185531.png" width="399" loading="lazy" src="attachments/1121845292/1295450114.png?width=399" data-image-src="attachments/1121845292/1295450114.png" data-height="103" data-width="399" data-unresolved-comment-count="0" data-linked-resource-id="1295450114" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-185531.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="c0b1e6a1-b04e-486f-84d3-7570085c4643" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-185554.png" width="399" loading="lazy" src="attachments/1121845292/1294893062.png?width=399" data-image-src="attachments/1121845292/1294893062.png" data-height="106" data-width="399" data-unresolved-comment-count="0" data-linked-resource-id="1294893062" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-185554.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="a7b7d8ce-9d0d-4d60-9ac3-d3ed8c0df53c" data-media-type="file"></span><p /><h3 id="OverridingVELCROThemesforDLX-OverridingthedefaultfontinDLX">Overriding the default font in DLX</h3><p>VELCRO uses <a class="external-link" href="https://fonts.google.com/specimen/Lato" rel="nofollow">Lato</a> font, and imports the font assets when VELCRO is installed in a DLX. However, just like colours, if you want to change the default font that all USS classes use such as the <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1125089290/Style+USS+Classes#Font-Weight" rel="nofollow">font-weight</a> classes, then simply repeat steps 5-6 in the above section “Overriding the default themes in DLX” after importing new font files.</p><p /><ol start="1"><li><p>Copy the font variables you want to override in the theme you are trying to override, and paste it into the newly created theme file</p><ol start="1"><li><p>Here, I am trying to override the default Lato font for all font weights</p></li></ol></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240822-191137.png" width="760" loading="lazy" src="attachments/1121845292/1301118994.png?width=760" data-image-src="attachments/1121845292/1301118994.png" data-height="314" data-width="779" data-unresolved-comment-count="0" data-linked-resource-id="1301118994" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240822-191137.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="c7087bc3-c7fb-4ee7-a008-5968f19da704" data-media-type="file"></span><ol start="2"><li><p>Download the new font files (ttf). For this example, we are going to replace Lato with <a class="external-link" href="https://fonts.google.com/specimen/Roboto" rel="nofollow">Roboto</a>.</p></li><li><p>Unzip the downloaded font files into the desired location </p><ol start="1"><li><p>“<strong>/Assets/Resources/Fonts &amp; Materials</strong>” is the default suggested location</p></li></ol></li><li><p>Create font assets from all .ttf files</p><ol start="1"><li><p><strong>Select All Font &gt; Right Click &gt; Create &gt; Text &gt; Font Asset</strong></p></li></ol></li><li><p>Change the font asset names to the newly created ones</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240822-192229.png" width="760" loading="lazy" src="attachments/1121845292/1301282862.png?width=760" data-image-src="attachments/1121845292/1301282862.png" data-height="309" data-width="800" data-unresolved-comment-count="0" data-linked-resource-id="1301282862" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240822-192229.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1121845292" data-linked-resource-container-version="9" data-media-id="4c07d5f5-5ae4-461a-aa22-e2d2fe58f9bc" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1293156370.png">image-20240820-182527.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1295319042.png">image-20240820-184158.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1295646721.png">image-20240820-184809.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1294958601.png">image-20240820-184905.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1295384578.png">image-20240820-185233.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1295450114.png">image-20240820-185531.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1294893062.png">image-20240820-185554.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1295548421.png">image-20240820-185648.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1294925828.png">image-20240820-185654.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1301118994.png">image-20240822-191137.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1121845292/1301282862.png">image-20240822-192229.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

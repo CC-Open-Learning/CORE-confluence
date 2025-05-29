@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : AWS Analytics Service</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Research-Recommendation---Analytic-Services-and-Tools_717324363.html">Research Recommendation - Analytic Services and Tools</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : AWS Analytics Service
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacky Lam</span>, last modified on May 26, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="AWSAnalyticsService-Overview">Overview</h2><p>The analytics solution Amazon offers is called Game Analytics Pipeline. It is a combination of Amazon’s services deployed in one solution.</p><h2 id="AWSAnalyticsService-Pros">Pros</h2><h3 id="AWSAnalyticsService-Morecontroloverthetools">More control over the tools</h3><p>This is because the pipeline is made up of individual amazon services, you get the benefit to control every component based on your needs.</p><h3 id="AWSAnalyticsService-GooddocumentationandAPIreferencefordevelopment">Good documentation and API reference for development</h3><p>The documentation is solid, it includes text and video tutorial for beginner. </p><h2 id="AWSAnalyticsService-Cons">Cons</h2><h3 id="AWSAnalyticsService-Initialsetupisdifficult">Initial setup is difficult</h3><p>It uses Cloud Formation template tool to deploy the stack, however the template provided failed to deploy the stack. There’s also couple additional steps to setup the unity project to be ready.</p><h3 id="AWSAnalyticsService-Slowstartfordevelopment">Slow start for development</h3><p>The SDK only have connectors to the data streaming service, it doesn’t include common game-related metrics out-of-the-box.</p><h3 id="AWSAnalyticsService-Hardertomaintainthanotheroptions">Harder to maintain than other options</h3><p>Game Analytics Pipeline is just a guidance/framework to set up an data streaming and analytics pipeline, not an integrated solution, which makes it more flexible, but it also add complexity when it comes to maintenance.</p><h3 id="AWSAnalyticsService-Nofreetier">No free tier</h3><p>The data streaming service component (Amazon Kinesis) has no free tier, however this is not a big issue since it uses a pay-as-you-go pricing model, the initial cost is minimal.</p><h2 id="AWSAnalyticsService-Features">Features</h2><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="673" loading="lazy" src="attachments/712671586/714014742.png?width=673" data-image-src="attachments/712671586/714014742.png" data-height="704" data-width="1210" data-unresolved-comment-count="0" data-linked-resource-id="714014742" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="game-analytics-pipeline-architecture.68585c9072b2624c8cca2d7c955d6128ce17893f.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="712671586" data-linked-resource-container-version="5" data-media-id="59a8427a-91c9-4f00-94c4-ba47cff967be" data-media-type="file"></span><h3 id="AWSAnalyticsService-Real-timeDataStreaming">Real-time Data Streaming</h3><p>This is a core component of the pipeline as it collects data from data producer (DLX sims) so we can gain insights from the data.</p><h3 id="AWSAnalyticsService-Dashboard">Dashboard</h3><p>Real-time data processing with Amazon Kinesis Data Analytics, and monitor real-time metrics on a Dashboard with Amazon CloudWatch.</p><h3 id="AWSAnalyticsService-DataValidation/Transformation">Data Validation/Transformation</h3><p>Data cleaning and preprocessing, this feature is not really needed because the data comes from an controlled environment.</p><h3 id="AWSAnalyticsService-DataStorage">Data Storage</h3><p>Using Amazon Simple Storage Service (Amazon S3).</p><h3 id="AWSAnalyticsService-DataAnalyticsandVisualizations">Data Analytics and Visualizations</h3><p>This is also a feature that we are interested in. Being able to query and aggregate data to generate reports and visualize the data is very important to our workflow.</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/712671586/713883707.png?width=680" data-image-src="attachments/712671586/713883707.png" data-height="649" data-width="1361" data-unresolved-comment-count="0" data-linked-resource-id="713883707" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="687474703a2f2f643261346a70666e6f68777732792e636c6f756466726f6e742e6e65742f7365727665726c6573732d616e616c79746963732f686561746d61702e706e67.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="712671586" data-linked-resource-container-version="5" data-media-id="c91efad8-54e5-4a40-9693-ef66e67f5c5e" data-media-type="file"></span><h2 id="AWSAnalyticsService-IntegrationMethods">Integration Methods</h2><p>Available SDKs:</p><p><a class="external-link" href="https://docs.aws.amazon.com/sdk-for-net/" rel="nofollow">.NET SDK</a></p><p><a class="external-link" href="https://docs.aws.amazon.com/sdk-for-cpp/" rel="nofollow">C++ SDK</a></p><p><a class="external-link" href="https://docs.aws.amazon.com/sdk-for-javascript/" rel="nofollow">JavaScript SDK</a></p><p>(and SDK in other languages)</p><p><a class="external-link" href="https://docs.aws.amazon.com/kinesis/" rel="nofollow">REST API through Amazon API Gateway</a></p><h2 id="AWSAnalyticsService-Pricing">Pricing</h2><p>The cost of running this solution depends on the amount of data being loaded, stored, processed, and analyzed in the solution. Deploying the solution in <strong>developer mode (Dev)</strong> mode and sending events to the pipeline with the included <strong>demo script</strong> will cost approximately <strong>$10.00 per day</strong>. </p><p>The demo script generate a batch of 100 events with an average interval of 4 seconds, that translates to approximately 2.16 million events per day.</p><h2 id="AWSAnalyticsService-Resources">Resources</h2><p>Main Page: <a class="external-link" href="https://aws.amazon.com/gametech/analytics/" rel="nofollow">https://aws.amazon.com/gametech/analytics/</a></p><p>Game Analytics Pipeline: <a class="external-link" href="https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/" rel="nofollow">https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/</a></p><p>Demo Tutorial: <a class="external-link" data-card-appearance="inline" href="https://catalog.us-east-1.prod.workshops.aws/workshops/29253aed-05ee-46f3-bcf3-bb3f90919de4/en-US" rel="nofollow">https://catalog.us-east-1.prod.workshops.aws/workshops/29253aed-05ee-46f3-bcf3-bb3f90919de4/en-US</a> </p><p>Demo Tutorial (Video): <a class="external-link" data-card-appearance="inline" href="https://www.youtube.com/watch?v=O5A1vHSHod4&amp;list=PLuGWzrvNze7LPM6y8vbGTvhbtNxhRokkl&amp;index=1" rel="nofollow">https://www.youtube.com/watch?v=O5A1vHSHod4&amp;list=PLuGWzrvNze7LPM6y8vbGTvhbtNxhRokkl&amp;index=1</a> </p><p>Pricing: <a class="external-link" href="https://docs.aws.amazon.com/solutions/latest/game-analytics-pipeline/overview.html#cost" rel="nofollow">https://docs.aws.amazon.com/solutions/latest/game-analytics-pipeline/overview.html#cost</a></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/712671586/713949275.png">game-analytics-pipeline-architecture.68585c9072b2624c8cca2d7c955d6128ce17893f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/712671586/714014742.png">game-analytics-pipeline-architecture.68585c9072b2624c8cca2d7c955d6128ce17893f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/712671586/714342492.png">image-20230524-200723.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/712671586/713883707.png">687474703a2f2f643261346a70666e6f68777732792e636c6f756466726f6e742e6e65742f7365727665726c6573732d616e616c79746963732f686561746d61702e706e67.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

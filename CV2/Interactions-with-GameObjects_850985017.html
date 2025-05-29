@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Interactions with GameObjects</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Interactions with GameObjects
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Nov 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="c08e92bf-33a8-42f0-be36-e1b63eb59bf9" class="confluenceTable"><colgroup><col style="width: 363.0px;"/><col style="width: 363.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>CORE Interactions</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">0.2.1</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>This CORE package provides standardized event-based interactions for 3D objects.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/core-interactions" rel="nofollow">https://bitbucket.org/VARLab/core-interactions</a>  </p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p>com.varlab.interactions</p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span> <br/><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">PRE-RELEASE</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Code Coverage</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh">0.0%</span></p></td></tr></tbody></table></div></div><p /><h2 id="InteractionswithGameObjects-Summary">Summary</h2><p>The <strong>CORE Interactions</strong> package provides a standardized approach to assigning and responding to mouse events on GameObjects in Unity.</p><p /><h2 id="InteractionswithGameObjects-InteractionSystem">Interaction System</h2><h3 id="InteractionswithGameObjects-Events">Events</h3><h4 id="InteractionswithGameObjects-MouseEnter">MouseEnter</h4><h4 id="InteractionswithGameObjects-MouseExit">MouseExit</h4><h4 id="InteractionswithGameObjects-MouseDown">MouseDown</h4><h4 id="InteractionswithGameObjects-MouseUp">MouseUp</h4><h4 id="InteractionswithGameObjects-MouseClick">MouseClick</h4><h3 id="InteractionswithGameObjects-Interactable">Interactable</h3><p>The <code>Interactable</code> component exposes the set of mouse events as serializable <code>UnityEvents</code>. These events can be subscribed to through code in other components, or serialized from the Unity Editor. </p><h3 id="InteractionswithGameObjects-InteractionManager">Interaction Manager</h3><p>One or more <code>Interaction Managers</code> can be added to a scene in order to capture and filter all mouse events for one or more <code>Interactable</code> objects.</p><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>By default, an <code>InteractionManager</code> will see all <code>Interactable</code> components in a scene, and register itself as a listener to all of their events.</p><p>Setting a custom list of <code>Interactables</code> in the <code>InteractionManager</code> will constrain event listening to only those objects.</p></div></div><p /><p>The <code>InteractionManager</code> exposes the same set of mouse events as an <code>Interactable</code>. When invoked, the events provide a reference to the <code>GameObject</code> that was interacted with. </p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

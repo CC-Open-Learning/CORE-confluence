@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Why Addressable Assets?</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Addressable-Assets_158629987.html">Addressable Assets</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Why Addressable Assets?
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified on May 06, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@0.4/manual/index.html" rel="nofollow">Addressable Asset System</a> is a workable replacement for <a class="external-link" href="https://docs.unity3d.com/Manual/BestPracticeUnderstandingPerformanceInUnity6.html" rel="nofollow">the Resources folder</a> as it allows us to load content at runtime by name.</p><h2 id="WhyAddressableAssets?-SoWhat’stheDifference?">So What’s the Difference?</h2><h3 id="WhyAddressableAssets?-AssetLoading">Asset Loading</h3><p>Assets placed in <a class="external-link" href="https://docs.unity3d.com/Manual/BestPracticeUnderstandingPerformanceInUnity6.html" rel="nofollow">the Resources folder</a> are all automatically built into one big <a class="external-link" href="https://docs.unity3d.com/Manual/AssetBundlesIntro.html" rel="nofollow">asset bundle</a> during the build process. When a user starts the application, that entire asset bundle is loaded into memory so that calls to <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Resources.Load.html" rel="nofollow">Resources.Load</a> can occur synchronously.</p><p>For Addressables, assets marked as Addressable in the <a class="external-link" href="https://docs.unity3d.com/Manual/UsingTheInspector.html" rel="nofollow">Unity Inspector</a> are automatically added to the default Addressable Group, only being loaded into memory when needed. Developers can move around assets in their project folders and change their <strong>Addressables Group</strong> without worrying about breaking any of their code. This is due to the assets having a permanent address, a string value that can be used to reference the object through code.</p><p>If you mark a <a class="external-link" href="https://docs.unity3d.com/Manual/Prefabs.html" rel="nofollow">prefab</a>, <a class="external-link" href="https://docs.unity3d.com/ScriptReference/SceneManagement.Scene.html" rel="nofollow">scene</a>, <a class="external-link" href="https://docs.unity3d.com/Manual/class-ScriptableObject.html" rel="nofollow">scriptableobject</a>, or anything that could have a dependency to another asset as Addressable, those dependencies are also built into the asset bundle that object is part of.</p><h3 id="WhyAddressableAssets?-Instantiation">Instantiation</h3><p>Assets in the Resources folder are always loaded in memory and as such can be loaded with Resources.Load and Instantiated at any time without issue.</p><p>For Addressables, an asset does not exist in memory until the developer requests it. This can be done through various methods such as Addressables.LoadSceneAsync, LoadAssetAsync, InstantiateAsync, etc. </p><p>When loading an object this way, the operation is asynchronous as it has to first load the asset bundle into memory. However if the asset bundle is already loaded into memory it can be instantiated synchronously on the same frame.</p><h3 id="WhyAddressableAssets?-MemoryManagement">Memory Management</h3><p>As stated previously, assets in the Resources folder are in one giant file together and always loaded into memory.</p><p>Addressables not only can be used to split assets into many different bundle files, but also load them only when needed. Partial loads can also occur if for instance only one asset in a bundle is needed. Developers can also choose when to free memory, however asset bundles loaded from LoadSceneAsync will automatically have their memory freed when that scene is unloaded or a scene change occurs.</p><h2 id="WhyAddressableAssets?-WhataretheAdvantages?">What are the Advantages?</h2><p>Addressables comes with many advantages, especially for CORE Engine.</p><ul><li><p>With the ability to package assets in separate bundles, we can now create asset bundles for each simulation that only contain the assets needed for that simulation.</p><ul><li><p>This lowers our memory footprint while in the sim as only that scenario’s assets will be loaded into memory.</p></li><li><p>This also lowers our storage and bandwidth requirements as now end-users only need to download the bundles that correspond with their relevant course content.</p></li></ul></li><li><p>Scenes may now be arbitrarily loaded at runtime without being in the build scene list.</p><ul><li><p>This allows for more control the simulation environments as we can use baked lighting, reflections, navigation meshes, etc due to moving to scenes from dynamic prefabs.</p></li></ul></li><li><p>Smaller initial load times for the simulation.</p><ul><li><p>Only the code and main menu assets need to be loaded initially, content loading for the simulation scenario occurs when the scenario is chosen.</p></li></ul></li><li><p>Asynchronous loads occur on background threads and provide callbacks that the main thread can use for progress or completion events.</p><ul><li><p>Loading an asset from the Resources folder holds up the main thread while it completes, preventing the use of a progress bar on load screens.</p></li></ul></li><li><p>For <a href="https://varlab-dev.atlassian.net/wiki/spaces/CE/pages/156794902/WebGL+Deployment" data-linked-resource-id="156794902" data-linked-resource-version="7" data-linked-resource-type="page">WebGL Deployment</a>, having only the code and main menu assets in the player allows for a much faster load time.</p><ul><li><p>If the scenario assets are configured for distribution via Cloud Content Delivery, scenario assets can download in the background while they are already in the menu.</p></li></ul></li><li><p>Asset bundles are built separately from the main application.</p><ul><li><p>Speeds up cloud build times as assets are not being built for the platform.</p></li><li><p>Assets can be updated without the user requiring a new application version.</p><ul><li><p>This can be automated with Cloud Content Delivery to always sync end-users' assets to the most recent version.</p></li></ul></li></ul></li></ul><h2 id="WhyAddressableAssets?-References">References</h2><p><a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/browse/CE-786" rel="nofollow">https://varlab-dev.atlassian.net/browse/CE-786</a> </p><p><a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.addressables@0.4/manual/AddressableAssetsGettingStarted.html" rel="nofollow">Addressable Assets Package</a></p><p><a class="external-link" href="https://docs.unity3d.com/Manual/AssetBundlesIntro.html" rel="nofollow">Unity Manual: Asset Bundles</a></p><p><a class="external-link" href="https://unity.com/products/cloud-content-delivery" rel="nofollow">Cloud Content Delivery</a></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Developer Tools for Unity</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Developer Tools for Unity
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Oct 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="c08e92bf-33a8-42f0-be36-e1b63eb59bf9" class="confluenceTable"><colgroup><col style="width: 363.0px;"/><col style="width: 363.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>Developer Tools for Unity</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">1.2.0</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Contains developer tools for Unity, including a runtime profiler and command prompt for executing debug commands.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/unity-developer-tools" rel="nofollow">https://bitbucket.org/VARLab/unity-developer-tools</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p><a class="external-link" href="http://upm.core.varlab.org:4873/-/web/detail/com.varlab.developertools" rel="nofollow">com.varlab.developertools</a></p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Code Coverage</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-current">50.2%</span></p></td></tr></tbody></table></div></div><p /><p>This section will cover the use of the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/unity-developer-tools" rel="nofollow">https://bitbucket.org/VARLab/unity-developer-tools</a> package, which provides tools for Unity such as a runtime profiler and command prompt for executing debug commands. </p><p /><h2 id="DeveloperToolsforUnity-Installation">Installation</h2><p>The <strong>Developer Tools</strong> can be found in the <a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow">CORE UPM Registry</a> as <code>com.varlab.developertools</code>.</p><p>Navigate to the <strong>Package Manager</strong> window in the Unity Editor and install the package under the &quot;My Registries&quot; sub-menu.</p><p /><div id="expander-1829195109" class="expand-container"><div id="expander-control-1829195109" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Legacy Installation</span></div><div id="expander-content-1829195109" class="expand-content"><p>In the <code>Packages/manifest.json</code> file of a DLX Unity project, add the following line to dependencies:</p><p><code>&quot;com.varlab.developertools&quot;: &quot;ssh://git@bitbucket.org/VARLab/unity-developer-tools.git#upm&quot;</code></p><p>If your PC is not yet configured to access VARLab repositories via SSH, follow the instructions on <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/497123337/Setting+Up+Bitbucket+Sourcetree" data-linked-resource-id="497123337" data-linked-resource-version="20" data-linked-resource-type="page">Setting Up Bitbucket &amp; Sourcetree</a> before continuing.</p></div></div><p /><h2 id="DeveloperToolsforUnity-Features">Features</h2><h3 id="DeveloperToolsforUnity-RuntimeProfiler">Runtime Profiler</h3><p>The <strong>Runtime Profiler</strong> provides a floating, movable GUI displaying runtime statistics such as:</p><ul><li><p>Frames-per-second</p></li></ul><ul><li><p>Frame time (ms)</p></li></ul><ul><li><p>Screen resolution</p></li></ul><ul><li><p>Draw calls</p></li></ul><ul><li><p>Triangles rendered</p></li></ul><p>The profiler can be toggled using a hotkey <em>(<span class="inline-comment-marker" data-ref="6e815398-9635-4f2a-a2f6-4a4ccfc806a2">default: Backslash</span></em><span class="inline-comment-marker" data-ref="6e815398-9635-4f2a-a2f6-4a4ccfc806a2"> </span><code><span class="inline-comment-marker" data-ref="6e815398-9635-4f2a-a2f6-4a4ccfc806a2">\</span></code><em>)</em>. To avoid unnecessary overhead, statistics are only calculated while the profiler window is active,</p><p /><h3 id="DeveloperToolsforUnity-CommandInterpreter">Command Interpreter</h3><p>The <strong>Command Interpreter</strong>, also known as a command prompt or developer console, provides a prompt for developers to trigger debug commands while the application is running. The console window can be toggled using a hotkey <em>(default: Tilde </em><code>~</code><em>)</em>.</p><p>With the default configuration, the console is only accessible in the Unity Editor and in compiled builds where the <em>Development Build</em> flag has been set. The configuration can be customized to allow/block any particular runtime environment or disable the console altogether.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="760" loading="lazy" src="attachments/501547060/841744399.png?width=760" data-image-src="attachments/501547060/841744399.png" data-height="353" data-width="590" data-unresolved-comment-count="0" data-linked-resource-id="841744399" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231102-153546.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547060" data-linked-resource-container-version="17" data-media-id="3f0ffed2-13c4-4e8f-baaa-ed399fdf3a52" data-media-type="file"></span><p /><p>Some simple commands have been provided with the Command Interpreter:</p><ul><li><p><code>help</code> - displays help text for all available commands</p></li></ul><ul><li><p><code>log</code> - prints a message to the Unity debug console</p></li></ul><ul><li><p><code>time</code> - modifies the timescale at runtime</p></li></ul><ul><li><p><code>fps</code> - modifies the current target FPS at runtime</p></li></ul><ul><li><p><code>reload</code> - unloads and reloads the current scene</p></li><li><p><code>quality</code> - read and edit quality settings at runtime</p></li></ul><p /><p>DLX developers can configure additional commands to suit the project's specific needs. </p><h2 id="DeveloperToolsforUnity-Configurations">Configurations</h2><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>When the package is installed, both the <strong>Profiler</strong> and <strong>Command Interpreter</strong> will be automatically enabled and accessible in the Unity Editor and in <strong>Development</strong> builds.</p></div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/506724357.png">image-20220808-132826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/826343436.png">image-20231013-152501.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/841744393.png">image-20231102-153518.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/841744399.png">image-20231102-153546.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/841515018.png">image-20231102-153730.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/841940999.png">image-20231102-153749.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547060/841482258.png">image-20231102-153804.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

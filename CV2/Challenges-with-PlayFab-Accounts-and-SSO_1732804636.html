@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Challenges with PlayFab Accounts and SSO</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V2-Overview_1237155865.html">Analytics V2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Challenges with PlayFab Accounts and SSO
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Apr 03, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ChallengeswithPlayFabAccountsandSSO-Summary">Summary</h2><p>Traditional authentication (username and password login) for PlayFab has been deprecated, and will be fully disabled on April 30th, 2025. After this date, all accounts accessing PlayFab services will have to use Microsoft SSO.</p><p>VARLab currently has an administrator account using the <code>varlabcc@gmail.com</code> email account which is used to generate developer keys for Analytics events in DLX. This account currently has two different sign-in methods for PlayFab, using both the traditional authentication and an associated Microsoft account. </p><p /><h2 id="ChallengeswithPlayFabAccountsandSSO-Issue1:MergingAccounts">Issue 1: Merging Accounts</h2><p>We have to merge these two accounts before Apr 30th. </p><p><strong>It not yet known if merging these accounts will invalidate any existing developer tokens generated using the username + password authentication procedure.</strong></p><p>Either way, the u+p authentication method will no longer exist after Apr 30 so if those keys are going to be invalidated, we'll find out one way or another</p><p /><h3 id="ChallengeswithPlayFabAccountsandSSO-Mitigation">Mitigation</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>We will investigate whether this account merging process will invalidate existing keys</p></div></div><p /><h2 id="ChallengeswithPlayFabAccountsandSSO-Issue2:MicrosoftSSOforUnity">Issue 2: Microsoft SSO for Unity</h2><p>It seems that when trying to authenticate PlayFab in Unity, Microsoft or Playfab (not really sure who is at fault) does not like that <code>varlabcc@gmail.com</code> is a &quot;personal&quot; Microsoft account, as opposed to a &quot;work or school account&quot;</p><p>I'm not really sure what to make of this, as we can sign into the browser using Microsoft SSO with that gmail without issue, and in the past I have had no problem authenticating in the Unity Editor using Microsoft SSO with that email. But it looks like there has been some change in that regard.</p><p /><h3 id="ChallengeswithPlayFabAccountsandSSO-Mitigation.1">Mitigation</h3><p>It may be possible to copy existing developer keys from previous projects, assuming they are not invalidated during the resolution of <strong>Issue 1</strong> above.</p><p>Alternatively, a new Microsoft email account created within the Conestoga Active Directory, such as <code>cvri-developer@conestogac.on.ca</code> or similar, would be able to authenticate with PlayFab with least privilege access (certainly preferred to using an administrator account to allow for analytics events to be sent)</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

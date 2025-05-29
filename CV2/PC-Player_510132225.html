@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : PC Player</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1284505699.html">COREV2 VR (Archived)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : PC Player
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Geyang Liu</span>, last modified by <span class='editor'> Anzhelika Kostyuk</span> on Mar 06, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The PCPlayer prefab is used for navigating and interacting with scenes in PC mode. This prefab is mostly identical to the <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/502890615" rel="nofollow">VRPlayer</a> prefab, preserving most of the functionalities from Autohands. There are only the following listed changes to switch to PC controls.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510132225/510197767.png" data-image-src="attachments/510132225/510197767.png" data-height="271" data-width="867" data-unresolved-comment-count="0" data-linked-resource-id="510197767" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="PCPlayer.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510132225" data-linked-resource-container-version="3" data-media-id="f275a3ed-a050-41d4-9db7-9cc1e0232e38" data-media-type="file"></span><h2 id="PCPlayer-RemoveVRdevicebinding">Remove VR device binding</h2><p>The <strong>XR Hand Offset</strong> component under the prefab root and the <strong>XR Hand Player controller link</strong> component under AutoHandPlayer is removed. These two components were used to bind the player's hands to the VR devices.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510132225/510296069.png" data-image-src="attachments/510132225/510296069.png" data-height="152" data-width="200" data-unresolved-comment-count="0" data-linked-resource-id="510296069" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="PCPlayer2.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510132225" data-linked-resource-container-version="3" data-media-id="dab05615-d5da-4abe-83f7-2382b3890739" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/510132225/510197767.png?width=680" data-image-src="attachments/510132225/510197767.png" data-height="271" data-width="867" data-unresolved-comment-count="0" data-linked-resource-id="510197767" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="PCPlayer.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510132225" data-linked-resource-container-version="3" data-media-id="f275a3ed-a050-41d4-9db7-9cc1e0232e38" data-media-type="file"></span><h2 id="PCPlayer-AddPCinputmodule">Add PC input module</h2><p>A <strong>Player Input</strong> component and a <strong>Player Controller</strong> script are added to the AutoHandPlayer gameobject. These two components allow user to control the player through mouse and keyboard.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/510132225/510427137.png" data-image-src="attachments/510132225/510427137.png" data-height="296" data-width="202" data-unresolved-comment-count="0" data-linked-resource-id="510427137" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="addedmodules.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="510132225" data-linked-resource-container-version="3" data-media-id="c8f6e8db-376e-4da9-8c2e-8f5027954f0e" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510132225/510361601.png">PCPlayer.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510132225/510296069.png">PCPlayer2.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510132225/510197767.png">PCPlayer.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/510132225/510427137.png">addedmodules.PNG</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

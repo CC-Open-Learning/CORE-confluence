@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Adding Fish-Net and ParrelSync</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Adding Fish-Net and ParrelSync
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified by <span class='editor'> Talon Ernst</span> on Oct 25, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Fish-Net is free to use from the Unity Asset Store (<a class="external-link" href="https://assetstore.unity.com/packages/tools/network/fish-net-networking-evolved-207815#description" rel="nofollow">Fish-Net: Networking Evolved | Network | Unity Asset Store</a>).</p><p>Once added to your assets you can open your Unity project and under the Package Manager go to ‘My Assets’ and you will be able to download and import Fish-Net to your project.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="544" loading="lazy" src="attachments/497680417/497320213.png?width=544" data-image-src="attachments/497680417/497320213.png" data-height="590" data-width="828" data-unresolved-comment-count="0" data-linked-resource-id="497320213" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140917.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497680417" data-linked-resource-container-version="7" data-media-id="e5c1b007-3bcc-4252-8056-03fc5d962b3e" data-media-type="file"></span><h3 id="AddingFish-NetandParrelSync-UsingWithParrelSync">Using With ParrelSync</h3><p><a class="external-link" data-card-appearance="inline" href="https://github.com/VeriorPies/ParrelSync" rel="nofollow">https://github.com/VeriorPies/ParrelSync</a></p><p>ParrelSync can be used to run multiple instances of/test multiplayer without having to build the project. You can go to the ParrelSync GitHub page and download the code ZIP file and add it to your project from disk or add it via UPM (more info can be found on the GitHub page’s README).</p><h4 id="AddingFish-NetandParrelSync-CreatingClones">Creating Clones</h4><p>Go to the ParrelSync tab and open the Clone Manager, if you cannot see this tab, restart Unity.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/497680417/497320220.png" data-image-src="attachments/497680417/497320220.png" data-height="158" data-width="394" data-unresolved-comment-count="0" data-linked-resource-id="497320220" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-142945.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497680417" data-linked-resource-container-version="7" data-media-id="6a3a7c99-1139-4c0a-82e9-629a5bf94781" data-media-type="file"></span><p>Click on ‘Add New Clone’ to create a clone of your current editor. Opening a clone in a new editor will allow you to test Client-Server interactions in real-time.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/497680417/497320226.png" data-image-src="attachments/497680417/497320226.png" data-height="322" data-width="916" data-unresolved-comment-count="0" data-linked-resource-id="497320226" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-143328.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497680417" data-linked-resource-container-version="7" data-media-id="11c9a509-d191-4013-be1b-2e2d4c45a115" data-media-type="file"></span><p>As you make changes in your main project the project clones will automatically be updated as well. If a clone is open and you made changes in the editor you will be prompted to reload the project clone.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/497680417/497320232.png" data-image-src="attachments/497680417/497320232.png" data-height="224" data-width="450" data-unresolved-comment-count="0" data-linked-resource-id="497320232" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140318.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="497680417" data-linked-resource-container-version="7" data-media-id="3616375c-802d-4494-bd73-eea757a2e455" data-media-type="file"></span><p>Deleting a clone is easy too, just click on ‘Delete’ under the clone you want to delete and ParrelSync will handle the rest.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you want to remove ParrelSync entirely make sure <strong>all</strong> clones have been deleted then go to the package manager to remove it from your project.</p></div></div><p><br/>The clones added by ParrelSync do not need to be pushed onto repositories as they are purely local and meant for testing. Add the following line to your .gitignore to prevent this.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">*_clone_[0-9]*/</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497680417/497320213.png">image-20220704-140917.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497680417/497320220.png">image-20220704-142945.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497680417/497320226.png">image-20220704-143328.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/497680417/497320232.png">image-20220704-140318.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

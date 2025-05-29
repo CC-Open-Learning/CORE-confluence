@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Analytics Installation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Analytics Installation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joshua Moore</span>, last modified on Aug 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544180706 {padding: 0px;}
+div.rbtoc1748544180706 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544180706 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544180706'>
+<ul class='toc-indentation'>
+<li><a href='#AnalyticsInstallation-PlayFabInstallation'>PlayFab Installation</a>
+<ul class='toc-indentation'>
+<li><a href='#AnalyticsInstallation-PlayFabInstallation.1'>PlayFab Installation</a></li>
+</ul>
+</li>
+<li><a href='#AnalyticsInstallation-InstallingtheAnalyticsPackage'>Installing the Analytics Package</a>
+<ul class='toc-indentation'>
+<li><a href='#AnalyticsInstallation-Overview'>Overview</a></li>
+<li><a href='#AnalyticsInstallation-PackageManager'>Package Manager</a>
+<ul class='toc-indentation'>
+<li><a href='#AnalyticsInstallation-Step1-BitBucket'>Step 1 - BitBucket</a></li>
+<li><a href='#AnalyticsInstallation-Step2-PackageManager'>Step 2 - Package Manager</a></li>
+</ul>
+</li>
+<li><a href='#AnalyticsInstallation-Manifest.json'>Manifest.json</a>
+<ul class='toc-indentation'>
+<li><a href='#AnalyticsInstallation-Step1-Bitbucket'>Step 1 - Bitbucket</a></li>
+<li><a href='#AnalyticsInstallation-Step2-Manifest.jsonfile'>Step 2 - Manifest.json file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><h1 id="AnalyticsInstallation-PlayFabInstallation">PlayFab Installation</h1><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For production build DLX’s there is an official VAR Lab PlayFab account, to get these account details please contact VAR Lab IT. For development/testing you can create a free PlayFab account here: <a class="external-link" href="https://developer.playfab.com/en-us/sign-up" rel="nofollow">PlayFab</a></p></div></div><h2 id="AnalyticsInstallation-PlayFabInstallation.1">PlayFab Installation</h2><p>The steps to get setup for PlayFab are as follows.</p><ul><li><p>Downloading a custom package from their website <a class="external-link" href="https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/installing-unity3d-sdk" rel="nofollow">Installing the PlayFab SDK for Unity - PlayFab | Microsoft Learn</a> (Which also contains instructions for getting installed)</p></li><li><p>Creating a free PlayFab account(for testing) here: <a class="external-link" href="https://developer.playfab.com/en-us/sign-up" rel="nofollow">PlayFab</a>  <strong>For Release DLX use the VAR Lab Account in your build. </strong></p></li><li><p>Then you load/import the custom package(Click assets-&gt;import-&gt;custom package) and select the file you downloaded.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785350834.png" data-image-src="attachments/784760923/785350834.png" data-height="398" data-width="674" data-unresolved-comment-count="0" data-linked-resource-id="785350834" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230814-135359.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="784d7634-d14f-4ef6-88be-8591ec88002b" data-media-type="file"></span></li><li><p>Log in to PlayFab in the Unity editor</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785350840.png" data-image-src="attachments/784760923/785350840.png" data-height="365" data-width="447" data-unresolved-comment-count="0" data-linked-resource-id="785350840" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230814-135923.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="2c244ee7-72b8-49a3-98e4-40787435cfd3" data-media-type="file"></span></li><li><p>Select your title </p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The Title needs to be setup on the PlayFab website, using your testing account create a title for testing. For release candidates use the title in the official VAR Lab account. The dropdown below shows instructions on creating a new title.</p></div></div><div id="expander-717623410" class="expand-container"><div id="expander-control-717623410" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Adding a new title on PlayFab</span></div><div id="expander-content-717623410" class="expand-content"><p>Once you are logged in to PlayFab from the game manager you will create a new title as shown below.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785350846.png" data-image-src="attachments/784760923/785350846.png" data-height="442" data-width="1393" data-unresolved-comment-count="0" data-linked-resource-id="785350846" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2023-08-15 130653.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="c7f3cd09-4b62-4d73-8e30-626465f77c4c" data-media-type="file"></span><p>You select new title, give it a name, and from there it should show up in Unity under the title IDs for the account you are logged in as. You may need to refresh the studio which is located here. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785350852.png" data-image-src="attachments/784760923/785350852.png" data-height="348" data-width="414" data-unresolved-comment-count="0" data-linked-resource-id="785350852" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230815-170848.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="100c8b0d-7dbb-43c6-97be-3de5d11f3945" data-media-type="file"></span></div></div><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785350858.png" data-image-src="attachments/784760923/785350858.png" data-height="406" data-width="513" data-unresolved-comment-count="0" data-linked-resource-id="785350858" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230815-160408.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="83b55a2a-365c-49aa-82e4-496e1de739fc" data-media-type="file"></span><p>Now PlayFab is set up in Unity, The next will be to install the CORE Analytics package.</p><h1 id="AnalyticsInstallation-InstallingtheAnalyticsPackage">Installing the Analytics Package</h1><h2 id="AnalyticsInstallation-Overview">Overview</h2><hr/><p>With access to the VARLab SSH key and the Analytic Package pathway from Bitbucket, the installation can be done in two methods:</p><ol start="1"><li><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/760020998/Installation+of+the+Analytic+Package#Package-Manager" rel="nofollow">Package Manager</a></p></li><li><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/760020998/Installation+of+the+Analytic+Package#Manifest.json" rel="nofollow">Manifest.json</a></p></li></ol><hr/><h2 id="AnalyticsInstallation-PackageManager">Package Manager</h2><p>Using this method will allow the package to be installed using the package manager on Unity. There are two steps to complete this installation process.</p><h3 id="AnalyticsInstallation-Step1-BitBucket">Step 1 - BitBucket</h3><p>To find the git URL, go to the Analytics Package on Bitbucket --&gt; <a class="external-link" href="https://bitbucket.org/VARLab/analyticspackage/src/main/" rel="nofollow"><u>AnalyticsPackage</u></a></p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Protocol</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>ssh://</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Git Repo Location</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><a class="external-link" href="mailto:git@bitbucket.org" rel="nofollow">git@bitbucket.org</a>/VARLab/analyticspackage.git</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Branch</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>#upm</p></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="table-wrap"><table data-layout="default" data-local-id="5b3c92d1-97e2-4671-a209-798f052d9937" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>git URL for package installation:</p></th></tr><tr><td class="confluenceTd"><p style="text-align: center;">&quot;ssh://git@bitbucket.org/VARLab/analyticspackage.git#upm&quot;</p></td></tr></tbody></table></div><h3 id="AnalyticsInstallation-Step2-PackageManager">Step 2 - Package Manager</h3><div class="table-wrap"><table data-layout="default" data-local-id="c9d2e22f-8e59-44e6-b987-4ad76e214a5c" class="confluenceTable"><tbody><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785547402.png" data-image-src="attachments/784760923/785547402.png" data-height="334" data-width="380" data-unresolved-comment-count="0" data-linked-resource-id="785547402" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230713-204904.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="dda749ab-afac-4da6-9802-326f5079cc75" data-media-type="file"></span><p /></td><td class="confluenceTd"><ul><li><p>In Unity, select the Assets tab</p></li><li><p>Navigate to the “View in Package Manager”</p></li></ul></td></tr><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="204" loading="lazy" src="attachments/784760923/785547408.png?width=204" data-image-src="attachments/784760923/785547408.png" data-height="102" data-width="278" data-unresolved-comment-count="0" data-linked-resource-id="785547408" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="MicrosoftTeams-image.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="aff93531-6acc-4a9c-aa44-2e08e7930891" data-media-type="file"></span></td><td class="confluenceTd"><ul><li><p>In the Package Manger, select the + symbol</p></li><li><p>Select “Add package from git URL…”</p></li></ul></td></tr><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785547408.png" data-image-src="attachments/784760923/785547408.png" data-height="73" data-width="250" data-unresolved-comment-count="0" data-linked-resource-id="785547408" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="MicrosoftTeams-image.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="aff93531-6acc-4a9c-aa44-2e08e7930891" data-media-type="file"></span></td><td class="confluenceTd"><ul><li><p>Paste the Analytic package git URL</p></li><li><p>Select “Add”</p></li></ul></td></tr></tbody></table></div><p>Congrats! The Analytics Package is now installed on your Unity project! Check some of the implementation examples: <a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/daKLejCK" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/daKLejCK</a> </p><hr/><h2 id="AnalyticsInstallation-Manifest.json">Manifest.json</h2><p>Using this method allows the package to be installed directly into the Unity project, so the program can handle the package as a resource for the project under the packages in the project tab. There are two steps to complete this installation process.</p><h3 id="AnalyticsInstallation-Step1-Bitbucket">Step 1 - Bitbucket</h3><p /><p>Here is the link to the Analytic Package on Bitbucket --&gt; <a class="external-link" href="https://bitbucket.org/VARLab/analyticspackage/src/main/" rel="nofollow"><u>AnalyticsPackage</u></a></p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Package name</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>“com.varlab.analytics&quot;:</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Protocol</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>ssh://</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Git Repo Location</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><a class="external-link" href="mailto:git@bitbucket.org" rel="nofollow">git@bitbucket.org</a>/VARLab/analyticspackage.git</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><u>Branch</u>:</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>#upm</p></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="table-wrap"><table data-layout="default" data-local-id="92368024-52d0-4e50-87ff-1ab1682a85c3" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Pathway string for package installation:</p></th></tr><tr><td class="confluenceTd"><p style="text-align: center;">&quot;com.varlab.analytics&quot;: &quot;ssh://git@bitbucket.org/VARLab/analyticspackage.git#upm&quot;</p></td></tr></tbody></table></div><h3 id="AnalyticsInstallation-Step2-Manifest.jsonfile">Step 2 - Manifest.json file</h3><p>With the pathway string copied, let’s open up the Unity project folder.</p><div class="table-wrap"><table data-layout="default" data-local-id="c49a2062-327f-4fb6-bf45-e63eb6101b14" class="confluenceTable"><tbody><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/784760923/785547425.png" data-image-src="attachments/784760923/785547425.png" data-height="539" data-width="616" data-unresolved-comment-count="0" data-linked-resource-id="785547425" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230713-195912.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="1962ee40-88a4-4b8c-8f67-bb79fae58b60" data-media-type="file"></span></td><td class="confluenceTd"><ul><li><p>Open the Packages folder</p></li></ul></td></tr><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785547431.png" data-image-src="attachments/784760923/785547431.png" data-height="176" data-width="613" data-unresolved-comment-count="0" data-linked-resource-id="785547431" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230713-200239.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="8300cef4-25b5-485b-89fb-6bb2cac6c84e" data-media-type="file"></span></td><td class="confluenceTd"><ul><li><p> Open the manifest file</p></li></ul></td></tr><tr><td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/784760923/785547437.png" data-image-src="attachments/784760923/785547437.png" data-height="550" data-width="695" data-unresolved-comment-count="0" data-linked-resource-id="785547437" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230713-200602.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="784760923" data-linked-resource-container-version="10" data-media-id="bd73faf7-a395-47e2-93fc-dd713f5cadbe" data-media-type="file"></span></td><td class="confluenceTd"><ul><li><p>Add a comma to the last pathway</p></li><li><p>Paste the pathway for the Analytics package in a new line under the last pathway</p><ul><li><p>As seen in the photo </p></li></ul></li></ul></td></tr></tbody></table></div><p>Congrats! The Analytics Package is now installed on your Unity project! Check some of the implementation examples here: <a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/MSS6BfEB" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/MSS6BfEB</a> </p><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785350834.png">image-20230814-135359.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785350840.png">image-20230814-135923.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785350846.png">Screenshot 2023-08-15 130653.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785350852.png">image-20230815-170848.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785350858.png">image-20230815-160408.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547402.png">image-20230713-204904.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547414.png">MicrosoftTeams-image.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547408.png">MicrosoftTeams-image.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547425.png">image-20230713-195912.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547431.png">image-20230713-200239.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/784760923/785547437.png">image-20230713-200602.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

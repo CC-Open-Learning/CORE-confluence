@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Position Helper</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1566081045.html">Helper &amp; Extension Scripts</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Position Helper
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Mar 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="d56970db-ef6b-42a3-b742-1e0d774fb222" class="confluenceTable"><colgroup><col style="width: 259.0px;"/><col style="width: 500.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>On This Page</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544474138 {padding: 0px;}
+div.rbtoc1748544474138 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544474138 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544474138'>
+<ul class='toc-indentation'>
+<li><a href='#PositionHelper-Helper&amp;ExtensionMethods'>Helper &amp; Extension Methods</a>
+<ul class='toc-indentation'>
+<li><a href='#PositionHelper-SetAbsoluteVerticalPosition()'>SetAbsoluteVerticalPosition()</a>
+<ul class='toc-indentation'>
+<li><a href='#PositionHelper-Definition'>Definition</a></li>
+<li><a href='#PositionHelper-Parameter(s)'>Parameter(s)</a></li>
+<li><a href='#PositionHelper-Example'>Example</a></li>
+</ul>
+</li>
+<li><a href='#PositionHelper-SetUITopAnchor()'>SetUITopAnchor()</a>
+<ul class='toc-indentation'>
+<li><a href='#PositionHelper-Definition.1'>Definition</a></li>
+<li><a href='#PositionHelper-Parameter(s).1'>Parameter(s)</a></li>
+<li><a href='#PositionHelper-Example.1'>Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></th></tr></tbody></table></div><h1 id="PositionHelper-Helper&amp;ExtensionMethods">Helper &amp; Extension Methods</h1><p>VELCRO UI has various extension and helper scripts which are public static methods. Most helper scripts are used for specific UI prefabs, but VisualElementExtensions.cs, TextElementExtensions.cs, PositionHelper.cs, and StyleHelper.cs have methods for common use cases in many UI scripts.</p><p /><h2 id="PositionHelper-SetAbsoluteVerticalPosition()">SetAbsoluteVerticalPosition()</h2><h3 id="PositionHelper-Definition">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetAbsoluteVerticalPosition(VisualElement visualElement, Align alignment)</pre>
+</div></div><ul><li><p>Sets the <code>VisualElement.style.top</code> and <code>VisualElement.style.bottom</code> properties of the incoming VisualElement to position the element to the Align enum</p></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="PositionHelper-Parameter(s)">Parameter(s)</h3><p><code>VisualElement</code> The element to change the top/bottom properties of</p><p><code>Align</code> The alignment to set</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//Supported alignment
+public enum Align
+{
+    FlexStart, //Horizontally centered, vertically pinned to the top of the screen
+    Center,    //Horizontally centered, vertically centered
+    FlexEnd    //Horizontally centered, vertically pinned to the bottom of the screen
+}</pre>
+</div></div><p /><h3 id="PositionHelper-Example">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// This method is intended to be a single access public method to populate the notification with text
+/// and display it at the desired position (top, center, or bottom). This method accepts a SO rather 
+/// than individual properties if DLX have the ability to predefine their UI contents
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;notificationSO&quot;&gt;&lt;/param&gt;
+public void HandleDisplayUI(NotificationSO notificationSO)
+{
+    PositionHelper.SetAbsoluteVerticalPosition(notification, notificationSO.Alignment);
+}</pre>
+</div></div><p /><h2 id="PositionHelper-SetUITopAnchor()">SetUITopAnchor()</h2><h3 id="PositionHelper-Definition.1">Definition</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public static void SetUITopAnchor(VisualElement visualElement, TopAnchor anchor)</pre>
+</div></div><ul><li><p>Sets the properties of the incoming VisualElement to position the element to the TopAnchor enum</p><ul><li><p><code>VisualElement.style.top</code> </p></li><li><p><code>VisualElement.style.bottom</code> </p></li><li><p><code>VisualElement.style.alignSelf</code></p></li></ul></li><li><p>All UI elements inherit from VisualElement</p></li></ul><p /><h3 id="PositionHelper-Parameter(s).1">Parameter(s)</h3><p><code>VisualElement</code> The element to change the top/bottom/alignSelf properties of</p><p><code>TopAnchor</code> The alignment to set</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//Supported alignment
+public enum Align
+{
+    TopRight = 0, //Anchored to the top right corner
+    TopLeft = 1   //Anchored to the top left corner
+}</pre>
+</div></div><p /><h3 id="PositionHelper-Example.1">Example</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;
+/// Populates the task list from the content defined in the scriptable object
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;taskListScriptableObject&quot;&gt;Task list scriptable object&lt;/param&gt;
+public void PositionTaskList(TaskListSO taskListScriptableObject)
+{
+    PositionHelper.SetUITopAnchor(taskList, taskListScriptableObject.Alignment);
+}</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

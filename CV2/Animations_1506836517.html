@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Animations</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Animations
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 03, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544499491 {padding: 0px;}
+div.rbtoc1748544499491 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544499491 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544499491'>
+<ul class='toc-indentation'>
+<li><a href='#Animations-Animations'>Animations</a>
+<ul class='toc-indentation'>
+<li><a href='#Animations-Properties'>Properties</a></li>
+<li><a href='#Animations-TimingFunctions'>Timing Functions</a></li>
+<li><a href='#Animations-TransitionExamples'>Transition Examples</a>
+<ul class='toc-indentation'>
+<li><a href='#Animations-ButtonHoverTransition'>Button Hover Transition</a></li>
+<li><a href='#Animations-NotificationEntryTransition'>Notification Entry Transition</a></li>
+<li><a href='#Animations-ChildElementTransition'>Child Element Transition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="Animations-Animations">Animations</h1><p>This page is intended to give a quick overview of some features and tips of animations in UI Toolkit. Unity documentation will be linked for further reading. Animations in VELCRO are primarily used for entry/exit and hover transitions.</p><p /><h2 id="Animations-Properties">Properties</h2><div class="table-wrap"><table data-table-width="1011" data-layout="center" data-local-id="805b4a19-653d-4df7-93c3-a7507b42c81c" class="confluenceTable"><colgroup><col style="width: 217.0px;"/><col style="width: 417.0px;"/><col style="width: 376.0px;"/></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong>Property</strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong>Description</strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong>Examples</strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition-property</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>The USS property that the transition targets</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition-property: opacity, translate</p><p>transition-property: all</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>transition-duration</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>How long the transition takes to complete</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>transition-duration: 2s</p><p>transition-duration: 500ms</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition-timing-function</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>How the transition progresses through the transition-duration</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition-timing-function: ease-in</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>transition-delay</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>How long until the transition starts when triggered</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>transition-delay: 1s</p><p>transition-delay: 200ms</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Shorthand property for all of the above properties</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>transition: all, 0.4s, ease-in-out</p></td></tr></tbody></table></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For further reading, Check out Unity’s USS transition documentation <a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-Transitions.html" rel="nofollow">https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-Transitions.html</a> </p></div></div><p /><h2 id="Animations-TimingFunctions">Timing Functions</h2><p>Check out <a class="external-link" data-card-appearance="inline" href="https://easings.net/" rel="nofollow">https://easings.net/</a> for live examples of all timing functions. A preview image can be seen below</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241220-170221.png" width="760" loading="lazy" src="attachments/1506836517/1531150338.png?width=760" data-image-src="attachments/1506836517/1531150338.png" data-height="799" data-width="1040" data-unresolved-comment-count="0" data-linked-resource-id="1531150338" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241220-170221.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506836517" data-linked-resource-container-version="10" data-media-id="1469d7f7-73dc-4b59-87d3-9733e415e827" data-media-type="file"></span><p /><h2 id="Animations-TransitionExamples">Transition Examples</h2><p>This example will go over how the entry transition for <a href="Notifications_1191706625.html" data-linked-resource-id="1191706625" data-linked-resource-version="22" data-linked-resource-type="page">Notifications</a> works. This is a simpler transition that doesn’t need to target any child elements. </p><p /><h3 id="Animations-ButtonHoverTransition">Button Hover Transition</h3><p>Transition properties are not always needed. If you only want a simple USS property change on “<strong>:hover</strong>” applied instantly, then all that is needed are pseudo states “<strong>:hover:enabled</strong>” with the desired USS changes. This is how all VELCRO buttons handle transitions</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.button-primary {
+    border-width: 0;
+    background-color: var(--colour-button-primary-default);
+    color: var(--colour-text-primary-default);
+}
+
+/* This changes the border width, border, background, and text colour on hover. 
+All of these are applied instantly since no timing function was set */
+.button-primary:hover:enabled {
+    border-width: 4px;
+    border-color: var(--colour-button-primary-border-hover);
+    background-color: var(--colour-button-primary-hover);
+    color: var(--colour-text-primary-hover);
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The “<strong>:hover:enabled</strong>” is required in Unity versions 6+ for all transitions. If “<strong>:enabled</strong>” is not added, then the element will still trigger transitions if the element is disabled</p></div></div><p /><h3 id="Animations-NotificationEntryTransition">Notification Entry Transition</h3><p>For more control, you can specify the properties, timing, duration, and delay. In the example below, the opacity change and translation direction/magnitude is set through code as they can be modified from serializedFields. This is triggered when the notification is shown. When this happens, the notification will translate, and change opacity over the course of 0.75s using the timing function:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241220-180612.png" width="179" loading="lazy" src="attachments/1506836517/1531019291.png?width=179" data-image-src="attachments/1506836517/1531019291.png" data-height="146" data-width="179" data-unresolved-comment-count="0" data-linked-resource-id="1531019291" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241220-180612.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506836517" data-linked-resource-container-version="10" data-media-id="bc0442cd-9845-4be1-a559-a81229ec33b3" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.notification {
+    min-width: 200px;
+    min-height: 80px;
+    border-radius: 40px;
+    color: var(--general-13);
+    opacity: 0;
+    transition-duration: 0.75s;
+    transition-property: opacity, translate;
+    transition-timing-function: ease-in-out-back;
+}</pre>
+</div></div><p /><h3 id="Animations-ChildElementTransition">Child Element Transition</h3><p>If the elements you need to adjust on a <strong>:hover</strong> is not the same element you hover over, you can target other elements using Id (“<strong>#</strong>”) selectors and child (“<strong>&gt;</strong>”) selectors. A common example of this are buttons with images. VELCRO’s icon only buttons have this issue. The button is <strong>60px x 60px</strong>, but the child icon is <strong>36px x 36px</strong>.</p><p /><p>Before Unity 6, icons on buttons are not supported and you must add a child <strong>VisualElement </strong>to contain the image.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241220-171751.png" width="262" loading="lazy" src="attachments/1506836517/1531379714.png?width=262" data-image-src="attachments/1506836517/1531379714.png" data-height="70" data-width="262" data-unresolved-comment-count="0" data-linked-resource-id="1531379714" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241220-171751.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506836517" data-linked-resource-container-version="10" data-media-id="e05cbf32-c6f4-40b9-881e-3a1dafc861bd" data-media-type="file"></span><p /><p>Below will go over steps needed to achieve the desired hover state from the default state. </p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="7a6d6b15-6397-4f81-8eeb-6b3c232bbc8c" class="confluenceTable"><tbody><tr><td class="confluenceTd"><p>Default State:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241220-172513.png" width="104" loading="lazy" src="attachments/1506836517/1531412484.png?width=104" data-image-src="attachments/1506836517/1531412484.png" data-height="100" data-width="104" data-unresolved-comment-count="0" data-linked-resource-id="1531412484" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241220-172513.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506836517" data-linked-resource-container-version="10" data-media-id="2751cbd4-0ed2-443a-a5e2-707c1156e6be" data-media-type="file"></span></td><td class="confluenceTd"><p>Desired Hover State:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241220-172546.png" width="100" loading="lazy" src="attachments/1506836517/1531281416.png?width=100" data-image-src="attachments/1506836517/1531281416.png" data-height="97" data-width="100" data-unresolved-comment-count="0" data-linked-resource-id="1531281416" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241220-172546.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1506836517" data-linked-resource-container-version="10" data-media-id="a363f40e-3bd3-4c54-b686-d3902e756f6d" data-media-type="file"></span></td></tr></tbody></table></div><p /><ol start="1"><li><p>Have a USS class on the parent element. In this example, it is “<strong>icon-large</strong>”, and “<strong>icon-square</strong>”</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.icon-large {
+    width: 60px;
+    height: 60px;
+}
+
+.icon-square {
+    background-color: var(--icon-default-background-colour);
+    border-color: var(--icon-square-default-border-colour);
+}</pre>
+</div></div><p /><ol start="2"><li><p>Target the child or Id of the element you want to affect when the given pseudo state triggers. In this example, we want the <strong>#Image</strong> element image tint to change from “#FFFFFF” to “#000000” on “:hover&quot;</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">/* This will target the child element by Id #Image when the element that has the 
+USS class &quot;.icon-square&quot; is hovered and enabled */
+.icon-square:hover:enabled &gt; #Image {
+    -unity-background-image-tint-color: var(--icon-square-hover-focus-image-colour);
+}
+
+.icon-square:hover:enabled {
+    background-color: var(--icon-square-hover-focus-background-colour);
+    border-color: var(--icon-hover-border-colour);
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The “<strong>:hover:enabled</strong>” is required in Unity versions 6+ for all transitions. If “<strong>:enabled</strong>” is not added, then the element will still trigger transitions if the element is disabled</p></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531150338.png">image-20241220-170221.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531379714.png">image-20241220-171751.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531412484.png">image-20241220-172513.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531314179.png">image-20241220-172529.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531281416.png">image-20241220-172546.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1506836517/1531019291.png">image-20241220-180612.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

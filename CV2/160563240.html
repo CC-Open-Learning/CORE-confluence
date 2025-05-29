@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Addressables &amp; Cloud Content Delivery</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Addressable-Assets_158629987.html">Addressable Assets</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Addressables &amp; Cloud Content Delivery
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified on May 06, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Prerequisite article: <a href="Using-Unity-Cloud-Content-Delivery_158629922.html" data-linked-resource-id="158629922" data-linked-resource-version="10" data-linked-resource-type="page">Using Unity Cloud Content Delivery</a> </p></div></div><p>Contents:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544532801 {padding: 0px;}
+div.rbtoc1748544532801 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544532801 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544532801'>
+<ul class='toc-indentation'>
+<li><a href='#Addressables&amp;CloudContentDelivery-ProfileSetup'>Profile Setup</a></li>
+<li><a href='#Addressables&amp;CloudContentDelivery-AddressableSettings'>Addressable Settings</a></li>
+<li><a href='#Addressables&amp;CloudContentDelivery-Groups'>Groups</a></li>
+<li><a href='#Addressables&amp;CloudContentDelivery-GroupSchemas'>Group Schemas</a></li>
+<li><a href='#Addressables&amp;CloudContentDelivery-FinalSteps'>Final Steps</a></li>
+</ul>
+</div><p>In this article we will cover how to set up our Unity project to access our <a class="external-link" href="https://dashboard.unity3d.com/organizations/20066394101024/projects/69703558-38d0-4b40-8a45-bf665a64aa03/cloud-content-delivery" rel="nofollow">Cloud Content Delivery (CCD) buckets</a> to download assets remotely and access them via the <a href="Addressable-Assets_158629987.html" data-linked-resource-id="158629987" data-linked-resource-version="5" data-linked-resource-type="page">Addressables system</a>.</p><h3 id="Addressables&amp;CloudContentDelivery-ProfileSetup">Profile Setup</h3><p>Open the project in the Unity Editor and go to <strong>Window-&gt;Asset Management-&gt;Addressables-&gt;Profiles</strong>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160563270.png" data-image-src="attachments/160563240/160563270.png" data-height="347" data-width="582" data-unresolved-comment-count="0" data-linked-resource-id="160563270" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-194950.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="0b827bf4-efce-4018-8514-31f63dea2971" data-media-type="file"></span><p>In the <strong>Addressables Profiles</strong> menu, we need to set the <strong>RemoteLoadPath</strong> to point to the CCD bucket we previously created and uploaded our Asset Bundles to. To get the exact address to paste here, view the bucket in CCD and open the <strong>ADDRESSABLE REMOTE PATH URLS</strong> tab. Here we can directly copy the remote path to our content.</p><p>For this example we will copy the release with the <strong>latest</strong> badge on it. In a production environment it is better to set this content to use a <strong>production</strong> badge so that users are not always on the newest assets and the latest releases can be used for testing first.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160563264.png" data-image-src="attachments/160563240/160563264.png" data-height="211" data-width="466" data-unresolved-comment-count="0" data-linked-resource-id="160563264" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-195242.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="816bc886-f732-409b-a01e-4c7a865b0836" data-media-type="file"></span><p>Once you have clicked the <strong>Copy to clipboard</strong> icon return to the Unity Editor and paste that into the <strong>RemoteLoadPath</strong> entry.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160563267.png" data-image-src="attachments/160563240/160563267.png" data-height="176" data-width="1509" data-unresolved-comment-count="0" data-linked-resource-id="160563267" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-195228.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="ce1c531d-81ba-4bef-b962-f1aeda31a0c6" data-media-type="file"></span><h3 id="Addressables&amp;CloudContentDelivery-AddressableSettings">Addressable Settings</h3><p>With the profile settings complete we need to set the <strong>Addressable Asset Settings</strong> to use our remote paths instead of the local ones. In the Unity editor, navigate to <strong>Window-&gt;Asset Management-&gt;Addressables-&gt;Settings</strong>. In this menu, enable <strong>Build Remote Catalog</strong> and point the Build and Load paths to their remote locations.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160563261.png" data-image-src="attachments/160563240/160563261.png" data-height="141" data-width="552" data-unresolved-comment-count="0" data-linked-resource-id="160563261" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-195443.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="1b111c72-298b-4d5a-854e-e5ee6b2ae2d9" data-media-type="file"></span><h3 id="Addressables&amp;CloudContentDelivery-Groups">Groups</h3><p>The final piece of the puzzle is to set all the <strong>Addressables Groups </strong>to use the <strong>Remote </strong>build and load paths.  In the Unity editor, navigate to <strong>Window-&gt;Asset Management-&gt;Addressables-&gt;Groups</strong>.<strong> </strong>Within this menu, select each group and in the Inspector change them to use the <strong>Remote </strong>build and load paths.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160563258.png" data-image-src="attachments/160563240/160563258.png" data-height="294" data-width="572" data-unresolved-comment-count="0" data-linked-resource-id="160563258" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210504-195914.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="e2ecfe80-03da-4bd8-9b06-86fc7d73c648" data-media-type="file"></span><h3 id="Addressables&amp;CloudContentDelivery-GroupSchemas">Group Schemas</h3><p>If you are using Unity Cloud Build to build your Addressable asset bundles, their path in the cloud will be your <strong>RemoteBuildPath</strong>. So in this case, if Cloud Build were to build these, they would be located at <strong>“/ServerData/WebGL.”</strong></p><p>This can create an issue if your Addressable Groups are not set to use <strong>Internal Id Naming Mode</strong> setting <strong>Full Path</strong>. To be absolutely sure, check our the Asset Group Schema for your Addressables Group in <strong>“Assets/AddressableAssetsData/AssetGroups/Schemas”</strong> and make sure that setting is correct.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/160563240/160628906.png" data-image-src="attachments/160563240/160628906.png" data-height="269" data-width="579" data-unresolved-comment-count="0" data-linked-resource-id="160628906" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210506-150605.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="160563240" data-linked-resource-container-version="13" data-media-id="60a2f712-58eb-4df2-a8f1-481dbe6e66bb" data-media-type="file"></span><h3 id="Addressables&amp;CloudContentDelivery-FinalSteps">Final Steps</h3><p>Once these settings have been finalized, your project will now load the asset catalog from CCD as well as each Addressable Group you set to be built and loaded remotely. You can have a combination of remote and local assets if you wish to distribute some of the assets with the build and others through CCD.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563258.png">image-20210504-195914.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563261.png">image-20210504-195443.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563264.png">image-20210504-195242.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563267.png">image-20210504-195228.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563270.png">image-20210504-194950.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563273.png">image-20210504-194253.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160563276.png">image-20210504-193813.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/160563240/160628906.png">image-20210506-150605.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Networking Template Guide</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Networking Template Guide
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst (Unlicensed)</span>, last modified on Jun 04, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document aims to explain the networking template, why things have been added, and what you may need to change based on what type of project is being made.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544300621 {padding: 0px;}
+div.rbtoc1748544300621 ul {list-style: default;margin-left: 0px;}
+div.rbtoc1748544300621 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544300621'>
+<ul class='toc-indentation'>
+<li><a href='#NetworkingTemplateGuide-NetworkManagerGameObject'>Network Manager GameObject</a>
+<ul class='toc-indentation'>
+<li><a href='#NetworkingTemplateGuide-NetworkManagerComponent'>Network Manager Component</a></li>
+<li><a href='#NetworkingTemplateGuide-NetworkTransportComponent'>Network Transport Component</a></li>
+</ul>
+</li>
+<li><a href='#NetworkingTemplateGuide-Prefabs'>Prefabs</a></li>
+</ul>
+</div><h1 id="NetworkingTemplateGuide-NetworkManagerGameObject"><strong>Network Manager GameObject</strong></h1><p>A Network Manager has been added to the <strong>MainScene </strong>of the DLX template. However, it is important to know that this Network Manager needs to be added to the <strong>FIRST SCENE/STARTING SCENE </strong>of your project, so if you make a separate scene for something like a main menu, then you need to move the Network Manager to that scene.</p><p>The Network Manager is used to handle all of the networking aspects of your game, a large majority of the networking code has been wrapped into this one component, allowing developers to use it and further extend on it.</p><p>The Network Manager GameObject has been added as a Prefab inside of the assets of the template repository. It can be found at Assets/Prefabs/Networking/NetworkManager and just needs to be added to the scene.</p><h2 id="NetworkingTemplateGuide-NetworkManagerComponent"><strong>Network Manager Component</strong></h2><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240604-153511.png" width="523" loading="lazy" src="attachments/1149403161/1151401990.png?width=523" data-image-src="attachments/1149403161/1151401990.png" data-height="836" data-width="523" data-unresolved-comment-count="0" data-linked-resource-id="1151401990" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240604-153511.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1149403161" data-linked-resource-container-version="2" data-media-id="fb6605c1-4268-44c0-b16b-6cdaa43ee3da" data-media-type="file"></span><p /><p>As can be seen, their are a lot of editor settings, and what you are seeing is how it will be left in the template. A few things are being left as empty and will need to be filled, this is because these settings will require things specific to its given project, so no one thing will be able to solidify it. Going through each setting, we have the following.</p><ul><li><p>Configuration</p><ul><li><p>These two settings, named Dont destroy on Load and Run in Background, can be left as is. We almost always want the NetworkManager to be running.</p></li></ul></li><li><p>Auto-Start Options</p><ul><li><p>This has been set to auto-start the server inside of the headless build. This means that when we run this project inside of a Linux server on Azure, the server will automatically start upon running the unity project. The send rate is being left as 60 but can be changed if deemed necessary.</p></li></ul></li><li><p>Scene Management</p><ul><li><p>Offline Scene and Online Scene are being left as empty as these will change in every project. The offline scene is what the clients will see before going online/after going offline, and the online scene is what clients will be sent to after being connected to the server.</p></li></ul></li><li><p>Network Info</p><ul><li><p>Transport is another component on the NetworkManager GameObject which will be talked about later, it has already been added. </p></li><li><p>Next is the Network Address, this is what the clients will enter to connect to the server. For testing, it can be saved as localhost, but once we want to host the server on a Linux Server in Azure, this setting needs to be the domain name of the Azure virtual machine where the server is being hosted. </p></li><li><p>Next is Max Connections. This is how many connections can be on the client and can be changed depending on the project context/how many clients are wanted. It is being left as default for the template.</p></li><li><p>Lastly, is if clients should be disconnected after idle time, and how much idle time. This is left as default and can also be changed depending on the project context.</p></li></ul></li><li><p>Network Authentication</p><ul><li><p>Currently, this is not being used as we have other ways of authentication, but if in the future it is needed, the template can be updated.</p></li></ul></li><li><p>Player Object</p><ul><li><p>The player prefab is what the clients will spawn in as once they connect to the server, it is being left as empty as the player prefab will most likely change every project. If we want to have a constant player prefab across multiplayer games, we can, but for now, it is being left as empty.</p></li><li><p>Auto-create player simply means the player prefab should be automatically created upon scene change.</p></li><li><p>Player Spawn Method determines how the players will spawn, there are two options for this, random and round robin, and they can be changed interchangeably.</p></li></ul></li><li><p>Security</p><ul><li><p>This setting is if players should be automatically disconnected when throwing an exception until a reason for this needing to be off appears. It should be on.</p></li></ul></li><li><p>Snapshot Interpolation</p><ul><li><p>These settings have not been messed with to much and therefore are being left as default.</p></li></ul></li><li><p>Connection Quality</p><ul><li><p>Evaluation Method and Interval are both settings relating to connection quality, they can be left as the default unless a reason to change them appears.</p></li></ul></li></ul><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Please remember to change the settings for the NetworkManager depending on what you need to accomplish, the settings will change per project and will change for testing/live on a server, so they need to be set accordingly.</p>
+</div></div><h2 id="NetworkingTemplateGuide-NetworkTransportComponent">Network Transport Component</h2><p>This component is what the client and server will use to communicate with each other. One of these needs to be attached to your NetworkManager GameObject, as well as referenced in your NetworkManager component, which can be seen above. Mirror offers many transports for us to use, but since we run our simulations through eConestoga/WebGL for students to play, we can only use one of them since it is the only one that supports WebGL. This is the <strong>Simple Websockets Transport, </strong>and it looks like the following</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240604-180940.png" width="541" loading="lazy" src="attachments/1149403161/1151762476.png?width=541" data-image-src="attachments/1149403161/1151762476.png" data-height="507" data-width="541" data-unresolved-comment-count="0" data-linked-resource-id="1151762476" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240604-180940.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1149403161" data-linked-resource-container-version="2" data-media-id="ed0e24d8-490a-4ce5-b654-d0c2b1ef0891" data-media-type="file"></span><ul><li><p>First seven settings</p><ul><li><p>These settings are all about how messages between clients and the server get transferred. They can all be fine-tuned for each project, but for the template are being left as default.</p></li></ul></li><li><p>Obsolete Settings</p><ul><li><p>These settings do not need to be changed as they are obsolete, and Mirror suggests you do not use them, so they can be left alone</p></li></ul></li><li><p>Server Settings</p><ul><li><p>The port here can change on a project-by-project basis, as to not interfere with other multiplayer projects, the other two options can stay the same unless needed.</p></li></ul></li><li><p>Client Settings</p><ul><li><p>Client use Wss needs to be checked when running in production/testing in production, but for local testing, it needs to be turned off</p></li><li><p>When testing locally</p><ul><li><p>Client use Wss - off</p></li><li><p>Client Port Option - Save as Server</p></li></ul></li><li><p>When testing in production/in production - Same as template</p><ul><li><p>Client use Wss - on</p></li><li><p>Client port option - Specify port</p></li><li><p>Custom client port - The port that the reverse proxy in the Linux server is listening on</p></li></ul></li></ul></li><li><p>Logging</p><ul><li><p>The minimum warning level for a log to appear, default is warning but can be changed if wanted</p></li></ul></li></ul><h1 id="NetworkingTemplateGuide-Prefabs">Prefabs</h1><p>NetworkManager - A prefab for the NetworkManager GameObject has been added, it contains the NetworkManager and Simple Websockets Transport</p><p>Spawnpoint - A prefab for a spawn point has been added, it is an empty game object with a Mirror spawn point component</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149632528.png">image-20240603-175616.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149009961.png">image-20240603-175630.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1148780561.png">image-20240603-175647.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149108250.png">image-20240603-175703.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149141041.png">image-20240603-180059.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1148747828.png">image-20240603-182015.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149534272.png">image-20240603-184840.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149435946.png">Untitled.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1149173825.png">image-20240603-195204.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1148780580.png">image-20240603-195251.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1148780586.png">image-20240603-195632.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1151336488.png">image-20240604-153340.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1151401990.png">image-20240604-153511.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149403161/1151762476.png">image-20240604-180940.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

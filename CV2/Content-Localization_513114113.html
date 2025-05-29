@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Content Localization</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Content Localization
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Sept 01, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this section, we’ll cover how to use the <a class="external-link" href="https://docs.unity3d.com/Packages/com.unity.localization@1.3/manual/index.html" rel="nofollow">Unity Localization</a> package to provide your DLS project with a database of strings and assets that can be interchanged depending on a selected locale. </p><p>
+
+
+<div class="plugin_pagetree">
+
+                        
+                
+        <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+            <div class="plugin_pagetree_children">
+            </div>
+        </ul>
+
+        <fieldset class="hidden">
+            <input type="hidden" name="treeId" value="">
+            <input type="hidden" name="treeRequestId"
+                   value="/wiki/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=false">
+            <input type="hidden" name="treePageId" value="513114113">
+
+            <input type="hidden" name="noRoot" value="false">
+            <input type="hidden" name="rootPageId" value="513114113">
+
+            <input type="hidden" name="rootPage" value="">
+            <input type="hidden" name="startDepth" value="1">
+            <input type="hidden" name="spaceKey" value="CV2">
+
+            <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+            <input type="hidden" name="i18n-pagetree.error.permission"
+                   value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+            <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+            <input type="hidden" name="loginUrl" value="">
+            <input type="hidden" name="mobile" value="false">
+
+                        <fieldset class="hidden">
+                                    <input type="hidden" name="ancestorId" value="513114113">
+                            </fieldset>
+        </fieldset>
+    </div>
+
+  </p><h2 id="ContentLocalization-InstallationofLocalizationpackage">Installation of Localization package </h2><p>Unity provides setup steps for installing the Localization package: <a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/Packages/com.unity.localization@1.3/manual/Installation.html" rel="nofollow">https://docs.unity3d.com/Packages/com.unity.localization@1.3/manual/Installation.html</a></p><p /><p>The VARLab-developed <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/corev2_localization" rel="nofollow">https://bitbucket.org/VARLab/corev2_localization</a>  package provides additional tools and examples for string and asset localization.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The <strong>COREv2 Localization </strong>package is <em>optional</em> for DLS projects which do not require the ability for users to change the language in the application</p></div></div><p>Open up the <code>Packages/manifest.json</code> file in your project and add this line to dependencies.</p><p><code>&quot;com.varlab.corev2localization&quot;: &quot;ssh://git@bitbucket.org/VARLab/corev2_localization.git#upm&quot;</code></p><p>If your PC is not yet configured to access VARLab repositories via SSH, follow the instructions on <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/497123337/Setting+Up+Bitbucket+Sourcetree" data-linked-resource-id="497123337" data-linked-resource-version="20" data-linked-resource-type="page">Setting Up Bitbucket &amp; Sourcetree</a> before continuing.</p><p /><p>After the COREv2 Localization package has been installed, import the <strong>App Localization Example</strong><em><strong> </strong></em>content. The sample files will be imported to <code>Assets/Samples/COREv2 Localization Toolset</code>. This will also generate the required Addressable Assets data for the sample files in the <code>Assets/AddressableAssetsData</code> directory.</p><p>Lastly, the Localization Settings asset will need to be assigned in the Project Settings window if one is not already being used for the project. Navigate to <code>Edit -&gt; Project Settings -&gt; Localization</code> and assign a Localization Settings asset.</p><p /><h2 id="ContentLocalization-UsingUnity’sLocalization">Using Unity’s Localization </h2><p>The steps outlined in the <a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/Packages/com.unity.localization@1.3/manual/QuickStartGuideWithVariants.html" rel="nofollow">https://docs.unity3d.com/Packages/com.unity.localization@1.3/manual/QuickStartGuideWithVariants.html</a> provided by Unity cover setting up the initial localization settings asset for a Unity project and creating the string and asset tables necessary for each locale the project will use.</p><p>Localization of strings or assets can be performed through components provided by the package or through custom code written for the DLS project. </p><p> </p><h2 id="ContentLocalization-UsingCOREv2LocalizationToolkit&amp;Examples">Using COREv2 Localization Toolkit &amp; Examples</h2><p>To complement the package provided by Unity, sample assets have been provided to demonstrate Localization setup within a Unity project. These sample assets are being delivered as a COREv2 package.</p><p>This package also allows for the delivery of tools that add extra functionality to the Unity Localization package. This toolset provides the basis of functionality needed to allow a user to change the current localization of the application while it is running. </p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

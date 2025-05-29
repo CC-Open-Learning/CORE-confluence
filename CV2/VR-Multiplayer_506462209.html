@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : VR Multiplayer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : VR Multiplayer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Aug 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This section uses a combination of Fish-Networking and the CoreV2 VR Package.</p><h3 id="VRMultiplayer-GettingStarted">Getting Started</h3><div id="expander-20449266" class="expand-container"><div id="expander-control-20449266" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">If you&#39;re using a Dell Precision with a USB-C adapter</span></div><div id="expander-content-20449266" class="expand-content"><p>Restart your device and go into the BIOS menu.</p><p>Using your arrow keys go into ‘Display’.</p><p>It <em>should</em> be the last option, but the parameter that says ‘Direct Output’, turn that ‘ON’ then save and exit.</p><p>The next time you boot up your device the headset should be able to connect and you should be able to run the room setup.</p><p><strong>Source: </strong><a class="external-link" href="https://forum.htc.com/topic/11253-connecting-cosmos-elite-to-dell-precision-5670/" rel="nofollow">Connecting Cosmos Elite to Dell Precision 5670 - Vive Console Software - Community Forum (htc.com)</a></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>See 
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue resolved" data-jira-key="CORE-39" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-39" class="jira-issue-key"><img class="icon" src="https://varlab-dev.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium" />CORE-39</a>
+                    -
+            <span class="summary">As a developer I want to have VR work with Fish-Networking</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Archived</span>
+            </span>
+ for updates.</p></div></div></div></div><p>Import the VR package to your Unity project. See <a href="Using-Private-Bitbucket-Repositories_495779855.html" data-linked-resource-id="495779855" data-linked-resource-version="6" data-linked-resource-type="page">Using Private Bitbucket Repositories</a> on how to use packages. Also take a look at <a href="Virtual-Reality_502890588.html" data-linked-resource-id="502890588" data-linked-resource-version="9" data-linked-resource-type="page">VR</a> for more information about the package itself and installation information.</p><p>Add the Fish-Net asset into your project via the Unity Asset Store. Add ParrelSync if needed.</p><p>If you’re using the Vive Cosmos make sure the plugin is properly set up. See <a href="Vive-Cosmos-Plugin_506298516.html" data-linked-resource-id="506298516" data-linked-resource-version="5" data-linked-resource-type="page">Vive Cosmos Plugin</a> for instructions.</p><p /><h4 id="VRMultiplayer-PlayerPrefabandAutoHands">Player Prefab and AutoHands</h4><p>When you look into the CoreV2 VR package you’ll see two player prefabs, VRPlayer and PCPlayer. The package is read-only, so copy and paste the prefab that you want to use into the project’s Assets folder.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/506462209/506724365.png" data-image-src="attachments/506462209/506724365.png" data-height="284" data-width="579" data-unresolved-comment-count="0" data-linked-resource-id="506724365" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220808-140705.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="506462209" data-linked-resource-container-version="8" data-media-id="c9fd299f-79ed-44c9-9c8d-46ae09f3d761" data-media-type="file"></span><p>Go into the prefab and under the parent add a ‘Network Object’ script, leave the settings of the script as default. After adding this you will be able to use this prefab in the Player Spawner script in the Network Manager.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/506462209/506658827.png" data-image-src="attachments/506462209/506658827.png" data-height="135" data-width="393" data-unresolved-comment-count="0" data-linked-resource-id="506658827" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220808-140911.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="506462209" data-linked-resource-container-version="8" data-media-id="1c9113a1-842c-4cae-b1c6-15c129746097" data-media-type="file"></span><p /><h4 id="VRMultiplayer-NetworkedObjects">Networked Objects</h4><p>[WIP]</p><p>Each object that you want synched over the network has to contain a ‘Network Object’ and ‘Network Transform’</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/506462209/506462297.png">image-20220805-183946.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/506462209/506462305.png">image-20220805-185907.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/506462209/506724365.png">image-20220808-140705.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/506462209/506658827.png">image-20220808-140911.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

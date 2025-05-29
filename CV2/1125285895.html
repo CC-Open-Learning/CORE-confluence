@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Intermediate - Modal Example 1 (Text)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Creating-UI-with-VELCRO_1601601550.html">Creating UI with VELCRO</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Intermediate - Modal Example 1 (Text)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Feb 05, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544483219 {padding: 0px;}
+div.rbtoc1748544483219 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544483219 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544483219'>
+<ul class='toc-indentation'>
+<li><a href='#Intermediate-ModalExample1(Text)-HowtoApproachCreatingNewUI'>How to Approach Creating New UI</a>
+<ul class='toc-indentation'>
+<li><a href='#Intermediate-ModalExample1(Text)-UIBuilderSetup'>UI Builder Setup</a></li>
+<li><a href='#Intermediate-ModalExample1(Text)-Structuring&amp;StylingUI'>Structuring &amp; Styling UI</a>
+<ul class='toc-indentation'>
+<li><a href='#Intermediate-ModalExample1(Text)-1.UsingTemplatesasaStartingPoint(Red/Orange/BlueBoxes)'>1. Using Templates as a Starting Point (Red/Orange/Blue Boxes)</a></li>
+<li><a href='#Intermediate-ModalExample1(Text)-2.SettingUpthe#ContentContainer(YellowBox)'>2. Setting Up the #Content Container (Yellow Box)</a></li>
+<li><a href='#Intermediate-ModalExample1(Text)-3.AddingLabelsto#ContentContainer(Purple/IndigoBoxes)'>3. Adding Labels to #Content Container (Purple/Indigo Boxes)</a></li>
+<li><a href='#Intermediate-ModalExample1(Text)-4.AddingButtons(PinkBox)'>4. Adding Buttons (Pink Box)</a></li>
+<li><a href='#Intermediate-ModalExample1(Text)-5.AddingtheNotelabel(BrownBox)'>5. Adding the Note label (Brown Box)</a></li>
+</ul>
+</li>
+<li><a href='#Intermediate-ModalExample1(Text)-Summary'>Summary</a></li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><p>This page is not meant to be a comprehensive beginner tutorial, however it will cover some basics in the beginning and gradually get less detailed towards the end. This page is intended to teach you how to approach implementing new UI in UI toolkit once you are familiar with the bare minimum. I recommend viewing the page <a href="Introduction-to-UI-Toolkit_1174667287.html" data-linked-resource-id="1174667287" data-linked-resource-version="13" data-linked-resource-type="page">Introduction to UI Toolkit</a> and the resources at the bottom of that page for beginner tutorials.</p><p /><h1 id="Intermediate-ModalExample1(Text)-HowtoApproachCreatingNewUI">How to Approach Creating New UI</h1><ol start="1"><li><p>Create a blank UXML document by <strong>Assets/Right Click &gt; Create &gt; UI Toolkit &gt; UI Document</strong></p></li><li><p><strong>(Optional)</strong> Box your UI</p><ol start="1"><li><p>The first step to implementing UI is structuring your hierarchy. Styling and functionality can come afterwards. Your hierarchy will usually be full of invisible wrapper classes and parent <strong>VisualElement </strong>objects that simply exist to shift elements around in your UI. A good way to help visualize these elements is by boxing your UI design. <strong>This step is optional. It can help developers who not familiar with UI Toolkit, but is by no means required.</strong> What I mean by this, is to literally draw boxes around the elements to see the building blocks of <strong>VisualElements</strong>/&lt;<strong>divs</strong>&gt; in your UI.</p></li></ol></li></ol><div class="table-wrap"><table data-table-width="1011" data-layout="center" data-local-id="f55cd683-b2de-4b88-9165-4d24dc5f5431" class="confluenceTable"><tbody><tr><td class="confluenceTd"><p>Default:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240517-161839.png" width="760" loading="lazy" src="attachments/1125285895/1125416975.png?width=760" data-image-src="attachments/1125285895/1125416975.png" data-height="545" data-width="929" data-unresolved-comment-count="0" data-linked-resource-id="1125416975" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240517-161839.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="4efb8546-fc36-42bc-a4c2-bb1974c57809" data-media-type="file"></span></td><td class="confluenceTd"><p>Boxed:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-163030.png" width="760" loading="lazy" src="attachments/1125285895/1293647884.png?width=760" data-image-src="attachments/1125285895/1293647884.png" data-height="543" data-width="926" data-unresolved-comment-count="0" data-linked-resource-id="1293647884" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-163030.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="64a8f9e7-2321-4714-b4ad-6df6a84edab4" data-media-type="file"></span><ol start="1"><li><p><strong>Red</strong>: The parent most VisualElement that wraps the entire modal. This has the background colour and alignment rules for children elements</p></li><li><p><strong>Orange and Yellow</strong>: Separate the parent into the larger usable blocks such as Header, Content, and Footer that have different justification/alignment</p></li><li><p><strong>Blue</strong>: Name label of the modal in the Header block</p></li><li><p><strong>Indigo and Purple</strong>: Title and SubTitle label of the modal</p></li><li><p><strong>Pink</strong>: Primary and Secondary button actionable components of the modal</p></li><li><p><strong>Brown</strong>: Note label component of the modal</p></li></ol></td></tr></tbody></table></div><ol start="3"><li><p>Structure your UXML</p></li><li><p>Style your UXML through USS classes. These should point to colour variables in the Dark/Light theme files</p></li><li><p>Write your script</p></li></ol><p /><h2 id="Intermediate-ModalExample1(Text)-UIBuilderSetup">UI Builder Setup</h2><ol start="1"><li><p>Set your canvas larger than default. I like to set it to <strong>1920x1080</strong>. You can also set it to match your editor window.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-200126.png" width="760" loading="lazy" src="attachments/1125285895/1606680586.png?width=760" data-image-src="attachments/1125285895/1606680586.png" data-height="1028" data-width="1916" data-unresolved-comment-count="0" data-linked-resource-id="1606680586" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-200126.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="24abade9-9aae-4c6e-befe-f01fd3492ea9" data-media-type="file"></span><p /><ol start="2"><li><p>Link your required USS filles. Most UI will have <strong>velcro-structure.uss</strong> (margin, positioning, layout classes), <strong>velcro-style.uss</strong> (colour, border, typography classes), and their specific sheet for this it will be <strong>amb-modal.uss</strong>.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250204-200239.png" width="320" loading="lazy" src="attachments/1125285895/1606680592.png?width=320" data-image-src="attachments/1125285895/1606680592.png" data-height="299" data-width="320" data-unresolved-comment-count="0" data-linked-resource-id="1606680592" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250204-200239.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="bf5d2a68-f7d1-4a55-a39f-b3f81c8560f6" data-media-type="file"></span><p /><h2 id="Intermediate-ModalExample1(Text)-Structuring&amp;StylingUI">Structuring &amp; Styling UI</h2><p>I’ll be using USS classes from <strong>velcro-structure.uss</strong>, and <strong>velcro-style.uss</strong> to do this. These classes can be applied to elements by dragging them from the USS class selector panel on top of the element in the hierarchy panel or by typing in the class name in the inspector and pressing “<strong>Add Style Class to List</strong>”.</p><p /><h3 id="Intermediate-ModalExample1(Text)-1.UsingTemplatesasaStartingPoint(Red/Orange/BlueBoxes)">1. Using Templates as a Starting Point (Red/Orange/Blue Boxes)</h3><p>VELCRO has many <a href="UXML-Templates_1301217295.html" data-linked-resource-id="1301217295" data-linked-resource-version="23" data-linked-resource-type="page">UXML Templates</a> that can be used as building blocks or starting points for UI. The modal header and background are one of those. To start, go to the <strong>Project </strong>tab in the <strong>Library </strong>panel, and drag in the “<strong>Window-SingleBackground</strong>” template from “<strong>/Assets/VELCRO UI/Templates/Header and Windows/</strong>”. </p><p /><p>When in the hierarchy, <strong>Right Click</strong> &gt; <strong>Unpack Instance</strong>. You cannot add child elements or make changes to a template container. It needs to be unpacked. Move the “<strong>#Canvas</strong>” element out of the “#<strong>Window-SingleBackground</strong>” element and delete it.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Templates are wrapped in an empty VisualElement when unpacking the instance. For this example, it is element “<strong>#Window-SingleBackground</strong>”. These can be deleted</p></div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250205-205830.png" width="760" loading="lazy" src="attachments/1125285895/1607335959.png?width=760" data-image-src="attachments/1125285895/1607335959.png" data-height="1261" data-width="2546" data-unresolved-comment-count="0" data-linked-resource-id="1607335959" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250205-205830.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="dc9980ad-0fba-498b-bf31-56a2f484a1e8" data-media-type="file"></span><p /><p>The templates are already set up with support for light and dark mode themes. No USS classes are needed for these elements unless you want to change the template's default. It is also important to keep templates packed such as the header when possible. Packed templates will maintain the reference and receive update from future VELCRO versions. The modal template needed to be unpacked as we will be adding additional content to the window.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250205-210705.png" width="760" loading="lazy" src="attachments/1125285895/1606746136.png?width=760" data-image-src="attachments/1125285895/1606746136.png" data-height="1269" data-width="2549" data-unresolved-comment-count="0" data-linked-resource-id="1606746136" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250205-210705.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="e4adcf12-c053-464a-909e-495395a0c531" data-media-type="file"></span><p /><h3 id="Intermediate-ModalExample1(Text)-2.SettingUpthe#ContentContainer(YellowBox)">2. Setting Up the #Content Container (Yellow Box)</h3><p>For the content container, we set it to take up all available space with flex-grow: 1, and to align all child elements in the center. When boxing the original design, all labels and buttons were horizontally centered. This is a good indication that they can all share the same parent wrapper to have alignment set only once. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.grow {
+    flex-grow: 1;
+}
+
+.align-items-center {
+    align-items: center;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-150020.png" width="760" loading="lazy" src="attachments/1125285895/1293975561.png?width=760" data-image-src="attachments/1125285895/1293975561.png" data-height="1028" data-width="1917" data-unresolved-comment-count="0" data-linked-resource-id="1293975561" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-150020.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="f0d7b991-1e5b-42a2-8adf-d459e9b61f31" data-media-type="file"></span><p /><h3 id="Intermediate-ModalExample1(Text)-3.AddingLabelsto#ContentContainer(Purple/IndigoBoxes)">3. Adding Labels to #Content Container (Purple/Indigo Boxes)</h3><p>All the alignment and justification for the title has been done in the content container. All that’s left is styling the text by removing the margin/padding, making it bold, increasing font size, and setting colour.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--colour-text-primary: #FFFFFF;
+
+m-0 {
+    margin: 0px;
+}
+
+p-0 {
+    padding: 0px;
+}
+
+.color-text {
+    color: var(--colour-text-primary);
+}
+
+.fs-36 {
+    font-size: 36px;
+}
+
+.bold {
+    -unity-font-style: bold;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240517-205530.png" width="760" loading="lazy" src="attachments/1125285895/1124925481.png?width=760" data-image-src="attachments/1125285895/1124925481.png" data-height="1040" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="1124925481" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240517-205530.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="9be58be9-4509-4c5f-b09c-d88f6ac3f246" data-media-type="file"></span><p /><p>Similar to the title label, all the alignment and justification has been done for the sub title from the content container. All that’s left is to style with font size, italic, and colour.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>I removed all margin from the title and sub title before applying a 24px margin to 1 element to separate them. When it comes to styling, there are many different routes to the same outcome. I prefer to lump margins onto as few objects in the hierarchy as possible to make debugging easier, but that is not the only solution.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--colour-text-secondary: #B3B3B3;
+
+.color-text-secondary {
+    color: var(--colour-text-secondary);
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.italic {
+    -unity-font-style: italic;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.p-0 {
+    padding: 0px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240517-210257.png" width="760" loading="lazy" src="attachments/1125285895/1125318714.png?width=760" data-image-src="attachments/1125285895/1125318714.png" data-height="1040" data-width="1920" data-unresolved-comment-count="0" data-linked-resource-id="1125318714" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240517-210257.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="f153fead-4699-44d4-9033-1de7aab356f2" data-media-type="file"></span><p /><h3 id="Intermediate-ModalExample1(Text)-4.AddingButtons(PinkBox)">4. Adding Buttons (Pink Box) </h3><p>The buttons are side by side, and sibling <strong>VisualElements </strong>stack vertically on top of each other by default. Drag another container VisualElement into the hierarchy as a child of Content. </p><p /><p>The direction needs to be set to flex-row, the buttons need to be horizontally centered, and the container should span the entire width of the parent. Next, drag in a <strong>button-secondary-large-1</strong>, and <strong>button-primary-large</strong> template from the <strong>Project </strong>tab in the <strong>Library </strong>panel. The buttons need an 8px margin and the text changed but the rest is already created from VELCRO.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">.flex-row {
+    flex-direction: row;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.w-100 {
+    width: 100%;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-164046.png" width="760" loading="lazy" src="attachments/1125285895/1293647890.png?width=760" data-image-src="attachments/1125285895/1293647890.png" data-height="1028" data-width="1917" data-unresolved-comment-count="0" data-linked-resource-id="1293647890" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-164046.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="4769b3bc-de56-4ac3-9969-6b4270ed52c1" data-media-type="file"></span><p /><p>Buttons and other controls are where <strong>BEM</strong> (<strong>B</strong>lock-<strong>E</strong>lement-<strong>M</strong>odifier) naming convention can be introduced. This should be used where possible. It’s useful to create parent-child relationships between classes through names rather than complex selectors that reduce performance.</p><ul><li><p><strong>Block </strong>(The parent container that is a piece of UI or control)</p></li><li><p><strong>Element </strong>(The element you are modifying that is part of the parent block)</p></li><li><p><strong>Modifier </strong>(The specific variant of the element. Think of this as a prefab variant)</p></li></ul><p /><p>In this example below for the modal, the <strong>block </strong>is “<strong>button</strong>”, with the <strong>element </strong>“<strong>primary</strong>” or “<strong>secondary</strong>”. A <strong>modifier</strong> for these classes would be something such as “<strong>.button-primary-disabled</strong>”. For these buttons, the base “<strong>.button</strong>” class has all USS that both buttons require. This makes “<strong>button-[element]</strong>” a simple change to the background colour in “<strong>primary</strong>” and “<strong>secondary</strong>”.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--colour-button-primary: #FFC009;
+--colour-button-secondary: #E1E1E1;
+
+.button {
+    margin: 0;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -unity-font-definition: var(--lato-bold);
+}
+
+.button-large {
+    width: 300px;
+    height: 62px;
+    font-size: 28px;
+}
+
+.button-primary {
+    border-width: 0;
+    background-color: var(--colour-button-primary-default);
+    color: var(--colour-text-primary-default);
+}
+
+.button-secondary-1 {
+    border-width: 2px;
+    background-color: var(--colour-button-secondary-1-default);
+    border-color: var(--colour-button-secondary-1-border-default);
+    color: var(--colour-text-secondary-1-default);
+}</pre>
+</div></div><p /><h3 id="Intermediate-ModalExample1(Text)-5.AddingtheNotelabel(BrownBox)">5. Adding the Note label (Brown Box)</h3><p>Drag in another label element from the library into the hierarchy and simply change it’s font size and colour.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">--colour-text-tertiary: #21D8FF;
+
+.color-text-tertiary {
+    color: var(--colour-text-tertiary);
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.p-0 {
+    padding: 0px;
+}
+
+.mb-36 {
+    margin-bottom: 36px;
+}</pre>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240820-165545.png" width="760" loading="lazy" src="attachments/1125285895/1294270486.png?width=760" data-image-src="attachments/1125285895/1294270486.png" data-height="1028" data-width="1917" data-unresolved-comment-count="0" data-linked-resource-id="1294270486" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240820-165545.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1125285895" data-linked-resource-container-version="17" data-media-id="114195bd-40ed-4220-87c7-5b139b7ebf95" data-media-type="file"></span><p /><h2 id="Intermediate-ModalExample1(Text)-Summary">Summary</h2><p>To summarize the UI implementation, there are many ways to achieve the same outcome for a design of UI and this is not the best solution. This was intended to get you on the right path on how to start thinking about implementing new UI and give a good example, not the only example.</p><p /><p>The important takeaways from this page are:</p><ul><li><p>UI should be broken up into large containers that exist simply to position your content in the UI</p><ul><li><p>A good strategy is to have <strong>Canvas/Header/Content/Footer</strong> containers in most UI</p></li><li><p>This can be visualized easier by boxing your UI</p></li></ul></li><li><p>Elements that have more complex classes should use BEM (Block-Element-Modifier) naming convention to avoid complex selectors if possible</p></li><li><p>USS classes should <strong>never </strong>have hard coded HEX/RGB/Font values as it stops light/dark mode support and is bad practice. USS variables should be used</p></li><li><p>USS building block classes from <strong>velcro-structure</strong>, and <strong>velcro-style</strong> should always be used when possible. For this example, new classes should only be created in a new stylesheet specifically for this modal, <strong>modal.uss</strong> for properties that don’t already exist</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125089327.png">image-20240517-161639.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125416975.png">image-20240517-161839.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124532246.png">image-20240517-163117.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124794395.png">image-20240517-164917.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124859944.png">image-20240517-165245.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124597788.png">image-20240517-165858.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124859950.png">image-20240517-170045.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124565020.png">image-20240517-170742.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125023771.png">image-20240517-182526.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125220378.png">image-20240517-182632.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124827151.png">image-20240517-183057.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124991008.png">image-20240517-183718.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124565030.png">image-20240517-191056.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124761622.png">image-20240517-191920.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125253148.png">image-20240517-205024.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124925481.png">image-20240517-205530.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125318714.png">image-20240517-210257.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125089389.png">image-20240517-211718.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124925489.png">image-20240517-211915.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125187652.png">image-20240517-212309.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124565056.png">image-20240517-212529.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125449781.png">image-20240517-212612.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1124434016.png">image-20240518-021504.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125286002.png">image-20240518-022955.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1125253233.png">image-20240518-023128.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293778951.png">image-20240820-141704.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1294041100.png">image-20240820-141753.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293516806.png">image-20240820-143109.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1294172177.png">image-20240820-143253.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293811732.png">image-20240820-143347.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293680655.png">image-20240820-145739.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293975561.png">image-20240820-150020.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293615110.png">image-20240820-151350.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293385755.png">image-20240820-153306.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1294663682.png">image-20240820-153451.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1294532611.png">image-20240820-154110.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293647884.png">image-20240820-163030.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1293647890.png">image-20240820-164046.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1294270486.png">image-20240820-165545.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1606680586.png">image-20250204-200126.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1606680592.png">image-20250204-200239.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1607335959.png">image-20250205-205830.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1125285895/1606746136.png">image-20250205-210705.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

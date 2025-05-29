@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Multiplayer Template Research</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Multiplayer Template Research
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on May 24, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544299507 {padding: 0px;}
+div.rbtoc1748544299507 ul {list-style: default;margin-left: 0px;}
+div.rbtoc1748544299507 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544299507'>
+<ul class='toc-indentation'>
+<li><a href='#MultiplayerTemplateResearch-BriefOverview'>Brief Overview</a></li>
+<li><a href='#MultiplayerTemplateResearch-Theneedforamultiplayertemplate'>The need for a multiplayer template</a></li>
+<li><a href='#MultiplayerTemplateResearch-WhatwilltheMultiplayertemplateinclude?'>What will the Multiplayer template include?</a></li>
+<li><a href='#MultiplayerTemplateResearch-ResearchIntroduction'>Research Introduction</a>
+<ul class='toc-indentation'>
+<li><a href='#MultiplayerTemplateResearch-PhotonResearch'>Photon Research</a></li>
+<li><a href='#MultiplayerTemplateResearch-MirrorResearch'>Mirror Research</a></li>
+<li><a href='#MultiplayerTemplateResearch-Unity6PreviewResearch'>Unity 6 Preview Research</a>
+<ul class='toc-indentation'>
+<li><a href='#MultiplayerTemplateResearch-NetcodeforGameObjects'>Netcode for GameObjects</a></li>
+<li><a href='#MultiplayerTemplateResearch-UnityTransport'>Unity Transport</a></li>
+<li><a href='#MultiplayerTemplateResearch-MultiplayerTools'>Multiplayer Tools</a></li>
+<li><a href='#MultiplayerTemplateResearch-MultiplayerPlayMode'>Multiplayer Play Mode</a></li>
+</ul>
+</li>
+<li><a href='#MultiplayerTemplateResearch-3rdpartyframeworksw/Unity6'>3rd party frameworks w/ Unity 6</a></li>
+<li><a href='#MultiplayerTemplateResearch-Unity6andthetemplate'>Unity 6 and the template</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="MultiplayerTemplateResearch-BriefOverview">Brief Overview</h1><p>This document will contain all the information regarding research into the various multiplayer frameworks and what they offer for our potential Multiplayer Template that will be included in the new VARLab DLX Template Repository.</p><p>The previous research on Multiplayer was completed by <a class="confluence-userlink user-mention" data-account-id="712020:db2abf61-edb1-4ece-99b6-d0c4b5aa10b6" href="https://varlab-dev.atlassian.net/wiki/people/712020:db2abf61-edb1-4ece-99b6-d0c4b5aa10b6?ref=confluence" target="_blank" data-base-url="https://varlab-dev.atlassian.net/wiki">Talon Ernst (Unlicensed)</a> and <a class="confluence-userlink user-mention" data-account-id="712020:e943d9cb-027a-42b6-bb68-0c589190ae7d" href="https://varlab-dev.atlassian.net/wiki/people/712020:e943d9cb-027a-42b6-bb68-0c589190ae7d?ref=confluence" target="_blank" data-base-url="https://varlab-dev.atlassian.net/wiki">Hayden Auterhoff (Unlicensed)</a> </p><p>Coming back after our previous Multiplayer research was concluded, the framework we chose, Photon, has completely changed. More research will need to be done into this framework now to ensure it still provides what is needed out of it. The other framework, Mirror, has not changed very much, and the documentation on said framework is still relatively up-to-date. </p><p>A new potential option was the Multiplayer framework created by Unity, which was previously deprecated but seems to be coming back to life in the new Unity 6 update. This is all still experimental and subject to change, but it is worth taking a look at.</p><h1 id="MultiplayerTemplateResearch-Theneedforamultiplayertemplate">The need for a multiplayer template</h1><p>The use of a template can have many advantages. The biggest reason is that it will speed up development time, this will prove especially useful regarding multiplayer as there can be a lot of setup that needs to be done in the backend and even just on the scene to have a functional multiplayer game, and the aim here is to include these things inside the new DLX repository template so if a team needs to make a multiplayer game, they can fork the repo and be good to go right away, no need for setup. Teams may need to edit a few things, such as editor settings, with respect to their project, but these types of changes are very simple.</p><h1 id="MultiplayerTemplateResearch-WhatwilltheMultiplayertemplateinclude?">What will the Multiplayer template include?</h1><p>The following is a list of what the template expects to contain</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p><strong>NOTE:</strong> the list is subject to change</p>
+</div></div><ul><li><p>Basic scene setup</p><ul><li><p>Necessary Prefabs/GameObjects created (placed on the scene if needed)</p></li><li><p>Editor Settings</p></li></ul></li><li><p>Main Menu</p><ul><li><p>Connect as Client, start a dedicated server or host a server</p></li><li><p>This can literally just be a scene that is premade and included in the template</p></li></ul></li><li><p>Maybe a lobby? don’t know if it's needed</p></li><li><p>Network Synchronization (The template more than likely cannot include everything required here, but will contain as much as it can)</p><ul><li><p>UI</p></li><li><p>Progression</p></li></ul></li></ul><h1 id="MultiplayerTemplateResearch-ResearchIntroduction">Research Introduction</h1><p>This section will include the research done on the various frameworks, this research is meant to satisfy two needs. The first need is that the framework provides what VARLab needs out of it. The second is that the needs of the multiplayer template can easily be achieved with said framework.</p><h2 id="MultiplayerTemplateResearch-PhotonResearch">Photon Research</h2><h2 id="MultiplayerTemplateResearch-MirrorResearch">Mirror Research</h2><p>The previous research on Mirror still holds up relatively well, and it can be found <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/805994513/Mirror+Research+Main+Page" data-linked-resource-id="805994513" data-linked-resource-version="17" data-linked-resource-type="page">here</a>.</p><p><strong>Main Menu </strong>- This is very simple to set up. We can utilize Mirrors built-in methods with our own UI to easily make a custom main menu<br/><br/><strong>Scene Setup</strong> - This will require some things to be added </p><ul><li><p>NetworkManager </p><ul><li><p>Editor Settings</p></li></ul></li><li><p>Transport</p><ul><li><p>Editor Settings</p></li></ul></li><li><p>Player Prefab</p><ul><li><p>Required Networking components</p></li></ul></li></ul><p><strong>Network Synchronization </strong>- This will be the hardest one to have included in the template as it is very dependent on the project, so one set of game logic can not be written for every project in the template, the most that could be done is maybe adding some sort of manager that makes it easier to achieve this? </p><h2 id="MultiplayerTemplateResearch-Unity6PreviewResearch">Unity 6 Preview Research</h2><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Since Unity 6 is new, research on the framework itself was also done to see what it has to offer, therefore, this section will have more writing that is just pure research on the framework, as well as the stuff on the template. </p>
+</div></div><p>Unity 6 offers a variety of new tools for multiplayer development. They may require more time to be fully explored than the time given, but the following is what was found during the time spent researching.</p><h3 id="MultiplayerTemplateResearch-NetcodeforGameObjects">Netcode for GameObjects</h3><p>Netcode for GameObjects is not new. It has been around since at least 2022 and uses Unity Netcode, which is Unity's multiplayer framework. It is also open-source, which can be found <a class="external-link" href="https://github.com/Unity-Technologies/com.unity.netcode.gameobjects" rel="nofollow">here</a>. It states that it specifically targets Unity versions 2021.3 and 2022.3, but with Unity seemingly making an effort to revitalize its own multiplayer systems, it may find more life in Unity 6.<br/><br/>It is a high-level networking library that was built for Unity; the goal of it was to abstract away networking logic so that you can focus on actually making the game rather than the networking aspect of the game. This package is meant to help create smaller, casual co-op games, rather than large-scale, massive games. It appears that this is essentially the old Unity NetCode package being repurposed. Using Netcode for GameObjects currently requires a Unity version of 2021.3 or later. This should not presently be a concern as this is an old version, and most projects that may need multiplayer in the future will not be using these old versions. <br/><br/>Installation is as easy as any other package, done in the package manager and done in a few seconds, ready to go right away</p><p>Netcode for Gameobjects does have support for WebGL as long as you use Netcode for GameObjects version 1.2.0+ and Unity Transport version 2.0.0+</p><p>It appears to be similar to other frameworks, such as Mirror, in its setup, available components, etc. This makes sense for Mirror as it was built on top of Unity Netcode, but I personally found many things easier to do in Mirror. This was mainly due to the fact that Mirror has added some really nice QoL features that make some things much easier to handle, such as scene management, network synchronization, etc. So, while it is possible to do all the necessary things, it can sometimes be more complicated compared to other frameworks.</p><h3 id="MultiplayerTemplateResearch-UnityTransport">Unity Transport</h3><p>This is another Unity package that will be necessary if we decide to go with Unity's multiplayer framework. Essentially, this package has abstracted all the underlying networking technicalities away from us, and all we need to do is include a UnityTranscript on the NetworkManager, which, as seen in the image below, when you select “Select Transport,” will automatically add the component to your GameObject and link it. If you already have a UnityTransport component set up, you can also just drag and drop it</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240523-190456.png" width="359" loading="lazy" src="attachments/1130856462/1133477935.png?width=359" data-image-src="attachments/1130856462/1133477935.png" data-height="132" data-width="359" data-unresolved-comment-count="0" data-linked-resource-id="1133477935" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240523-190456.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1130856462" data-linked-resource-container-version="19" data-media-id="dea42649-0c24-4ceb-8d2e-0e8b381118b2" data-media-type="file"></span><p> </p><h3 id="MultiplayerTemplateResearch-MultiplayerTools">Multiplayer Tools</h3><p>This package includes a set of tools that allows a developer to analyze, debug and test their multiplayer game. The tools provided are Network Profiler, Network Simulator, Runtime Network Stats Monitor and Network Scene Visualization. These tools offer analytics such as network traffic and also allow you to visual representations of your bandwidth, CPU and latency for performance.</p><h3 id="MultiplayerTemplateResearch-MultiplayerPlayMode">Multiplayer Play Mode</h3><p>Multiplayer Play Mode (MPM) is a tool created by Unity that allows a developer to easily test multiplayer games on various clients without needing to make a new build every single time you make a change and want to test something. If you’re familiar with multiplayer development in Unity, a popular tool for this was <a class="external-link" href="https://github.com/VeriorPies/ParrelSync" rel="nofollow">ParrelSync</a> which achieved this same goal but is a 3rd party tool.</p><p>MPM is a separate package that needs to be installed, which can easily be done through the package manager. Furthermore, since it is a Unity-developed package, it can be found directly in the Unity Package Registry</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240523-182624.png" width="760" loading="lazy" src="attachments/1130856462/1132855356.png?width=760" data-image-src="attachments/1130856462/1132855356.png" data-height="603" data-width="834" data-unresolved-comment-count="0" data-linked-resource-id="1132855356" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240523-182624.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1130856462" data-linked-resource-container-version="19" data-media-id="38d11768-386f-4fa1-9192-3a60aa333ff0" data-media-type="file"></span><p>As can be seen in the above image, the MPM editor menu allows you to have 4 clients open at the same time, all running on the same machine. This allows developers to test multiple clients on the same machine, quickly and efficiently. Whenever you start your main Unity project, the active virtual players will be updated to your new build and will start running automatically. Furthermore, each player can log its own console logs, whether it be a message, warning or error, this allows for easier debugging and bug fixing.</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240523-183305.png" width="760" loading="lazy" src="attachments/1130856462/1133477928.png?width=760" data-image-src="attachments/1130856462/1133477928.png" data-height="1034" data-width="1915" data-unresolved-comment-count="0" data-linked-resource-id="1133477928" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240523-183305.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1130856462" data-linked-resource-container-version="19" data-media-id="d9747842-071d-481e-876c-1685674e723a" data-media-type="file"></span><p /><p>The above image is what the 2nd player (or 3rd/4th) will look like by default when they load up, this can be changed though. When the game is running, you can click the “Layout” button on the top right, it will pull up the following menu</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240523-183814.png" width="121" loading="lazy" src="attachments/1130856462/1133543473.png?width=121" data-image-src="attachments/1130856462/1133543473.png" data-height="153" data-width="121" data-unresolved-comment-count="0" data-linked-resource-id="1133543473" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240523-183814.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1130856462" data-linked-resource-container-version="19" data-media-id="0e53b31a-bea1-436e-b86d-e206d8ee5b6c" data-media-type="file"></span><p>From here you can hide and show what you want to see. Note that this still felt buggy when messing with it. If I disabled/showed something, it would reset the entire layout back from whatever you may have had it as</p><h2 id="MultiplayerTemplateResearch-3rdpartyframeworksw/Unity6">3rd party frameworks w/ Unity 6</h2><p>Mirror - While it is possible to use Mirror in Unity 6, the devs explicitly state that they recommend waiting until Unity 6 is fully out and in LTS before using Mirror with it, as they only fully support LTS versions of Unity</p><p>Photon - Photon appears to fully support Unity 6 with the release of Fusion 2, which was a huge new update</p><p>It is important to know that while these frameworks are useable in Unity 6, it is not guaranteed that everything will work with Unity 6 still being in preview. The devs of Mirror explicitly state this, and while the Photon devs do not, it is always possible.</p><h2 id="MultiplayerTemplateResearch-Unity6andthetemplate">Unity 6 and the template</h2><p><strong>Main Menu</strong> - This was not very hard to make and can easily be done by following these steps</p><ul><li><p>Create the main menu UI elements (UI Toolkit or older Canvas system)</p></li><li><p>Create a script for handling the on-click events</p></li><li><p>add a reference to our Network Manager in the script so we can access its methods</p></li><li><p>In the on-click functions for the buttons, call the corresponding method from the NetworkManager reference we now have. This will require a bit more work if using UI Toolkit, but is still entirely possible</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">  [SerializeField]
+  private NetworkManager manager;
+  public void StartHost()
+  {
+      manager.StartHost();
+  }
+  public void StartClient()
+  {
+      manager.StartClient();
+  }</pre>
+</div></div></li></ul><p><strong>Scene Setup </strong>- The scene needs a few things in order to work properly, a NetworkManager and Transport specifically. With these two things alone, we technically have a working multiplayer game, even if it does nothing right now. The following is a list of what could be set to speed up development time</p><ul><li><p>NetworkManager </p><ul><li><p>Editor Settings</p></li></ul></li><li><p>Transport</p><ul><li><p>Editor Settings</p></li></ul></li><li><p>Player Prefab</p><ul><li><p>Required Networking components</p></li></ul></li><li><p>Multiplayer Tools</p></li></ul><p>Setting all of this in the template would save a significant amount of time in future projects<br/><br/><strong>Network Synchronization </strong>- This will be the hardest one to have included in the template as it is very dependent on the project, so one set of game logic can not be written for every project in the template, the most that could be done is maybe adding some sort of manager that makes it easier to achieve this? </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1130856462/1132855356.png">image-20240523-182624.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1130856462/1133477928.png">image-20240523-183305.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1130856462/1133543473.png">image-20240523-183814.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1130856462/1133477935.png">image-20240523-190456.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

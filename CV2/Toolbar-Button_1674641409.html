@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Toolbar Button</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UI-Prefabs_1496186887.html">UI Prefabs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Toolbars_1674575873.html">Toolbars</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Toolbar Button
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Harris Ibrahimi</span>, last modified by <span class='editor'> Balazs Karner</span> on Mar 12, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="dc1f0434-1c3d-4c48-88a4-b279e545b09e" class="confluenceTable"><colgroup><col style="width: 216.0px;"/><col style="width: 544.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Implements</p></td><td class="confluenceTd"><p /></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Inherits</p></td><td class="confluenceTd"><p /></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Sample Scene</p></td><td class="confluenceTd"><p>Toolbar Scene</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544464435 {padding: 0px;}
+div.rbtoc1748544464435 ul {list-style: none;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544464435 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544464435'>
+<ul class='toc-indentation'>
+<li><a href='#ToolbarButton-ToolbarButton'>Toolbar Button</a>
+<ul class='toc-indentation'>
+<li><a href='#ToolbarButton-Scripting'>Scripting</a>
+<ul class='toc-indentation'>
+<li><a href='#ToolbarButton-Properties&amp;Methods'>Properties &amp; Methods</a></li>
+<li><a href='#ToolbarButton-UnityEvents'>Unity Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="ToolbarButton-ToolbarButton">Toolbar Button</h1><p>Toolbar Button is a class representing a button on the toolbar. It contains properties that allow users to modify individual toolbar buttons.</p><a class="external-link" data-card-appearance="embed" data-layout="center" data-width="100.00" href="https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=3486-17523&amp;t=dP02PnyauHiVTuDu-0" rel="nofollow">https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=3486-17523&amp;t=dP02PnyauHiVTuDu-0</a><p /><h2 id="ToolbarButton-Scripting">Scripting</h2><h3 id="ToolbarButton-Properties&amp;Methods">Properties &amp; Methods</h3><div class="table-wrap"><table data-table-width="1800" data-layout="default" data-local-id="239aacbd-ed9b-4cea-950d-a39500068943" class="confluenceTable"><colgroup><col style="width: 527.0px;"/><col style="width: 1273.0px;"/></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Property/Method</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Description</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Sprite</strong> Icon</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>The icon of the toolbar button</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>string</strong> Text</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>The text of the toolbar button</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>ToolbarButton()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definitions</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public ToolbarButton()
+public ToolbarButton(Sprite icon, string text)</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Default Constructor creates a blank button</p></li><li><p>Parameterized Constructor creates a button with specified content</p></li><li><p>Constructing a toolbar button will not give any special functionality until it is added to a toolbar using the toolbar’s HandleDisplayUI() or SetContent() methods</p></li></ul></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Show()</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Show()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Displays the button on the toolbar</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Hide()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Hide()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Hides the button from the toolbar</p></li></ul></td></tr></tbody></table></div><p /><h3 id="ToolbarButton-UnityEvents">Unity Events</h3><div class="table-wrap"><table data-table-width="1011" data-layout="default" data-local-id="281a58cd-0851-4bc3-b4f8-c84d9c5e9c59" class="confluenceTable"><colgroup><col style="width: 307.0px;"/><col style="width: 704.0px;"/></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Event</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Description</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p> OnClick</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p> Invoked when the toolbar clicked</p></td></tr></tbody></table></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641419.png">image-20250303-162238.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641422.png">image-20250303-162217.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641425.png">image-20250303-162138.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641428.gif">GIF 2024-08-14 1-54-12 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641431.gif">GIF 2024-08-13 3-26-21 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641434.gif">GIF 2024-08-13 3-07-11 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641437.gif">GIF 2024-08-13 2-57-58 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1674641409/1674641440.png">image-20240813-133555.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

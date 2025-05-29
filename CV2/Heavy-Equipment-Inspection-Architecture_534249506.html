@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Heavy Equipment Inspection Architecture</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Inspection-System_534282241.html">Inspection System</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Heavy Equipment Inspection Architecture
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kristian Biviens</span>, last modified by <span class='editor'> David Inglis</span> on May 03, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/534249506/535789575.png" data-image-src="attachments/534249506/535789575.png" data-height="874" data-width="1430" data-unresolved-comment-count="0" data-linked-resource-id="535789575" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20221020-190134.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="534249506" data-linked-resource-container-version="7" data-media-id="2fd5d1a4-d336-4e49-9e81-09f2d2e49442" data-media-type="file"></span><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="453" loading="lazy" src="attachments/534249506/693960715.png?width=453" data-image-src="attachments/534249506/693960715.png" data-height="683" data-width="693" data-unresolved-comment-count="0" data-linked-resource-id="693960715" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Heavy Equipment UML.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="534249506" data-linked-resource-container-version="7" data-media-id="30f5c770-27b8-487a-8ba9-fdcacec4ba52" data-media-type="file"></span><p /><p /><h1 id="HeavyEquipmentInspectionArchitecture-HeavyEquipmentInspectionSystemPackage">Heavy Equipment Inspection System Package</h1><h3 id="HeavyEquipmentInspectionArchitecture-InspectionManager">Inspection Manager</h3><p>The inspection manager will hold the groups of the inspections. The InspectionManager class will hold an array of Inspection Elements. It will provide the opportunity to automatically find and aggregate Elements or allow the developer to add them manually. The learning experience inspections will be divided into multiple groups to better organize the data. We want to refrain from having all of the inspections in one group. </p><p /><h3 id="HeavyEquipmentInspectionArchitecture-InspectionElement">InspectionElement </h3><p>The InspectionElement class will contain an array of ScriptableObjects called conditions. </p><p /><h3 id="HeavyEquipmentInspectionArchitecture-ElementCondition">Element Condition</h3><p>The object Element Condition will contain the conditions of all inspected objects. This will allow us to keep information related within this one area which will be used by ScriptableObjects and by the InspectionElement class. </p><h2 id="HeavyEquipmentInspectionArchitecture-UnityEngine">Unity Engine</h2><p>This describes how the system uses types provided by the Unity Engine. </p><h3 id="HeavyEquipmentInspectionArchitecture-ScriptableObject">Scriptable Object </h3><p>The ScriptableObject is a data container that can be used to save different amounts of data while being independent of class instances. Data and logic can be predefined during editor time. They are very similar to class instances as assets. </p><h2 id="HeavyEquipmentInspectionArchitecture-SpecificDLSProject">Specific DLS Project</h2><h3 id="HeavyEquipmentInspectionArchitecture-DLSContextManagerClass">DLS Context Manager Class</h3><h3 id="HeavyEquipmentInspectionArchitecture-InspectionElementSpecialized">Inspection Element Specialized</h3><h3 id="HeavyEquipmentInspectionArchitecture-ElementConditionSpecialized">Element Condition Specialized</h3><p /><p /><p /><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534216752.png">image-20221018-181928.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534151207.png">image-20221018-181938.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534151213.png">image-20221018-182000.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534118450.png">image-20221018-193312.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534184019.png">image-20221018-194509.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534970382.png">image-20221019-174647.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/535003140.png">image-20221019-183323.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/534839307.png">image-20221019-184225.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/535658497.png">image-20221020-184655.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/535789575.png">image-20221020-190134.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/693338167.png">Heavy Equipment UML.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/534249506/693960715.png">Heavy Equipment UML.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

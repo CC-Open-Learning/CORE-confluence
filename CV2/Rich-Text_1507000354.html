@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Rich Text</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-To-Pages_1516371971.html">How-To Pages</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Rich Text
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Jan 03, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="6a9b6e82-05f9-47a7-b971-1d1692a41788" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544504549 {padding: 0px;}
+div.rbtoc1748544504549 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544504549 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544504549'>
+<ul class='toc-indentation'>
+<li><a href='#RichText-RichText'>Rich Text</a>
+<ul class='toc-indentation'>
+<li><a href='#RichText-Settingupyourscene'>Setting up your scene</a></li>
+</ul>
+</li>
+<li><a href='#RichText-RichTextTagExamples'>Rich Text Tag Examples</a>
+<ul class='toc-indentation'>
+<li><a href='#RichText-BasicColourRichText'>Basic Colour Rich Text</a></li>
+<li><a href='#RichText-In-LineSprites'>In-Line Sprites</a></li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h2 id="RichText-RichText">Rich Text</h2><p>This page is intended to give a quick overview with examples of rich text tag use in UI Toolkit. Not every sprite or text customization needs to be in USS, UXML, or script for implementations. These options are especially useful in conversation UI pieces such as AMB’s dispatch conversation or PHI’s manager conversation. They can be used to add in-line sprites, or only style a single word in a label.</p><p /><h3 id="RichText-Settingupyourscene">Setting up your scene</h3><p>To get started using rich text in UI Toolkit labels</p><ol start="1"><li><p>Create a text settings asset <strong>Right Click/Assets &gt; Create &gt; UI Toolkit &gt; Text Settings</strong></p></li><li><p>Set your desired defaults. The important one is the default path for sprite assets. The path is required to be within the “<strong>Resources</strong>” folder</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-190749.png" width="625" loading="lazy" src="attachments/1507000354/1539833882.png?width=625" data-image-src="attachments/1507000354/1539833882.png" data-height="870" data-width="625" data-unresolved-comment-count="0" data-linked-resource-id="1539833882" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-190749.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="d8bab8d9-de42-4499-a148-c44402dcd39c" data-media-type="file"></span><p /><ol start="3"><li><p>Reference the text settings asset in the DLX’s panel settings asset</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-190854.png" width="617" loading="lazy" src="attachments/1507000354/1539866647.png?width=617" data-image-src="attachments/1507000354/1539866647.png" data-height="427" data-width="617" data-unresolved-comment-count="0" data-linked-resource-id="1539866647" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-190854.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="d3a61baa-647e-4327-9c69-b1bd390da93b" data-media-type="file"></span><p /><h2 id="RichText-RichTextTagExamples">Rich Text Tag Examples</h2><p>Below will show two examples of the most likely uses of rich text in DLX. One example will be basic colour changes on text, and another with an in-line sprite. Using rich text in these instances significantly simplified script/USS/UXML implementations.</p><p /><p>More complete documentation on <a class="external-link" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-rich-text-tags.html" rel="nofollow">rich text</a> and all available <a class="external-link" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-supported-tags.html" rel="nofollow">supported tags</a> can be read here.</p><p /><h3 id="RichText-BasicColourRichText">Basic Colour Rich Text</h3><p>In this example, the conversation entries flip back and forth between the dispatch and paramedic with various style changes. Ignoring the other USS changes on visual elements that cannot be adjusted through rich text, </p><ul><li><p>The label for the talker alternates colour</p></li><li><p>The label for the message alternates colour</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-192057.png" width="760" loading="lazy" src="attachments/1507000354/1539702797.png?width=760" data-image-src="attachments/1507000354/1539702797.png" data-height="495" data-width="1057" data-unresolved-comment-count="0" data-linked-resource-id="1539702797" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-192057.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="4693a826-8c16-45c4-a550-59a52db6c39a" data-media-type="file"></span><p /><p>By using rich text tags, the conversation entry UXML and script was simplified to a single version where the incoming label is set, and no additional code was required.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-194405.png" width="645" loading="lazy" src="attachments/1507000354/1540096015.png?width=645" data-image-src="attachments/1507000354/1540096015.png" data-height="114" data-width="645" data-unresolved-comment-count="0" data-linked-resource-id="1540096015" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-194405.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="e0adff16-ca3c-49f7-bec4-3b1f9081f02c" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//When setting text. Use the VELCRO helper method UIHelper.SetElementText()
+caption.text = dialogue.Speaker;
+description.text = dialogue.Text;</pre>
+</div></div><p /><p>The conversation is populated from a scriptable object where the rich text tags are used</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-194834.png" width="616" loading="lazy" src="attachments/1507000354/1540063245.png?width=616" data-image-src="attachments/1507000354/1540063245.png" data-height="153" data-width="616" data-unresolved-comment-count="0" data-linked-resource-id="1540063245" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-194834.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="2ccafd41-2cbc-4d56-840b-2116f548696e" data-media-type="file"></span><p>Dispatch:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;color=#FFFFFF&gt;Dispatcher&lt;/color&gt;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;color=#000000&gt;Conestoga Paramedics, Code 4 to Highway 401 westbound at Cedar Creek 
+for a single vehicle MVC. Reports of a vehicle rollover with entrapment.&lt;/color&gt;</pre>
+</div></div><p>Paramedic:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;color=#FFCD29&gt;Paramedic&lt;/color&gt;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;color=#FFFFFF&gt;Conestoga Ambulance Unit, 10-4. 401 westbound at Cedar Creek, single 
+vehicle MVC with entrapment. We’re 10-8.&lt;/color&gt;</pre>
+</div></div><p /><h3 id="RichText-In-LineSprites">In-Line Sprites</h3><p>In this example, the sprites are not separate VisualElements, but instead, the UXML is a single label. Read more about <a class="external-link" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-sprite.html" rel="nofollow">sprites in text here</a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-185906.png" width="632" loading="lazy" src="attachments/1507000354/1539801102.png?width=632" data-image-src="attachments/1507000354/1539801102.png" data-height="352" data-width="632" data-unresolved-comment-count="0" data-linked-resource-id="1539801102" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-185906.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="bba3be7c-d1ac-484d-9369-b40d24ab0671" data-media-type="file"></span><p /><p>By using rich text tags, the welcome UXML and script was simplified to a single label where the incoming label is set, and no additional code was required.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250103-202538.png" width="760" loading="lazy" src="attachments/1507000354/1540063276.png?width=760" data-image-src="attachments/1507000354/1540063276.png" data-height="488" data-width="920" data-unresolved-comment-count="0" data-linked-resource-id="1540063276" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250103-202538.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1507000354" data-linked-resource-container-version="8" data-media-id="bea1199b-c906-4b53-bf4d-c84ba1f326ee" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">//When setting text. Use the VELCRO helper method UIHelper.SetElementText()
+rules.text = modalInformation.HintAmount</pre>
+</div></div><p /><p>The label is populated from a scriptable object where the rich text tags are used with sprite assets. To create sprite assets, follow the <a class="external-link" href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-sprite.html" rel="nofollow">Unity documentation</a>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;sprite=&quot;Timer Icon&quot; Name=&quot;Timer Icon&quot;/&gt; No time limit</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1539801102.png">image-20250103-185906.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1539833882.png">image-20250103-190749.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1539866647.png">image-20250103-190854.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1539702797.png">image-20250103-192057.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1540096015.png">image-20250103-194405.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1540063245.png">image-20250103-194834.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1507000354/1540063276.png">image-20250103-202538.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:48</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Package Components</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-XR_1283883075.html">CORE XR</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-XR-Package_1285160964.html">CORE XR Package</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Package Components
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacob Martens</span> on Aug 14, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544254387 {padding: 0px;}
+div.rbtoc1748544254387 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544254387 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544254387'>
+<ul class='toc-indentation'>
+<li><a href='#PackageComponents-XRSystem'>XR System</a>
+<ul class='toc-indentation'>
+<li><a href='#PackageComponents-XRRig'>XR Rig</a></li>
+</ul>
+</li>
+<li><a href='#PackageComponents-FlexXRPanel'>FlexXR Panel</a>
+<ul class='toc-indentation'>
+<li><a href='#PackageComponents-RuntimeSettings'>Runtime Settings</a></li>
+<li><a href='#PackageComponents-PanelController'>PanelController</a></li>
+</ul>
+</li>
+<li><a href='#PackageComponents-PlatformController'>PlatformController</a>
+<ul class='toc-indentation'>
+<li><a href='#PackageComponents-Platforms'>Platforms</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="PackageComponents-XRSystem">XR System</h1><p>XR System is the Drag and Drop one stop shop for everything a scene needs for XR. It includes the Input Action Manager with XR Input Actions, the XR Interaction Manager, and the XR Rig. In a project that has completed initial configuration, dragging this into a scene is all that is required to get XR working. The default control scheme is for a 2-piece XR controller, with the left joystick controlling movement and the right joystick rotating the camera.</p><h2 id="PackageComponents-XRRig">XR Rig</h2><p>The XR Rig is the actual moving parts of the XR System. It is the &quot;Player&quot; in the scene. It contains code driving locomotion and interaction with objects. The default controllers contain Ray Interactors for distant/UI interaction, Direct Interactors for up close manipulation, and Teleport Interactors if teleportation is the desired locomotion.</p><p>Locomotion can be slightly configured using the ActionBasedConrtollerManager located on the LeftHand and RightHand Controller objects.<br/><strong>Smooth Motion Enabled</strong> allows for continuous movement for a controller. If it is enabled, the joystick of the controller it is enabled on can only be used for movement, and teleport &amp; turn will be disabled.<br/><strong>Smooth Turn Enabled</strong> toggles between snap and continous turn. If Smooth Motion and Smooth Turn are enabled on the same controller, Smooth Motion takes priority.</p><p><br/>By Default, the LeftHand Controller has smooth motion enabled, allowing for continous movement and strafing with the left joystick. The RightHand Controller has smooth turn enabled, allowing for camera rotation with the right joystick. Additionally, because smooth motion is disabled on the RightHand Controller, its Teleport Interactor can be activated by holding forward on the right joystick.</p><h1 id="PackageComponents-FlexXRPanel">FlexXR Panel</h1><p>FlexXR Panel is an asset store package that enables the use of UI Toolkit on world-space panels. This allows UI Toolkit to be used instead of UGUI for all runtime UI. Simply place the FlexXR Panel prefab in the scene and drag the UXML source asset onto the UI Document component.</p><h2 id="PackageComponents-RuntimeSettings">Runtime Settings</h2><p><strong>Interaction Mode</strong> is used to control the interactibility of the panel. <em>Screen</em> causes it to behave like a standard UI Document, regardless of the panel's location in the scene. <em>World</em> will render the UI Document on the panel in world-space. <em>Mixed Reality</em> will render the panel in world-space as well, but it will only accept XR Interactor inputs. <em>Disabled</em> will cause the UI to be hidden.<br/><strong>Shape</strong> is used to control the shape of the panel when it is in <em>World</em> or <em>Mixed Reality</em> interaction modes. Changing it in <em>Screen</em> interaction mode has no effect. They are self-explanatory, <em>Flat</em> causing the panel to be fully flat, <em>Curved</em> causing it to be curved. Typically, in many XR applications, UI Panels are slightly curved.</p><h2 id="PackageComponents-PanelController">PanelController</h2><p><strong>PanelController</strong> is a controller class built to abstract/simplify runtime modifications of the FlexXR Panel. From editor, you can specify whether a UI element should only appear in XR or Flatscreen, and how it should behave when rendered in Flatscreen. Additionally, it exposes <em>ShowPanel()</em> and <em>HidePanel()</em> to easily toggle a UI on and off.</p><h1 id="PackageComponents-PlatformController">PlatformController</h1><p><strong>PlatformController</strong> is a controller class used to manage the active runtime platform. It can be configured to act a startup toggle, or it can be dynamically changed during runtime. Currently, it implements XR and Flatscreen platforms.</p><h2 id="PackageComponents-Platforms">Platforms</h2><p><strong>Platforms</strong> are implementations of the <em>IPlatform</em> interface. They allow users to specify a list of platform-specific objects to be toggled alongside a platform. Additionally, they handle any subsystems that need to be started/stopped to allow a platform to become active.<br/><strong>Enable()</strong> is called by the PlatformController to enable a platform. This function is responsible for starting any relevant subsystems and enabling all required objects. If it is successful, it returns true and invokes its internal Enable event. If it is unsuccessful, it must revert to a fully disabled state and return false.<br/><strong>Disable()</strong> is called by the PlatformController to disable a platform. This function is responsible for stopping any relevant subsystems and disabling all required objects. It has no return value, and must guarentee disable the platform. After disabling, it calls its internal Disable event.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Serializing &amp; Deserializing Data</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Serializing &amp; Deserializing Data
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Sept 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Saving and loading data is not very useful unless we have a way to apply it to objects in our sims.</p><p>In this article we’ll cover how to serialize and deserialize specific properties of our objects.</p><h2 id="Serializing&amp;DeserializingData-Setup">Setup</h2><p>In order to save data from an object and reapply that data on another playthrough, we need a way to uniquely identify each object that we would like to save.To do this we store a set of unique IDs along with their corresponding <a class="external-link" href="https://docs.unity3d.com/ScriptReference/Component.html" rel="nofollow">Component</a> reference within our scene.</p><h3 id="Serializing&amp;DeserializingData-GUIDManager">GUID Manager</h3><p>To start, we’ll need to add a GUID Manager component somewhere within our scene.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="628" loading="lazy" src="attachments/501547045/501481486.png?width=628" data-image-src="attachments/501547045/501481486.png" data-height="246" data-width="602" data-unresolved-comment-count="0" data-linked-resource-id="501481486" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-171219.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547045" data-linked-resource-container-version="4" data-media-id="7a09e117-adc7-445c-a475-b70bec1b410f" data-media-type="file"></span><p>Right now we have 0 tracked objects but as we work on this example we’ll add more.</p><h2 id="Serializing&amp;DeserializingData-Serializing&amp;Deserializing">Serializing &amp; Deserializing</h2><h3 id="Serializing&amp;DeserializingData-Attributes">Attributes</h3><h4 id="Serializing&amp;DeserializingData-CloudSaved">CloudSaved</h4><p>To mark a component for the cloud save system, we need to mark its class with the <code>[CloudSaved]</code> attribute.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using Newtonsoft.Json;
+using UnityEngine;
+using VARLab.CloudSave;
+
+[CloudSaved]
+public class SerializedObject : MonoBehaviour { }</pre>
+</div></div><p>This will tell our GUID Manager scripts which components it should track and generate a unique ID for.</p><p /><p>Next we need to add properties that we would like to save. Since we are using the <code>Newtonsoft.Json</code> library in order to save and load our data, we can use some of the attributes included within it. <code>Cloud Save</code> uses a subset of the attributes available through <code>Newtonsoft.Json</code></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For more information about different JSON attributes, check out the <a class="external-link" href="https://www.newtonsoft.com/json/help/html/serializationattributes.htm" rel="nofollow">Newtonsoft documentation</a>.</p></div></div><h4 id="Serializing&amp;DeserializingData-JsonObject">JsonObject</h4><p>The <code>[JsonObject]</code> attribute is used specify a <code>MemberSerialization</code> format. If the default OptOut serialization format is desired, this attribute can be left out.</p><p>Below is a table describing the various <code>MemberSerialization</code> formats:</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="1cfa777b-da6c-486e-b1d7-5679f0dc8d87" class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><code>MemberSerialization.OptOut</code></p></td><td class="confluenceTd"><p>The default value if no option is provided.</p><p>All <code>public</code> fields are included unless they contain <code>[JsonIgnore]</code> or <code>[NonSerialized]</code></p><p>Any <code>protected</code> or <code>private</code> fields must be marked with the <code>[JsonProperty]</code> attribute to be serialized.</p></td></tr><tr><td class="confluenceTd"><p><code>MemberSerialization.OptIn</code></p></td><td class="confluenceTd"><p>Only fields with the <code>[JsonProperty]</code> attribute are serialized, regardless of access level.</p></td></tr><tr><td class="confluenceTd"><p><code>MemberSerialization.Fields</code></p></td><td class="confluenceTd"><p>Unused by Cloud Save. If provided, the serialization format will switch to OptOut.</p></td></tr></tbody></table></div><h4 id="Serializing&amp;DeserializingData-JsonProperty">JsonProperty</h4><p>The <code>[JsonProperty]</code> attribute is used to indicate that a field should be serialized. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Though it may seem intuitive for the <code>[SerializedField]</code> property to serve this same purpose, <code>System.Reflection</code> treats this attribute differently. As such, use <code>[JsonProperty]</code> to explicitly include fields for serialization.</p></div></div><h4 id="Serializing&amp;DeserializingData-JsonIgnore">JsonIgnore</h4><p><code>[JsonIgnore]</code> is used specifically with the <code>MemberSerialization.OptOut</code> format to indicate that a field should <em>not<strong> </strong></em>serialized where it would otherwise be automatically included.</p><p>The <code>[NonSerialized]</code> attribute provided by the <code>System</code> library works for this purpose as well.</p><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using Core.SaveLoad;
+using Newtonsoft.Json;
+using UnityEngine;
+
+[CloudSaved]
+[JsonObject(MemberSerialization.OptIn)]
+public class SerializedObject : MonoBehaviour
+{
+    [JsonProperty]
+    private float scaleValue;
+
+    [JsonProperty]
+    public Vector3 rotation;</pre>
+</div></div><p>What we have now is a component that will be captured by the GUID manager and have its <strong>scaleValue </strong>and <strong>rotation </strong>serialized when requested.</p><p /><h3 id="Serializing&amp;DeserializingData-Interfaces">Interfaces</h3><h4 id="Serializing&amp;DeserializingData-ICloudSerialized">ICloudSerialized</h4><p>If we run into a situation where the value we want to serialize may not be correct at the time of serialization, we can implement the <code>ICloudSerialized</code> interface to allow us to set that value right before it gets serialized.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using Core.SaveLoad;
+using Newtonsoft.Json;
+using UnityEngine;
+
+[CloudSaved]
+[JsonObject(MemberSerialization.OptIn)]
+public class SerializedObject : MonoBehaviour, ICloudSerialized
+{
+    [JsonProperty]
+    private float scaleValue;
+
+    [JsonProperty]
+    public Vector3 rotation;
+
+    public void OnSerialize()
+    {
+        rotation = transform.rotation.eulerAngles;
+    }
+}</pre>
+</div></div><p>In this case we’re setting the value of <strong>rotation</strong> to equal the rotation of this object right before we serialize our properties.</p><p /><h4 id="Serializing&amp;DeserializingData-ICloudDeserialized">ICloudDeserialized</h4><p>If we need to do something <strong>after</strong> we have deserialized and all the data has been loaded into the correct <code>[JsonProperty]</code> fields, we can implement the <code>ICloudDeserialized</code> interface. In this example we have both the <code>OnSerialize()</code> and <code>OnDeserialize()</code> methods implemented along with some interaction code to let us set those values with our mouse inputs.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using Newtonsoft.Json;
+using UnityEngine;
+using VARLab.CloudSave;
+
+[CloudSaved]
+[JsonObject(MemberSerialization.OptIn)]
+public class SerializedObject : MonoBehaviour, ICloudSerialized, ICloudDeserialized
+{
+    [JsonProperty]
+    private float scaleValue;
+
+    [JsonProperty]
+    public Vector3 rotation;
+
+    [SerializeField] private Vector3 angularVelocity;
+
+    void OnMouseOver()
+    {
+        transform.Rotate(angularVelocity);
+    }
+
+    void OnMouseDown()
+    {
+        scaleValue += 0.5f;
+        SetScale();
+    }
+
+    public void OnDeserialize()
+    {
+        SetScale();
+        SetRotation();
+    }
+
+    public void OnSerialize()
+    {
+        rotation = transform.rotation.eulerAngles;
+    }
+
+    private void SetScale()
+    {
+        transform.localScale = Vector3.one * (1 + scaleValue);
+    }
+
+    private void SetRotation()
+    {
+        transform.rotation = Quaternion.Euler(rotation);
+    }
+}</pre>
+</div></div><h2 id="Serializing&amp;DeserializingData-PopulatingtheGUIDManager">Populating the GUID Manager</h2><p>Now that we have a class marked as <code>[CloudSaved]</code> we can add it to an object in our Unity scene and have the GUID Manager track it. </p><p>Here is that script attached to a simple cube:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501547045/501481510.png" data-image-src="attachments/501547045/501481510.png" data-height="281" data-width="602" data-unresolved-comment-count="0" data-linked-resource-id="501481510" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-172451.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547045" data-linked-resource-container-version="4" data-media-id="f8d84396-2ce2-49e1-bcce-4e2c88a7c4fd" data-media-type="file"></span><p>Now if we navigate to the <code>GUIDManager</code> in the scene, we can select the <strong>Update GUIDManager Entries</strong> button in the inspector to generate a dictionary of unique identifiers for all CloudSaved objects in the scene.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501547045/501514266.png" data-image-src="attachments/501547045/501514266.png" data-height="476" data-width="478" data-unresolved-comment-count="0" data-linked-resource-id="501514266" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-172521.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547045" data-linked-resource-container-version="4" data-media-id="9613bfde-22cc-4dbe-8ec9-6093ad32bb73" data-media-type="file"></span><p>If successful, you should see a message in the console. Under the <strong>Tracked Objects </strong>field in the GUID Manager you should now see your component there as well.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501547045/501481516.png" data-image-src="attachments/501547045/501481516.png" data-height="46" data-width="218" data-unresolved-comment-count="0" data-linked-resource-id="501481516" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-172618.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547045" data-linked-resource-container-version="4" data-media-id="93151e3d-3728-4b1c-bac5-c1579f0aad37" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501547045/501514272.png" data-image-src="attachments/501547045/501514272.png" data-height="42" data-width="543" data-unresolved-comment-count="0" data-linked-resource-id="501514272" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-172716.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501547045" data-linked-resource-container-version="4" data-media-id="7e6945ab-53c8-4c91-b134-48e63337670f" data-media-type="file"></span><h2 id="Serializing&amp;DeserializingData-SavingWithSerialization">Saving With Serialization</h2><p>Now that we know how to serialize and deserialize our objects, we need to combine that with saving and loading data in order to finish. Here we will extend the example script from <a href="501579777.html" data-linked-resource-id="501579777" data-linked-resource-version="1" data-linked-resource-type="page">Saving &amp; Loading Data</a> in order to use serialized data rather than a simple “hello” string.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using Core.SaveLoad;
+using System.Collections;
+using UnityEngine;
+
+public class Test : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    private ICloudSerializer serializer;
+
+    private void Awake()
+    {
+        serializer = new SerializerJson();
+    }
+
+    public void Save()
+    {
+        StartCoroutine(_Save());
+    }
+
+    private IEnumerator _Save()
+    {
+        var data = serializer.Serialize();
+
+        var save = saveSystem.Save(filepath, data);
+
+        yield return save;
+
+        Debug.Log(&quot;Save Complete.&quot;);
+    }
+
+    public void Load()
+    {
+        StartCoroutine(_Load());
+    }
+
+    private IEnumerator _Load()
+    {
+        var load = saveSystem.Load(filepath);
+
+        yield return load.Routine;
+
+        var loadedData = (string)load.Result;
+
+        serializer.Deserialize(loadedData);
+        
+        Debug.Log(loadedData);
+    }
+}</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547045/501481486.png">image-20220720-171219.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547045/501481510.png">image-20220720-172451.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547045/501514266.png">image-20220720-172521.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547045/501481516.png">image-20220720-172618.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501547045/501514272.png">image-20220720-172716.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

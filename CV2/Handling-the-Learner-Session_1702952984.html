@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Handling the Learner Session</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Digital-Learning-eXperiences-with-CORE_776667179.html">Digital Learning eXperiences with CORE</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Handling the Learner Session
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Apr 09, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="HandlingtheLearnerSession-Summary">Summary</h2><p>This document defines the <strong>Learner Session</strong> for a Unity DLX and describes the sequence of events for setting up a session upon launch of a DLX. </p><p>The <strong>Learner Session</strong> is the data describing a user and their actions in the DLX during an instance of the DLX, which is typically loaded from an LMS like eConestoga.</p><p /><h2 id="HandlingtheLearnerSession-Systems">Systems</h2><p>The main systems that make up the learner session are:</p><ul><li><p>Session Provider, handling unique identifying data for a learner</p><ul><li><p><a href="SCORM_504037419.html" data-linked-resource-id="504037419" data-linked-resource-version="8" data-linked-resource-type="page">SCORM</a> is the main session provider used by existing DLX projects in eConestoga.</p></li><li><p>LTI is an alternative identification system for modern LMS’s which is currently being developed and will replace or work alongside SCORM in the future</p></li></ul></li><li><p>Session Handler, acting as a communicator between the Session Provider and various systems wanting to use learner data</p></li><li><p><a href="Cloud-Save_501448711.html" data-linked-resource-id="501448711" data-linked-resource-version="19" data-linked-resource-type="page">Cloud Save</a>, which stores and retrieves data persisting across multiple sessions, and</p></li><li><p><a href="Analytics-Service_707919890.html" data-linked-resource-id="707919890" data-linked-resource-version="30" data-linked-resource-type="page">Analytics</a>, providing event tracking and more intricate features such as version control</p></li></ul><p /><p>The learner session is complemented by the <a href="VELCRO-UI_1118404624.html" data-linked-resource-id="1118404624" data-linked-resource-version="51" data-linked-resource-type="page">VELCRO UI</a> system, which presents relevant session information to the learner through the introductory splash screen, informational toast messages and dialogs, and a settings menu.</p><p /><h2 id="HandlingtheLearnerSession-Sequence">Sequence</h2><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>TODO provide sequence diagram and steps learner session setup. The goal is for the DLX Template to handle the base learner session setup workflow, while being extensible to support custom needs on a case-by-case basis</p>
+</div></div><p /><h2 id="HandlingtheLearnerSession-SessionProviders">Session Providers</h2><p>The following Session Providers are described in their order of priority, as defined in the DLX Template project. </p><h3 id="HandlingtheLearnerSession-LTI">LTI</h3><h3 id="HandlingtheLearnerSession-SCORM">SCORM</h3><h3 id="HandlingtheLearnerSession-Local">Local</h3><p /><ul><li><p>LearningToolsSessionProvider</p><ul><li><p>uses <code>VARLab.Authentication.LTI</code> to attempt a web-based LTI connection</p></li></ul></li><li><p>ScormSessionProvider</p><ul><li><p>uses <code>VARLab.SCORM</code> to attempt a web-based SCORM connection</p></li></ul></li><li><p>DebugSessionProvider</p><ul><li><p>only available in Editor or development builds</p></li><li><p>can be enabled in code or serialized fields in editor</p></li><li><p>optionally uses a static ID for debugging purposes</p></li></ul></li><li><p>FallbackSessionProvider</p><ul><li><p><strong>guaranteed</strong> to activate if any of the previous session providers fail to initialize.</p></li><li><p>provides unique ID per-device which is dependent on <code>UnityEngine.PlayerPrefs</code> (which uses browser cookies on web)</p></li></ul></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

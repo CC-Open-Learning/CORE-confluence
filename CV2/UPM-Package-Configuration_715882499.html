@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : UPM Package Configuration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : UPM Package Configuration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> estronge</span>, last modified by <span class='editor'> David Inglis</span> on Aug 30, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="UPMPackageConfiguration-Contents">Contents</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544147541 {padding: 0px;}
+div.rbtoc1748544147541 ul {list-style: disc;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544147541 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544147541'>
+<ul class='toc-indentation'>
+<li><a href='#UPMPackageConfiguration-Summary'>Summary</a></li>
+<li><a href='#UPMPackageConfiguration-PackageConfiguration'>Package Configuration</a>
+<ul class='toc-indentation'>
+<li><a href='#UPMPackageConfiguration-RequiredProperties'>Required Properties</a></li>
+<li><a href='#UPMPackageConfiguration-RecommendedProperties'>Recommended Properties</a></li>
+<li><a href='#UPMPackageConfiguration-ExamplePackageManifest'>Example Package Manifest</a></li>
+</ul>
+</li>
+<li><a href='#UPMPackageConfiguration-PublishingandUpdatingPackages'>Publishing and Updating Packages</a></li>
+</ul>
+</div><h2 id="UPMPackageConfiguration-Summary">Summary</h2><p>Unity uses a <strong>package manifest</strong> file (<code>package.json</code>) to manage information about a specific version of a specific package. The package manifest is always at the root of the package and has crucial information about the package, such as its registered name and version number.</p><p>The package manifest also defines useful information to communicate to the user, such as:</p><ul><li><p>A user-friendly name that appears in the UI.</p></li><li><p>A brief description of the package.</p></li><li><p>The earliest version of the Unity Editor the package is compatible with.</p></li></ul><a class="external-link" data-card-appearance="block" href="https://docs.unity3d.com/Manual/upm-manifestPkg.html" rel="nofollow">https://docs.unity3d.com/Manual/upm-manifestPkg.html</a><h2 id="UPMPackageConfiguration-PackageConfiguration">Package Configuration</h2><p>The package manifest is located in <code>Assets/Package/package.json</code> within a project’s file structure.</p><p>Much of this page’s content has been taken directly from the Unity documentation on the UPM package manifest structure, and then modified to describe the specific requirements for <strong>CORE Framework</strong>.</p><h3 id="UPMPackageConfiguration-RequiredProperties">Required Properties</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If these properties aren’t present, either the registry refuses the package when it’s published, or the Package Manager can’t fetch or load the package.</p></div></div><div class="table-wrap"><table data-layout="default" data-local-id="8e1bf17a-b7b1-46bb-8e5a-142c893ea38d" class="confluenceTable"><colgroup><col style="width: 102.0px;"/><col style="width: 111.0px;"/><col style="width: 546.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>JSON Type</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>name</strong></p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>A unique identifier that conforms to the Unity Package Manager naming convention, which uses reverse domain name notation. For more information about the naming convention, refer to <a class="external-link" href="https://docs.unity3d.com/Manual/cus-naming.html" rel="nofollow">Naming your package</a>.</p><p><strong>Note</strong>: The <code>name</code> identifier is different than the <a class="external-link" href="https://docs.unity3d.com/Manual/upm-manifestPkg.html#displayName" rel="nofollow">user-friendly name</a> that appears in the list view in the <strong>Package Manager</strong> window.</p></td></tr><tr><td class="confluenceTd"><p><strong>version</strong></p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>The package version number (<strong>MAJOR.MINOR.PATCH</strong>). </p><p>For example, “3.2.1” indicates that this is the 3rd major release, the 2nd minor release, and the first patch. </p><p>This value must respect <a class="external-link" href="http://semver.org/" rel="nofollow">Semantic Versioning</a>. For more information, refer to <a class="external-link" href="https://docs.unity3d.com/Manual/upm-semver.html" rel="nofollow">Versioning</a>.</p></td></tr><tr><td class="confluenceTd"><p><strong>publishConfig</strong></p></td><td class="confluenceTd"><p>array of strings</p></td><td class="confluenceTd"><p>While not technically a required field for a UPM package, <strong>CORE Framework</strong> packages must specify the <code>publishConfig</code> array in order for packages to be correctly published to VARLab’s scoped registry for UPM packages.</p><p>See the example package manifest below for the appropriate usage of the <code>publishConfig</code> field.</p></td></tr></tbody></table></div><hr/><h3 id="UPMPackageConfiguration-RecommendedProperties">Recommended Properties</h3><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The Package Manager can install packages in a project even if the recommended properties don’t have valid values or are missing.</p></div></div><p>The recommended best practice is to assign values for these properties to ensure that your package is discoverable and to offer a better experience for users.</p><div class="table-wrap"><table data-layout="default" data-local-id="c1b79c73-4f9b-4ec6-b587-c1f82cb38b08" class="confluenceTable"><colgroup><col style="width: 121.0px;"/><col style="width: 108.0px;"/><col style="width: 530.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>JSON Type</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>description</strong></p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>A brief description of the package. This is the text that appears in the <a class="external-link" href="https://docs.unity3d.com/Manual/upm-ui-details.html" rel="nofollow">details view</a> of the <strong>Package Manager</strong> window. This field supports <a class="external-link" href="https://en.wikipedia.org/wiki/UTF-8" rel="nofollow">UTF–8</a> character codes. This means that you can use special formatting character codes, such as line breaks (<strong>\n</strong>) and bullets (<strong>\u25AA</strong>).</p></td></tr><tr><td class="confluenceTd"><p><strong>displayName</strong></p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>A user-friendly name to appear in the Unity Editor (for example, in the Project Browser, the <strong>Package Manager</strong> window, etc.). </p><p>For example, <strong>Unity Timeline</strong>, <strong>ProBuilder</strong>, <strong>In App Purchasing</strong>.</p></td></tr><tr><td class="confluenceTd"><p><strong>unity</strong></p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>Indicates the lowest Unity version the package is compatible with. If omitted, the Package Manager considers the package compatible with all Unity versions. </p><p>The expected format is “<strong>&lt;MAJOR&gt;.&lt;MINOR&gt;</strong>” (for example, <strong>2018.3</strong>). To point to a specific patch, use the <a class="external-link" href="https://docs.unity3d.com/Manual/upm-manifestPkg.html#unityRelease" rel="nofollow">unityRelease</a> property as well.</p><p><strong>Note</strong>: A package that isn’t compatible with Unity doesn’t appear in the <a class="external-link" href="https://docs.unity3d.com/Manual/upm-ui.html" rel="nofollow">Package Manager window</a>.</p></td></tr></tbody></table></div><hr/><h3 id="UPMPackageConfiguration-ExamplePackageManifest">Example Package Manifest</h3><p>The <code>package.json</code> manifest below, taken from the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/package-template/src" rel="nofollow">https://bitbucket.org/VARLab/package-template/src</a> repository, illustrates a complete list of the required and recommended fields for a <strong>CORE Framework </strong>package configuration.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;name&quot;: &quot;com.varlab.packagetemplate&quot;,
+	&quot;displayName&quot;: &quot;UPM Package Template&quot;,
+	&quot;version&quot;: &quot;1.2.3&quot;,
+	&quot;unity&quot;: &quot;2022.3&quot;,
+	&quot;description&quot;: &quot;An example of a UPM package which can be hosted in a scoped registry.&quot;,
+	&quot;category&quot;: &quot;Instrument&quot;,
+
+	&quot;author&quot;: {
+		&quot;name&quot;: &quot;Packaging Pete&quot;,
+		&quot;email&quot;: &quot;pete@petesprofessionalpackagingparlor.io&quot;,
+		&quot;url&quot;: &quot;https://varlab-dev.atlassian.net/wiki/spaces/CV2/overview&quot;
+	},
+
+	&quot;keywords&quot;: [
+		&quot;unity&quot;, &quot;editor&quot;, &quot;upm&quot;
+	],
+	
+	&quot;samples&quot;: [
+		{
+			&quot;displayName&quot;: &quot;Example Project&quot;,
+			&quot;description&quot;: &quot;Contains a sample for the package&quot;,
+			&quot;path&quot;: &quot;Samples~/Example Project&quot;
+		}
+	],
+
+	&quot;publishConfig&quot;: {
+		&quot;registry&quot;:&quot;http://upm.core.varlab.org:4873/&quot;
+	}
+}</pre>
+</div></div><hr/><h2 id="UPMPackageConfiguration-PublishingandUpdatingPackages">Publishing and Updating Packages</h2><p>Updated package versions are published automatically using Bitbucket’s continuous integration pipelines, as long as the project repository has been configured with the <code>UPM_TOKEN</code> repository variable, which requires an authentication token from the <code>packagingpete</code> development account.</p><p>More details on these integration steps can be found in the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/package-template/src/main/CI/" rel="nofollow">https://bitbucket.org/VARLab/package-template/src/main/CI/</a> folder of the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/package-template/src/main/" rel="nofollow">https://bitbucket.org/VARLab/package-template/src/main/</a> repository.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Contact an <strong>IT Ops</strong> team member for support with publishing and unpublishing packages.</p></div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Cloud Save</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Cloud Save
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Mar 07, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="c08e92bf-33a8-42f0-be36-e1b63eb59bf9" class="confluenceTable"><colgroup><col style="width: 363.0px;"/><col style="width: 363.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>Cloud Save</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">1.1.0</span> </p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Provides the ability to easily convert custom Unity components into a serialized format and deserialize data to restore components to their previous state.</p><p>Provides the ability to store and retrieve serialized data from local storage or a cloud storage system such as Azure Blob Storage.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/varlab-asset-store/src/master/" rel="nofollow">https://bitbucket.org/VARLab/varlab-asset-store/src/master/</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p><a class="external-link" href="http://upm.core.varlab.org:4873/-/web/detail/com.varlab.cloudsave" rel="nofollow">com.varlab.cloudsave</a></p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span>  </p></td></tr><tr><th class="confluenceTh"><p><strong>Code Coverage</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">87.1%</span></p></td></tr></tbody></table></div></div><p /><p>This section covers the use of the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/cloudsave" rel="nofollow">https://bitbucket.org/VARLab/cloudsave</a> CORE package and its associated web API hosted in Microsoft Azure.</p><p>
+
+
+<div class="plugin_pagetree">
+
+                        
+                
+        <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+            <div class="plugin_pagetree_children">
+            </div>
+        </ul>
+
+        <fieldset class="hidden">
+            <input type="hidden" name="treeId" value="">
+            <input type="hidden" name="treeRequestId"
+                   value="/wiki/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=false">
+            <input type="hidden" name="treePageId" value="501448711">
+
+            <input type="hidden" name="noRoot" value="false">
+            <input type="hidden" name="rootPageId" value="501448711">
+
+            <input type="hidden" name="rootPage" value="">
+            <input type="hidden" name="startDepth" value="1">
+            <input type="hidden" name="spaceKey" value="CV2">
+
+            <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+            <input type="hidden" name="i18n-pagetree.error.permission"
+                   value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+            <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+            <input type="hidden" name="loginUrl" value="">
+            <input type="hidden" name="mobile" value="false">
+
+                        <fieldset class="hidden">
+                                    <input type="hidden" name="ancestorId" value="501448711">
+                            </fieldset>
+        </fieldset>
+    </div>
+
+  </p><h2 id="CloudSave-Overview">Overview</h2><h3 id="CloudSave-CloudSaveServices">Cloud Save Services</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/501448711/686456833.png?width=680" data-image-src="attachments/501448711/686456833.png" data-height="532" data-width="695" data-unresolved-comment-count="0" data-linked-resource-id="686456833" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CORE Cloud Save UML - UML Sequence(1).png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501448711" data-linked-resource-container-version="19" data-media-id="becb8725-1399-4f5d-8fe6-db1c7335c526" data-media-type="file"></span><h3 id="CloudSave-SavingData">Saving Data</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/501448711/686260225.png?width=680" data-image-src="attachments/501448711/686260225.png" data-height="153" data-width="954" data-unresolved-comment-count="0" data-linked-resource-id="686260225" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CORE Cloud Save UML - UML Activity.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501448711" data-linked-resource-container-version="19" data-media-id="bbbf261b-9e14-4862-8b1a-7b0a35c841f0" data-media-type="file"></span><h3 id="CloudSave-LoadingData">Loading Data</h3><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501448711/686325761.png" data-image-src="attachments/501448711/686325761.png" data-height="163" data-width="927" data-unresolved-comment-count="0" data-linked-resource-id="686325761" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CORE Cloud Save UML - UML Activity(1).png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501448711" data-linked-resource-container-version="19" data-media-id="a275dc37-3b4e-4818-be32-6d16dbc50e33" data-media-type="file"></span><p /><h2 id="CloudSave-InstallingCloudSaveforDLX">Installing Cloud Save for DLX</h2><p><strong>Cloud Save</strong> can be found in the <a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow">CORE UPM Registry</a> as <code>com.varlab.cloudsave</code>.</p><p>Navigate to the <strong>Package Manager</strong> window in the Unity Editor and install the package under the &quot;My Registries&quot; sub-menu.</p><p /><div id="expander-1585377383" class="expand-container"><div id="expander-control-1585377383" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Legacy Installation</span></div><div id="expander-content-1585377383" class="expand-content"><p>In the <code>Packages/manifest.json</code> file of a DLX Unity project, add the following line to dependencies:</p><p><code>&quot;com.varlab.cloudsave&quot;: &quot;ssh://git@bitbucket.org/VARLab/cloudsave.git#1.0.0&quot;</code></p><p>If your PC is not yet configured to access VARLab repositories via SSH, follow the instructions on <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/497123337/Setting+Up+Bitbucket+Sourcetree" data-linked-resource-id="497123337" data-linked-resource-version="20" data-linked-resource-type="page">Setting Up Bitbucket &amp; Sourcetree</a> before continuing.</p></div></div><p /><h2 id="CloudSave-CloudSaveAPIEndpoint">Cloud Save API Endpoint</h2><h3 id="CloudSave-Production">Production</h3><p>The current production API endpoint provided by version <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-complete">1.0.0</span> of the <strong>Cloud Save </strong>package: </p><p style="text-align: center;"><code>https://varlabcloudsave.azurewebsites.net/core/</code></p><h3 id="CloudSave-PreviousVersions">Previous Versions</h3><div id="expander-949765010" class="expand-container"><div id="expander-control-949765010" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Click here to expand...</span></div><div id="expander-content-949765010" class="expand-content"><p>The following endpoint was previously used for <strong>Cloud Save </strong>API: </p><p><code>https://saveloadapi.azurewebsites.net/varlabs/</code></p><p>There is a known issue with the DELETE action in this API, which has been resolved in the current <strong>production</strong> endpoint. The update is not backward-compatible.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This endpoint has been <strong>deprecated</strong> and is no longer maintained. The service is running as a free resource in Azure to continue providing <strong>Cloud Save</strong> for <strong>Trucking Release III</strong>.</p></div></div></div></div><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/570589185.png">image-20221205-153505.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/570621953.jpg">Save Flow Diagram.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/570687489.jpg">Load Flow Diagram.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/685572103.png">Blank diagram.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/686194689.png">CORE Cloud Save UML - UML Sequence.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/686260225.png">CORE Cloud Save UML - UML Activity.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/686325761.png">CORE Cloud Save UML - UML Activity(1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501448711/686456833.png">CORE Cloud Save UML - UML Sequence(1).png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

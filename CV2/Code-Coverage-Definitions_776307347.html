@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Code Coverage Definitions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage_731480070.html">Code Coverage</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Introduction_776306763.html">Code Coverage Introduction</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Example-Template_776307317.html">Code Coverage Example Template</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Code Coverage Definitions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan S (Unlicensed)</span>, last modified by <span class='editor'> Leo Bunting</span> on Aug 04, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This document is to help developers understand all of the keywords that they will see in the code coverage documentation and as they are utilizing code coverage throughout their time at VARLab</p></div></div><p><strong>Please click on any of these to learn more about them:</strong></p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544593699 {padding: 0px;}
+div.rbtoc1748544593699 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544593699 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544593699'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#CodeCoverageDefinitions-CommitID'>Commit ID</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#CodeCoverageDefinitions-DateofTest'>Date of Test</a></li>
+<li><span class='TOCOutline'>3</span> <a href='#CodeCoverageDefinitions-CodeCoverage%'>Code Coverage %</a></li>
+<li><span class='TOCOutline'>4</span> <a href='#CodeCoverageDefinitions-UntestableLines'>Untestable Lines</a></li>
+<li><span class='TOCOutline'>5</span> <a href='#CodeCoverageDefinitions-AutomaticTesting'>Automatic Testing</a></li>
+<li><span class='TOCOutline'>6</span> <a href='#CodeCoverageDefinitions-ManualTesting'>Manual Testing</a></li>
+<li><span class='TOCOutline'>7</span> <a href='#CodeCoverageDefinitions-TestedFile-FromCodeCoverageTemplate'>Tested File - From Code Coverage Template</a></li>
+<li><span class='TOCOutline'>8</span> <a href='#CodeCoverageDefinitions-RelatedTests-FromCodeCoverageTemplate'>Related Tests - From Code Coverage Template</a></li>
+<li><span class='TOCOutline'>9</span> <a href='#CodeCoverageDefinitions-Reasonings-FromCodeCoverageTemplate'>Reasonings - From Code Coverage Template</a></li>
+<li><span class='TOCOutline'>10</span> <a href='#CodeCoverageDefinitions-CyclomaticComplexity'>Cyclomatic Complexity</a></li>
+<li><span class='TOCOutline'>11</span> <a href='#CodeCoverageDefinitions-CRAPScore'>CRAP Score</a></li>
+<li><span class='TOCOutline'>12</span> <a href='#CodeCoverageDefinitions-NPathComplexity'>NPath Complexity</a></li>
+<li><span class='TOCOutline'>13</span> <a href='#CodeCoverageDefinitions-UnitTest'>Unit Test</a></li>
+</ul>
+</div><h2 style="text-align: center;" id="CodeCoverageDefinitions-CommitID"><strong>Commit ID </strong></h2><p>A “Commit ID” is an ID given to every commit. It provides a way to identify every commit separately. When clicked, it directs you to a commits page on Bitbucket to see all of the commit’s information.</p><p><br/>When viewing a list of commits, click on the link that appears to be a random collection of numbers and letters. This is your commit's randomly generated ID. It should look similar to the one in Figure 1. </p><p>A page with all the information on that specific commit is shown when this is clicked.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307424.png" data-image-src="attachments/776307347/776307424.png" data-height="104" data-width="859" data-unresolved-comment-count="0" data-linked-resource-id="776307424" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-174236.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="17bfdf9a-e16d-41c9-a01b-e1388588d069" data-media-type="file"></span><h2 style="text-align: center;" id="CodeCoverageDefinitions-DateofTest"><strong>Date of Test </strong></h2><p>The date of test is the date that a developer ran the specified test. It is essential to keep track of this for all of your tests for traceability.</p><h2 style="text-align: center;" id="CodeCoverageDefinitions-CodeCoverage%"><strong>Code Coverage % </strong></h2><p>Code Coverage % is the amount of code covered in your tests, displayed as a percentage. This percentage is found in the generated HTML report document. You can find the code you created and see how much of it was covered by the tests you wrote.</p><p>Figure 2 shows the report's overall summary statistics. The <strong>Line Coverage</strong> measures how many lines have been covered by the tests that ran, throughout the entire project. Line coverage will be what you will report in your project’s code coverage document. While this can be a useful measurement, it’s important to emply a <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/775225368/Testable+Behaviour#Risk-Based-Code-Coverage" rel="nofollow">risk-based code coverage</a> strategy.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307406.png" data-image-src="attachments/776307347/776307406.png" data-height="458" data-width="1517" data-unresolved-comment-count="0" data-linked-resource-id="776307406" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-184609.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="1d478416-e1c6-43bd-806e-b667293cddf4" data-media-type="file"></span><p>You can see the stats for each specific class. Figure 3 shows the stats for the mainMenu class. It has achieved 35.7% code coverage. You can click on an individual class to see which lines were hit or missed.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307397.png" data-image-src="attachments/776307347/776307397.png" data-height="289" data-width="1476" data-unresolved-comment-count="0" data-linked-resource-id="776307397" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-185546.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="e2e04673-f818-4819-ae19-e5f27c353185" data-media-type="file"></span><p>Most code coverage tools use highlighting to display results alongside the percentage. The code highlighted in green means that your tests successfully hit it. If it is highlighted in red, it means that your tests did not hit that section of code.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307400.png" data-image-src="attachments/776307347/776307400.png" data-height="722" data-width="642" data-unresolved-comment-count="0" data-linked-resource-id="776307400" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-184824.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="83be8069-edc7-426b-90bd-43263c0523ef" data-media-type="file"></span><p>In the mainMenu class (Figure 4), we can see that different lines have been highlighted in red and green. This is because only parts of this class were hit by our tests. We would need to make more tests to achieve a higher code coverage in this class.</p><h2 style="text-align: center;" id="CodeCoverageDefinitions-UntestableLines"><strong>Untestable Lines </strong></h2><p>Untestable Lines are code lines that an automatic test can not cover. This can vary and depends on the project being worked on, but it is crucial to document any code found to be untestable, and why it is untestable. Future developers will know that it is untestable and plan accordingly if necessary.</p><p>Refer to the <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/775225368/Testable+Behaviour#Risk-Based-Code-Coverage" rel="nofollow">Testable Behaviour</a> document for more on what is considered untestable.</p><h2 style="text-align: center;" id="CodeCoverageDefinitions-AutomaticTesting"><br/><strong>Automatic Testing </strong></h2><p>Automatic Testing refers to tests that are run automatically. You write a test to do something in the project, run the test, and Unity will automatically perform the test you wrote.</p><p>Figure 5 shows an example of a simple automatic test. This test instantiates an asteroid, moves it, and then checks if the asteroid was moved. The test will return as either Passed or Failed. This is all done automatically.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307394.png" data-image-src="attachments/776307347/776307394.png" data-height="140" data-width="972" data-unresolved-comment-count="0" data-linked-resource-id="776307394" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-191744.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="1c003257-90c0-4a7a-b193-0c0f663d745a" data-media-type="file"></span><h2 style="text-align: center;" id="CodeCoverageDefinitions-ManualTesting"><strong>Manual Testing</strong></h2><p>A manual test is a test that needs to be done manually by a tester. Although automatic tests are usually better, sometimes, especially when using Unity and developing games, there may be something that is too complicated or time consuming to automate. This is when a manual test is ideal. </p><p>With Unity, you can record your project using the Code Coverage package, start your game, and perform whatever you want to test. You can then end the recording and see the same results as if you had done it automatically. It would be best if you strived to make tests automatic, but be prepared to create some manual ones when needed.</p><p /><h2 style="text-align: center;" id="CodeCoverageDefinitions-TestedFile-FromCodeCoverageTemplate"><strong>Tested File - From Code Coverage Template</strong></h2><p>This is the name of the file that you are writing tests for. It is essential to keep track of this for traceability.</p><h2 style="text-align: center;" id="CodeCoverageDefinitions-RelatedTests-FromCodeCoverageTemplate"><strong>Related Tests - From Code Coverage Template</strong></h2><p>The related tests field shows which tests cover which lines in a class. In Figure 6, TEST-SAND-008 covers lines 0-125, and TEST-SAND-009 covers lines 151-200. It is essential to keep track of this for traceability</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307391.png" data-image-src="attachments/776307347/776307391.png" data-height="135" data-width="762" data-unresolved-comment-count="0" data-linked-resource-id="776307391" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-193448.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="52295e15-b844-4068-a40d-6a77ba3bc370" data-media-type="file"></span><h2 style="text-align: center;" id="CodeCoverageDefinitions-Reasonings-FromCodeCoverageTemplate"><strong>Reasonings - From Code Coverage Template</strong></h2><p>The reasonings column is used when we cannot test certain lines of code. We need to document the reason why we cannot test a line of code. This helps us try to fix it, get around it, or learn and teach future developers that this code is untestable. Figure 6 shows an example of untestable code. We specify the file the code is in, which lines, and why we cannot test it.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307388.png" data-image-src="attachments/776307347/776307388.png" data-height="212" data-width="764" data-unresolved-comment-count="0" data-linked-resource-id="776307388" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230525-194046.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="090a6cc7-1316-4ff8-88c0-5f20e25e39cb" data-media-type="file"></span><h2 style="text-align: center;" id="CodeCoverageDefinitions-CyclomaticComplexity"><strong>Cyclomatic Complexity</strong></h2><p>Cyclomatic Complexity helps us determine how complex our code is. This tool is valuable for refactoring our code and making it less complicated. It also tells us how many tests we should write to test every path of our function correctly.</p><p>You should rarely need to figure out your function's Cyclomatic Complexity manually. However, knowing how it is calculated for learning is essential.</p><p>There are two ways to find the Cyclomatic Complexity of a function. The first way is to use the formula <strong>Cyclomatic Complexity = Edges – Nodes + 2(Exit Points)</strong>. More about this formula can be found <a class="external-link" href="https://www.bbau.ac.in/dept/CS/TM/Cyclomatic.pdf" rel="nofollow">here</a>.</p><p>The second way is to look at the function and count the number of decisions in the function. If, else if, and else statements, as well as loops, all count as 1 for the complexity. Additionally, the function declaration is also considered as 1.</p><p>The automatically calculated complexity of your function can be found in your code coverage document.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776307347/776307385.png" data-image-src="attachments/776307347/776307385.png" data-height="140" data-width="325" data-unresolved-comment-count="0" data-linked-resource-id="776307385" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230526-133424.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776307347" data-linked-resource-container-version="2" data-media-id="026a43d8-2f38-4cf1-b888-3997ec83036a" data-media-type="file"></span><p>Figure 9 shows the standard for Cyclomatic Complexity. This is a good rule of thumb for your project. However, this can be altered per your team’s needs.</p><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Note</strong>: Cyclomatic Complexity is much more complex then what is written in this documentation. This documentation is kept simple to be easily understood. If interested, look more into it, as it is an interesting topic. <img class="emoticon emoticon-smile" data-emoji-id="1f642" data-emoji-shortname=":slight_smile:" data-emoji-fallback="🙂" src="images/icons/emoticons/smile.png" width="16" height="16" data-emoticon-name="smile" alt="(smile)"/> </p></div></div><p /><h2 style="text-align: center;" id="CodeCoverageDefinitions-CRAPScore"><strong>CRAP Score </strong></h2><p>A CRAP score is a metric used to describe how good or bad a section of code (specifically a method) is. This term was created to rate code with very broad reasoning, like poor testing or high complexity. The formula used to calculate CRAP score is as follows:</p><p style="text-align: center;"><strong>CRAP1(m) = comp(m)^2 * (1 – cov(m)/100)^3 + comp(m) </strong></p><p>Where <strong>CRAP1(m)</strong> is the <em>CRAP1 score for a method m</em>,</p><p><strong>comp(m)</strong> is the <em>cyclomatic complexity of m</em>,</p><p>and <strong>cov(m)</strong> is the <em>basic path code coverage from automated tests for m</em>.</p><p>If CRAP1(m) &gt; 30, the method is generally considered &quot;CRAPpy.&quot; Aiming for 30 is a good rule of thumb. However, referring to your project about what should be considered acceptable levels of &quot;CRAPpy&quot; code is preferred.</p><p /><h2 style="text-align: center;" id="CodeCoverageDefinitions-NPathComplexity"><strong>NPath Complexity</strong></h2><p>The NPath Complexity of a function refers to how many different outcomes the function has. The following code snippet provides an example.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence"> public static string getDialogue(int choice)
+        {
+            if (choice == 1)
+            {
+                return &quot;You purchased a potion!&quot;;
+            }
+            else if (choice == 2)
+            {
+                return &quot;You purchased a mana potion!&quot;;
+            }
+            else 
+                return &quot;You did not purchase anything&quot;;          
+        }</pre>
+</div></div><p>This function receives an int and returns a dialogue based on the number. Since this function has three possible return statements it can hit, it has an NPath Complexity of 3.</p><div class="panel" style="background-color: #FFFAE6;border-width: 1px;"><div class="panelContent" style="background-color: #FFFAE6;">
+<p><strong>Note</strong>: As of writing this, NPath Complexity in unity does not currently work and will always return 0.</p>
+</div></div><p /><h2 style="text-align: center;" id="CodeCoverageDefinitions-UnitTest"><strong>Unit Test</strong></h2><p>A Unit Test is a test that checks an individual unit of code. You typically want each test only to test one specific thing, meaning unit tests should only have one Assert statement. Unit tests usually use the Arrange, Act, Assert formula. </p><ul><li><p><strong>Arrange</strong> - where you arrange everything your test will use, such as variables or objects.</p></li><li><p><strong>Act </strong>- where you perform the test, such as adding two numbers.</p></li><li><p><strong>Assert </strong>- where you check if the test passed or failed, such as checking if adding two numbers gave the correct result. </p></li></ul><p>The following code snippet is a simple example of a Unit Test that checks if two numbers are added correctly using the Arrange, Act, Assert formula.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Note: </strong>This is a basic C# Unit Test, not a Unity test.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[TestMethod]
+public void addTwoNumbers_GivenTwoNumbers_CorrectNumberReturned()
+{
+  //Arrange
+  int numberOne = 1, numberTwo = 2, expectedResult = 3;
+
+  //Act
+  int actualResult = MyClass.addTwoNumbers(numberOne, numberTwo);
+
+  //Assert
+  Assert.AreEqual(expectedResult, actualResult);
+}</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307358.png">image-20230529-134729.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307361.png">image-20230526-181110.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307364.png">image-20230526-181029.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307367.png">image-20230526-180442.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307370.png">image-20230526-180153.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307373.png">image-20230526-175559.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307376.png">image-20230526-175340.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307379.png">image-20230526-151117.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307382.png">image-20230526-135002.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307385.png">image-20230526-133424.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307388.png">image-20230525-194046.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307391.png">image-20230525-193448.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307394.png">image-20230525-191744.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307397.png">image-20230525-185546.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307400.png">image-20230525-184824.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307403.png">image-20230525-184712.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307406.png">image-20230525-184609.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307409.png">image-20230525-183629.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307412.png">image-20230525-183552.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307415.png">image-20230525-181842.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307418.png">image-20230525-181532.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307421.png">image-20230525-181346.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776307347/776307424.png">image-20230525-174236.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:49</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

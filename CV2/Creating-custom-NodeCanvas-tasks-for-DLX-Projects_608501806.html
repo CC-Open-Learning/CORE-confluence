@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Creating custom NodeCanvas tasks for DLX Projects</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Graph-Based-Editor_600768582.html">Graph-Based Editor</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Creating custom NodeCanvas tasks for DLX Projects
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jonah Pearce</span> on Mar 01, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>While NodeCanvas has many features, for unique functionalities in DLX projects, there will be a need to create custom tasks. Creating custom tasks with NodeCanvas is a process that involves a few steps:</p><ol start="1"><li><p>Start by creating a new C# script in your Unity project. This script should contain the code for your custom task.</p></li><li><p>In the new script, define a new class inherited from NodeCanvas. Framework.ActionTask class. This class will represent your custom task.</p></li><li><p>In the new class, when you override the OnExecute method, you can implement any functionality possible to be performed when this task is activated. This method will contain the code executed when the task is run.</p></li><li><p>You can use the agent variable and/or the blackboard provided by the task to access the game objects and data you need to perform the task.</p></li><li><p>Once you have finished writing the code for your task, you can add it to the graph by creating a new instance of the task class and connecting it to other nodes in the graph.</p></li></ol><p>To properly implement custom tasks, you need to understand that NodeCanvas uses the concept of &quot;task agents&quot; and &quot;blackboards&quot; to manage the data and behavior of your game objects. Task agents are the objects that your tasks will interact with, and blackboards are used to store data that your tasks can access. Essentially the agent is the object/variable that you apply to the task when you add it to a node in the visual editor.</p><p>This is as basic as possible custom task that just prints &quot;Hello World!&quot; to the console when executed:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">using NodeCanvas.Framework;
+using ParadoxNotion.Design;
+using UnityEngine;
+
+public class PrintHelloWorld : ActionTask&lt;Transform&gt;
+{
+    protected override void OnExecute()
+    {
+        Debug.Log(&quot;Hello World!&quot;);
+        EndAction();
+    }
+}
+</pre>
+</div></div><p>Here is a more complex example of a custom node from the DLX example project, that runs a 50/50 chance of an object being active.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">using NodeCanvas.Framework;
+using ParadoxNotion.Design;
+using UnityEngine;
+
+[Name(&quot;Random Active&quot;)]
+[Category(&quot;GameObject&quot;)]
+[Description(&quot;50/50 Chance of setting a gameobject to either inactive or active.&quot;)]
+public class RandomActivation : ActionTask&lt;Transform&gt;
+{
+    protected override string info
+    {
+        get { return string.Format(&quot;{0} {1}&quot;, 0.5, agentInfo); }
+    }
+    protected override void OnExecute()
+    {
+        // 50/50 on the gameobject being enabled or disabled.
+        if (Random.value &lt; 0.5f)
+        {
+            agent.gameObject.SetActive(true);
+        }
+        else
+        {
+            agent.gameObject.SetActive(false);
+        }
+        EndAction();
+    }
+}</pre>
+</div></div><p>Once you have created and saved your new task and the scripts have been reloaded in Unity, you will be able to find your custom task and add it to a node.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/608501806/644382759.png" data-image-src="attachments/608501806/644382759.png" data-height="340" data-width="515" data-unresolved-comment-count="0" data-linked-resource-id="644382759" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230301-134427.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="608501806" data-linked-resource-container-version="1" data-media-id="282f26b5-6611-4a36-80d4-0b418e183276" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/608501806/644382759.png">image-20230301-134427.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

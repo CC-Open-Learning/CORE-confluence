@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Analytics 2 -  Event Cache</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-2-Upgrades_805142542.html">Analytics 2 Upgrades</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Analytics 2 -  Event Cache
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alistair Campbell</span>, last modified on Nov 09, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <ul><li><p>Caching events on event fail</p></li><li><p>Create a queue to store events if events fail to send</p></li><li><p>upon next successful event, send all in queue</p><ul><li><p>if any fail, return them to the queue</p></li></ul></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/805044254/805142567.png" data-image-src="attachments/805044254/805142567.png" data-height="652" data-width="548" data-unresolved-comment-count="0" data-linked-resource-id="805142567" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230918-172656.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="805044254" data-linked-resource-container-version="5" data-media-id="7e370df9-d9b1-4672-a509-4aa2b9c3ffa8" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="548" loading="lazy" src="attachments/805044254/850329602.png?width=548" data-image-src="attachments/805044254/850329602.png" data-height="1082" data-width="1039" data-unresolved-comment-count="0" data-linked-resource-id="850329602" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231109-063639.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="805044254" data-linked-resource-container-version="5" data-media-id="f32ca692-5a41-4e12-b852-bfe1a4294d42" data-media-type="file"></span><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This is pretty much ready to be implemented now. I think that this design is decent but I wouldn’t mind feedback on it form someone smart.</p></div></div><p /><p /><p /><p /><h1 id="Analytics2-EventCache-Challenges">Challenges</h1><h2 id="Analytics2-EventCache-Thequeueemptyingproblem">The queue emptying problem</h2><p>A task that is proving to be difficult is being able to tell the queue to continue sending events while</p><h3 id="Analytics2-EventCache-PossibleSolutions">Possible Solutions</h3><ol start="1"><li><p>Return a boolean from the sendEvent() method indicating whether the send was successful or not.<br/><strong>Problem: </strong>The callback function which updates the method is executed after the sendEvent() method returns. This results in the method always returning false since the value is not updated in time.</p></li><li><p>Recursively call the method to send an item from queue inside the successful callback<br/><strong>Problem: </strong>This results in reference hell. Maybe if I redesigned the system so that the queue was contained within SendService as opposed to being a standalone class it would work better, but with the way I implemented it this go around there's no good way to do it. This isnt really an impossible solution I just wanted to explore other options before rewriting my code.</p></li><li><p>Use C# Events to trigger queue events from the callback (this is terrifying but please be a winner I’m running out of time)<br/><strong>Advantages: </strong>Shouldn’t cause any waiting, shouldn’t(?) be recursive, shouldn’t couple things too mcuh (hopefully)<br/><strong>Disadvantages: </strong>Its pretty complicated lol</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="678" loading="lazy" src="attachments/805044254/850984981.png?width=678" data-image-src="attachments/805044254/850984981.png" data-height="541" data-width="678" data-unresolved-comment-count="0" data-linked-resource-id="850984981" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231109-153307.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="805044254" data-linked-resource-container-version="5" data-media-id="84a1a59c-8a21-4593-9541-d497480b9234" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/805044254/804945952.png">image-20230918-171039.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/805044254/805142561.png">image-20230918-171041.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/805044254/805142567.png">image-20230918-172656.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/805044254/850329602.png">image-20231109-063639.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/805044254/850984981.png">image-20231109-153307.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

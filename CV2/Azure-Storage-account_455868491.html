@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Azure Storage account</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Azure Storage account
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ujjwal Prashar</span>, last modified by <span class='editor'> Jordan Robinson</span> on Jan 27, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><p>This page will go over the The storage account in the Azure Portal</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Video Tutorial </p><ul><li><p><a class="external-link" href="https://stuconestogacon.sharepoint.com/:v:/s/VARLab/EZzWUwESWztGncCdQv2Sv94BxPvPhGp0DgFmlliR5X9U3w?e=M1woV7" rel="nofollow">Azure Portal</a></p></li></ul>
+</div></div><h2 id="AzureStorageaccount-Overview">Overview</h2><p>Azure storage account provides a unique namespace for data objects like blobs, files, tables and disks to be uploaded and downloaded over the HTTPS.</p><p>There are different types of storage accounts and at VarLabs we are using the Standard general purpose account which has support for blobs, Queue, and Table Storage. The blobs contains the Data Lake Storage which is a set of capabilities dedicated to big data analytics built on the azure blob storage. For more information on big data analytics visit <a class="external-link" href="https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction" rel="nofollow">this</a> link.</p><p>Every Object that is stored on the storage has a unique address assigned to it which is used to it which is used to interact with the data object.</p><p>The interaction are handled with a restful structure in mind and using a Web API as a middle man.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>varlabsazurestorage is a part of the CoreUnity resource group in azure.</p></div></div><p style="margin-left: 30.0px;">These are the properties of the Storage Account</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/455868491/455868531.png" data-image-src="attachments/455868491/455868531.png" data-height="485" data-width="777" data-unresolved-comment-count="0" data-linked-resource-id="455868531" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211027-050637.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="455868491" data-linked-resource-container-version="9" data-media-id="ae5d4a73-c520-47b9-bed1-13d1468301bf" data-media-type="file"></span><p style="margin-left: 30.0px;">The storage account houses containers which contains blob blocks (Data).</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>To make new storage accounts, access is needed to the Azure portal and for the time being only Jordan Robinson and myself (Ujjwal Prashar) have access to the storage. If a dev needs access to the storage please contact IT.</p></div></div><p><strong>Container:</strong></p><p style="margin-left: 30.0px;">Containers act as different housing points for data that is being sent to Azure. Every Scenario has a separate container and once a scenario is loaded the value for the active container changes to that particular container. If no scenario is loaded that the files will be called from a container called “azureplayground“. The container are named after the unique identifiers of different scenarios.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/455868491/469237869.png" data-image-src="attachments/455868491/469237869.png" data-height="467" data-width="928" data-unresolved-comment-count="0" data-linked-resource-id="469237869" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-170903.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="455868491" data-linked-resource-container-version="9" data-media-id="b7664afa-c7df-4c18-bd28-03b6a95e24aa" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/455868491/469499972.png" data-image-src="attachments/455868491/469499972.png" data-height="454" data-width="923" data-unresolved-comment-count="0" data-linked-resource-id="469499972" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-170920.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="455868491" data-linked-resource-container-version="9" data-media-id="e79371e9-910f-495c-a3ee-67c823d20943" data-media-type="file"></span><p><strong>Access Key:</strong></p><p style="margin-left: 30.0px;">Every Storage account has two 512 bit key assigned to it. These keys are used to authorize access in the storage accounts to send and retrieve data stored in the Simulations. These Access keys are stored on the Web API and to make GET or SET calls to the API authorization is required. Authorization is provided via the JWT token and all the calls made from Core have authorization pre applied on them so developers don’t have to worry about making authorization calls as well.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/455868491/469205139.png" data-image-src="attachments/455868491/469205139.png" data-height="467" data-width="928" data-unresolved-comment-count="0" data-linked-resource-id="469205139" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220120-171020.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="455868491" data-linked-resource-container-version="9" data-media-id="6a53e4f1-8a27-4449-8a23-4a4fdc5733f6" data-media-type="file"></span><p /><p /><p /><p /><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/455868510.png">image-20211027-045328.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/455868531.png">image-20211027-050637.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/458063987.png">azure-blob.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/469237869.png">image-20220120-170903.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/469499972.png">image-20220120-170920.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/455868491/469205139.png">image-20220120-171020.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Graph-Based Editor</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Graph-Based Editor
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Aug 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This section will describe:</p><ul><li><p>the use of the NodeCanvas library in DLX projects to provide a visual graph editor,</p></li><li><p>the CORE package providing additional tools to extend NodeCanvas functionality, and</p></li><li><p>an example of NodeCanvas being used in the CORE Sandbox repository</p></li></ul><p /><h2 id="Graph-BasedEditor-NodeCanvas">NodeCanvas</h2><div class="table-wrap"><table data-layout="default" data-local-id="a7eb9f0e-ba86-4138-a8c6-d01d9f240989" class="confluenceTable"><colgroup><col style="width: 323.0px;"/><col style="width: 323.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>NodeCanvas</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">3.2.6</span>  </p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/nodecanvas" rel="nofollow">https://bitbucket.org/VARLab/nodecanvas</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>License</strong></p></th><td class="confluenceTd"><p>Standard Unity Extension Asset</p></td></tr></tbody></table></div><h3 id="Graph-BasedEditor-InstallingNodeCanvasinaDLXProject">Installing NodeCanvas in a DLX Project</h3><p><strong>NodeCanvas </strong>is a third-party asset developed by <a class="external-link" href="https://paradoxnotion.com/" rel="nofollow"><strong>Paradox Notion</strong></a>. VARLab maintains and internally distributes NodeCanvas as a UPM-compatible package through a Bitbucket repository.</p><p>In the <code>Packages/manifest.json</code> file of a DLX Unity project, add the following line to dependencies:</p><p><code>&quot;com.paradoxnotion.nodecanvas&quot;: &quot;ssh://git@bitbucket.org/VARLab/nodecanvas.git#3.2.6&quot;</code></p><p>This will install the specific stable version of NodeCanvas as a UPM package into the Unity project.</p><p /><h2 id="Graph-BasedEditor-NodeCanvasTools">NodeCanvas Tools</h2><div class='plugin-tabmeta-details'><div class="table-wrap"><table data-layout="default" data-local-id="07db5b2c-1ca9-4153-8496-586565e9a554" class="confluenceTable"><colgroup><col style="width: 323.0px;"/><col style="width: 323.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package Name</strong></p></th><td class="confluenceTd"><p>NodeCanvas Tools</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">1.0.2</span></p></td></tr><tr><th class="confluenceTh"><p><strong>Description</strong></p></th><td class="confluenceTd"><p>Custom actions and utilities for extending the <a class="external-link" href="https://nodecanvas.paradoxnotion.com/documentation/" rel="nofollow">NodeCanvas</a> library.</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/nodecanvas-tools" rel="nofollow">https://bitbucket.org/VARLab/nodecanvas-tools</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">PRODUCTION</span> </p></td></tr></tbody></table></div></div><h2 id="Graph-BasedEditor-InstallingtheNodeCanvasToolsCOREpackage">Installing the NodeCanvas Tools CORE package</h2><p><strong>NodeCanvas-Tools </strong>is dependent on the base <strong>NodeCanvas</strong> package. Until a scoped registry for CORE packages has been deployed, this dependency must be managed manually.</p><p>In the <code>Packages/manifest.json</code> file of a DLX Unity project, add the following line to dependencies:</p><p><code>&quot;com.varlab.nodecanvas.tools&quot;: &quot;ssh://git@bitbucket.org/VARLab/nodecanvas-tools.git#1.0.2&quot;</code></p><p>Optionally, the numbered version tag (ie. <code>1.0.0</code>) can be replaced with <code>upm</code> or a specific development branch name in order to target in-development versions of the package.</p><p>If your PC is not yet configured to access VARLab repositories via SSH, follow the instructions on <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/497123337/Setting+Up+Bitbucket+Sourcetree" data-linked-resource-id="497123337" data-linked-resource-version="20" data-linked-resource-type="page">Setting Up Bitbucket &amp; Sourcetree</a> before continuing.</p><p /><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/600768582/600768594.png">image-20220922-132955.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/600768582/600768597.png">image-20220922-132913.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/600768582/600768600.png">image-20220922-132843.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

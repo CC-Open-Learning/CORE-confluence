@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Object Viewer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Object Viewer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Amro Belbeisi</span>, last modified by <span class='editor'> Liam Stanziani</span> on Dec 13, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="20bb7ec7-741d-4179-b428-ea1eeb4d323c" data-table-display-mode="default" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><p><span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-current">IN PROGRESS</span> </p></th></tr><tr><th class="confluenceTh"><p><strong>Start Date</strong></p></th><td class="confluenceTd"><p>May S24-1</p></td></tr><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><td class="confluenceTd"><p>com.varlab.objectviewer</p></td></tr><tr><th class="confluenceTh"><p><strong>Version</strong></p></th><td class="confluenceTd"><p>1.9.2</p></td></tr><tr><th class="confluenceTh"><p><strong>Repository</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/object-viewer/src/main/?search_id=1eca82ab-901c-42a9-b647-e37a86510e87" rel="nofollow">https://bitbucket.org/VARLab/object-viewer/src/main/?search_id=1eca82ab-901c-42a9-b647-e37a86510e87</a></p></td></tr></tbody></table></div><p style="margin-left: 30.0px;"><strong>Table of Contents:</strong></p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544616864 {padding: 0px;}
+div.rbtoc1748544616864 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544616864 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544616864'>
+<ul class='toc-indentation'>
+<li><a href='#ObjectViewer-AbouttheObjectViewer'>About the Object Viewer</a></li>
+<li><a href='#ObjectViewer-AbouttheObjectViewerController'>About the Object Viewer Controller</a></li>
+<li><a href='#ObjectViewer-AboutObjectCloning'>About Object Cloning</a></li>
+<li><a href='#ObjectViewer-AbouttheWorldObjectRenderer'>About the World Object Renderer</a></li>
+<li><a href='#ObjectViewer-AboutRotatinganObject'>About Rotating an Object</a></li>
+<li><a href='#ObjectViewer-AboutKeybindings'>About Keybindings</a></li>
+<li><a href='#ObjectViewer-AddingPresetObjects'>Adding Preset Objects</a></li>
+<li><a href='#ObjectViewer-SettingupPackagewithExamples'>Setting up Package with Examples</a></li>
+</ul>
+</div><h2 id="ObjectViewer-AbouttheObjectViewer">About the Object Viewer</h2><p>The Object Viewer is a unity package that implements a 3D viewer component that be used within UI Toolkit, it includes built-in functionalities such as rotating an object using keyboard inputs or the mouse cursor, resetting object rotation and applying specific animations to objects, host projects can even use the events given by the package or implement their own events and call the functions of the package. The Object Viewer can work with or without a UI and it’s up to the developer to decide which approach to use for their project.</p><h2 id="ObjectViewer-AbouttheObjectViewerController">About the Object Viewer Controller</h2><p>The Object Viewer controller is where most of the functionality for package is located, its the intermediary between the Object Viewer class and the display, it gets fed specific information from the ‘WorldObject’ class which gets stored and called from the controller to the display (UI or Worldspace).</p><h2 id="ObjectViewer-AboutObjectCloning">About Object Cloning</h2><p>Object Cloning is a feature within the Object Viewer controller, it also an object to be inspected without manipulating the transform of the original object by instantiating a clone and manipulating the clone’s transform instead of the original object. This feature can be applied for situations where the original object’s transform cannot be manipulated or if the developer prefers not manipulating the original object’s transform for any other reason. </p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>You can enable this feature by enabling “Clone Game Object” checkbox in the Object Viewer controller script.</p>
+</div></div><p /><h2 id="ObjectViewer-AbouttheWorldObjectRenderer">About the World Object Renderer</h2><p>This asset is important to display objects in world space into a UI document, the important features to understand:</p><ul><li><p>WorldImage - A UI element that can be added to any UI document, its used to display the World Object Renderer camera on a UI document.</p></li><li><p>Temp Camera - A temp camera is always included when adding the World Object Renderer, the camera of the World Object Renderer follows the same functionality of a regular Unity camera.</p></li><li><p>World Objects List - A list of transforms, the temp camera focuses on the transform in the first index.</p></li><li><p>Id - a string property that's used to connected the World Object Renderer to it’s WorldImage counterpart, the WorldImage element also includes an Id property which needs to be identical to the Id of the World Object Renderer in order for proper display.</p></li></ul><p>In order to get this asset to be imported along side Object Viewer, you must manually import it by going to Tools&gt;Object Viewer&gt;Import/Update Object Viewer Assets.</p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>If you would like to know more about the assets and its other features, you can read this documentation provided by Kamgam here: <a class="external-link" href="https://kamgam.com/unity/UIToolkitWorldImageManual.pdf" rel="nofollow">Link</a></p>
+</div></div><h2 id="ObjectViewer-AboutRotatinganObject">About Rotating an Object</h2><p>An object’s rotate functionality is done through the RotateObject script, this script is a required component for the ‘WorldObject’ script, players can rotate an object with WASD, arrow keys, or with the mouse cursor.</p><p>Main features of WorldObject:</p><ul><li><p>Transform Details - Allows you to set the starting scale and rotation of a certain object, if not set, then the object will be automatically scaled to fit the size of the UI</p></li></ul><p>Main features of RotateObject: </p><ul><li><p>Limit Rotation - Allows you to assign a minimum and maximum angle for X, Y, Z.</p></li><li><p>Allow Animations - Allows you to specify how many animation states you want to be included.</p></li><li><p>Animatation States - a list with string inputs that lets you specify which animations you want to play in sequential order (Object must have animator component in order for this to work).</p></li></ul><h2 id="ObjectViewer-AboutKeybindings">About Keybindings</h2><p>Keybindings are <a class="external-link" href="https://docs.unity3d.com/Manual/class-ScriptableObject.html" rel="nofollow">ScriptableObjects</a>, Keybindings use <a class="external-link" href="https://docs.unity3d.com/ScriptReference/KeyCode.html" rel="nofollow">KeyCode </a>types that allows developers to specify the inputs of four specific commands in the Object Viewer: </p><ol start="1"><li><p>Exit Object Viewer - Exits out of the Object Viewer state.</p></li><li><p>Reset Rotation - Resets the rotation of an object back to its original rotation.</p></li><li><p>Start Animation - Starts the animation for a specific object.</p></li><li><p>End Animation - Ends the animation for a specific object.</p></li></ol><h2 id="ObjectViewer-AddingPresetObjects">Adding Preset Objects</h2><p>There are preset objects that the developer can add to the scene by right-clicking the hierarchy then VARLab-&gt;Object Viewer-&gt;Intractable Object/Object Viewer Manager/Object Viewer UI, each of these objects have default components and values that the developer can change to their discretion. If you need to change the collider add the new one first and then remove the old collider component.</p><p>  </p><h2 id="ObjectViewer-SettingupPackagewithExamples">Setting up Package with Examples</h2><a href="Setting-up-the-Object-Viewer-Package-in-Your-Project_1251835906.html" data-linked-resource-id="1251835906" data-linked-resource-version="10" data-linked-resource-type="page">Setting up the Object Viewer Package in Your Project</a><p> </p><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1238204436.gif">GIF 7-24-2024 1-44-59 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1236500523.gif">GIF 7-24-2024 1-44-59 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1237188666.mp4">object-viewer - UI Sample Scene - Windows, Mac, Linux - Unity 2022.3.14f1 _DX11_ 2024-07-24 15-46-02.mp4</a> (video/mp4)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240629273.mp4">Desktop 2024.07.25 - 09.56.19.02 - Trim.mp4</a> (video/mp4)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240760332.png">image-20240725-180218.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1241219079.gif">GIF 7-25-2024 2-09-22 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240530965.gif">GIF 7-25-2024 2-09-22 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240596496.gif">GIF 7-25-2024 2-14-55 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240727601.png">image-20240725-182124.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1241120780.png">image-20240725-182134.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1240399898.png">image-20240725-192851.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249148982.png">image-20240730-153801.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1248624745.png">image-20240730-153802.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249116191.png">image-20240730-154439.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1248657437.png">image-20240730-154502.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249050711.png">image-20240730-154754.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1248919627.gif">GIF 7-30-2024 2-57-15 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249968138.gif">GIF 7-30-2024 3-07-48 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249509390.png">image-20240730-191030.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1248690333.gif">GIF 7-30-2024 3-10-56 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237712913/1249443863.gif">GIF 7-30-2024 3-12-28 PM.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

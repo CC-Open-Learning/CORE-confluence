@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Data Processing and Modeling</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Analysis-Pipeline_717357141.html">Data Analysis Pipeline</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Data Processing and Modeling
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hayden Auterhoff</span>, last modified by <span class='editor'> Jacky Lam</span> on Jun 14, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will go over using PlayFab Data Explorer advanced mode to discover insights in your event data using Kusto Query Language (KQL). KQL can only perform <strong>read-only requests</strong> to process data and return results.</p><h3 id="DataProcessingandModeling-Theevents.allTable">The events.all Table</h3><p>All event received is stored in the <code>events.all</code> table by default.</p><h3 id="DataProcessingandModeling-GenerateVisualizationswithKQL">Generate Visualizations with KQL</h3><p>KQL can generate graphs and charts along side with query result using the <code>render</code> operator keyword.</p><p>The following keywords can be used to generate : <code>areachart</code>, <code>barchart</code>, <code>columnchart</code>, <code>scatterchart</code>, <code>piechart</code>. With additional <code>kind</code> property to generate variations of the charts, those properties can be find in <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer" rel="nofollow">https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer</a>.</p><p>Example: </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/717488218/722731014.png" data-image-src="attachments/717488218/722731014.png" data-height="474" data-width="946" data-unresolved-comment-count="0" data-linked-resource-id="722731014" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230602-201257.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="717488218" data-linked-resource-container-version="3" data-media-id="4d2e7f1d-8672-4a5f-8558-49d963f3e6a0" data-media-type="file"></span><p /><h2 id="DataProcessingandModeling-Limitations">Limitations</h2><p>There is no customization with PlayFab Dashboard.</p><p>Data Explorer (advanced) does not have the feature to save query  in the web portal to be reuse later. It has tabs, but once you close the tab, the query is gone. There is a high risk of accidentally closing a query tab, so it is a bad method to store query statement to be reused.</p><p>A better way to have store and reuse queries is to use <a class="external-link" data-card-appearance="inline" href="https://dataexplorer.azure.com/" rel="nofollow">https://dataexplorer.azure.com/</a>.</p><p>Check out the article about <a href="Azure-Data-Explorer_731414539.html" data-linked-resource-id="731414539" data-linked-resource-version="4" data-linked-resource-type="page">Azure Data Explorer</a>.</p><p /><p>For more powerful tool, consider looking into Microsoft Power BI.</p><h2 id="DataProcessingandModeling-Resources">Resources</h2><div class="table-wrap"><table data-layout="default" data-local-id="492ffcc5-b7b0-4c53-ba30-7af4f0649a26" class="confluenceTable"><colgroup><col style="width: 244.0px;"/><col style="width: 516.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Overview</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/gaming/playfab/features/insights/data-explorer/getting-started-with-data-explorer-advanced" rel="nofollow">https://learn.microsoft.com/en-us/gaming/playfab/features/insights/data-explorer/getting-started-with-data-explorer-advanced</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Kusto Query Language</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorials/learn-common-operators" rel="nofollow">https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorials/learn-common-operators</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>KQL render operator</strong></p></th><td class="confluenceTd"><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer" rel="nofollow">https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer</a> </p></td></tr></tbody></table></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/717488218/722731014.png">image-20230602-201257.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

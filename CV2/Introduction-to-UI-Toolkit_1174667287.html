@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Introduction to UI Toolkit</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Introduction to UI Toolkit
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Balazs Karner</span>, last modified on Apr 14, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="023b8977-b193-41f1-8f96-ed7b86deceaa" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 543.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544347700 {padding: 0px;}
+div.rbtoc1748544347700 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544347700 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544347700'>
+<ul class='toc-indentation'>
+<li><a href='#IntroductiontoUIToolkit-BeforeBeginningwithUIToolkit'>Before Beginning with UI Toolkit</a>
+<ul class='toc-indentation'>
+<li><a href='#IntroductiontoUIToolkit-KeyDifferencesbetweenUIToolkitandUnityUI'>Key Differences between UI Toolkit and Unity UI</a></li>
+</ul>
+</li>
+<li><a href='#IntroductiontoUIToolkit-UIToolkitComponents&amp;Windows'>UI Toolkit Components &amp; Windows</a>
+<ul class='toc-indentation'>
+<li><a href='#IntroductiontoUIToolkit-UIBuilder'>UI Builder</a></li>
+<li><a href='#IntroductiontoUIToolkit-UIDebugger'>UI Debugger</a></li>
+</ul>
+</li>
+<li><a href='#IntroductiontoUIToolkit-LearningUIToolkit'>Learning UI Toolkit</a></li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="IntroductiontoUIToolkit-BeforeBeginningwithUIToolkit">Before Beginning with UI Toolkit</h1><p>Before diving into VELCRO, it is important to understand that Unity’s UI Toolkit is heavily influenced from modern front-end web development and uses flexbox for layout. This is completely different from the UGUI system most Unity developers will be familiar with. Familiarity with simple HTML structure, CSS, and flexbox will be a huge asset in learning UI toolkit quickly.</p><p> </p><h2 id="IntroductiontoUIToolkit-KeyDifferencesbetweenUIToolkitandUnityUI">Key Differences between UI Toolkit and Unity UI</h2><div class="table-wrap"><table data-table-width="1011" data-layout="default" data-local-id="bdfd09eb-3819-46b5-8065-4f0b5782f227" class="confluenceTable"><colgroup><col style="width: 235.0px;"/><col style="width: 392.0px;"/><col style="width: 382.0px;"/></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Category</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">UI Toolkit</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Unity UI</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>How UI is built</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Uses a hierarchy of <strong>VisualElements </strong>similar to &lt;div&gt; and other HTML tags that make up a visual tree. This is edited in the UI Builder and results in a <strong>UXML </strong>file.</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Uses a hierarchy of <strong>GameObjects </strong>where each game object is visible in the hierarchy editor panel.</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Debugging</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Debugging is done through a separate window <strong>(Window &gt; UI Toolkit &gt; Debugger)</strong> that is similar to you pressing F12 in your browser to view the “<strong>elements</strong>” tab.</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Debugging is done through the game objects in the hierarchy.</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Where UI lives</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>UI is referenced in a <strong>UIDocument </strong>component in the <strong>SourceAsset </strong>field on an empty GameObject. It also references a <strong>PanelSettings </strong>asset which handles various settings such as resizing.</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>All UI must be placed under a <strong>Canvas/CanvasScaler </strong>that controls scaling.</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Element alignment/justification</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>UI Toolkit uses flexbox to control<strong> </strong>self alignment, child element alignment, and content justification through USS classes.</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Unity UI uses a combination of <strong>Horizontal</strong>/<strong>Vertical</strong>/<strong>Grid LayoutGroup</strong>, <strong>LayoutElement</strong>, and <strong>ContentSizeFitter </strong>components to control self and child size/alignment.</p></td></tr></tbody></table></div><p /><h1 id="IntroductiontoUIToolkit-UIToolkitComponents&amp;Windows">UI Toolkit Components &amp; Windows</h1><ol start="1"><li><p><strong>UXML </strong>file is what contains the UI Element hierarchy and all applied styles to each element either through USS classes or inline styles.</p><ol start="1"><li><p><strong>Right Click &gt; Create &gt; UI Toolkit &gt; UI Document</strong></p></li></ol></li><li><p><strong>USS </strong>file (<strong>U</strong>nity <strong>S</strong>tyle <strong>S</strong>heet) is what contains all the classes that effect element look, behaviour (click and hover effects), and layout of each element.</p><ol start="1"><li><p><strong>Right Click &gt; Create &gt; UI Toolkit &gt; Style Sheet</strong></p></li></ol></li><li><p><strong>TSS </strong>file (<strong>T</strong>heme <strong>S</strong>tyle <strong>S</strong>heet) is an asset that creates a relationship between other TSS and USS files. It can inherit styles from other TSS files (Required to inherit from <strong>UnityDefaultRuntimeTheme</strong>) and determines what USS files have visibility of what themes/classes.</p></li><li><p><strong>UI Document</strong> is the component that goes onto an empty game object in the scene. This associates a C# script with a UXML file, the PanelSettings asset and determines the sort order (z-index) of one UI compared to another.</p><ol start="1"><li><p><strong>Add Component &gt; UI Document</strong></p></li></ol></li><li><p><strong>PanelSettings </strong>is an asset object that defines shared behaviour for scaling and other settings of all UI that reference this asset in the UI Document component. A UI Document component <strong>requires </strong>a reference to a panel settings asset. You can have more than 1 panel settings asset.</p><ol start="1"><li><p><strong>Right Click &gt; Create &gt; UI Toolkit &gt; Panel Settings Asset</strong></p></li></ol></li><li><p><strong>TextSettings </strong>is an asset object that defines shared behaviour for font and other settings of all UI associated with this asset. The text settings asset is referenced in the panel settings asset.</p><ol start="1"><li><p><strong>Right Click &gt; Create &gt; UI Toolkit &gt; Text Settings</strong></p></li></ol></li></ol><p> </p><h2 id="IntroductiontoUIToolkit-UIBuilder">UI Builder</h2><p><strong>Window &gt; UI Toolkit &gt; UI Builder</strong></p><p>All UI in UI Toolkit is created in the UI Builder. It is a visual editor where you can also preview and test any changes that don’t rely on influence from your associated C# scripts.</p><p> </p><ol start="1"><li><p><strong>The stylesheet (USS class list) selector</strong>. This is where you link desired style sheets to your current UXML document.</p></li><li><p><strong>Hierarchy</strong>. This is the tree view of your UXML document representing the UI Element hierarchy.</p></li><li><p><strong>Library</strong>. This is where you add preset UI templates like the default Unity button, slider, etc. to your current UXML document hierarchy. You can also add custom UI templates that are part of your current project.</p></li><li><p><strong>Viewport</strong>. This is where you view the UXML document in it’s current state. You can also preview pseudo state effects such as hover and click effects by clicking the “preview” button in the top right of the viewport.</p></li><li><p><strong>UXML and USS Preview</strong>. This shows you the underlying UXML code behind the UI elements that you drag into the builder as well as the USS classes associated with each element. However, all of this information is easier to understand in different locations. You can collapse this tab all the way down and ignore it most of the time.</p></li><li><p><strong>Inspector</strong>. This is where you change the properties of the currently selected UI element such as USS classes or inline styles.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="UIBuilderAnnotatedMainWindow-20240516-142725.png" width="760" loading="lazy" src="attachments/1174667287/1174732827.png?width=760" data-image-src="attachments/1174667287/1174732827.png" data-height="1406" data-width="2500" data-unresolved-comment-count="0" data-linked-resource-id="1174732827" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="UIBuilderAnnotatedMainWindow-20240516-142725.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="860febf0-4c96-4ae5-a66c-0017e31cfa71" data-media-type="file"></span><p> </p><h2 id="IntroductiontoUIToolkit-UIDebugger">UI Debugger</h2><p><strong>Window &gt; UI Toolkit &gt; Debugger</strong></p><p>You cannot see the UXML document hierarchy at runtime through Unity’s GameObject hierarchy panel. You must use the UI debugger. This is similar to you pressing F12 in your browser to see the “Elements” tab. It will show the UI element hierarchy and the USS classes/inline style applied to each element.</p><p> </p><ol start="1"><li><p><strong>Hierarchy</strong>.<strong> </strong>This panel is where all UI Document hierarchies will be visible that are in the scene. Here you can see the ambulance project has separate UI Documents for a Menu, Settings Menu, Information Popup, etc.</p></li><li><p><strong>Layout/Box Model</strong>. This section is what will show the margin, border, padding, and element width in pixels for the currently selected element. This view is exactly like your browser view when pressing F12. If elements aren’t aligning correctly, this should be your first location to look.</p></li><li><p><strong>Styles</strong>. This section is what will show all the applied USS classes as well as the final resolvedStyle applied to the element after inline styles. You can also see the applied USS classes for each element listed in the hierarchy in yellow text. For the currently selected element in the photo, the “<strong>.background</strong>” and “<strong>.ambulance-theme</strong>” USS classes are visible in both the hierarchy tab and the “<strong>Classes</strong>” list in the styles section.</p></li></ol><p><strong>Note</strong>: You can change these values at runtime in the debugger to test changes before applying to the UXML document in the UI Builder.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240516-164231.png" width="760" loading="lazy" src="attachments/1174667287/1174732833.png?width=760" data-image-src="attachments/1174667287/1174732833.png" data-height="1025" data-width="1915" data-unresolved-comment-count="0" data-linked-resource-id="1174732833" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240516-164231.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="2ff1c553-f58e-483b-bd16-f33b73f1b5da" data-media-type="file"></span><p /><h1 id="IntroductiontoUIToolkit-LearningUIToolkit">Learning UI Toolkit</h1><p>Below are some incredibly useful resources on UI toolkit. Even if you are familiar and/or confident, I highly recommend everyone giving at least the <strong>2023 UI Design and Implementation eBook</strong> and <strong>Flexbox Froggy</strong> a view. <strong>The cards below are links.</strong></p><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a class="external-link" href="https://flexboxfroggy.com/" rel="nofollow"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Flexbox Froggy-20250414-162424.png" width="797" loading="lazy" src="attachments/1174667287/1748762649.png?width=797" data-image-src="attachments/1174667287/1748762649.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1748762649" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Flexbox Froggy-20250414-162424.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="754ab6bd-3fde-4bd6-bf09-16e48fad0595" data-media-type="file"></span></a><a href="1714159633.html" data-linked-resource-id="1714159633" data-linked-resource-version="11" data-linked-resource-type="page"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Box Model-20250414-162420.png" width="757" loading="lazy" src="attachments/1174667287/1749254184.png?width=757" data-image-src="attachments/1174667287/1749254184.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1749254184" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Box Model-20250414-162420.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="3a558631-37a2-498d-8506-17f30042522a" data-media-type="file"></span></a><a class="external-link" href="https://assetstore.unity.com/packages/essentials/tutorial-projects/quizu-a-ui-toolkit-sample-268492" rel="nofollow"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="QuizU-20250414-160940.png" width="760" loading="lazy" src="attachments/1174667287/1748664368.png?width=760" data-image-src="attachments/1174667287/1748664368.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1748664368" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="QuizU-20250414-160940.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="ba9685f6-dc2d-438a-9713-14985bb3d50b" data-media-type="file"></span></a></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a href="1601699863.html" data-linked-resource-id="1601699863" data-linked-resource-version="6" data-linked-resource-type="page"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="VELCRO-20250414-160940.png" width="760" loading="lazy" src="attachments/1174667287/1748860981.png?width=760" data-image-src="attachments/1174667287/1748860981.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1748860981" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="VELCRO-20250414-160940.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="8f162885-6f9e-41d7-a354-2a21271bed1f" data-media-type="file"></span></a><a class="external-link" href="https://unity.com/resources/user-interface-design-and-implementation-in-unity" rel="nofollow"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="EBook-20250414-160940.png" width="760" loading="lazy" src="attachments/1174667287/1748828196.png?width=760" data-image-src="attachments/1174667287/1748828196.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1748828196" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="EBook-20250414-160940.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="b55e629b-440d-4eb1-8ffd-350f5c07efca" data-media-type="file"></span></a><a class="external-link" href="https://assetstore.unity.com/packages/essentials/tutorial-projects/quizu-a-ui-toolkit-sample-268492" rel="nofollow"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Webinar-20250414-162427.png" width="757" loading="lazy" src="attachments/1174667287/1748697136.png?width=757" data-image-src="attachments/1174667287/1748697136.png" data-height="450" data-width="950" data-unresolved-comment-count="0" data-linked-resource-id="1748697136" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Webinar-20250414-162427.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1174667287" data-linked-resource-container-version="13" data-media-id="fe073c25-d911-4493-91b4-bcb2ac5ca2eb" data-media-type="file"></span></a></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1174732827.png">UIBuilderAnnotatedMainWindow-20240516-142725.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1174732833.png">image-20240516-164231.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748926467.png">image-20250414-142139.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748598802.png">image-20250414-154809.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748402201.png">image-20250414-154936.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1749155860.png">image-20250414-155208.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748992025.png">image-20250414-155235.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1749188648.png">Flexbox Froggy-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748697105.png">Box Model-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748828196.png">EBook-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748664368.png">QuizU-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748860981.png">VELCRO-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1749123127.png">Webinar-20250414-160940.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1749254184.png">Box Model-20250414-162420.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748566083.png">Flexbox Froggy-20250414-162424.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748762649.png">Flexbox Froggy-20250414-162424.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748697142.png">Webinar-20250414-162427.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1174667287/1748697136.png">Webinar-20250414-162427.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

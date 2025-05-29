@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Filtering Code Coverage Results</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage_731480070.html">Code Coverage</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Introduction_776306763.html">Code Coverage Introduction</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Code-Coverage-Unity-Setup_776306788.html">Code Coverage Unity Setup</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Filtering Code Coverage Results
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Ryan S (Unlicensed)</span>, last modified by <span class='editor'> Leo Bunting</span> on Aug 04, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544555763 {padding: 0px;}
+div.rbtoc1748544555763 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544555763 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544555763'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#FilteringCodeCoverageResults-Introduction'>Introduction</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#FilteringCodeCoverageResults-TextInstructions'>Text Instructions</a></li>
+<li><span class='TOCOutline'>3</span> <a href='#FilteringCodeCoverageResults-NextSteps'>Next Steps</a></li>
+</ul>
+</div><h2 id="FilteringCodeCoverageResults-Introduction">Introduction</h2><p>This page will provide instructions on how to filter your code coverage results. This will prevent library files from being included in your code coverage. This is important to set up because external libraries should already be tested, and are not our responsibility to test. This will also drastically lower our code coverage percentage, because it will take into account lines from all scripts and libraries. </p><h2 id="FilteringCodeCoverageResults-TextInstructions">Text Instructions</h2><ol start="1"><li><p>To begin, open the Code Coverage window.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306915/776306938.png" data-image-src="attachments/776306915/776306938.png" data-height="582" data-width="520" data-unresolved-comment-count="0" data-linked-resource-id="776306938" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230614-145800.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306915" data-linked-resource-container-version="3" data-media-id="319debd7-8465-4ad6-98f0-ec4c181b4a53" data-media-type="file"></span><p /></li><li><p>Click on the plus sign under “Included Paths” to select the path/folder you wish to focus on for code coverage.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306915/776306935.png" data-image-src="attachments/776306915/776306935.png" data-height="577" data-width="569" data-unresolved-comment-count="0" data-linked-resource-id="776306935" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230614-145937.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306915" data-linked-resource-container-version="3" data-media-id="fcecb675-4a21-4ea4-a92a-ff3b636a6f52" data-media-type="file"></span><p /></li><li><p>Navigate and select the folder you wish to test (make sure this encompasses all the scripts/files the project needs to keep track of).</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="646" loading="lazy" src="attachments/776306915/776306932.png?width=646" data-image-src="attachments/776306915/776306932.png" data-height="530" data-width="938" data-unresolved-comment-count="0" data-linked-resource-id="776306932" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230614-150058.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306915" data-linked-resource-container-version="3" data-media-id="655607b3-8f7b-49b4-98df-d31d5e673ef8" data-media-type="file"></span><p /></li><li><p>Click on the plus under “Excluded Paths” for any files/folders that the project doesn’t need to test that <strong>might be included in your previous “Included Paths”</strong>. No need to exclude folders/files that were not in your included paths.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/776306915/776306929.png" data-image-src="attachments/776306915/776306929.png" data-height="483" data-width="561" data-unresolved-comment-count="0" data-linked-resource-id="776306929" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230614-150238.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306915" data-linked-resource-container-version="3" data-media-id="a55c224a-505b-472f-a644-a665ca0536a3" data-media-type="file"></span><p /></li><li><p>Navigate and select the folder you wish to exclude from the tests.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="646" loading="lazy" src="attachments/776306915/776306926.png?width=646" data-image-src="attachments/776306915/776306926.png" data-height="522" data-width="932" data-unresolved-comment-count="0" data-linked-resource-id="776306926" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230614-150325.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="776306915" data-linked-resource-container-version="3" data-media-id="92a5f794-920c-4c2f-9094-d2f583025a8c" data-media-type="file"></span><p /></li><li><p>Now your Code Coverage Report should be filtered to the folder/files you added to “Included Paths” and exclude the folders/files you specified in your “Excluded Paths”.</p><p /></li></ol><h2 id="FilteringCodeCoverageResults-NextSteps">Next Steps</h2><p>Now that you have filtering setup, you can finally run some tests and get your results. Find out how by following the next guide on <a href="Running-Unity-Tests_776306957.html" data-linked-resource-id="776306957" data-linked-resource-version="3" data-linked-resource-type="page">Running Unity Tests</a>.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306915/776306926.png">image-20230614-150325.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306915/776306929.png">image-20230614-150238.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306915/776306932.png">image-20230614-150058.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306915/776306935.png">image-20230614-145937.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/776306915/776306938.png">image-20230614-145800.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:49</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

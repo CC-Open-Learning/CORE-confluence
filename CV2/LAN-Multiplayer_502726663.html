@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : LAN Multiplayer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : LAN Multiplayer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jul 25, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will go over how to host and connect to the same game instance over LAN using the Network Discovery add-on. </p><p><br/><strong>LAN Network Discover Component: </strong><a class="external-link" data-card-appearance="inline" href="https://github.com/Abdelfattah-Radwan/Fish-Networking-Discovery" rel="nofollow">https://github.com/Abdelfattah-Radwan/Fish-Networking-Discovery</a> </p><hr/><h3 id="LANMultiplayer-SettingUpLAN">Setting Up LAN</h3><p>Download the zip from Github. Extract the files and place it in the ‘Plugins’ folder under:</p><p style="margin-left: 30.0px;">…\ProjectName\Assets\FishNet\Plugins.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502726663/502857739.png" data-image-src="attachments/502726663/502857739.png" data-height="658" data-width="1042" data-unresolved-comment-count="0" data-linked-resource-id="502857739" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220725-182106.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502726663" data-linked-resource-container-version="2" data-media-id="4e087b69-a8ae-4bfc-890a-65c0ab0f9557" data-media-type="file"></span><p>In your Network Manager add ‘NetworkDiscoveryHUD’ and ‘NetworkDiscovery’ components. Set your secret, port (make sure the port you use is different than your transport’s port) and discovery interval fields.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502726663/502824992.png" data-image-src="attachments/502726663/502824992.png" data-height="282" data-width="396" data-unresolved-comment-count="0" data-linked-resource-id="502824992" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220725-183705.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502726663" data-linked-resource-container-version="2" data-media-id="5c815ef1-2b02-4dc0-8f9e-6bd445c4dc35" data-media-type="file"></span><p>Now when you enter play mode or run a build you should see something like this:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502726663/503021592.png" data-image-src="attachments/502726663/503021592.png" data-height="384" data-width="828" data-unresolved-comment-count="0" data-linked-resource-id="503021592" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220725-184052.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502726663" data-linked-resource-container-version="2" data-media-id="8d67e256-6f47-4064-bdb0-79c9c5569769" data-media-type="file"></span><p>The NetworkDiscoveryHUD adds the top right buttons to your UI.</p><p>To allow for clients to see an active server, start your server then click ‘start’ under ‘advertising’. Your server will be discoverable to clients that are searching on the same network.</p><p>To connect to a server click ‘start’ under ‘searching’ and click on the ip address of the server you want to connect to.</p><h3 id="LANMultiplayer-UsingCode">Using Code</h3><p>To use these code snippets you will need to have a Network Manager with a NetworkDiscovery Component. The HUD is not needed if you’re planning on using the code to customize your client/server start.</p><h4 id="LANMultiplayer-StartingServer+Advertising">Starting Server + Advertising</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Start server and start advertising
+InstanceFinder.ServerManager.StartConnection();
+FindObjectOfType&lt;NetworkDiscovery&gt;().StartAdvertisingServer();
+
+// Stop advertising the server
+FindObjectOfType&lt;NetworkDiscovery&gt;().StopAdvertisingServer();</pre>
+</div></div><h4 id="LANMultiplayer-SearchforServers">Search for Servers</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Start searching for servers
+FindObjectOfType&lt;NetworkDiscovery&gt;().StartSearchingForServers();
+
+// Stop searching for servers
+FindObjectOfType&lt;NetworkDiscovery&gt;().StopSearchingForServers();</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502726663/502824963.png">image-20220725-181724.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502726663/502824970.png">image-20220725-181809.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502726663/502857739.png">image-20220725-182106.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502726663/502824992.png">image-20220725-183705.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502726663/503021592.png">image-20220725-184052.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

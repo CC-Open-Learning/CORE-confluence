@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : LTIs and Common Cartridge</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integration-Research_763592710.html">LMS Integration Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : LTIs and Common Cartridge
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hayden Auterhoff (Unlicensed)</span>, last modified on Aug 10, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The use of Learning Tools Interoperability (LTIs) and Common Cartridge are alternative options to the SCORM standard and the Brightspace API. Each of these options will provide DLX projects as to be external projects that communicate with a Learning Management System (LMS), such as Brightspace, instead of embedding DLX projects on eConestoga.</p><hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544324840 {padding: 0px;}
+div.rbtoc1748544324840 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544324840 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544324840'>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-LearningToolsInteroperability(LTI)'>Learning Tools Interoperability (LTI)</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-Overview'>Overview</a></li>
+<li><a href='#LTIsandCommonCartridge-Benefits'>Benefits</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-Functionality'>Functionality</a></li>
+<li><a href='#LTIsandCommonCartridge-SimplifiedIntegration'>Simplified Integration</a></li>
+<li><a href='#LTIsandCommonCartridge-SecureDataExchange'>Secure Data Exchange</a></li>
+<li><a href='#LTIsandCommonCartridge-DynamicContent'>Dynamic Content</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-Challenges'>Challenges</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-AuthorizationofBrightspaceEndpoints'>Authorization of Brightspace Endpoints</a></li>
+<li><a href='#LTIsandCommonCartridge-CustomizationLimitations'>Customization Limitations</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-Summary'>Summary</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-CommonCartridge'>Common Cartridge</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-Overview.1'>Overview</a></li>
+<li><a href='#LTIsandCommonCartridge-Benefits.1'>Benefits</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-ContentPackaging'>Content Packaging</a></li>
+<li><a href='#LTIsandCommonCartridge-ContentReusability'>Content Reusability</a></li>
+<li><a href='#LTIsandCommonCartridge-Interoperability'>Interoperability</a></li>
+<li><a href='#LTIsandCommonCartridge-SimplifiedIntegration.1'>Simplified Integration</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-Challenges.1'>Challenges</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-AuthorizationwithBrightspace'>Authorization with Brightspace</a></li>
+<li><a href='#LTIsandCommonCartridge-MetadataManagement'>Metadata Management</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-Summary.1'>Summary</a></li>
+</ul>
+</li>
+<li><a href='#LTIsandCommonCartridge-Conclusion'>Conclusion</a>
+<ul class='toc-indentation'>
+<li><a href='#LTIsandCommonCartridge-LearningToolsInteroperability(LTI).1'>Learning Tools Interoperability (LTI)</a></li>
+<li><a href='#LTIsandCommonCartridge-CommonCartridge.1'>Common Cartridge</a></li>
+</ul>
+</li>
+</ul>
+</div><hr/><h1 id="LTIsandCommonCartridge-LearningToolsInteroperability(LTI)">Learning Tools Interoperability (LTI)</h1><h3 id="LTIsandCommonCartridge-Overview">Overview</h3><p>LTI is a standard specification that enables the seamless integration of external learning tools with an LMS. This provides a framework for connecting educational applications, such as interactive simulations, to LMS platforms. By adhering to the LTI standard, developers can ensure their tools can be easily integrated into various LMS environments without the need for custom integrations.</p><p>Based on OpenID, OAuth, and restful web APIs to communicate with an LMS, such as Brighspace. An LTI can be used to receive information about students in a course or the course itself, while allowing information, such as grades, to be submitted to the course from the LTI.</p><p>For more information, check out <a class="external-link" href="https://learn.microsoft.com/en-us/linkedin/learning/sso-auth/sso-docs/sso-lti-13-d2l" rel="nofollow"><u>here</u></a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/779812942/780763149.png" data-image-src="attachments/779812942/780763149.png" data-height="358" data-width="514" data-unresolved-comment-count="0" data-linked-resource-id="780763149" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-160047.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="779812942" data-linked-resource-container-version="4" data-media-id="2f0fc77c-20ff-4150-a17f-c44db324fa8e" data-media-type="file"></span><h3 id="LTIsandCommonCartridge-Benefits">Benefits</h3><h5 id="LTIsandCommonCartridge-Functionality"><u>Functionality</u></h5><p>LTIs are primarily focused on integrating external learning tools into an LMS. Allows developers to create and deploy learning tools that can be seamlessly embedded within an LMS environment. These tools can provide additional functionalities such as interactive content, simulations, and collaborative features.</p><h5 id="LTIsandCommonCartridge-SimplifiedIntegration"><u>Simplified Integration</u></h5><p>Providing a standardized approach for connection between learning tools to LMS platforms simplifies the integration process. The LTI core handles the connection, which eliminates the need for developers to create a custom integration for each LMS. Additionally, there is a bi-directional flow of data between the Learning Tool and the LMS that allows for data transfer.</p><p>LTI integration typically involves embedding an external tool within the LMS interface, enabling users to access the tool’s features without leaving the LMS.</p><h5 id="LTIsandCommonCartridge-SecureDataExchange"><u>Secure Data Exchange</u></h5><p>Manual authentication and API calls can be facilitated through the LTI, ensuring student data (user authentication, enrollment, and grade synchronization) remains protected and consistent across LMS platforms. This provides a platform-independent way to communicate with any LMS.</p><p>For authentication, LTI uses the OpenID workflow.</p><h5 id="LTIsandCommonCartridge-DynamicContent"><u>Dynamic Content</u></h5><p>LTI enables the dynamic launch of external tools within the LMS, allowing for real-time interactions and data exchange between the LMS and the tool. LTI supports single sign-on (SSO) functionality, allowing users to seamlessly access the external tool without the need for separate login credentials.</p><h3 id="LTIsandCommonCartridge-Challenges">Challenges</h3><h5 id="LTIsandCommonCartridge-AuthorizationofBrightspaceEndpoints"><u>Authorization of Brightspace Endpoints</u></h5><p>Specific authorization requirements for accessing the endpoint routes by the Brightspace API will need to be navigated. Student employees have limited access, and the endpoints by Brightspace require information that references specific information from a page, such as AppID. </p><p>Cooperation with Conestoga IT to ensure the necessary permissions and security protocols are being met will need to be considered.</p><h5 id="LTIsandCommonCartridge-CustomizationLimitations"><u>Customization Limitations</u></h5><p>LTI provides a standardized framework, but it may not support all of the desired outcomes for a DLX project. Grade submission is one of the functionality that is available between a Learning Tool and the LMS. However, if DLX projects want to implement progress tracking with feedback and comments, and results exporting, then there may be limitations in tailoring these into the workflow between the LTI and the LMS.</p><p>The workflow for submitting grades to the Brightspace grade book can be modeled as follows:<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/779812942/780533795.png" data-image-src="attachments/779812942/780533795.png" data-height="281" data-width="394" data-unresolved-comment-count="0" data-linked-resource-id="780533795" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="LTI Structure.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="779812942" data-linked-resource-container-version="4" data-media-id="af0ed9e7-f692-49fc-86ae-4f8acaccb066" data-media-type="file"></span><p>The structure of the LTI allows for an online middleware application (CORE-Web) to:</p><p style="margin-left: 30.0px;">a) launch the CORE .exe from Brigthspace</p><p style="margin-left: 30.0px;">b) receive a grade from the CORE .exe and upload it to Brightspace using LTI</p><h3 id="LTIsandCommonCartridge-Summary">Summary</h3><p>Learning Tools Interoperability (LTI) offers numerous benefits for integrating external learning tools with Learning Management Systems (LMS). By leveraging LTI, developers can simplify integration efforts and secure data exchange. However, there are some challenges to overcome such as the authorization of Brightspace API endpoints and the limitations of customization with LTIs. With proper planning and collaboration, these challenges can be overcome and provide an effective and efficient learning experience for students.</p><hr/><h1 id="LTIsandCommonCartridge-CommonCartridge">Common Cartridge</h1><h3 id="LTIsandCommonCartridge-Overview.1">Overview</h3><p>Common Cartridge is a content packaging standard that allows the exchange of digital learning materials between different learning platforms. It provides a standardized format for packaging and distributing content, ensuring compatibility across various LMS platforms. Common Cartridge packages can contain package instructional material, such as courses, multimedia resources, assessments, and other educational content, into a single interoperable file.</p><p>For more information, check out <a class="external-link" href="https://www.imsglobal.org/activity/common-cartridge" rel="nofollow"><u>here</u></a>.</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="442" loading="lazy" src="attachments/779812942/781451265.png?width=442" data-image-src="attachments/779812942/781451265.png" data-height="357" data-width="624" data-unresolved-comment-count="0" data-linked-resource-id="781451265" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-151637.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="779812942" data-linked-resource-container-version="4" data-media-id="96b08c0e-e75b-4ae4-96bf-46686f4755ef" data-media-type="file"></span><h3 id="LTIsandCommonCartridge-Benefits.1">Benefits</h3><h5 id="LTIsandCommonCartridge-ContentPackaging"><u>Content Packaging</u></h5><p>Common Cartridge focuses on the packaging and distribution of learning content. Common Cartide provides a standardized format for bundling learning materials, such as courses, multimedia resources, assessments, and other educational content, into a single interoperable file.</p><h5 id="LTIsandCommonCartridge-ContentReusability"><u>Content Reusability</u></h5><p>Common Cartridge enables packages to be only once, then are able to be distributed across multiple different LMS platforms. Common Cartridge promotes content reusability by eliminating the need to develop separate versions of the content for different LMS systems.</p><h5 id="LTIsandCommonCartridge-Interoperability"><u>Interoperability</u></h5><p>By adhering to the Common Cartridge standard, we ensure that the DLX projects are compatible with a wide range of LMS platforms. This compatibility enables educators to access and import DLX projects seamlessly.</p><h5 id="LTIsandCommonCartridge-SimplifiedIntegration.1"><u>Simplified Integration</u></h5><p>Common Cartridge simplifies the integration of external content with Brightspace and eConestoga. With standardized packaging and metadata, DLX projects can be imported onto the platform.</p><p>LMS platforms that support Common Cartridge can import and export content packages in this standardized format. Allows the packages to be easily shared or imported from various sources. </p><h3 id="LTIsandCommonCartridge-Challenges.1">Challenges</h3><h5 id="LTIsandCommonCartridge-AuthorizationwithBrightspace"><u>Authorization with Brightspace</u></h5><p>Specific authorization requirements for accessing Brightspace are similar to <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/779812942/LTIs+and+Common+Cartridge#Authorization-of-Brightspace-Endpoints" rel="nofollow"><u>LTI</u></a>.</p><p>The authorization process with Common Cartridge may involve authentication protocols, such as username and password, and single sign-on (SSO) through identity providers, which could be through the SCORM standard or Brightspace API endpoints.</p><p>Cooperation with Conestoga IT to ensure the necessary permissions and security protocols are being met will need to be considered.</p><h5 id="LTIsandCommonCartridge-MetadataManagement"><u>Metadata Management</u></h5><p>Common Cartridge relies on metadata to describe and organize learning content. Ensuring accurate and comprehensive metadata can be challenging, particularly when the content is a Unity-based project with the DLX projects. Inconsistent metadata can impact resource searchability and discoverability.</p><h3 id="LTIsandCommonCartridge-Summary.1">Summary</h3><p>Common Cartridge integration with Brightspace and eConestoga empowers the packaging of DLX projects into a single interoperable file along with the creation of reusable assets. The challenges with authorization and metadata management will need to be overcome. With proper planning and collaboration, these challenges can be overcome and provide an effective and efficient learning experience for students.</p><hr/><h1 id="LTIsandCommonCartridge-Conclusion">Conclusion</h1><h3 id="LTIsandCommonCartridge-LearningToolsInteroperability(LTI).1"><u>Learning Tools Interoperability (LTI)</u></h3><ul><li><p>Focuses on integrating external learning tools into an LMS, allowing for enhanced functionalities. </p></li><li><p>Enables real-time interactions with external tools.</p></li><li><p>Promote interoperability with different LMS platforms.</p></li></ul><h3 id="LTIsandCommonCartridge-CommonCartridge.1"><u>Common Cartridge</u></h3><ul><li><p>Primarily focuses on packaging and distribution of learning content in a standardized format.</p></li><li><p>Facilitates content reusability.</p></li><li><p>Promotes interoperability with different LMS platforms.</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/779812942/780533774.png">image-20230810-021245.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/779812942/780533787.png">image-20230810-151550.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/779812942/781451265.png">image-20230810-151637.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/779812942/780533795.png">LTI Structure.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/779812942/780763149.png">image-20230810-160047.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

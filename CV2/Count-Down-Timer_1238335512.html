@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Count Down Timer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UI-Prefabs_1496186887.html">UI Prefabs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Count Down Timer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Harris Ibrahimi</span>, last modified by <span class='editor'> Balazs Karner</span> on Dec 12, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><style>[data-colorid=atrhnamkvs]{color:#36b37e} html[data-color-mode=dark] [data-colorid=atrhnamkvs]{color:#4cc994}</style><table data-table-width="760" data-layout="default" data-local-id="cbf7d656-283d-4e2f-b1a8-21aefa286bf6" class="confluenceTable"><colgroup><col style="width: 216.0px;" /><col style="width: 544.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Implements</p></td><td class="confluenceTd"><p><strong><span data-colorid="atrhnamkvs">IUserInterface</span></strong></p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Inherits</p></td><td class="confluenceTd"><p /></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Supports Light/Dark Mode?</p></td><td class="confluenceTd"><p>YES</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p>Sample Scene</p></td><td class="confluenceTd"><p>Count Up &amp; Down Timer Scene</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1748544442536 {padding: 0px;}
+div.rbtoc1748544442536 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544442536 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1748544442536">
+<ul class="toc-indentation">
+<li><a href="#CountDownTimer-Timer">Timer</a>
+<ul class="toc-indentation">
+<li><a href="#CountDownTimer-Settingupyourscene">Setting up your scene</a></li>
+<li><a href="#CountDownTimer-Scaling">Scaling</a></li>
+<li><a href="#CountDownTimer-Scripting">Scripting</a>
+<ul class="toc-indentation">
+<li><a href="#CountDownTimer-Properties&amp;Methods">Properties &amp; Methods</a></li>
+<li><a href="#CountDownTimer-UnityEvents">Unity Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="CountDownTimer-Timer">Timer</h1><p>The countdown timer is intended to be a N&hellip;3...2&hellip;1&hellip; film leader that can be used to give the learner a moment before a new game mode starts. This is especially useful if the game mode is timed such as ambulance&rsquo;s seek and find. The countdown timer only has one customization available, which is a dimmed background to bring focus to the UI.</p><a class="external-link" data-card-appearance="embed" data-layout="center" data-width="100.00" href="https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=3100-6049&amp;t=MRXTZUTJQKK1hhUj-4" rel="nofollow">https://www.figma.com/design/om9GwMhkfeJpcADbKz4ov8/CVRI-Design-System?node-id=3100-6049&amp;t=MRXTZUTJQKK1hhUj-4</a><p> </p><h2 id="CountDownTimer-Settingupyourscene">Setting up your scene</h2><p>To get started with implementing timers in your scene</p><ol start="1"><li><p>Drag in the count down timer prefab into the scene hierarchy at &ldquo;/<strong>Packages/Velcro UI/Prefabs</strong>&rdquo;</p></li><li><p>Replace the <strong>PanelSettings </strong>reference from VELCRO to your project&rsquo;s <strong>PanelSettings </strong>asset</p></li><li><p>Hook up <strong>UnityEvents </strong>as required</p><ol start="1"><li><p>You will need to supply HandleDisplayUI() with the start time, and canvas dim state</p></li></ol></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Recording2024-07-24143923-ezgif.com-video-to-gif-converter.gif" width="440" loading="lazy" src="attachments/1238335512/1238368279.gif?width=440" data-image-src="attachments/1238335512/1238368279.gif" data-height="426" data-width="440" data-unresolved-comment-count="0" data-linked-resource-id="1238368279" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Recording2024-07-24143923-ezgif.com-video-to-gif-converter.gif" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="1238335512" data-linked-resource-container-version="5" data-media-id="ce371cfb-eab6-4114-bdcd-7b4844781261" data-media-type="file" /></span><p /><h2 id="CountDownTimer-Scaling">Scaling</h2><div class="table-wrap"><table data-table-width="1011" data-layout="default" data-local-id="c4f8e613-8c33-4a36-9bee-9bb66d80d8b9" class="confluenceTable"><colgroup><col style="width: 478.0px;" /><col style="width: 533.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Property</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Value</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Width</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>400px</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Height</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>400px</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Dark:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241211-215958.png" width="249" loading="lazy" src="attachments/1238335512/1514930312.png?width=249" data-image-src="attachments/1238335512/1514930312.png" data-height="239" data-width="249" data-unresolved-comment-count="0" data-linked-resource-id="1514930312" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241211-215958.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1238335512" data-linked-resource-container-version="5" data-media-id="123ab198-17e2-4d8e-ae84-b22747bfb417" data-media-type="file" /></span></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Light:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20241211-220010.png" width="250" loading="lazy" src="attachments/1238335512/1515356308.png?width=250" data-image-src="attachments/1238335512/1515356308.png" data-height="228" data-width="250" data-unresolved-comment-count="0" data-linked-resource-id="1515356308" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20241211-220010.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1238335512" data-linked-resource-container-version="5" data-media-id="82a8538c-736f-4c66-bc32-affb7f35b7c5" data-media-type="file" /></span></td></tr></tbody></table></div><p /><h2 id="CountDownTimer-Scripting">Scripting</h2><h3 id="CountDownTimer-Properties&amp;Methods">Properties &amp; Methods</h3><div class="table-wrap"><table data-table-width="1800" data-layout="default" data-local-id="239aacbd-ed9b-4cea-950d-a39500068943" class="confluenceTable"><colgroup><col style="width: 527.0px;" /><col style="width: 1273.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Property/Method</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Description</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Root</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Root VisualElement of the UI</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>CountdownTimerElement.cs Only</strong></p><p><strong>float </strong>StartTime</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Time elapsed from when HandleDisplayUI() was last called</p></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>CountdownTimerElement.cs Only</strong></p><p><strong>float </strong>CurrentTime</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Whether the timer is paused or not</p></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>HandleDisplayUI()</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void HandleDisplayUI(int startTime = 3, bool isBackgroundDimmed = true)</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>This method is intended to be a single access method to reset the timer, starts the timer with the incoming startTime optionally dims the canvas element, and shows the timer</p></li><li><p>Invokes OnTimerShown</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>SetContent()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void SetContent(int startTime = 3, bool isBackgroundDimmed = true)</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Sets the timer's startTime with the incoming startTime int, and optionally dims canvas element</p></li><li><p>Exposed if DLX would like to control individual stages of the UI instead of using HandleDisplayUI()</p></li></ul></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Countdown()</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public IEnumerator Countdown()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Coroutine to decrement the CountdownTimerElement custom control's current time. This causes the styling to update</p></li><li><p>Invokes OnTimerEnded when the CurrentTime reaches 0</p></li><li><p>Exposed if DLX would like to control individual stages of the UI instead of using HandleDisplayUI()</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>ResetTimer()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void ResetTimer()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Stops all coroutines, sets timer current time to 0, resets the canvas dim state</p></li><li><p>Invokes OnTimerReset</p></li><li><p>Exposed if DLX would like to control individual stages of the UI instead of using HandleDisplayUI()</p></li></ul></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Show()</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Show()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Shows the root of the timer</p></li><li><p>Invokes OnTimerShown</p></li><li><p>Exposed if DLX would like to control individual stages of the UI instead of using HandleDisplayUI()</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Hide()</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p><strong>Definition</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void Hide()</pre>
+</div></div><p /><p><strong>Comments</strong>:</p><ul><li><p>Hides the root of the timer</p></li><li><p>Invokes OnTimerHidden</p></li><li><p>Exposed if DLX would like to control individual stages of the UI instead of using HandleDisplayUI()</p></li></ul></td></tr></tbody></table></div><p /><h3 id="CountDownTimer-UnityEvents">Unity Events</h3><div class="table-wrap"><table data-table-width="1011" data-layout="default" data-local-id="65b9b816-e991-4269-a092-026fd3552f88" class="confluenceTable"><colgroup><col style="width: 307.0px;" /><col style="width: 704.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Event</span></strong></p></th><th data-highlight-colour="#998dd9" class="confluenceTh"><p><strong><span class="legacy-color-text-inverse">Description</span></strong></p></th></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>OnTimerShown</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Invoked when the timer is shown to the screen from</p><ul><li><p>HandleDisplayUI()</p></li><li><p>Show()</p></li></ul></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>OnTimerHidden</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Invoked when the timer is hidden from the screen from</p><ul><li><p>Countdown()</p></li><li><p>Hide()</p></li></ul></td></tr><tr><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>OnTimerEnded</p></td><td data-highlight-colour="#c0b6f2" class="confluenceTd"><p>Invoked when the timer reaches 0 from</p><ul><li><p>Countdown()</p></li></ul></td></tr><tr><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>OnTimerReset</p></td><td data-highlight-colour="#eae6ff" class="confluenceTd"><p>Invoked when the timer is reset from</p><ul><li><p>ResetTimer()</p></li></ul></td></tr></tbody></table></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1238728714.gif">GIF 2024-07-24 2-19-00 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1237975073.gif">Recording2024-07-24142644-ezgif.com-video-to-gif-converter.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1238269974.gif">GIF 2024-07-24 2-36-49 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1238368279.gif">Recording2024-07-24143923-ezgif.com-video-to-gif-converter.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1515061369.gif">GIF 2024-07-24 11-51-41 AM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1515061376.png">image-20241211-211153.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1515061382.png">image-20241211-211202.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1514930312.png">image-20241211-215958.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1238335512/1515356308.png">image-20241211-220010.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

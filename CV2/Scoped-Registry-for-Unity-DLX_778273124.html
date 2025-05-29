@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Scoped Registry for Unity DLX</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Scoped Registry for Unity DLX
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> David Inglis</span>, last modified on Sept 27, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ScopedRegistryforUnityDLX-Summary">Summary</h2><p>This document describes the steps to configure the Unity Editor for a project in order to access the <strong>UPM Registry</strong> for <strong>CORE Framework</strong> packages. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This process will need to be done once per project, though it will likely be included in the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/dlx-project-template/src" rel="nofollow">https://bitbucket.org/VARLab/dlx-project-template/src</a> repository.</p></div></div><h3 id="ScopedRegistryforUnityDLX-ModifyingtheUnityPackageManifest">Modifying the Unity Package Manifest</h3><p>From within the <strong>Unity Editor</strong> for a project, navigate to <strong>Edit → Project Settings → Package Manager</strong> and enter the values below into the associated fields under <strong>Scoped Registries</strong></p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="5c449783-5be3-45fe-974f-a616b046cc69" class="confluenceTable"><colgroup><col style="width: 235.0px;"/><col style="width: 525.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Name</strong></p></th><td class="confluenceTd"><p>CORE</p></td></tr><tr><th class="confluenceTh"><p><strong>URL</strong></p></th><td class="confluenceTd"><p><code>http://upm.core.varlab.org:4873/</code></p></td></tr><tr><th class="confluenceTh"><p><strong>Scope(s)</strong></p></th><td class="confluenceTd"><p><code>com.varlab</code><br/><code>com.paradoxnotion</code><br/><code>com.pirateparrot</code><br/><code>com.veriorpies</code><br/><code>com.firstgeargames</code><br/><code>com.microsoft.playfab</code></p></td></tr></tbody></table></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/778273124/778469400.png?width=680" data-image-src="attachments/778273124/778469400.png" data-height="221" data-width="673" data-unresolved-comment-count="0" data-linked-resource-id="778469400" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230704-165011.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="778273124" data-linked-resource-container-version="16" data-media-id="fbfd374c-a51c-498a-b302-f27c0cb443e5" data-media-type="file"></span><p /><p>Alternatively, open the file <code>Packages\manifest.json</code> within the project folder and add the following lines underneath the <code>dependencies</code> block:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&quot;scopedRegistries&quot;: [
+  {
+    &quot;name&quot;: &quot;CORE&quot;,
+    &quot;url&quot;: &quot;http://upm.core.varlab.org:4873/&quot;,
+    &quot;scopes&quot;: [
+      &quot;com.varlab&quot;,
+      &quot;com.paradoxnotion&quot;,
+      &quot;com.pirateparrot&quot;,
+      &quot;com.veriorpies&quot;,
+      &quot;com.firstgeargames&quot;,
+      &quot;com.microsoft.playfab&quot;
+    ]
+  }
+]</pre>
+</div></div><p>After saving the file and opening the Editor, Unity will attempt to read from the new registry.</p><h2 id="ScopedRegistryforUnityDLX-ScopedRegistryAuthenticationforDevelopers">Scoped Registry Authentication for Developers</h2><p>The article <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/783614144/Accessing+the+Package+Registry+for+Developers" data-linked-resource-id="783614144" data-linked-resource-version="5" data-linked-resource-type="page">Accessing the Package Registry for Developers</a> has been created to describe the workflow for accessing and configuring the <strong>UPM Package Registry</strong> for Unity from the command line. </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/778273124/778469400.png">image-20230704-165011.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

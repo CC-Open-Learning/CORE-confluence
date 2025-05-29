@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Pull Request Automation Using GameCI &amp; CircleCI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pull-Request-Automation_712507407.html">Pull Request Automation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Pull Request Automation Using GameCI &amp; CircleCI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benjamin Smith (Unlicensed)</span>, last modified by <span class='editor'> Blake Hadaway (Unlicensed)</span> on Aug 16, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Documentation in Progress.</p></div></div><p>Previously custom Docker images were being used to build and test Unity projects automatically when a pull request occurred, documented here: <a href="Building-a-Unity-Project-in-an-Ubuntu-Container_714866698.html" data-linked-resource-id="714866698" data-linked-resource-version="28" data-linked-resource-type="page">Building a Unity Project in an Ubuntu Container</a>. However, this method caused issues that would slow down VARLab’s workflow in the long term, such as: </p><ul><li><p>Longer than average build times</p></li><li><p>Poor user experience</p></li><li><p>No dashboard to view testing, build, and code coverage insights</p></li></ul><p>To fix these issues, the switch from using a custom Docker image through Bitbucket Pipelines was switched to using a GameCI Docker image through CircleCI’s ‘pipeline’.</p><hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544601430 {padding: 0px;}
+div.rbtoc1748544601430 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544601430 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544601430'>
+<ul class='toc-indentation'>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedProcessesusingCircleCIandGameCI'>Automated Processes using CircleCI and GameCI</a>
+<ul class='toc-indentation'>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-ActivatingUnityunitylicenseactivationGreen'>Activating Unity UNITY LICENSE ACTIVATION</a></li>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedBuildProcessAutomatedbuildGreen'>Automated Build Process AUTOMATED BUILD</a></li>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedTestingProcessautomatedtestingYellow'>Automated Testing Process AUTOMATED TESTING</a></li>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedCodeCoverageProcessautomatedcodecoverageRed'>Automated Code Coverage Process AUTOMATED CODE COVERAGE</a></li>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedStyleGuideVerificationProcessautomatedstyleguideRed'>Automated Style Guide Verification Process AUTOMATED STYLE GUIDE</a></li>
+<li><a href='#PullRequestAutomationUsingGameCI&amp;CircleCI-FullAutomatedProcessesFULLAUToMATEDPROCESSRed'>Full Automated Processes FULL AUTOMATED PROCESS</a></li>
+</ul>
+</li>
+</ul>
+</div><hr/><h1 id="PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedProcessesusingCircleCIandGameCI">Automated Processes using CircleCI and GameCI</h1><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-ActivatingUnityunitylicenseactivationGreen">Activating Unity <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">UNITY LICENSE ACTIVATION</span>  </h2><p>To activate Unity, a similar process is used to the tutorial in <a href="Building-a-Unity-Project-in-an-Ubuntu-Container_714866698.html" data-linked-resource-id="714866698" data-linked-resource-version="28" data-linked-resource-type="page">Building a Unity Project in an Ubuntu Container</a>. The only difference is that we are creating a different, unique .alf file as the machine hardware information is different than our custom image, so the process must be repeated. We will interact with one of the custom GameCI Docker images (found here <a class="external-link" data-card-appearance="inline" href="https://hub.docker.com/r/unityci/editor/tags?page=1&amp;ordering=last_updated" rel="nofollow">https://hub.docker.com/r/unityci/editor/tags?page=1&amp;ordering=last_updated</a>) through a config.yml file that will follow CircleCI’s formatting rules, listed here: <a class="external-link" data-card-appearance="inline" href="https://circleci.com/docs/config-intro/" rel="nofollow">https://circleci.com/docs/config-intro/</a>.</p><p> The config.yml that was used is as follows:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">version: 2.1
+
+jobs:
+  create-activation-file:
+      docker:
+        - image: unityci/editor:2021.3.24f1-webgl-1
+      steps:
+        - run:
+            name: Create Activation File
+            command: |
+              cd ../..
+              cd usr/bin
+              unity-editor -batchmode -createManualActivationFile -logfile
+        - store_artifacts:
+            path: /usr/bin/Unity_v2021.3.24f1.alf
+      
+workflows:
+  automate-process:
+    jobs:
+      - create-activation-file</pre>
+</div></div><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedBuildProcessAutomatedbuildGreen">Automated Build Process <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-success">AUTOMATED BUILD</span>  </h2><p>To automatically build a Unity project, a similar process is used to the tutorial in ​<a href="Building-a-Unity-Project-in-an-Ubuntu-Container_714866698.html" data-linked-resource-id="714866698" data-linked-resource-version="28" data-linked-resource-type="page">Building a Unity Project in an Ubuntu Container</a>.</p><p>The config.yml that was used is as follows:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">version: 2.1
+
+jobs:
+  build-unity-proj:
+    docker:
+      - image: unityci/editor:2021.3.24f1-webgl-1
+    steps:
+      - checkout
+      - run: 
+          name: Build Unity Project
+          command: |
+            echo &quot;Activating manual license file...&quot;
+            cd ../..
+            cd usr/bin
+            unity-editor -batchmode -manualLicenseFile /root/project/&lt;ActivatedUnityFileName&gt;.x.ulf -logFile
+            echo &quot;Building project...&quot;
+            cd ../..
+            unity-editor -quit -batchmode -nographics -projectPath /root/project/&lt;UnityProjectName&gt; -executeMethod BuildScript.PerformBuild -logFile
+      
+workflows:
+  build-unity-project
+    jobs:
+      - build-unity-proj</pre>
+</div></div><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedTestingProcessautomatedtestingYellow">Automated Testing Process <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-current">AUTOMATED TESTING</span>  </h2><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The tests currently run, and whether they pass or fail is noted in the results.xml file. However, this results.xml file is in a NUnit format, but must be in a JUnit format to appear in the dashboard. It is working as expected but ideally would be accessible through the dashboard instead of an XML file. Currently being developed in 
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue" data-jira-key="CORE-396"  data-client-id="SINGLE_a5997e8d-c92b-3e2c-a3c8-296b7f0f7c11_767229954_712020:8a6d4980-1b7a-4890-950c-f5d8b8602cce" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-396" class="jira-issue-key"><span class="aui-icon aui-icon-wait issue-placeholder"></span>CORE-396</a>
+                    -
+            <span class="summary">Getting issue details...</span>
+                                    <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">STATUS</span>
+            </span>
+.</p></div></div><p>To automatically build a Unity project, a we will use Unity’s built in command to run tests. This command and all of its command line arguments can be found here: <a class="external-link" data-card-appearance="inline" href="https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/reference-command-line.html" rel="nofollow">https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/reference-command-line.html</a>.</p><p>The config.yml that was used is as follows:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">version: 2.1
+
+test-unity-proj:
+    docker:
+      - image: unityci/editor:2021.3.24f1-webgl-1
+    steps:
+      - checkout
+      - run: 
+          name: Unit Test Unity Project
+          command: |
+            cd ../..
+            cd usr/bin
+            unity-editor -batchmode -manualLicenseFile /root/project/editor_webgl.x.ulf -logFile
+            unity-editor -runTests -batchmode -projectPath /root/project/VARLab-roll-a-ball-moq -testResults /root/results.xml -logFile || true
+            echo Testing complete
+            cd ../..
+            cd root/project
+            g++-7 /root/project/ResultsParser.cpp -std=c++17 -lstdc++fs -o ParseResults
+            g++-7 /root/project/TestFailCheck.cpp -std=c++17 -lstdc++fs -o CheckTestResults
+            ./ParseResults results.xml /root
+            ./CheckTestResults /root/project
+      - store_artifacts:
+          path: /root/project/test_results.txt 
+      - store_artifacts:
+          path: /root/results.xml 
+      
+workflows:
+  test-unity-project:
+    jobs:
+      - test-unity-proj</pre>
+</div></div><p>We originally had the project path be called dynamically (So we didn’t have to give a hard coded path). Unfortunately when we switched from unity the GameCI Orb to GameCI Docker image, this stopped working, but we are optimistic that it is possible to have a dynamic project path.</p><p>For the test results, we weren’t able to see the results in CircleCI because the xml file that was outputted by unity was a NUnit formatted file, but CircleCI needs a JUnit file formatted file. We tried to parse and change the formatting through the command line, but were unsuccessful. Now, we are using a C++ script that will take the output in the XML file, artifact it, and will output the Relevant information to the user. This can be found in the artifact section on CircleCI, as well as the raw XML file also being artifacted.</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="217" loading="lazy" src="attachments/767229954/781221890.png?width=217" data-image-src="attachments/767229954/781221890.png" data-height="192" data-width="548" data-unresolved-comment-count="0" data-linked-resource-id="781221890" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-144806.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="767229954" data-linked-resource-container-version="10" data-media-id="a292e218-aff4-4e4e-8c31-31454c3788a0" data-media-type="file"></span><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedCodeCoverageProcessautomatedcodecoverageRed">Automated Code Coverage Process <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-error">AUTOMATED CODE COVERAGE</span>  </h2><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p> This is under development and not ready for production. Currently being developed in 
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue" data-jira-key="CORE-115"  data-client-id="SINGLE_a5997e8d-c92b-3e2c-a3c8-296b7f0f7c11_767229954_712020:8a6d4980-1b7a-4890-950c-f5d8b8602cce" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-115" class="jira-issue-key"><span class="aui-icon aui-icon-wait issue-placeholder"></span>CORE-115</a>
+                    -
+            <span class="summary">Getting issue details...</span>
+                                    <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">STATUS</span>
+            </span>
+.</p></div></div><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-AutomatedStyleGuideVerificationProcessautomatedstyleguideRed">Automated Style Guide Verification Process <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-error">AUTOMATED STYLE GUIDE</span></h2><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p> This is under development and not ready for production. Currently being developed in 
+
+    
+
+            
+
+
+
+
+    <span class="confluence-jim-macro jira-issue" data-jira-key="CORE-188"  data-client-id="SINGLE_a5997e8d-c92b-3e2c-a3c8-296b7f0f7c11_767229954_712020:8a6d4980-1b7a-4890-950c-f5d8b8602cce" >
+                <a href="https://varlab-dev.atlassian.net/browse/CORE-188" class="jira-issue-key"><span class="aui-icon aui-icon-wait issue-placeholder"></span>CORE-188</a>
+                    -
+            <span class="summary">Getting issue details...</span>
+                                    <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">STATUS</span>
+            </span>
+.</p></div></div><h2 id="PullRequestAutomationUsingGameCI&amp;CircleCI-FullAutomatedProcessesFULLAUToMATEDPROCESSRed">Full Automated Processes <span class="status-macro aui-lozenge aui-lozenge-visual-refresh aui-lozenge-error">FULL AUTOMATED PROCESS</span>  </h2><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This is under development and not ready for production.</p></div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/767229954/781221890.png">image-20230810-144806.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

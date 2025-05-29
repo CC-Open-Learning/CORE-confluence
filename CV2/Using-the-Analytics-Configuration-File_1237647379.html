@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the Analytics Configuration File</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V2-Overview_1237155865.html">Analytics V2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the Analytics Configuration File
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Richard Colbourne</span>, last modified on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1237647379?draftShareId=55f0a4e7-108e-4893-825d-50497223ecc1#Overview" rel="nofollow">Overview</a></p><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/edit-v2/1237647379?draftShareId=55f0a4e7-108e-4893-825d-50497223ecc1#Properties" rel="nofollow">Properties of the configuration file</a></p><p><a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1237647379/Using+the+Analytics+Configuration+File#Making-a-Build." rel="nofollow">Making a Build</a></p><p>At this point, you should have already created the scriptable object for the analytic configuration. If you don’t have this file, <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1237155842/Analytics+V2+Unity+Implementation#Creating-the-Analytics-Configuration-File" rel="nofollow">click here to see how to create one.</a> This configuration file allows you to change how to package works within your DLX. With this you can set the DLX environment, how often you send out network data, how frequently you check if the user has a connection to the internet, and set the build number of the DLX into the package. </p><h2 id="UsingtheAnalyticsConfigurationFile-Overview">Overview</h2><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-123815.png" width="750" loading="lazy" src="attachments/1237647379/1279262721.png?width=750" data-image-src="attachments/1237647379/1279262721.png" data-height="332" data-width="613" data-unresolved-comment-count="0" data-linked-resource-id="1279262721" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-123815.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="fd3d2058-420e-4866-8b0c-4a6a388eaf44" data-media-type="file"></span><h2 id="UsingtheAnalyticsConfigurationFile-Properties">Properties</h2><p>The<strong> Environment Type </strong>property has 3 options and allows us to filter the data in the backend. </p><ul><li><p>Development is to be set during the development process. </p></li><li><p>Production is to be set on the build that will be released to students. </p></li><li><p>Test is to be set on builds that are released internally for play testing. </p></li></ul><p>We recommend that this is left on development on your main branch and only changed for the Friday play test (Test), or the student release (Development) builds. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-124100.png" width="603" loading="lazy" src="attachments/1237647379/1278967824.png?width=603" data-image-src="attachments/1237647379/1278967824.png" data-height="178" data-width="603" data-unresolved-comment-count="0" data-linked-resource-id="1278967824" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-124100.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="6711b30f-b4de-479a-972f-0fed4ace6f71" data-media-type="file"></span><p /><p>The <strong>Network Events</strong> property has 3 options and is used to gather network information. </p><ul><li><p>None, will not track any information. </p></li><li><p>Startup, will do a ping check at the beginning of the sim. </p></li><li><p>Continuous, will do a ping check continuously throughout the sim in the time interval set in the next property. </p></li></ul><p>Note: This feature currently doesn’t send any network data to PlayFab. However, it should be set so that it will already ready for when the update comes with the implementation. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-131215.png" width="604" loading="lazy" src="attachments/1237647379/1279295490.png?width=604" data-image-src="attachments/1237647379/1279295490.png" data-height="111" data-width="604" data-unresolved-comment-count="0" data-linked-resource-id="1279295490" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-131215.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="58e1d30a-cad2-47b3-a381-246d0a044e34" data-media-type="file"></span><p /><p>The <strong>Network Ping Interval</strong> is used to determine how often we are going to be pinging eConestoga. The value set in this field is represented in seconds. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-132318.png" width="603" loading="lazy" src="attachments/1237647379/1279426563.png?width=603" data-image-src="attachments/1237647379/1279426563.png" data-height="41" data-width="603" data-unresolved-comment-count="0" data-linked-resource-id="1279426563" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-132318.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="07237eb9-d99f-43a6-9499-53b324958693" data-media-type="file"></span><p /><p>The <strong>Network Check Interval</strong> is used to determine how often we are going to for internet connection when we detect the learner has gone offline. This value is represented in seconds. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-132702.png" width="604" loading="lazy" src="attachments/1237647379/1279492100.png?width=604" data-image-src="attachments/1237647379/1279492100.png" data-height="38" data-width="604" data-unresolved-comment-count="0" data-linked-resource-id="1279492100" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-132702.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="1e7ed073-7c72-4e80-8b86-62b4dd0d5533" data-media-type="file"></span><p /><p>The <strong>Build Version Number</strong> is to be set before the build is created and needs to match the build number of the DLX. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240813-133208.png" width="601" loading="lazy" src="attachments/1237647379/1278214205.png?width=601" data-image-src="attachments/1237647379/1278214205.png" data-height="47" data-width="601" data-unresolved-comment-count="0" data-linked-resource-id="1278214205" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240813-133208.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1237647379" data-linked-resource-container-version="3" data-media-id="b4b51cac-ab02-4b9e-ac4a-2e4e5d69ea1b" data-media-type="file"></span><h2 id="UsingtheAnalyticsConfigurationFile-MakingaBuild.">Making a Build. </h2><p>You are going to want to change 2 properties of the config before you build. You’re going to want to change the environment type to the environment you’re building for, and you’re also going to want to change the build version number to match the build number of the DLX. After these 2 fields are updated, you’re good to build your DLX. </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1279262721.png">image-20240813-123815.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1278967824.png">image-20240813-124100.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1279295490.png">image-20240813-131215.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1279426563.png">image-20240813-132318.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1279492100.png">image-20240813-132702.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1279557638.png">image-20240813-133134.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1237647379/1278214205.png">image-20240813-133208.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

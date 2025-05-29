@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the Objectives System</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Objectives_502890543.html">Objectives</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the Objectives System
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span> on Jul 25, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article we’ll cover some examples of how to use the objective system to add or remove objectives as well as change their status and subscribe to the different events the system has.</p><h2 id="UsingtheObjectivesSystem-AddingObjectives">Adding Objectives</h2><p>In order to add objectives, we first need to call <code>ObjectiveManager.InitializeObjectives();</code> to set up the objective dictionary for this session.</p><p>This is required explicitly rather than automatically cached to force devs to think about when they need to create a new set of objectives. For example if you move from one level to another you may want to call it again to flush the old objectives out if they are no longer relevant.</p><p>If we want to add an objective to our list, we can use <code>ObjectiveManager.CreateObjective(string objectiveName);</code> to create an objective. This will add a new objective to our dictionary and set it up with default values.</p><h2 id="UsingtheObjectivesSystem-SettingObjectives">Setting Objectives</h2><p>To set an objective or create an objective with non-default values, we can call <code>SetObjective</code> instead. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">ObjectiveManager.SetObjective(&quot;Task&quot;, CompletionStatus.Completed, AnswerStatus.Incorrect);</pre>
+</div></div><p><code>SetObjective</code> will create an objective by the name provided if one does not already exist.</p><h2 id="UsingtheObjectivesSystem-CheckingObjectives">Checking Objectives</h2><p>To check if an objective is in a specific state, we can call <code>CheckObjective</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">var done = ObjectiveManager.CheckObjective(taskName, CompletionStatus.Incomplete, AnswerStatus.Incorrect);</pre>
+</div></div><p>If we need to check if all of our objectives are complete, we can use <code>CheckCompletionsForAllObjectives</code>.</p><p>For example, if we wanted to check that all objectives have been completed, we could write:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">var allDone = ObjectiveManager.CheckCompletionsForAllObjectives(CompletionStatus.Completed);</pre>
+</div></div><h2 id="UsingtheObjectivesSystem-GettingObjectives">Getting Objectives</h2><p>If we need to actually get the objective instances that satisfy a given set of conditions, we can do so using <code>GetObjectivesWhere</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">var predicate = new Predicate&lt;Objective&gt;(e =&gt; e.CompletionStatus == CompletionStatus.NotStarted);
+
+var matching = ObjectiveManager.GetObjectivesWhere(new Func&lt;Objective, bool&gt;(predicate));</pre>
+</div></div><p>In this example, <code>GetObjectivesWhere</code> will return an IEnumerable of Objective objects that have a CompletionStatus of NotStarted.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

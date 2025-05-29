@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Azure Data Access</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V1-Overview_1259077643.html">Analytics V1 Overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Research-and-Documentation_756678668.html">Analytics Research and Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Analysis-Pipeline_717357141.html">Data Analysis Pipeline</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Azure Data Access
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacky Lam</span>, last modified by <span class='editor'> Hayden Auterhoff</span> on Aug 15, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544202903 {padding: 0px;}
+div.rbtoc1748544202903 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544202903 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544202903'>
+<ul class='toc-indentation'>
+<li><a href='#AzureDataAccess-AccountType'>Account Type</a></li>
+<li><a href='#AzureDataAccess-AzureDataExplorer'>Azure Data Explorer</a>
+<ul class='toc-indentation'>
+<li><a href='#AzureDataAccess-SharingDashboard'>Sharing Dashboard</a></li>
+</ul>
+</li>
+<li><a href='#AzureDataAccess-References'>References</a></li>
+</ul>
+</div><h2 id="AzureDataAccess-AccountType">Account Type</h2><p>PlayFab Account</p><ul><li><p>This account type only associate with PlayFab service, you get a PlayFab account if you sign up with PlayFab.</p></li></ul><p>Microsoft Account (or Azure Active Directory “AAD”)</p><ul><li><p>You can access PlayFab service by using <code>Sign in with Microsoft</code> on the PlayFab’s login page.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/781123585/781877261.png?width=340" data-image-src="attachments/781123585/781877261.png" data-height="532" data-width="383" data-unresolved-comment-count="0" data-linked-resource-id="781877261" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2023-08-10 135718.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="4e3289c3-dd7a-48df-a67f-3bbb09d387f4" data-media-type="file"></span><p>The two account types is separate from each other, you can have both account type with the same Microsoft email address, and your account would still be different. There is not a known way to switch account type once the account is created.</p><p>You can find out users' account type in <code>All Users</code> under the Users tab in Settings.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781123585/782008325.png" data-image-src="attachments/781123585/782008325.png" data-height="320" data-width="1152" data-unresolved-comment-count="0" data-linked-resource-id="782008325" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2023-08-10 142016.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="311b286d-2df0-49e3-9229-a879c40fb72b" data-media-type="file"></span><p /><h2 id="AzureDataAccess-AzureDataExplorer">Azure Data Explorer</h2><p>You can <strong>only </strong>use <code>Microsoft Account</code> to log in to Azure Data Explorer. For this reason, user that wish to access PlayFab data through Azure Data Explorer should create their account using the <code>Microsoft Account</code> type.</p><h3 id="AzureDataAccess-SharingDashboard">Sharing Dashboard</h3><p>There are two methods for sharing a dashboard, both method requires you need to have granted permissions in PlayFab to access the underlying database for this to work.</p><p /><ul><li><p>Using the <code>Share</code> feature (it work sometimes?)</p><ul><li><p>One requirement is you must be the owner of the data to share dashboard</p></li></ul></li></ul><div id="expander-94452080" class="expand-container"><div id="expander-control-94452080" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Steps to share a dashboard directly</span></div><div id="expander-content-94452080" class="expand-content"><ol start="1"><li><p>Select the <strong>Share</strong> menu item in the top bar of the dashboard.</p></li><li><p>Select <strong>Manage permissions</strong> from the drop-down.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781123585/781582340.png" data-image-src="attachments/781123585/781582340.png" data-height="240" data-width="712" data-unresolved-comment-count="0" data-linked-resource-id="781582340" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-173831.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="095ae44f-3cde-4f85-aebe-49212ce6fe68" data-media-type="file"></span><p /><ol start="3"><li><p>Enter the Azure AD user or Azure AD group (from the same organization, @conestogac.on.ca) in <strong>Add new members</strong>.</p></li><li><p>In the <strong>Permission</strong> level, select one of the following values: <strong>Can view</strong> or <strong>Can edit</strong>.</p></li><li><p>Select <strong>Add</strong>.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781123585/781877251.png" data-image-src="attachments/781123585/781877251.png" data-height="610" data-width="1032" data-unresolved-comment-count="0" data-linked-resource-id="781877251" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-173943.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="f0832b27-1cb4-49c0-b100-1f26da39fa12" data-media-type="file"></span></div></div><p /><p>For now there is a workaround, it involves a bit more manual work:</p><div id="expander-1530553403" class="expand-container"><div id="expander-control-1530553403" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Steps to share a dashboard via export then import</span></div><div id="expander-content-1530553403" class="expand-content"><ol start="1"><li><p>First you have to export the dashboard, in the dashboard, select <strong>File</strong> &gt; <strong>Export to file</strong>.</p></li><li><p>Save the JSON file.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781123585/781615127.png" data-image-src="attachments/781123585/781615127.png" data-height="261" data-width="792" data-unresolved-comment-count="0" data-linked-resource-id="781615127" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-183714.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="857b2759-fa46-4c50-818c-c2fa493669d4" data-media-type="file"></span><p>Then, in the account you’re setting up the dashboard for, import the JSON file.</p><ol start="1"><li><p>In the main dashboard page, select <strong>New dashboard</strong> &gt; <strong>Import from file</strong>.</p></li><li><p>Select the file to import.</p></li><li><p>Enter a dashboard name, and then select <strong>Create</strong>.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/781123585/782172164.png" data-image-src="attachments/781123585/782172164.png" data-height="125" data-width="259" data-unresolved-comment-count="0" data-linked-resource-id="782172164" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230810-185047.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="781123585" data-linked-resource-container-version="2" data-media-id="a50d3889-7aab-4db5-99ff-e11039766a97" data-media-type="file"></span><p>After performing the steps from above, you should be able to see the dashboard if the permissions is correctly set.</p></div></div><p /><h2 id="AzureDataAccess-References">References</h2><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards" rel="nofollow">https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards</a> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/781189124.png">image-20230810-144540.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/781582340.png">image-20230810-173831.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/781877251.png">image-20230810-173943.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/781877261.png">Screenshot 2023-08-10 135718.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/782008325.png">Screenshot 2023-08-10 142016.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/781615127.png">image-20230810-183714.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/781123585/782172164.png">image-20230810-185047.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

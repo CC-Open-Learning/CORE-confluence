@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : [OUTDATED] Progress Indicator V1</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VELCRO-UI_1118404624.html">VELCRO UI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UI-Prefabs_1496186887.html">UI Prefabs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : [OUTDATED] Progress Indicator V1
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Harris Ibrahimi</span>, last modified by <span class='editor'> Balazs Karner</span> on Apr 04, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="cbf7d656-283d-4e2f-b1a8-21aefa286bf6" class="confluenceTable"><colgroup><col style="width: 216.0px;"/><col style="width: 544.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this Page</strong></p></td><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544473012 {padding: 0px;}
+div.rbtoc1748544473012 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544473012 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544473012'>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-ProgressIndicatorsV1forUIElements'>Progress Indicators V1 for UI Elements</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-KeyTerms'>Key Terms</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Category'>Category</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Task'>Task</a></li>
+</ul>
+</li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-SettingupyourScene'>Setting up your Scene</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Scripting'>Scripting</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-DisplayingtheProgressIndicator'>Displaying the Progress Indicator</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-AddingCategoriesandTasks'>Adding Categories and Tasks</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Inspector'>Inspector</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Code'>Code</a></li>
+</ul>
+</li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-RemovingCategoriesandTasks'>Removing Categories and Tasks</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Adding/RemovingProgress'>Adding/Removing Progress</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-ParameterizedEvents'>Parameterized Events</a>
+<ul class='toc-indentation'>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-OnProgressUpdated'>OnProgressUpdated</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-OnCategoryAdded'>OnCategoryAdded</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-OnTaskAdded'>OnTaskAdded</a></li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-OnTaskRemoved'>OnTaskRemoved</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#id-[OUTDATED]ProgressIndicatorV1-Cheatsheet'>Cheatsheet</a></li>
+</ul>
+</div></td></tr></tbody></table></div><h1 id="id-[OUTDATED]ProgressIndicatorV1-ProgressIndicatorsV1forUIElements">Progress Indicators V1 for UI Elements</h1><p>Progress indicators are a sophisticated piece of specialized UI that allows a user to keep track of the progression tasks within individual categories.</p><h2 id="id-[OUTDATED]ProgressIndicatorV1-KeyTerms">Key Terms </h2><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" alt="image-20240725-155635.png" width="401" loading="lazy" src="attachments/1240432649/1240924174.png?width=401" data-image-src="attachments/1240432649/1240924174.png" data-height="473" data-width="411" data-unresolved-comment-count="0" data-linked-resource-id="1240924174" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240725-155635.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1240432649" data-linked-resource-container-version="15" data-media-id="a8bd8019-6777-415c-b2e6-f8e088073f8d" data-media-type="file"></span><h3 id="id-[OUTDATED]ProgressIndicatorV1-Category">Category</h3><p>A category is an element of the progress indicator that contains tasks. Categories consist of individual child tasks and a progress bar that indicates how many of those child tasks have been completed.</p><h3 id="id-[OUTDATED]ProgressIndicatorV1-Task">Task</h3><p>A task is an element that is contained inside a parent category. Each task has its own individual progression and when completed, it adds up to the progression of its parent category.</p><p /><p /><p /><h2 id="id-[OUTDATED]ProgressIndicatorV1-SettingupyourScene">Setting up your Scene</h2><p>To get started with implementing progress indicators, you want to place the pre-made progress indicator prefab into your scene. Go to <strong>Packages → Velcro UI → Prefabs</strong> and drag and drop the prefab called <strong>Progress Indicator V1 </strong>in the scene view. Progress Indicators only have one field that the user can edit to customize their UI. The rest are required fields that should not be touched or unity events.</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="36eda77c-2d6c-4d9a-a830-67486cc237db" class="confluenceTable"><tbody><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest,#f4f5f7)" class="confluenceTh"><p><strong>Field</strong></p></th><th data-highlight-colour="var(--ds-background-accent-gray-subtlest,#f4f5f7)" class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>Category Asset</p></td><td class="confluenceTd"><p>The reference to the category UI asset.</p><p>Do not change this field unless you know what you are doing.</p></td></tr><tr><td class="confluenceTd"><p>Task Asset</p></td><td class="confluenceTd"><p>The reference to the task UI asset.</p><p>Do not change this field unless you know what you are doing.</p></td></tr><tr><td class="confluenceTd"><p>Categories</p></td><td class="confluenceTd"><p>The categories and tasks in the progress indicator.</p></td></tr></tbody></table></div><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="ac0602b0-bf73-4803-95b2-adad97b54c84" class="confluenceTable"><tbody><tr><th data-highlight-colour="var(--ds-background-accent-gray-subtlest,#f4f5f7)" class="confluenceTh"><p><strong>Event</strong></p></th><th data-highlight-colour="var(--ds-background-accent-gray-subtlest,#f4f5f7)" class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>On Show</p></td><td class="confluenceTd"><p>Invoked when the progress indicator is shown.</p></td></tr><tr><td class="confluenceTd"><p>On Hide</p></td><td class="confluenceTd"><p>Invoked when the progress indicator is hidden</p></td></tr><tr><td class="confluenceTd"><p>On Progress Updated</p></td><td class="confluenceTd"><p>Invoked when the progress of a task has been updated.</p></td></tr><tr><td class="confluenceTd"><p>On Category Added</p></td><td class="confluenceTd"><p>Invoked when a category is added to the progress indicator.</p></td></tr><tr><td class="confluenceTd"><p>On Task Added</p></td><td class="confluenceTd"><p>Invoked when a task is added to a category.</p></td></tr><tr><td class="confluenceTd"><p>On Category Removed</p></td><td class="confluenceTd"><p>Invoked when a category has been removed from the progress indicator.</p></td></tr><tr><td class="confluenceTd"><p>On Task Removed</p></td><td class="confluenceTd"><p>Invoked when a task has been removed from a category</p></td></tr></tbody></table></div><h2 id="id-[OUTDATED]ProgressIndicatorV1-Scripting">Scripting</h2><p>To begin using the progress indicator, you will need to create a script to control the progress indicator. For this example, I will name my script <em>ProgressController.cs</em>. Add this script to an empty game object in your scene.</p><p>Inside the script we will need to import the VELCRO namespace.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using VARLab.Velcro;</pre>
+</div></div><p>Now we will need a reference to the progress indicator inside the controller script. Once we have the reference to the progress indicator, we will have access to of all its public properties and methods.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[SerializeField]
+private ProgressIndicatorV1 progressIndicator;</pre>
+</div></div><p>Now in you scene, assign the progress indicator object to the reference in your controller script.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="GIF 2024-08-13 4-01-10 PM.gif" width="646" loading="lazy" src="attachments/1240432649/1281327145.gif?width=646" data-image-src="attachments/1240432649/1281327145.gif" data-height="453" data-width="1189" data-unresolved-comment-count="0" data-linked-resource-id="1281327145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="GIF 2024-08-13 4-01-10 PM.gif" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="1240432649" data-linked-resource-container-version="15" data-media-id="f0e005e0-5ac9-40b1-bd56-3408a82c6d16" data-media-type="file"></span><h3 id="id-[OUTDATED]ProgressIndicatorV1-DisplayingtheProgressIndicator">Displaying the Progress Indicator</h3><p>By default the progress indicator is hidden and must be enabled using the <strong>HandleDisplayUI()</strong> method.</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="29c0ef15-a6a7-4dc3-86dc-4ddd5d4ea5e9" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Parameter</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>title</p></td><td class="confluenceTd"><p>The title text that shows at the top of the progress indicator. </p></td></tr></tbody></table></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.HandleDisplayUI(&quot;Title Text&quot;);</pre>
+</div></div><p>You can use the Show()/Hide() methods to further control the display of the progress indicator.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.Show();   // Shows the progress indicator.
+progressIndicator.Hide();   // Hides the progress indicator.</pre>
+</div></div><h3 id="id-[OUTDATED]ProgressIndicatorV1-AddingCategoriesandTasks">Adding Categories and Tasks</h3><p>There are two ways to add both categories and tasks to your progress indicator. You can choose to add them before runtime using the inspector or during runtime through code.</p><h4 id="id-[OUTDATED]ProgressIndicatorV1-Inspector">Inspector</h4><p>In the inspector of the progress indicator object you will see a list field called <em>Categories</em>. This field lets you add categories and in each of those categories is another list that contains the tasks.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="GIF 2024-08-13 3-45-45 PM.gif" width="430" loading="lazy" src="attachments/1240432649/1280442418.gif?width=430" data-image-src="attachments/1240432649/1280442418.gif" data-height="947" data-width="718" data-unresolved-comment-count="0" data-linked-resource-id="1280442418" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="GIF 2024-08-13 3-45-45 PM.gif" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="1240432649" data-linked-resource-container-version="15" data-media-id="c5aec4e6-c993-488e-8f57-5f853bcd5cc4" data-media-type="file"></span><p>This way of adding categories and tasks is helpful for those who prefer engine work or are not comfortable with scripting.</p><h4 id="id-[OUTDATED]ProgressIndicatorV1-Code">Code</h4><p>Adding a category or task to the progress indicator is as simple as calling a single method.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Adds a new category
+progressIndicator.AddCategory(&quot;Category Name&quot;);
+
+// Adds a new task to the category at the specified index
+// The third parameter is the maximum amount of progress needed to complete the task
+progressIndicator.AddTask(0, &quot;Task Name&quot;, 5);
+
+// If any index is invalid, an error will be logged to the console</pre>
+</div></div><h3 id="id-[OUTDATED]ProgressIndicatorV1-RemovingCategoriesandTasks">Removing Categories and Tasks</h3><p>Similar to adding, removing a category or task can be done by calling a single method.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Removes the category at the specified index.
+progressIndicator.RemoveCategory(0);
+
+// Removes the task at the specified category and task indices.
+progressIndicator.RemoveTask(0, 0);
+
+// If any indices are invalid, an error will be logged to the console.</pre>
+</div></div><h3 id="id-[OUTDATED]ProgressIndicatorV1-Adding/RemovingProgress">Adding/Removing Progress</h3><p>Both categories and tasks have their own progress values but have different ways of obtaining progress.</p><p>The progress of a category is based on the number of its tasks that are complete. This means a category has its progress automatically updated.</p><p>A task must be given progress manually through code.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Adds progress to the task at the specified category and task indices.
+progressIndicator.AddProgressToTask(0, 0);  // Adds 1 progress
+progressIndicator.AddProgressToTask(0, 0, 5); // Adds 5 progress
+
+// Removes progress from the task at the specified category and task indices.
+progressIndicator.RemoveProgressFromTask(0, 0);  // Removes 1 progress
+progressIndicator.RemoveProgressFromTask(0, 0, 5); // Removes 5 progress
+
+// If any indices are invalid, an error will be logged to the console.</pre>
+</div></div><h3 id="id-[OUTDATED]ProgressIndicatorV1-ParameterizedEvents">Parameterized Events</h3><p>Some progress indicator events send parameters that represent specific values related to the UI.</p><h4 id="id-[OUTDATED]ProgressIndicatorV1-OnProgressUpdated">OnProgressUpdated</h4><p>This event sends two integer values.</p><p>The first value represents the index of the category that contains the task that had its progress updated.</p><p>The second value represents the index of the task inside the category.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.OnProgressUpdated.AddListener(ProgressUpdated);
+
+private void ProgressUpdated(int categoryIndex, int taskIndex)
+{
+    Debug.Log($&quot;Progress updated at category {categoryIndex} in task {taskIndex}.&quot;);
+}</pre>
+</div></div><h4 id="id-[OUTDATED]ProgressIndicatorV1-OnCategoryAdded">OnCategoryAdded</h4><p>This event sends one integer value that represents the index of the newly added category.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.OnCategoryAdded.AddListener(NewCategoryAdded);
+
+private void NewCategoryAdded(int categoryIndex)
+{
+    Debug.Log($&quot;New category added at index {categoryIndex}.&quot;);
+}</pre>
+</div></div><h4 id="id-[OUTDATED]ProgressIndicatorV1-OnTaskAdded">OnTaskAdded</h4><p>This event sends one integer value that represents the index category that contained the task that was just removed.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.OnTaskAdded.AddListener(NewTaskAdded);
+
+private void NewTaskAdded(int categoryIndex, int taskIndex)
+{
+    Debug.Log($&quot;New task added at index {taskIndex} in category {categoryIndex}.&quot;);
+}</pre>
+</div></div><h4 id="id-[OUTDATED]ProgressIndicatorV1-OnTaskRemoved">OnTaskRemoved</h4><p>This event sends two integer values.</p><p>The first value represents the index of the category that contains the task that was added.</p><p>The second value represents the index of the new task inside the category.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">progressIndicator.OnTaskRemoved.AddListener(TaskRemoved);
+
+private void TaskRemoved(int categoryIndex)
+{
+    Debug.Log($&quot;Task removed in category {categoryIndex}.&quot;);
+}</pre>
+</div></div><h1 id="id-[OUTDATED]ProgressIndicatorV1-Cheatsheet">Cheatsheet</h1><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">// Progress Indicator V1 - Public Properties and Methods
+
+// Properties
+VisualElement Root;   // The root visual element of the progress indicator.
+int CategoryCount;    // The amount of categories in the progress indicator.
+
+// Events
+UnityEvent OnShow;
+UnityEvent OnHide;
+UnityEvent&lt;int categoryIndex, int taskindex&gt; OnProgressUpdated;
+UnityEvent&lt;int categoryIndex&gt; OnCategoryAdded;
+UnityEvent OnCategoryRemoved;
+UnityEvent&lt;int categoryIndex, int taskindex&gt; OnTaskAdded;
+UnityEvent&lt;int categoryIndex&gt; OnTaskRemoved;
+
+// Methods
+void Show();
+void Hide();
+void HandleDisplayUI(string title);
+void SetTitle(string title);
+void AddCategory(string name);
+void AddTask(int categoryIndex, string taskName, int maxProgress)
+void RemoveCategory(int categoryIndex);
+void RemoveTask(int categoryIndex, int taskIndex);
+void AddProgressToTask(int categoryIndex, int taskIndex, int amount);
+void RemoveProgressFromTask(int categoryIndex, int taskIndex, int amount);
+string GetCategoryName(int categoryIndex);
+string GetTaskName(int categoryIndex, int taskIndex);
+int GetTaskProgress(int categoryIndex, int taskIndex);
+int GetTaskMaxProgress(int categoryIndex, int taskIndex);
+int GetTaskCount(int categoryIndex);
+bool FindCategoryWithName(string categoryName, out int categoryIndex);
+bool FindTaskWithName(string taskName, int categoryIndex, out int taskIndex);
+bool FindTaskWithName(string taskName, out int categoryIndex, out int taskIndex);</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1240432649/1240924166.png">image-20240725-154944.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1240432649/1239973914.png">image-20240725-155501.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1240432649/1240924174.png">image-20240725-155635.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1240432649/1280442418.gif">GIF 2024-08-13 3-45-45 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1240432649/1281327145.gif">GIF 2024-08-13 4-01-10 PM.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

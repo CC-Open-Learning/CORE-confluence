@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Saving &amp; Loading Data</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Cloud-Save_501448711.html">Cloud Save</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Saving &amp; Loading Data
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span> on Jul 20, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article we’ll cover how to save and load data from any ICloudSaveSystem implementation.</p><p>We will show how this is done using an AzureSaveSystem object in Unity though the same steps would be used for any other implementation.</p><h2 id="Saving&amp;LoadingData-AddingtheSaveSystem">Adding the Save System</h2><p>The first step to saving and loading data from within a project is to add a save system to the scene.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/501579777/501547028.png" data-image-src="attachments/501579777/501547028.png" data-height="243" data-width="602" data-unresolved-comment-count="0" data-linked-resource-id="501547028" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220720-163458.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="501579777" data-linked-resource-container-version="1" data-media-id="2f337b1e-003a-44f8-9dcc-d3c00405b8c6" data-media-type="file"></span><p>In this example we’ve created an empty GameObject in the scene and added an AzureSaveSystem component to it. The default value of this component is our current <a class="external-link" href="https://azure.microsoft.com/en-us/services/storage/blobs/" rel="nofollow">Azure Blob Storage</a> endpoint.</p><h2 id="Saving&amp;LoadingData-SavingData">Saving Data</h2><p>In order to save, we will need a reference to the save system we placed in our scene as well as data in string format.</p><p>In this example, we’ll save a file on Azure called <code>example.txt</code> with contents &quot;Hello.&quot;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System.Collections;
+using UnityEngine;
+using Core.SaveLoad;
+
+public class SaveExample : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    public void Save()
+    {
+        saveSystem.Save(filepath, &quot;hello&quot;);
+    }
+}</pre>
+</div></div><p>If we need to wait for the save to be completed before continuing, we can use a <a class="external-link" href="https://docs.unity3d.com/Manual/Coroutines.html" rel="nofollow">Coroutine</a> and yield our save to wait until we get a response.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System.Collections;
+using UnityEngine;
+using Core.SaveLoad;
+
+public class SaveExample : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    public void Save()
+    {
+        StartCoroutine(_Save());
+    }
+
+    private IEnumerator _Save()
+    {
+        var save = saveSystem.Save(filepath, &quot;hello&quot;);
+
+        yield return save;
+        
+        Debug.Log(&quot;Save Complete!&quot;);
+    }
+}</pre>
+</div></div><h2 id="Saving&amp;LoadingData-LoadingData">Loading Data</h2><p>In this example, we will download our example.txt file from Azure, wait for the load to finish, and then output the data in that file to the console.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System.Collections;
+using UnityEngine;
+using Core.SaveLoad;
+
+public class SaveExample : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    public void Load()
+    {
+        StartCoroutine(_Load());
+    }
+
+    private IEnumerator _Load()
+    {
+        var load = saveSystem.Load(filepath);
+
+        yield return load.Routine;
+
+        var loadedData = (string)load.Result;
+
+        Debug.Log(loadedData);
+    }
+}</pre>
+</div></div><h2 id="Saving&amp;LoadingData-DeleteFile">Delete File</h2><p>Like with saving, we have the option to simply call delete to remove a file from the file store.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System.Collections;
+using UnityEngine;
+using Core.SaveLoad;
+
+public class SaveExample : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    public void Delete()
+    {
+        saveSystem.Delete(filepath);
+    }
+}</pre>
+</div></div><p>If we need to wait for the deletion to be completed before continuing, we can use a <a class="external-link" href="https://docs.unity3d.com/Manual/Coroutines.html" rel="nofollow">Coroutine</a> and yield our delete to wait until we get a response.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using System.Collections;
+using UnityEngine;
+using Core.SaveLoad;
+
+public class SaveExample : MonoBehaviour
+{
+    [SerializeField] private AzureSaveSystem saveSystem;
+
+    [SerializeField] private string filepath = &quot;azureplayground/example.txt&quot;;
+
+    public void Delete()
+    {
+        StartCoroutine(_Delete());
+    }
+
+    private IEnumerator _Delete()
+    {
+        var delete = saveSystem.Delete(filepath);
+
+        yield return delete;
+
+        Debug.Log(&quot;Delete finished.&quot;);
+    }
+}</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/501579777/501547028.png">image-20220720-163458.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Synchronizing</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Synchronizing
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Aug 05, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h4 id="Synchronizing-SyncVar">SyncVar</h4><p>Used to synchronize single fields. If any changes occur on the server, it will be reflected to the clients.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[SyncVar]
+private float levelCap;</pre>
+</div></div><p>You can set additional attributes on SyncVars to customize their function</p><p><strong>Full attribute list: </strong><a class="external-link" href="https://firstgeargames.com/FishNet/api/api/FishNet.Object.Synchronizing.SyncVarAttribute.html#fields" rel="nofollow">Class SyncVarAttribute (firstgeargames.com)</a></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[SyncVar(OnChange = nameof(OnLevelChange))]
+private float levelCap;
+
+private void OnLevelChange(float previousLvl, float newLvl, bool asServer)
+{ ... }</pre>
+</div></div><p>Parameters required for OnChange methods are the previous value before the change, the new value, and a Boolean indicating whether the change is happening on the client or server.</p><p /><h4 id="Synchronizing-ServerRPC">ServerRPC</h4><p><strong>Full attribute list: </strong><a class="external-link" href="https://firstgeargames.com/FishNet/api/api/FishNet.Object.ServerRpcAttribute.html" rel="nofollow">Class ServerRpcAttribute (firstgeargames.com)</a></p><p>Used for clients to run logic on the server. By default only the owner of the object can run a ServerRpc, you can change this by making [ServerRpc (RequireOwnership = false)].</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">public void OnJump(InputAction.CallbackContext context)
+    {
+        if (!base.IsOwner) return;
+        if (IsGrounded())
+        {
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            IsJumping(&quot;Jump&quot;);
+        }
+        else
+            Debug.Log(&quot;No Jump&quot;);
+    }
+    
+    // RunLocally has the method run on the client performing the action as well as the server
+    [ServerRpc (RunLocally = true)]        
+    private void IsJumping(string msg)
+    {
+        Debug.Log($&quot;{msg}&quot;);
+    }</pre>
+</div></div><p>This snippet uses the Unity Input System to perform a jumping action, the method IsJumping, will only be run/seen on the server side.</p><p>Although, with the (RunLocally = true) attribute, the client that is calling the method will also run the method.</p><p /><h4 id="Synchronizing-ObserversRPC">ObserversRPC</h4><p><strong>Full attribute list:</strong> <a class="external-link" href="https://firstgeargames.com/FishNet/api/api/FishNet.Object.ObserversRpcAttribute.html" rel="nofollow">Class ObserversRpcAttribute (firstgeargames.com)</a></p><p>Used for the server to run logic on clients that are marked as observers. Observers can be set by the Network Observer script attached to an object.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private void FixedUpdate()
+{
+    RpcSetNumber(Time.frameCount);
+}
+
+[ObserversRpc]
+private void RpcSetNumber(int next)
+{
+    Debug.Log($&quot;Received number {next} from the server.&quot;);
+}</pre>
+</div></div><p>[Code snippet taken from <a class="external-link" href="https://fish-networking.gitbook.io/docs/manual/guides/remote-procedure-calls#serverrpc" rel="nofollow">Remote Procedure Calls - Fish-Net: Networking Evolved (gitbook.io)</a>]</p><p>To have the latest value automatically sent to new/late joining clients you can use the attribute <br/>(BufferLast = true). This is useful for values that change frequently.</p><p /><h4 id="Synchronizing-TargetRPC">TargetRPC</h4><p><strong>Full attribute list:</strong> <a class="external-link" href="https://firstgeargames.com/FishNet/api/api/FishNet.Object.TargetRpcAttribute.html" rel="nofollow">Class TargetRpcAttribute (firstgeargames.com)</a></p><p>Used to run logic on a specific client. The first parameter of the TargetRpc method has to the the client connection that you want the data going to.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">private void UpdateOwnersAmmo()
+{
+    /* Even though this example passes in owner, you can send to
+    * any connection that is an observer. */
+    RpcSetAmmo(base.Owner, 10);
+}
+
+[TargetRpc]
+private void RpcSetAmmo(NetworkConnection conn, int newAmmo)
+{
+    //This might be something you only want the owner to be aware of.
+    _myAmmo = newAmmo;
+}</pre>
+</div></div><p>[Code snippet taken from <a class="external-link" href="https://fish-networking.gitbook.io/docs/manual/guides/remote-procedure-calls#serverrpc" rel="nofollow">Remote Procedure Calls - Fish-Net: Networking Evolved (gitbook.io)</a>]</p><p /><h3 id="Synchronizing-OtherNotes">Other Notes</h3><p>[WIP]</p><p>[Server] or [Client]</p><p>Prevents a method from running if the server/client is not running.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">[Server]
+public override void OnStartServer()
+{ ... }</pre>
+</div></div><p /><h4 id="Synchronizing-Broadcasts">Broadcasts</h4><p><a class="external-link" href="https://fish-networking.gitbook.io/docs/manual/guides/synchronizing/broadcast" rel="nofollow">Broadcasts</a> are used to send messages to objects without them having to be networked.</p><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

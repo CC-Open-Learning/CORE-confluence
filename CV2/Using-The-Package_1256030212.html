@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using The Package</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-LTI_1256947713.html">CORE LTI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using The Package
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joshua Moore</span>, last modified on Aug 01, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544641605 {padding: 0px;}
+div.rbtoc1748544641605 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544641605 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544641605'>
+<ul class='toc-indentation'>
+<li><a href='#UsingThePackage-SCORM+LTIImplementation'>SCORM + LTI Implementation</a></li>
+<li><a href='#UsingThePackage-JustLTIImplementation'>Just LTI Implementation</a></li>
+</ul>
+</div><h1 id="UsingThePackage-SCORM+LTIImplementation">SCORM + LTI Implementation</h1><p>If your project is already using SCORM, or is planning to use both it is best to add the SCORM object to the scene first and setup the SCORM integrator script. Further resources here: <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/x/OYAKHg" rel="nofollow">https://varlab-dev.atlassian.net/wiki/x/OYAKHg</a> </p><p>Once you have the SCORM implementation completed you are ready to add LTI functionality to your project!</p><p>The first step will be to add the LTI “Learner Info” object to your scene. This can be done by right clicking the hierarchy and going to “VARLab” as shown below.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-183101.png" width="573" loading="lazy" src="attachments/1256030212/1257537537.png?width=573" data-image-src="attachments/1256030212/1257537537.png" data-height="227" data-width="573" data-unresolved-comment-count="0" data-linked-resource-id="1257537537" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-183101.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="9257e001-472e-4d1c-9ef8-a1dbeaf6adb1" data-media-type="file"></span><p>This will give you an object in the hierarchy you can place where ever you like. Typically a child of “Managers” is the place you will put it.</p><p>Now we need to edit the Scorm Integrator script that is usually attached to the Scorm manager object. The first addition will be in Awake() we need to tell the Scorm Manager to not initialize automatically on start.</p><p>To do this you will need a reference to the Scorm Manager.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-183427.png" width="493" loading="lazy" src="attachments/1256030212/1257340931.png?width=493" data-image-src="attachments/1256030212/1257340931.png" data-height="103" data-width="493" data-unresolved-comment-count="0" data-linked-resource-id="1257340931" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-183427.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="a1b7d074-d2dd-4a80-8357-82a767b81b65" data-media-type="file"></span><p>Then in Awake() add the following code</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-183506.png" width="584" loading="lazy" src="attachments/1256030212/1257832449.png?width=584" data-image-src="attachments/1256030212/1257832449.png" data-height="164" data-width="584" data-unresolved-comment-count="0" data-linked-resource-id="1257832449" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-183506.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="2ea76a31-0a5a-4474-9094-c95f24232262" data-media-type="file"></span><p>Once that is done we need to then edit the Start() method to tell the sim how to Initialize and where it will get the information from. An example implementation is show below.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-183631.png" width="760" loading="lazy" src="attachments/1256030212/1257930753.png?width=760" data-image-src="attachments/1256030212/1257930753.png" data-height="286" data-width="840" data-unresolved-comment-count="0" data-linked-resource-id="1257930753" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-183631.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="1d206d11-cc07-4025-99cb-9b94d5536a52" data-media-type="file"></span><p>This provides 2 paths where if the sim is deployed via webGL with SCORM it will Initialize the manager, then start the normal Scorm path. Otherwise if it is deployed in webGL but “LearnerInfo.UserID” was not null means the LTI server provided information to the sim, so we set the LearnerID in the Scorm integrator to the value so it can be accessed via both “ScormIntegrator.LearnerID” or “LearnerInfo.UserID” and call the “OnInitialize” event which typically will start the cloud save check. The following simulations have LTI added to them so you can look through them for full implementation examples:</p><ol start="1"><li><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/trades-electrical/src/main/" rel="nofollow">https://bitbucket.org/VARLab/trades-electrical/src/main/</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/public-health-inspection/src/main/" rel="nofollow">https://bitbucket.org/VARLab/public-health-inspection/src/main/</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/paramedic-ambulance/src/main/" rel="nofollow">https://bitbucket.org/VARLab/paramedic-ambulance/src/main/</a> </p></li></ol><h1 id="UsingThePackage-JustLTIImplementation">Just LTI Implementation</h1><p>If the sim has no need for a SCORM implementation and just needs the LTI implementation the steps are similar to above, but without the code changes.</p><p>First we add the object to the scene.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-183101.png" width="573" loading="lazy" src="attachments/1256030212/1257537537.png?width=573" data-image-src="attachments/1256030212/1257537537.png" data-height="227" data-width="573" data-unresolved-comment-count="0" data-linked-resource-id="1257537537" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-183101.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="9257e001-472e-4d1c-9ef8-a1dbeaf6adb1" data-media-type="file"></span><p>Then once it is added to the scene you place it in the hierarchy where-ever you like. </p><p>Next if we inspect the object you will see the following.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-184352.png" width="732" loading="lazy" src="attachments/1256030212/1258061825.png?width=732" data-image-src="attachments/1256030212/1258061825.png" data-height="307" data-width="732" data-unresolved-comment-count="0" data-linked-resource-id="1258061825" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-184352.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="d733783d-55bb-4657-a8e4-28eab90a8a65" data-media-type="file"></span><p>You can simply add your cloud save implementation, or initialize calls as listeners to this event which passes the unique userID as a parameter. Additionally you can add a static listener with no parameters and reference the id via the following as the UserID is a Static string.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240801-184531.png" width="277" loading="lazy" src="attachments/1256030212/1257373699.png?width=277" data-image-src="attachments/1256030212/1257373699.png" data-height="28" data-width="277" data-unresolved-comment-count="0" data-linked-resource-id="1257373699" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240801-184531.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1256030212" data-linked-resource-container-version="3" data-media-id="5465d5f8-fcbe-4a07-bb59-982e52dc7e02" data-media-type="file"></span><p>And you’ve completed adding LTI to your Unity project!</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1257537537.png">image-20240801-183101.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1257340931.png">image-20240801-183427.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1257832449.png">image-20240801-183506.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1257930753.png">image-20240801-183631.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1258061825.png">image-20240801-184352.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1256030212/1257373699.png">image-20240801-184531.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

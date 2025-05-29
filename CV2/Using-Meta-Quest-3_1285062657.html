@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using Meta Quest 3</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-XR_1283883075.html">CORE XR</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Project-Configuration_1284014184.html">Project Configuration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using Meta Quest 3
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacob Martens</span> on Aug 14, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The Meta Quest 3 supports multiple ways to run apps. You can either stream them from a PC over Meta Quest Link, or run them directly on the headset as installed APK files. Unity has a feature for Android building to deploy directly to a connected device, which also works for the Meta Quest 3 Headset. This guide will cover both processes to run Unity applications on a Meta Quest 3 headset.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544254344 {padding: 0px;}
+div.rbtoc1748544254344 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1748544254344 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544254344'>
+<ul class='toc-indentation'>
+<li><a href='#UsingMetaQuest3-Setup'>Setup</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingMetaQuest3-HeadsetSetup'>Headset Setup</a></li>
+<li><a href='#UsingMetaQuest3-DesktopSetup'>Desktop Setup</a></li>
+<li><a href='#UsingMetaQuest3-ConnectingtheHeadset'>Connecting the Headset</a></li>
+</ul>
+</li>
+<li><a href='#UsingMetaQuest3-RunningAppsontheQuest3'>Running Apps on the Quest 3</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingMetaQuest3-BuildinganAPK'>Building an APK</a></li>
+<li><a href='#UsingMetaQuest3-RunningDirectlywithQuestLink'>Running Directly with Quest Link</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="UsingMetaQuest3-Setup">Setup</h1><h2 id="UsingMetaQuest3-HeadsetSetup">Headset Setup</h2><p>If prompted to sign in to the headset, the account used must be configured as a developer account. VARLab has an account, ask IT to help you log in with it when checking out a headset.</p><p>In the Meta Quest 3 Headset, locate the settings menu on the toolbar (a green background with a white gear). From there, select <strong>System</strong> and locate <strong>Quest Link</strong> from the menu. Enable Quest Link. Locate <strong>Developer</strong> in the menu, and enable all the settings.</p><h2 id="UsingMetaQuest3-DesktopSetup">Desktop Setup</h2><p>Install the <a class="external-link" href="https://www.oculus.com/download_app/?id=1582076955407037" rel="nofollow">Meta Quest Link software</a>, and log in with the same developer account used in the previous step.</p><p>In the Meta Quest Link Application, locate <strong>Settings</strong> and select <strong>Beta</strong>. From this screen, enable <em>Developer runtime features</em>, then enable every option that appears afterword. Click Turn On for every pop up window for each setting.</p><h2 id="UsingMetaQuest3-ConnectingtheHeadset">Connecting the Headset</h2><p>Connect the headset to your computer using the USB-C port on the headset. If prompted, update the headset drivers. In the Meta Quest Link application, select <strong>Devices</strong> and <strong>Add Headset</strong>. Follow through all the prompts, ensuring the headset is on throughout. If the connection was successful, you should see the Quest 3 and Touch Controllers under Devices. Click on Quest 3 and Touch and scroll down to <strong>USB Test</strong> under <em>Setup and Support</em> in the window that pops up. Follow the USB Test prompts, ensuring it completes successfully with a transfer rate of at least 2.1 Gbps. This is typically achievable with a USB-C to USB-3 cable. If the cable you are using isn't able to meet these specifications, meet with IT about getting a replacement</p><h1 id="UsingMetaQuest3-RunningAppsontheQuest3">Running Apps on the Quest 3</h1><h2 id="UsingMetaQuest3-BuildinganAPK">Building an APK</h2><p>With the headset on, connected to the computer, and recognized in Meta Quest Link, you are able to build directly to the headset. In the Unity Editor, open <strong>File-&gt;Build Settings</strong>. Under <em>Platform</em>, select <strong>Android</strong>. In the options that appear on the right, locate <strong>Run Device</strong>. Click <strong>Refresh</strong>, then locate and select the <em>Oculus Quest 3</em> from the list of devices. In the bottom of the Build Settings window, select <em>Switch Platform</em>. When Unity has finished switching, select <strong>Build And Run</strong>, naming and saving the .apk file. For the first build it will take some time, subsequent builds will be completed faster. Ensure you are wearing the headset when the build completes, and the APK will be automatically installed and launched</p><h2 id="UsingMetaQuest3-RunningDirectlywithQuestLink">Running Directly with Quest Link</h2><p>Faster than building the APK each time is running the application through Unity in Meta Quest Link. Put the headset on while it is connected to a computer running Meta Quest Link. If it launches you directly into Headset Quest Link, skip the following step. Open <strong>Settings</strong> and navigate to <strong>System-&gt;Quest Link</strong> and select <strong>Launch Quest Link</strong>. In the subsequent popup, locate the connected PC and click <em>Launch</em>. <strong>Note</strong>: To exit Quest Link and return to the passthrough camera view, select the left-most option on the bottom bar and click <strong>Disable</strong>.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

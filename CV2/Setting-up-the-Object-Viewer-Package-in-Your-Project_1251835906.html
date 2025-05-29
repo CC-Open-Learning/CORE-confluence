@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Setting up the Object Viewer Package in Your Project</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Object-Viewer_1237712913.html">Object Viewer</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Setting up the Object Viewer Package in Your Project
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Amro Belbeisi</span>, last modified by <span class='editor'> Liam Stanziani</span> on Nov 09, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This demonstration will provide as an example of how you can set up the components related to the package.</p><h3 id="SettinguptheObjectViewerPackageinYourProject-Step1-ImportthePackageintoUnity.">Step 1 - Import the Package into Unity. </h3><p>Go to Window&gt;Package Manager&gt;My Registries, find the Object Viewer package and download it. </p><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>If you need to setup your unity registry for VARLab, please refer to this document: <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/x/wAC1Lg" rel="nofollow">https://varlab-dev.atlassian.net/wiki/x/wAC1Lg</a> </p>
+</div></div><h3 id="SettinguptheObjectViewerPackageinYourProject-Step2-SetupKeybindings">Step 2 - Set up Keybindings</h3><p>Right-click on the assets directory (or any folder directory) &gt; Create &gt; Keybindings. Now click on the Keybinding object and in the inspector you will see four KeyCode types that are bind to ‘None’, click on the drop down arrow to open up a list of different KeyCode types and bind any key to your liking. </p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><a href="attachments/1251835906/1252098060.mp4?width=559">Desktop 2024.07.25 - 09.56.19.02 - Trim.mp4</a></span><h3 id="SettinguptheObjectViewerPackageinYourProject-Step3-SetupObjectViewerController(NoUI)">Step 3 - Setup Object Viewer Controller (No UI)</h3><p>We will make an empty game object call it whatever you want “Object Viewer Manger/Controller” etc. Attach the Object Viewer Controller Script to that game object, make sure that <strong>“Has UI” is unchecked</strong>, then attach the main camera, a keybinding, no World Object Renderer is needed since thats only used for UI only. </p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" alt="image-20240730-154502.png" width="444" loading="lazy" src="attachments/1251835906/1252098078.png?width=444" data-image-src="attachments/1251835906/1252098078.png" data-height="793" data-width="513" data-unresolved-comment-count="0" data-linked-resource-id="1252098078" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240730-154502.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1251835906" data-linked-resource-container-version="10" data-media-id="f931b67f-0301-4667-81bb-d202ba6b5c8a" data-media-type="file"></span><p> </p><p> </p><div id="expander-1986779478" class="expand-container"><div id="expander-control-1986779478" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">For UI</span></div><div id="expander-content-1986779478" class="expand-content"><h4 id="SettinguptheObjectViewerPackageinYourProject-Step3.1-SetuptheObjectViewerController(UI)">Step 3.1 - Set up the Object Viewer Controller (UI) </h4><p>We will make an empty game object call it whatever you want “Object Viewer Manger/Controller” etc. Attach the Object Viewer Controller Script to that game object, make sure that <strong>“Has UI” is checked</strong>, then attach the main camera, a keybinding, and World Object Renderer. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240725-192851.png" width="400" loading="lazy" src="attachments/1251835906/1252098084.png?width=400" data-image-src="attachments/1251835906/1252098084.png" data-height="666" data-width="519" data-unresolved-comment-count="0" data-linked-resource-id="1252098084" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240725-192851.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1251835906" data-linked-resource-container-version="10" data-media-id="a3763a94-d983-46df-8ca8-b0672232665d" data-media-type="file"></span></div></div><h3 id="SettinguptheObjectViewerPackageinYourProject-Step4-Setup‘WorldObject’onAsset">Step 4 - Set up ‘WorldObject’ on Asset</h3><p>On the asset that you want to viewable with the ObjectViewer attach WorldObject script, please note that a RotateObject script and collider and required components for the WorldObject script:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" alt="image-20240730-154754.png" width="404" loading="lazy" src="attachments/1251835906/1252098114.png?width=404" data-image-src="attachments/1251835906/1252098114.png" data-height="918" data-width="503" data-unresolved-comment-count="0" data-linked-resource-id="1252098114" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240730-154754.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1251835906" data-linked-resource-container-version="10" data-media-id="158e5c81-cc08-4c0e-bcbc-1ab587a579e0" data-media-type="file"></span><h3 id="SettinguptheObjectViewerPackageinYourProject-Step5-SetupaWindowBuilderforUI">Step 5 - Set up a Window Builder for UI</h3><p>For our sample scene we included a sample window builder that could be used within your project. We have a menu controller class for base UI functionality and a window builder class for UI functionality of the object viewer project.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
+
+namespace VARLAB.ObjectViewer
+{
+    public abstract class MenuController : MonoBehaviour
+    {
+        public UIDocument Document;
+        public VisualElement Root;
+        public bool OpenOnStart = false;
+
+        [Header(&quot;Menu Events&quot;)]
+        /// &lt;summary&gt; Invoked when the window is opened &lt;/summary&gt;
+        /// 
+        public UnityEvent Opened = new();
+
+        /// &lt;summary&gt; Invoked when the window is closed &lt;/summary&gt;
+        public UnityEvent Closed = new();
+
+        /// &lt;summary&gt; Indicates the current state of the menu &lt;/summary&gt;
+        public bool IsOpen =&gt; Root != null &amp;&amp; Root.style.display == DisplayStyle.Flex;
+
+        public Button CloseButton { get; private set; }
+
+        public virtual void OnValidate()
+        {
+            if (!Document)
+            {
+                Document = GetComponent&lt;UIDocument&gt;();
+            }
+        }
+
+        public virtual void Start()
+        {
+            if (!Document)
+            {
+                Document = GetComponent&lt;UIDocument&gt;();
+            }
+            Root = Document.rootVisualElement;
+            // Set display based on initial IsOpen property
+            Display(OpenOnStart);
+            Initialize();
+        }
+
+        /// &lt;summary&gt;
+        ///      Configures visual elements and their interactions
+        /// &lt;/summary&gt;
+        public abstract void Initialize();
+
+        /// &lt;summary&gt;
+        ///     Sets the current display state according to the &lt;paramref name=&quot;enabled&quot;/&gt; parameter
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;enabled&quot;&gt;Indicates whether or not the window should be shown&lt;/param&gt;
+        public virtual void Display(bool enabled)
+        {
+            if (enabled) { Open(); }
+            else { Close(); }
+        }
+
+        /// &lt;summary&gt;
+        ///     Toggles the current state of display
+        /// &lt;/summary&gt;
+        public virtual void Toggle() =&gt; Display(!IsOpen);
+
+        public virtual void Open()
+        {
+            Root.style.display = DisplayStyle.Flex;
+            Opened?.Invoke();
+        }
+
+        public virtual void Close()
+        {
+            Root.style.display = DisplayStyle.None;
+            Closed?.Invoke();
+        }
+    }
+}</pre>
+</div></div><p style="text-align: center;">Menu Controller class code</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: c#; gutter: false; theme: Confluence" data-theme="Confluence">using UnityEngine.UIElements;
+
+namespace VARLAB.ObjectViewer 
+{
+    public class WindowBuilder : MenuController
+    {
+        public const string DefaultButtonId = &quot;Button&quot;;
+        public string CloseButtonId;
+        private Button closeButton;
+        public override void Initialize()
+        {
+            // Checking to see if the UI Document has a template container with the name inputted to close the UI
+            TemplateContainer templateContainer = Root.Q&lt;TemplateContainer&gt;(CloseButtonId);
+            if (templateContainer != null) 
+            {
+                closeButton = templateContainer.Q&lt;Button&gt;(DefaultButtonId);
+            }
+            else 
+            {
+                closeButton = Root.Q&lt;Button&gt;(CloseButtonId);
+            }
+            closeButton.clicked += () =&gt; Close();
+        }
+    }
+}</pre>
+</div></div><p style="text-align: center;">Window Builder class code</p><h3 id="SettinguptheObjectViewerPackageinYourProject-Step6-SettingupInteractions">Step 6 - Setting up Interactions</h3><p>Since CORE Interactions is a dependency for Object Viewer we will make use of it as our main interaction manager for our objects. The interaction manager will be implemented differently depending if the objects are being viewed without a user interface (UI) or with a UI.</p><div id="expander-533685269" class="expand-container"><div id="expander-control-533685269" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Without UI</span></div><div id="expander-content-533685269" class="expand-content"><ol start="1"><li><p>Add a new empty game object to the scene, give it any name that’s relevant to its role e.g EventSystem, Interaction Manager etc.</p></li><li><p> Add a new “EventSystem” component to this game object and click on “Add Default Input Modules”</p></li><li><p>Add a new “Interaction Handler” component to this game object</p></li><li><p>Under the Mouse Click event in the “Interaction Handler” script, add 2 new events</p></li><li><p>Drag and drop the  Object Viewer Controller component and select ObjectViewerController-&gt;View (Dynamic GameObject)</p></li><li><p>Drag and drop the EventSystem component and select InteractionHandler-&gt;bool enabled and make sure its disabled</p></li></ol></div></div><div id="expander-782429553" class="expand-container"><div id="expander-control-782429553" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">With UI</span></div><div id="expander-content-782429553" class="expand-content"><ol start="1"><li><p>Add a new empty game object to the scene, give it any name that’s relevant to its role e.g EventSystem, Interaction Manager etc.</p></li><li><p> Add a new “EventSystem” component to this game object and click on “Add Default Input Modules”</p></li><li><p>Add a new “Interaction Handler” component to this game object</p></li><li><p>Enable Custom Interaction Group in the InteractionHandler </p></li><li><p>Add all the intractable objects to that list</p></li><li><p>Under the Mouse Click event, add a new event</p></li><li><p>Drag and drop the game object that has the UI document and Sample Window Builder script attached to it </p></li><li><p>On the event, select SampleWindowBuilder-&gt;OpenWindow (Dynamic GameObject) as the function.</p></li></ol></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098053.gif">GIF 7-24-2024 1-44-59 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098060.mp4">Desktop 2024.07.25 - 09.56.19.02 - Trim.mp4</a> (video/mp4)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098066.gif">GIF 7-30-2024 2-57-15 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098072.gif">GIF 7-30-2024 3-07-48 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098078.png">image-20240730-154502.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098084.png">image-20240725-192851.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098090.png">image-20240725-180218.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098096.gif">GIF 7-25-2024 2-09-22 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098102.gif">GIF 7-25-2024 2-14-55 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098108.png">image-20240725-182134.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098114.png">image-20240730-154754.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1252098120.gif">GIF 7-30-2024 3-12-28 PM.gif</a> (image/gif)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1254817800.png">image-20240801-133852.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1254916100.png">image-20240801-133853.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1251835906/1255014403.gif">GIF 8-1-2024 9-44-53 AM.gif</a> (image/gif)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

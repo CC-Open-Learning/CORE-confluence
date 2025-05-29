@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Using the Package Template Repository</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Unity-Package-Management_715948050.html">Unity Package Management</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Using the Package Template Repository
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jordan Robinson</span>, last modified by <span class='editor'> David Inglis</span> on Apr 01, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="UsingthePackageTemplateRepository-Contents">Contents</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544142042 {padding: 0px;}
+div.rbtoc1748544142042 ul {list-style: default;margin-left: 0px;padding-left: ;}
+div.rbtoc1748544142042 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544142042'>
+<ul class='toc-indentation'>
+<li><a href='#UsingthePackageTemplateRepository-Summary'>Summary</a></li>
+<li><a href='#UsingthePackageTemplateRepository-CreateaRepository'>Create a Repository</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingthePackageTemplateRepository-RepositorySettings'>Repository Settings</a></li>
+</ul>
+</li>
+<li><a href='#UsingthePackageTemplateRepository-ClonetheRepository'>Clone the Repository</a></li>
+<li><a href='#UsingthePackageTemplateRepository-ModifytheTemplate'>Modify the Template</a></li>
+<li><a href='#UsingthePackageTemplateRepository-SetUpCI/CD'>Set Up CI/CD</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingthePackageTemplateRepository-RepositoryVariables'>Repository Variables</a></li>
+<li><a href='#UsingthePackageTemplateRepository-Workspace-LevelVariables'>Workspace-Level Variables</a></li>
+</ul>
+</li>
+<li><a href='#UsingthePackageTemplateRepository-ApplyPermissions'>Apply Permissions</a></li>
+<li><a href='#UsingthePackageTemplateRepository-PushingtotheRepository'>Pushing to the Repository</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingthePackageTemplateRepository-ProjectVersion'>Project Version</a>
+<ul class='toc-indentation'>
+<li><a href='#UsingthePackageTemplateRepository-Patch'>Patch</a></li>
+<li><a href='#UsingthePackageTemplateRepository-Minor'>Minor</a></li>
+<li><a href='#UsingthePackageTemplateRepository-Major'>Major</a></li>
+</ul>
+</li>
+<li><a href='#UsingthePackageTemplateRepository-Pipelines'>Pipelines</a></li>
+</ul>
+</li>
+</ul>
+</div><h2 id="UsingthePackageTemplateRepository-Summary">Summary</h2><p>The <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/package-template" rel="nofollow">https://bitbucket.org/VARLab/package-template</a> repository provides a starting point for developing Unity package within the CORE Framework.</p><h2 id="UsingthePackageTemplateRepository-CreateaRepository">Create a Repository</h2><p>With the template downloaded and ready, we need to create a new repository on Bitbucket for our package’s Unity project.</p><p>Head to the VARLab Bitbucket page <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/" rel="nofollow">https://bitbucket.org/VARLab/</a> and select <strong>Create → Repository.</strong></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="633" loading="lazy" src="attachments/496533511/496533520.png?width=633" data-image-src="attachments/496533511/496533520.png" data-height="191" data-width="648" data-unresolved-comment-count="0" data-linked-resource-id="496533520" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220629-174723.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="5f0a83cb-8e8a-4d49-ac66-f00420063682" data-media-type="file"></span><p>To copy the package template repository, select <strong>Import Repository </strong>in the <strong>Create a new repository </strong>menu.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="633" loading="lazy" src="attachments/496533511/498139147.png?width=633" data-image-src="attachments/496533511/498139147.png" data-height="73" data-width="592" data-unresolved-comment-count="0" data-linked-resource-id="498139147" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220706-161435.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="b83cc40a-9e88-4b3c-b7bc-bf882b4ffb7c" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240814-180745.png" width="633" loading="lazy" src="attachments/496533511/1284964356.png?width=633" data-image-src="attachments/496533511/1284964356.png" data-height="568" data-width="580" data-unresolved-comment-count="0" data-linked-resource-id="1284964356" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240814-180745.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="9fb07856-9a9f-4616-bc20-ceb309368569" data-media-type="file"></span><p /><p>In the <strong>Import existing code </strong>menu, you will need to paste in the URL for the package template repository and provide whatever login details necessary to access it.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Your regular Atlassian password will not work for repository copying. You must generate and use an <a class="external-link" href="https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/" rel="nofollow">App Password</a> for your account instead.</p></div></div><p /><div id="expander-1525221189" class="expand-container"><div id="expander-control-1525221189" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Download the Repository Instead</span></div><div id="expander-content-1525221189" class="expand-content"><p>To get the template project, head over to the repository and select the <strong>…</strong> button next to <strong>Clone</strong> and select <strong>Download Repository.</strong></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/496533511/496664597.png" data-image-src="attachments/496533511/496664597.png" data-height="246" data-width="252" data-unresolved-comment-count="0" data-linked-resource-id="496664597" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220629-174455.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="aaa531af-0a62-4af0-b99a-8075a1c38bb0" data-media-type="file"></span><p>You will still need to create a new repository on Bitbucket and push the downloaded package contents to that new repository.</p></div></div><p>The reason we don’t simply fork the repository is that Bitbucket offers no way to sever the fork relationship between two repositories without contacting their support staff.</p><h3 id="UsingthePackageTemplateRepository-RepositorySettings">Repository Settings</h3><p>Ensure the repository is <strong>private,</strong> and that the main branch is named <code>main</code> as the scripts for publishing packages are based around that name. Other settings can be configured to the needs of the project. </p><h2 id="UsingthePackageTemplateRepository-ClonetheRepository">Clone the Repository</h2><p>Now that there’s a new repository for your package, you will need to clone it in Sourcetree or whatever git client you prefer.</p><p>For documentation on how to clone a Bitbucket repository in Sourcetree, visit <a href="https://varlab-dev.atlassian.net/wiki/spaces/VAR/pages/1835072/Using+Bitbucket+Sourcetree" data-linked-resource-id="1835072" data-linked-resource-version="18" data-linked-resource-type="page">Using Bitbucket &amp; Sourcetree</a>.</p><h2 id="UsingthePackageTemplateRepository-ModifytheTemplate">Modify the Template</h2><p>Your project is now a copy of the template but we need to change around a few things in order to make your package unique. For general information on custom package creation, check out Unity’s <a class="external-link" href="https://docs.unity3d.com/Manual/CustomPackages.html" rel="nofollow">documentation for creating custom packages</a>.</p><p>Navigate to the <code>Assets/Package/Runtime</code> and <code>Assets/Package/Editor</code> folders and rename the <code>VARLab.PackageTemplate</code> assembly definition files to something that better describes your package. For example, the <a class="external-link" href="https://bitbucket.org/VARLab/cloudsave/src/main/" rel="nofollow">Cloud Save</a> package uses <code>VARLab.CloudSave</code> and <code>VARLab.CloudSave.Editor</code></p><p>The next step is to open <code>package.json</code><strong> </strong>in the same folder and edit it to update the package namespace, display name, and description. Take a look at the sample below, and for more information check out Unity’s <a class="external-link" href="https://docs.unity3d.com/Manual/upm-manifestPkg.html" rel="nofollow">documentation on the package manifest</a>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;name&quot;: &quot;com.varlab.packagetemplate&quot;,  	&lt;-- update namespace
+	&quot;displayName&quot;: &quot;UPM Package Template&quot;, 	&lt;-- update display name
+	&quot;version&quot;: &quot;0.2.0&quot;,						&lt;-- set a starting version, probably 0.1.0
+	&quot;unity&quot;: &quot;2022.3&quot;,						&lt;-- specify the minimum Unity version supported
+	&quot;description&quot;: &quot;An example of a UPM package which can be hosted in a scoped registry.&quot;,
+	&quot;category&quot;: &quot;Instrument&quot;,
+
+	...
+
+	&quot;keywords&quot;: [							&lt;-- add any relevant search keywords
+		&quot;unity&quot;, &quot;editor&quot;, &quot;upm&quot;
+	],
+	
+	&quot;samples&quot;: [
+		{									&lt;-- link and describe any &quot;sample&quot; content
+			&quot;displayName&quot;: &quot;Example Project&quot;,
+			&quot;description&quot;: &quot;Contains a sample for the package&quot;,
+			&quot;path&quot;: &quot;Samples~/Example Project&quot;
+		}
+	],
+	
+    ...
+    
+}</pre>
+</div></div><h2 id="UsingthePackageTemplateRepository-SetUpCI/CD">Set Up CI/CD</h2><p>The major feature of this template is that it contains scripts and pipelines that automatically create a Unity package out of anything placed in a specific folder within the project. By default the example project uses <strong>Assets/Package</strong> but you can set it to whatever you like.</p><p>To begin preparing the repository for automated packaging, head over to the <strong>Repository settings</strong> tab in your repository in Bitbucket and scroll down to <strong>Pipelines → Settings</strong> and enable pipelines.</p><p>With pipelines enabled, you can now navigate to <strong>Pipelines → Repository variables</strong> and set up the variables needed to generate a package branch.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240927-140540.png" width="760" loading="lazy" src="attachments/496533511/1366163460.png?width=760" data-image-src="attachments/496533511/1366163460.png" data-height="389" data-width="901" data-unresolved-comment-count="0" data-linked-resource-id="1366163460" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240927-140540.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="87ec2021-38a5-4fdd-9113-2287c5dfdee2" data-media-type="file"></span><h3 id="UsingthePackageTemplateRepository-RepositoryVariables">Repository Variables</h3><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="cdd9b90b-2bb7-4c45-9312-6f15f7d7a6c0" class="confluenceTable"><colgroup><col style="width: 160.0px;"/><col style="width: 495.0px;"/><col style="width: 102.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Variable</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th><th class="confluenceTh"><p><strong>Secured</strong></p></th></tr><tr><td class="confluenceTd"><p><code>FOLDER_TO_EXPORT</code></p></td><td class="confluenceTd"><p><code>./Assets/Package</code></p></td><td class="confluenceTd"><p>No</p></td></tr><tr><td class="confluenceTd"><p><code>TARGET_BRANCH</code></p></td><td class="confluenceTd"><p><code>upm</code></p></td><td class="confluenceTd"><p>No</p></td></tr><tr><td class="confluenceTd"><p><code>NPM_DEBUG</code></p></td><td class="confluenceTd"><p><code>false</code> or <code>true</code></p></td><td class="confluenceTd"><p>No</p></td></tr></tbody></table></div><p>The first variable is <code>FOLDER_TO_EXPORT</code><strong> </strong>which tells the <code>make_package.sh</code> and <code>publish_setup.sh</code> scripts which folder in your Unity project contains the package files.</p><p><code>TARGET_BRANCH</code><strong> </strong>indicates the desired branch name to be used for the package. The current convention we use is <strong>upm </strong>to denote the package branch.</p><p>Most projects will not need verbose pipeline logs and can simply ignore the <code>NPM_DEBUG</code> variable, as it is set at the workspace level. To enable verbose debug information while running pipeline steps, add the variable and set its value to <code>true</code>.</p><p /><h3 id="UsingthePackageTemplateRepository-Workspace-LevelVariables">Workspace-Level Variables</h3><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="f6131d56-12c1-45c4-af93-ce0d1f2f7bd9" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Variable</strong></p></th><th class="confluenceTh"><p><strong>Secured</strong></p></th></tr><tr><td class="confluenceTd"><p><code>GIT_TOKEN</code></p></td><td class="confluenceTd"><p>Yes</p></td></tr><tr><td class="confluenceTd"><p><code>NPM_TOKEN</code></p></td><td class="confluenceTd"><p>Yes</p></td></tr><tr><td class="confluenceTd"><p><code>NPM_DEBUG</code></p></td><td class="confluenceTd"><p>No</p></td></tr></tbody></table></div><p><code>GIT_TOKEN</code><strong> </strong>is a username and <strong>app password</strong> for Bitbucket which has permissions to write to the repository. </p><p>Similarly, <code>NPM_TOKEN</code> is a token generated for the UPM package registry that has permissions to write to the registry.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The machine user credentials for <code>GIT_TOKEN</code> and <code>NPM_TOKEN</code> are now shared workspace variables, meaning they are accessible by all projects. These fields are <strong>Secured</strong> so that the credentials cannot be read after applying, but developers no longer need to set these variables manually for each package repository.</p></div></div><p><code>NPM_DEBUG</code> is set to <code>false</code> at the workspace level so that individual repositories are not required to provide a value unless they need verbose debug logs.</p><h2 id="UsingthePackageTemplateRepository-ApplyPermissions">Apply Permissions</h2><p>Other developers in the VARLab will need to use your package as well, so make sure to give the <strong>Developers</strong> group write permissions for your package repository.</p><p>Navigate to <strong>Repository Settings &gt; User and group access</strong> and add the <strong>Developers </strong>group.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="633" loading="lazy" src="attachments/496533511/504266833.png?width=633" data-image-src="attachments/496533511/504266833.png" data-height="228" data-width="562" data-unresolved-comment-count="0" data-linked-resource-id="504266833" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220728-161534.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="b0a361ac-2420-4b23-9d8f-62118cbce02a" data-media-type="file"></span><p>If you skip this step, everyone will get errors when they open up any Unity project that is using your package.</p><p /><h2 id="UsingthePackageTemplateRepository-PushingtotheRepository">Pushing to the Repository</h2><p>With the project configured from the template, you are now ready to start developing a UPM package.</p><h3 id="UsingthePackageTemplateRepository-ProjectVersion">Project Version</h3><p>For every feature implemented, developers should increment the package version in the <code>package.json</code> file, which follows <a class="external-link" href="https://semver.org/" rel="nofollow">semantic versioning</a>, an <code>x.y.z</code> format where <code>x</code> is the <strong>major</strong> version, <code>y</code> is the <strong>minor</strong> version, and <code>z</code> is the <strong>patch</strong>. </p><p>See the sections below to decide which version number should be updated when making changes to the package.</p><h4 id="UsingthePackageTemplateRepository-Patch">Patch</h4><p>If the change is particularly small, such as a simple bug fix or added function, consider bumping the <strong>patch</strong> version number. Patch-level changes should <strong>always</strong> be backward-compatible, meaning a downstream DLX project should be able to update the package without changing the use of the package.</p><h4 id="UsingthePackageTemplateRepository-Minor">Minor</h4><p>Update the <strong>minor</strong> version when adding larger functionality, such as new classes or modules, and when fixing large bugs that affect many code areas. Minor-level changes should also <strong>always</strong> be backward-compatible, using attributes such as <code>[Obsolete]</code> to indicate code areas that may be removed or significantly changed in a new major version.</p><p>When the minor version number is changed, the patch version should be reset to 0</p><h4 id="UsingthePackageTemplateRepository-Major">Major</h4><p>For key system changes, or changes that are not backward-compatible, the <strong>major</strong> version of the package should be updated. These changes are permitted to break existing implementations in DLX projects when updated, as development teams should be aware that there may be breaking changes with new major versions.</p><p>When the major version is changed, the minor and patch versions should be reset to 0</p><p /><h3 id="UsingthePackageTemplateRepository-Pipelines">Pipelines</h3><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" alt="image-20240927-141245.png" width="383" loading="lazy" src="attachments/496533511/1365966852.png?width=383" data-image-src="attachments/496533511/1365966852.png" data-height="146" data-width="383" data-unresolved-comment-count="0" data-linked-resource-id="1365966852" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240927-141245.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="3ffee64c-4544-40a6-b20f-d0dc0083c8dc" data-media-type="file"></span><p>Commits to any feature branch will run the <strong>Create UPM Staging Branch</strong> pipeline step which can be pulled into a project to test. A feature branch with the name of <code>CORE-123-my-feature-branch</code> will generate a corresponding UPM branch named <code>upm-CORE-123-my-feature-branch</code></p><p /><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Please not that branch prefixes such as <code>bugfix/</code> or <code>feature/</code> are unfortunately not supported by the UPM Staging pipeline. Please avoid the use of branch prefixes on UPM package repositories. This issue is currently tracked in Jira as <a class="external-link" href="https://varlab-dev.atlassian.net/browse/CORE-531" rel="nofollow">CORE-531</a>.</p></div></div><p /><span class="confluence-embedded-file-wrapper image-left-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-left" alt="image-20240927-141221.png" width="388" loading="lazy" src="attachments/496533511/1365770242.png?width=388" data-image-src="attachments/496533511/1365770242.png" data-height="202" data-width="388" data-unresolved-comment-count="0" data-linked-resource-id="1365770242" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240927-141221.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="496533511" data-linked-resource-container-version="10" data-media-id="1fb776e5-a489-41d7-a4a4-44446157cfdd" data-media-type="file"></span><p>After developing a feature and reviewing the code through a pull request, the feature branch will be merged into the <code>main</code> branch of the repository. </p><p>Once merged, two pipelines will run subsequently: <strong>Create UPM Branch</strong>, which pushes a commit to the <code>upm</code> branch of the repository (and creates it if it doesn’t already exist), and <strong>Publish UPM Package</strong>, which pushes a new version of the package to the <a class="external-link" href="http://upm.core.varlab.org:4873/" rel="nofollow">UPM package registry</a>. Ensure that both of these pipeline steps run successfully after merging; if a pipeline step fails, review the issues with the pipeline and contact a <strong>DNA</strong> or <strong>DevOps</strong> team member for additional support.</p><p>A successful pipeline execution means that the new version of the package will be available in the Unity Package Manager for projects that have <a href="Scoped-Registry-for-Unity-DLX_778273124.html" data-linked-resource-id="778273124" data-linked-resource-version="16" data-linked-resource-type="page">configured the CORE UPM registry</a> for their project.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There is a known issue with the UPM registry server currently where not all packages are visible in the Package Manager. This issue is tracked in Jira as <a class="external-link" href="https://varlab-dev.atlassian.net/browse/CORE-1145" rel="nofollow">CORE-1145</a> and is currently being investigated by the DevOps team.</p></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496664597.png">image-20220629-174455.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496533520.png">image-20220629-174723.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496664607.png">image-20220629-175221.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496533526.png">image-20220629-175236.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496533540.png">image-20220629-180407.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496697364.png">image-20220629-180823.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/496500760.png">image-20220629-181225.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/498139147.png">image-20220706-161435.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/498204676.png">image-20220706-161536.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/504135734.png">image-20220728-161454.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/504266833.png">image-20220728-161534.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/715358211.png">image-20230525-135826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/1284964356.png">image-20240814-180745.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/1366163460.png">image-20240927-140540.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/1365770242.png">image-20240927-141221.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/496533511/1365966852.png">image-20240927-141245.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

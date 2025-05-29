@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : C# Code Style Rule Options</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pull-Request-Automation_712507407.html">Pull Request Automation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : C# Code Style Rule Options
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benjamin Smith (Unlicensed)</span>, last modified on May 31, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544600727 {padding: 0px;}
+div.rbtoc1748544600727 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544600727 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544600727'>
+<ul class='toc-indentation'>
+<li><a href='#C#CodeStyleRuleOptions-Overview'>Overview</a></li>
+<li><a href='#C#CodeStyleRuleOptions-LintingC#Code'>Linting C# Code</a></li>
+</ul>
+</div><hr/><h2 id="C#CodeStyleRuleOptions-Overview">Overview</h2><p>C# Code Style Rule Options will enforce the developer to follow naming conventions and the style guide shown at <a class="external-link" data-card-appearance="inline" href="https://varlab-dev.atlassian.net/l/cp/He0QRqCr" rel="nofollow">https://varlab-dev.atlassian.net/l/cp/He0QRqCr</a>. This will enforce the general style, but will not take quality naming into consideration. Ideally the IDE (Visual Studio or VS Code) will create warnings and/or errors for improper conventions.</p><p>To achieve this, the developer’s IDE should use the provided Editor Config file, similar to this guide: <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/code-style-rule-options" rel="nofollow">https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/code-style-rule-options</a>and <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview?tabs=net-7#code-style-analysis" rel="nofollow">https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview?tabs=net-7#code-style-analysis</a>. Program build <em>can</em> be disabled, but requires additional steps by the developer to configure their machine. Errors may be able to be read from a log file, which can remove the need to halt building.</p><p>Comments are <strong>not</strong> being checked, and the reviewer must still check this before accepting the pull request.</p><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Naming Conventions</p></div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Coding Conventions</p></div></div><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Comments</p></div></div><hr/><h2 id="C#CodeStyleRuleOptions-LintingC#Code">Linting C# Code</h2><p>To lint C# code for naming and style conventions, we need to build a .csproj file that has one or more .cs files. You can use the docker image you created in <a href="Building-a-Unity-Project-in-an-Ubuntu-Container_714866698.html" data-linked-resource-id="714866698" data-linked-resource-version="28" data-linked-resource-type="page">Building a Unity Project in an Ubuntu Container</a> to check C# files for naming. The C# linting will be done through the use of an .editorconfig, .csproj file, and the .NET MSBuild Tools.</p><ol start="1"><li><p>Download the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/pull-request-automation-tools/src/main/Linter/.editorconfig" rel="nofollow">https://bitbucket.org/VARLab/pull-request-automation-tools/src/main/Linter/.editorconfig</a> from the repository.</p></li><li><p>Download the <a class="external-link" data-card-appearance="inline" href="https://bitbucket.org/VARLab/pull-request-automation-tools/src/main/Linter/AutomatedProject.csproj" rel="nofollow">https://bitbucket.org/VARLab/pull-request-automation-tools/src/main/Linter/AutomatedProject.csproj</a> from the repository. This ensures that when building the project that the .editorconfig file is considered while building.</p></li><li><p>Store both of these files, along with your .cs files, inside of a folder, named <strong>AutomatedProject</strong>.</p></li><li><p>Run the docker image, ensuring that the AutomatedProject folder you created is shared with the image.</p></li><li><p>Navigate into the AutomatedProject folder, and run the following commands: </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"></pre>
+</div></div></li></ol><p /><p /><p><strong>.editorconfig File:</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">
+[*.cs]
+#### Naming styles ####
+
+# Naming rules
+
+dotnet_naming_rule.public_field_should_be_pascal_case.severity = error
+dotnet_naming_rule.public_field_should_be_pascal_case.symbols = public_field
+dotnet_naming_rule.public_field_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.private_or_internal_field_should_be_camel_case__private_members_.severity = error
+dotnet_naming_rule.private_or_internal_field_should_be_camel_case__private_members_.symbols = private_or_internal_field
+dotnet_naming_rule.private_or_internal_field_should_be_camel_case__private_members_.style = camel_case__private_members_
+
+dotnet_naming_rule.function_parameter_should_be_camel_case.severity = error
+dotnet_naming_rule.function_parameter_should_be_camel_case.symbols = function_parameter
+dotnet_naming_rule.function_parameter_should_be_camel_case.style = camel_case
+
+dotnet_naming_rule.class_should_be_pascal_case.severity = error
+dotnet_naming_rule.class_should_be_pascal_case.symbols = class
+dotnet_naming_rule.class_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.event_should_be_pascal_case.severity = error
+dotnet_naming_rule.event_should_be_pascal_case.symbols = event
+dotnet_naming_rule.event_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.private_method_should_be_pascal_case.severity = error
+dotnet_naming_rule.private_method_should_be_pascal_case.symbols = private_method
+dotnet_naming_rule.private_method_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.abstract_method_should_be_pascal_case.severity = error
+dotnet_naming_rule.abstract_method_should_be_pascal_case.symbols = abstract_method
+dotnet_naming_rule.abstract_method_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.static_method_should_be_pascal_case.severity = error
+dotnet_naming_rule.static_method_should_be_pascal_case.symbols = static_method
+dotnet_naming_rule.static_method_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.interface_should_be_begins_with_i.severity = error
+dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
+dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+
+dotnet_naming_rule.enum_should_be_pascal_case.severity = error
+dotnet_naming_rule.enum_should_be_pascal_case.symbols = enum
+dotnet_naming_rule.enum_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.constant_field_should_be_pascal_case.severity = error
+dotnet_naming_rule.constant_field_should_be_pascal_case.symbols = constant_field
+dotnet_naming_rule.constant_field_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.read_only_field_should_be_pascal_case.severity = error
+dotnet_naming_rule.read_only_field_should_be_pascal_case.symbols = read_only_field
+dotnet_naming_rule.read_only_field_should_be_pascal_case.style = pascal_case
+
+# Symbol specifications
+
+dotnet_naming_symbols.public_field.applicable_kinds = property
+dotnet_naming_symbols.public_field.applicable_accessibilities = public
+dotnet_naming_symbols.public_field.required_modifiers = 
+
+dotnet_naming_symbols.private_or_internal_field.applicable_kinds = field
+dotnet_naming_symbols.private_or_internal_field.applicable_accessibilities = internal, private, private_protected
+dotnet_naming_symbols.private_or_internal_field.required_modifiers = 
+
+dotnet_naming_symbols.function_parameter.applicable_kinds = parameter, type_parameter
+dotnet_naming_symbols.function_parameter.applicable_accessibilities = *
+dotnet_naming_symbols.function_parameter.required_modifiers = 
+
+dotnet_naming_symbols.class.applicable_kinds = class
+dotnet_naming_symbols.class.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.class.required_modifiers = 
+
+dotnet_naming_symbols.event.applicable_kinds = event
+dotnet_naming_symbols.event.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.event.required_modifiers = 
+
+dotnet_naming_symbols.private_method.applicable_kinds = method
+dotnet_naming_symbols.private_method.applicable_accessibilities = private
+dotnet_naming_symbols.private_method.required_modifiers = 
+
+dotnet_naming_symbols.abstract_method.applicable_kinds = method
+dotnet_naming_symbols.abstract_method.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.abstract_method.required_modifiers = abstract
+
+dotnet_naming_symbols.static_method.applicable_kinds = method
+dotnet_naming_symbols.static_method.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.static_method.required_modifiers = static
+
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.interface.required_modifiers = 
+
+dotnet_naming_symbols.enum.applicable_kinds = enum
+dotnet_naming_symbols.enum.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.enum.required_modifiers = 
+
+dotnet_naming_symbols.constant_field.applicable_kinds = field
+dotnet_naming_symbols.constant_field.applicable_accessibilities = *
+dotnet_naming_symbols.constant_field.required_modifiers = const
+
+dotnet_naming_symbols.read_only_field.applicable_kinds = field
+dotnet_naming_symbols.read_only_field.applicable_accessibilities = *
+dotnet_naming_symbols.read_only_field.required_modifiers = readonly
+
+# Naming styles
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.camel_case__private_members_.required_prefix = _
+dotnet_naming_style.camel_case__private_members_.required_suffix = 
+dotnet_naming_style.camel_case__private_members_.word_separator = 
+dotnet_naming_style.camel_case__private_members_.capitalization = camel_case
+
+dotnet_naming_style.camel_case.required_prefix = 
+dotnet_naming_style.camel_case.required_suffix = 
+dotnet_naming_style.camel_case.word_separator = 
+dotnet_naming_style.camel_case.capitalization = camel_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.required_suffix = 
+dotnet_naming_style.begins_with_i.word_separator = 
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+csharp_indent_labels = one_less_than_current
+csharp_using_directive_placement = outside_namespace:silent
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:silent
+csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_prefer_top_level_statements = true:silent
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_properties = true:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_accessors = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = false:silent
+csharp_style_throw_expression = true:suggestion
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+csharp_prefer_simple_default_expression = true:suggestion
+csharp_style_prefer_local_over_anonymous_function = true:suggestion
+csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+csharp_style_prefer_tuple_swap = true:suggestion
+csharp_prefer_static_local_function = true:suggestion
+csharp_style_prefer_readonly_struct = true:suggestion
+csharp_style_allow_embedded_statements_on_same_line_experimental = true:silent
+csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:silent
+csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:silent
+csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true:silent
+csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = true:silent
+csharp_style_conditional_delegate_call = true:suggestion
+csharp_style_prefer_switch_expression = true:suggestion
+csharp_style_prefer_pattern_matching = true:silent
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_prefer_not_pattern = true:suggestion
+csharp_style_prefer_extended_property_pattern = true:suggestion
+csharp_style_var_for_built_in_types = false:silent
+csharp_style_var_when_type_is_apparent = false:silent
+csharp_style_var_elsewhere = false:silent
+csharp_space_around_binary_operators = before_and_after
+
+[*.vb]
+#### Naming styles ####
+
+# Naming rules
+
+dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
+dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
+dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+
+dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_should_be_pascal_case.symbols = types
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
+dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
+
+# Symbol specifications
+
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, friend, private, protected, protected_friend, private_protected
+dotnet_naming_symbols.interface.required_modifiers = 
+
+dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
+dotnet_naming_symbols.types.applicable_accessibilities = public, friend, private, protected, protected_friend, private_protected
+dotnet_naming_symbols.types.required_modifiers = 
+
+dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
+dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, friend, private, protected, protected_friend, private_protected
+dotnet_naming_symbols.non_field_members.required_modifiers = 
+
+# Naming styles
+
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.required_suffix = 
+dotnet_naming_style.begins_with_i.word_separator = 
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+[*.{cs,vb}]
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 4
+indent_size = 4
+end_of_line = crlf
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+dotnet_style_explicit_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_prefer_simplified_interpolation = true:suggestion
+dotnet_style_namespace_match_folder = true:suggestion
+dotnet_style_readonly_field = true:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:silent
+dotnet_style_predefined_type_for_member_access = true:silent
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_style_allow_multiple_blank_lines_experimental = true:silent
+dotnet_style_allow_statement_immediately_after_block_experimental = true:silent
+dotnet_code_quality_unused_parameters = all:suggestion
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
+dotnet_style_qualification_for_field = false:silent
+dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_method = false:silent
+dotnet_style_qualification_for_event = false:silent</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

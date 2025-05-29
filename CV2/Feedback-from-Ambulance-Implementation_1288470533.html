@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Feedback from Ambulance Implementation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-Service_707919890.html">Analytics Service</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Analytics-V2-Overview_1237155865.html">Analytics V2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Feedback from Ambulance Implementation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Richard Colbourne</span> on Aug 15, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="FeedbackfromAmbulanceImplementation-Clear">Clear</h1><ul><li><p>How to add packages to the ambulance assembly</p></li><li><p>How to setup the analytics package in the code</p></li><li><p>How to create a PlayFab account</p></li><li><p>Once each part of an event was explained to me (name/key/value) it was easy to understand custom events</p><ul><li><p>Custom events are really simple to call</p></li></ul></li><li><p>Setting the version within PlayFab</p><ul><li><p>Easy to understand/do once the process is explained to you</p></li></ul></li><li><p>Connecting the ADX to PowerBI was easy</p></li></ul><h1 id="FeedbackfromAmbulanceImplementation-Confusing">Confusing</h1><ul><li><p>I wasn’t sure where to find the packages folder (have to scroll all the way down the vertical asset view)</p><ul><li><p>(Analytics Team Note: Addressed in <a href="Analytics-V2-Unity-Implementation_1237155842.html" data-linked-resource-id="1237155842" data-linked-resource-version="4" data-linked-resource-type="page">Analytics V2 Unity Implementation</a> )</p></li></ul></li><li><p>Had to install the PlayFab package separately and attach it to the ambulance assembly</p><ul><li><p>Analytics team also didn’t know that it had to be attached separately</p><ul><li><p>(Analytics Team Note: PlayFab has been added as part of the package and no longer requires separate installation - how to attach to project assembly addressed in <a href="Analytics-V2-Unity-Implementation_1237155842.html" data-linked-resource-id="1237155842" data-linked-resource-version="4" data-linked-resource-type="page">Analytics V2 Unity Implementation</a> )</p></li></ul></li></ul></li><li><p>Not possible to edit the Analytics Configuration SO because it’s part of a package prefab</p><ul><li><p>Had to make a new SO and overwrite the reference in the Analytics Service prefab</p></li><li><p>Not the worst thing, but can be a bit confusing</p><ul><li><p>100% needs to be explained</p></li><li><p>(Analytics Team Note:  Addressed in <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1237155842/Analytics+V2+Unity+Implementation#Creating-the-Analytics-Configuration-File" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1237155842/Analytics+V2+Unity+Implementation#Creating-the-Analytics-Configuration-File</a> )</p></li></ul></li></ul></li><li><p>Which special characters can/can’t be used?</p><ul><li><p>Was told about spaces and “_” —&gt; “ “ conversion</p></li><li><p>“:”, “-” and “’” cannot be used</p><ul><li><p>(Analytics Team Note:  Addressed in <a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1236467761/Analytics+V2+Code+Implementation#Custom-Events" rel="nofollow">https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/1236467761/Analytics+V2+Code+Implementation#Custom-Events</a> )</p></li></ul></li></ul></li><li><p>Syntax for PowerBI measures is confusing</p><ul><li><p>Maybe make a confluence page that outlines how to do common ones (eg. total number of an event) or a general overview of common terms?</p></li></ul></li></ul><h1 id="FeedbackfromAmbulanceImplementation-Other">Other</h1><ul><li><p>The analytics package was already installed in ambulance (a version from September 2023) so I didn’t have to install it</p></li><li><p>We got a bit lost trying to set up the VersionCheck, but after Richard checked the internal implementation it was an easy fix</p><ul><li><p>(Analytics Note: the package has been updated to allow Version Check to be called directly instead of in a callback from Login making it much easier to use).</p></li></ul></li><li><p>I did not have to connect the DLX PlayFab to Azure Data Explorer, because this was done by the Analytics team</p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

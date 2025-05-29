@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : SCORM Research</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integrations_756514817.html">LMS Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="LMS-Integration-Research_763592710.html">LMS Integration Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : SCORM Research
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Talon Ernst</span>, last modified on Jul 21, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <style type='text/css'>/*<![CDATA[*/
+div.rbtoc1748544324460 {padding: 0px;}
+div.rbtoc1748544324460 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1748544324460 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1748544324460'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#SCORMResearch-Introduction'>Introduction</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#SCORMResearch-SCORMSetup'>SCORM Setup</a></li>
+<li><span class='TOCOutline'>3</span> <a href='#SCORMResearch-WhatdoesSCORMoffer'>What does SCORM offer</a></li>
+<li><span class='TOCOutline'>4</span> <a href='#SCORMResearch-UsefulMethods'>Useful Methods</a></li>
+<li><span class='TOCOutline'>5</span> <a href='#SCORMResearch-DeploymentusingSCORM'>Deployment using SCORM</a></li>
+<li><span class='TOCOutline'>6</span> <a href='#SCORMResearch-TheDownsidestousingSCORM'>The Downsides to using SCORM</a></li>
+<li><span class='TOCOutline'>7</span> <a href='#SCORMResearch-TheUpsidestousingSCORM'>The Upsides to using SCORM</a></li>
+<li><span class='TOCOutline'>8</span> <a href='#SCORMResearch-Options'>Options</a></li>
+</ul>
+</div><p /><h1 id="SCORMResearch-Introduction">Introduction</h1><p>This page is being used for the LMS integration team to determine what SCORM can continue to offer us or if we should switch to the Brightspace API.<br/><br/>VARLab has already made SCORM documentation available <a href="SCORM_504037419.html" data-linked-resource-id="504037419" data-linked-resource-version="8" data-linked-resource-type="page">here</a>. This means we will not need to start from scratch creating documentation and will simply need to go through and edit it as we see fit.<br/></p><h1 id="SCORMResearch-SCORMSetup">SCORM Setup</h1><p><br/>After following the process of adding SCORM to a project, the process is very simple and hard to get confused by. It involves creating a ScormManager GameObject in the hierarchy and adding the SCORM scripts to that. There is already a tutorial from VARLab for this, available <a href="Using-the-SCORM-API-in-Unity_504004665.html" data-linked-resource-id="504004665" data-linked-resource-version="1" data-linked-resource-type="page">here</a>.</p><p><br/>The process for creating a SCORM object from a project also was very straightforward. There is, again already, documentation available from VARLab that can be found <a href="https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/521076742/Building+for+WebGL+SCORM" rel="nofollow">here</a>. We will again just need to update it if necessary.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>NOTE</strong>: I currently do not have access to the documentation for uploading the SCORM object to eConestoga, so I currently cannot speak on this process, we will need to try and get access to this process so I can go through it and talk about my experience through it</p></div></div><h1 id="SCORMResearch-WhatdoesSCORMoffer">What does SCORM offer</h1><p>Looking through the code for the CORE Sandbox, the following is what was found.<br/></p><p>Every student has a Student Record, this class appears to have many valuable properties and contains classes for different student data. Below are some of the ones that seem useful in some capacity</p><p /><h2 id="SCORMResearch-HelpfulClasses"><strong>Helpful Classes</strong></h2><p><strong>StudentRecord class</strong></p><p>This class contains various helpful enums that could be used per user, things such as CompletionStatusType, ModeType and EntryType, which all control a user's interaction with a learning simulation.</p><p>The StudentRecord class contains various other classes that are kept in that students record, the following are some of the ones that seem important:</p><p><strong>LearnerPreference class</strong></p><p>This class would be useful in allowing users to have their own preferences for the audio of the learning simulation. Could maybe be extended to include more things?</p><p><strong>LearnerScore class</strong></p><p>This class would be useful in allowing us to keep track of a user score for different objectives/interactions, as well as having custom min/max scores for different things.<br/></p><p><strong>CommentsFromLearner/CommentsFromLMS</strong></p><p>Both of these classes handle messages from both the user and the LMS, which could prove useful depending on the type of learning simulation.</p><p><br/><strong>Objectives class</strong><br/>This class seems extremely helpful as we can create objectives for the user.</p><h2 id="SCORMResearch-Otherusefulproperties">Other useful properties</h2><p><br/>All of the following are available properties of the classes stated above that could prove extremely useful for creating a more interactive and user-friendly application.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">/// &lt;summary&gt;cmi.completion_threshold&lt;/summary&gt;
+/// &lt;remarks&gt;Used to determine whether the SCO should be considered complete&lt;/remarks&gt;
+public float completionThreshold { get; set; }
+
+/// &lt;summary&gt;cmi.entry&lt;/summary&gt;
+/// &lt;remarks&gt;Asserts whether the learner has previously accessed the SCO&lt;/remarks&gt;
+public EntryType entry { get; set; }
+
+/// &lt;summary&gt;cmi.cmi.interactions.n.X&lt;/summary&gt;
+/// &lt;remarks&gt;The collection of interactions for this student&lt;/remarks&gt;
+public List&lt;LearnerInteractionRecord&gt; interactions { get; set; }
+
+/// &lt;summary&gt;cmi.objectives.n.X&lt;/summary&gt;
+/// &lt;remarks&gt;The collection of objectives for this SCO&lt;/remarks&gt;
+public List&lt;Objectives&gt; objectives { get; set; }
+
+/// &lt;summary&gt;cmi.max_time_allowed&lt;/summary&gt;
+/// &lt;remarks&gt;Amount of accumulated time the learner is allowed to use a SCO&lt;/remarks&gt;
+public float maxTimeAllowed { get; set; }
+
+/// &lt;summary&gt;cmi.mode&lt;/summary&gt;
+/// &lt;remarks&gt;Identifies one of three possible modes in which the SCO may be presented to the learner&lt;/remarks&gt;
+public ModeType mode { get; set; }
+
+/// &lt;summary&gt;cmi.progress_measure&lt;/summary&gt;
+/// &lt;remarks&gt;Measure of the progress the learner has made toward completing the SCO&lt;/remarks&gt;
+public float progressMeasure { get; set; }
+
+/// &lt;summary&gt;cmi.time_limit_action&lt;/summary&gt;
+/// &lt;remarks&gt;Indicates what the SCO should do when cmi.max_time_allowed is exceeded&lt;/remarks&gt;
+public TimeLimitActionType timeLimitAction { get; set; }
+
+/// &lt;summary&gt;cmi.total_time&lt;/summary&gt;
+/// &lt;remarks&gt;Sum of all of the learner’s session times accumulated in the current learner attempt&lt;/remarks&gt;
+public float totalTime { get; set; }</pre>
+</div></div><p /><h1 id="SCORMResearch-UsefulMethods">Useful Methods</h1><p>The ScormManager class contains various methods we could use throughout our learning simulations. All of the useful methods are getters/setters for the classes stated above that are contained within StudentRecord. We can basically edit and get any of the classes as we see fit, so all of the methods could potentially be useful.</p><p /><h1 id="SCORMResearch-DeploymentusingSCORM">Deployment using SCORM</h1><p>Unfortunately, it is currently hard to test this in a live environment such as eConestoga as we do not have the permissions required to upload anything to eConestoga, nor are we able to read the documentation regarding this, the current plan is to try and see if we can get access to any of this to get a better understanding of how it all works.</p><h1 id="SCORMResearch-TheDownsidestousingSCORM">The Downsides to using SCORM</h1><ul><li><p>SCORM is really old compared to the Brightspace API.</p></li><li><p>Cannot do as much as we can with Brightspace API without adding functionality</p></li><li><p>Other VARLab developers have expressed their distaste with debugging SCORM, and that it can be tough to do</p></li><li><p>SCORM doesn’t cover everything we want/need out of an LMS, an example is not being able to email students/profs</p><p /></li></ul><h1 id="SCORMResearch-TheUpsidestousingSCORM"><br/>The Upsides to using SCORM</h1><ul><li><p>Already been implemented within VARLab and partially understood by some Developers.</p></li><li><p>Ease of use.</p></li><li><p>SCORM does not only work with bright space, SCORM is universal, whereas the Brighspace API only works for Brightspace</p></li><li><p>We already have tutorials for most of SCORM, they may just need to be updated but not started from scratch.</p></li></ul><p /><p /><p /><p><br/></p><h1 id="SCORMResearch-Options">Options</h1><p>So what are our options if we choose to go with SCORM? <br/><br/><strong>First Option - Use SCORM as it is</strong><br/>This is not the ideal solution, while SCORM alone offers some useful tools we can try and take advantage of, it does not have everything we need. The tracking seems basic and barebones and is also not currently set up. It does not have any support for sending out emails (which was something that was mentioned during our meeting with David). Basically, if we choose to go with this option, we are severely limiting what VARLab can track through learning simulations. This approach would probably take the least amount of time to implement but would result in us being unable to track very well.</p><p /><p><strong>Second Option - Extend SCORM with Experience API</strong><br/><a class="external-link" href="https://xapi.com/scorm-vs-the-experience-api-xapi/" rel="nofollow">This API </a>was brought up during our research. It appears that we could be able to not only use SCORM but extend its functionality with this API, allowing us to do way more things while still using SCORM. If we decide to humour this approach, more research will need to be done on this API to see what it offers in full. This approach would take some time to both learn this API and implement it into our projects, but the possible outcome would be that we have new toys to play with when tracking stats through a learning simulation.<br/><br/><strong>Third Option - Don’t use SCORM</strong></p><p>The third option is that we do not use SCORM, and we instead use the Brightspace API that can replace SCORM. I do not know as much about it as I am not the one researching it, so in order to get an idea of if this is what we should use, please take a look at the Brightspace API research documentation.</p><p /><p><br/><br/><br/><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Grabbable Events</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Virtual-Reality_502890588.html">Virtual Reality</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1284505699.html">COREV2 VR (Archived)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Grabbable Events
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Geyang Liu</span>, last modified on Aug 04, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The native Autohands asset only supports controller interactions with the grab and trigger functions. CoreV2 uses the class <strong>GrabbableEventManager</strong> and the interface <strong>IGrabbableEvents</strong> to add additional controller interactions. Follow the following steps to set it up:</p><ol><li><p>Let the object script that needs to interact with the controller implement the <strong>IGrabbableEvents</strong> interface. Implement the interactions in the interface methods.</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502923371/506068993.png" data-image-src="attachments/502923371/506068993.png" data-height="116" data-width="422" data-unresolved-comment-count="0" data-linked-resource-id="506068993" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="IGrabbable1.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502923371" data-linked-resource-container-version="3" data-media-id="06b704ce-73cb-40f3-8a32-c2e7ef9daa67" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502923371/505937934.png" data-image-src="attachments/502923371/505937934.png" data-height="184" data-width="259" data-unresolved-comment-count="0" data-linked-resource-id="505937934" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="IGrabbable2.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502923371" data-linked-resource-container-version="3" data-media-id="6fc52cb1-ed45-47e9-a8c2-3d3ca57ba3c9" data-media-type="file"></span><p>2. For each controller that needs to interact with objects, attach a GrabbableEventManager script to the <strong> </strong>gameobject. Assign the correponding Autohand Hand and Controller link in the <strong>Hand</strong> and <strong>Controller Link fields</strong>.  For each controller button, add an entry in the <strong>Button Events </strong>list, select the button and assign thefunction it triggers.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/502923371/505839631.png" data-image-src="attachments/502923371/505839631.png" data-height="519" data-width="406" data-unresolved-comment-count="0" data-linked-resource-id="505839631" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="GrabbableEventManager.PNG" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="502923371" data-linked-resource-container-version="3" data-media-id="948d722a-e0e4-4ec7-947b-258858806f2a" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/506036227.png">IGrabbable1.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/505937940.png">IGrabbable2.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/506068993.png">IGrabbable1.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/505937934.png">IGrabbable2.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/505806943.png">GrabbableEventManager.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/502923371/505839631.png">GrabbableEventManager.PNG</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

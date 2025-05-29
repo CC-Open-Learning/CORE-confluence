@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Grid-Based Level Editor</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Procedural-World-Generation_869138443.html">Procedural World Generation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Grid-Based Level Editor
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Richard Colbourne</span> on Dec 14, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="Grid-BasedLevelEditor-Purpose:">Purpose:</h3><p>Create a tool to generate rooms, levels etc. using a grid-based editor.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="425" loading="lazy" src="attachments/886865987/886898759.png?width=425" data-image-src="attachments/886865987/886898759.png" data-height="348" data-width="425" data-unresolved-comment-count="0" data-linked-resource-id="886898759" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-195144.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="886865987" data-linked-resource-container-version="1" data-media-id="abc9dbe5-7c5b-49c1-9fe5-97b54ff3557b" data-media-type="file"></span><h3 id="Grid-BasedLevelEditor-Status:">Status:</h3><p>Currently, the grid-based tool allows the placement of floor tiles on a grid.  The framework has been designed for expandability and a preview system, a database to house items and different item types are all accounted for.</p><h3 id="Grid-BasedLevelEditor-Usage:">Usage:</h3><p>In the Procedural Worlds project, double-click the GridScene scene to launch to grid-based level editor section of the project.</p><p>The editor is designed for play-mode with the expectation that the user can use the tool to design the level, save it, and reload it in either play-mode or scene-mode in order to further edit or utilize the level.</p><h3 id="Grid-BasedLevelEditor-Controls:">Controls:</h3><p>In play-mode, pressing the red button on the UI bar (temporary implementation) allows the user to enter into the edit mode of the level editor.  The mouse is used for selecting grid locations, placing and removing of tiles.  Left-click will place a tile (if possible), Right-click will remove a tile (if possible).  The ESC key turns off edit mode.  The user can also pan around the scene using the WASD keys or the arrow keys.  The - key will shrink the size of the grid (to a minimum size of 10 x 10) and the + key will expand the grid (to a maximum size of 100 x 100).</p><h3 id="Grid-BasedLevelEditor-NextSteps:">Next Steps:</h3><p>There are several enhancements that should be added to this tool.  The UI needs a redesign and further implementation.  Other enhancements are as follows:</p><ul><li><p>Box Selection - The user should be able to select multiple cells or items in the scene by clicking and dragging the mouse to create a box around the items or cells to be selected.  Screenshot below from a game illustrating the concept.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="276" loading="lazy" src="attachments/886865987/886898768.png?width=276" data-image-src="attachments/886865987/886898768.png" data-height="250" data-width="276" data-unresolved-comment-count="0" data-linked-resource-id="886898768" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231214-200059.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="886865987" data-linked-resource-container-version="1" data-media-id="43a5ba3b-ed20-45ae-ae00-2a6652cd0462" data-media-type="file"></span><ul><li><p>Camera enhancements - Currently the user can pan the camera around the scene.  The ability to zoom in and out as well as rotating around the scene should be added.</p></li><li><p>Additional items - The framework and database are already in place to add additional items to the editor.  Prefabs needs to be created and implemented for items such as light fixtures, walls, doors, stairs etc.</p></li><li><p>Level save/load - The editor saves the information for each item in the scene in a dictionary ready for export/import.  This could be built out into a full save and load system.</p></li></ul><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/886865987/886898759.png">image-20231214-195144.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/886865987/886931545.png">image-20231214-200056.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/886865987/886898768.png">image-20231214-200059.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:50</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

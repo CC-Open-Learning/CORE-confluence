@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CORE Framework : Player Object</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CORE-Framework_495616264.html">CORE Framework</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Networking_497319937.html">Networking</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Obsolete-Networking-Documentation_1249017889.html">Obsolete Networking Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="General-Concepts_497647690.html">General Concepts</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CORE Framework : Player Object
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Lisa Nguyen</span>, last modified on Jul 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="PlayerObject-PlayerSpawner">Player Spawner</h3><p>The player spawner in the Network Manager is used to spawn in a player object when clients connect to the server. </p><p>There doesn’t always have to be a player prefab added. Without a player prefab set up clients will spawn in on the same location and see the same view (as long as a camera is present). </p><span class="confluence-embedded-file-wrapper image-left-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-left" width="340" loading="lazy" src="attachments/500924436/500858902.png?width=340" data-image-src="attachments/500924436/500858902.png" data-height="278" data-width="474" data-unresolved-comment-count="0" data-linked-resource-id="500858902" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-182558.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500924436" data-linked-resource-container-version="3" data-media-id="651c166d-7cdb-4f0b-98cd-9cc84b411152" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-wrap-right" width="340" loading="lazy" src="attachments/500924436/500858908.png?width=340" data-image-src="attachments/500924436/500858908.png" data-height="296" data-width="474" data-unresolved-comment-count="0" data-linked-resource-id="500858908" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-182755.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500924436" data-linked-resource-container-version="3" data-media-id="337efa63-16a0-4fe0-88a7-63c1db56c821" data-media-type="file"></span><p>Player prefabs can be used to allow the player to interact with the scene, examples from the images include a camera, controller scripts, and local UI.</p><p>With a player prefab you can move around the scene and spawn in pre-defined spawn points. While without a player prefab you are locked in the same view as the main camera.</p><h3 id="PlayerObject-SpawnPoints">Spawn Points</h3><p>You can set multiple spawn points around the scene using empty objects and dragging those transform points into the Network Manager inspector.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/500924436/500858914.png" data-image-src="attachments/500924436/500858914.png" data-height="214" data-width="358" data-unresolved-comment-count="0" data-linked-resource-id="500858914" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-183704.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="500924436" data-linked-resource-container-version="3" data-media-id="263d7a53-09dd-495e-bd23-227fb565bfad" data-media-type="file"></span>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500924436/500858902.png">image-20220704-182558.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500924436/500858908.png">image-20220704-182755.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/500924436/500858914.png">image-20220704-183704.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 29, 2025 18:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
